@@ -1,11 +1,23 @@
 import React from "react"
+import {Link} from "@reach/router"
 
-import "./Loyeout.scss"
+import "./Layout.scss"
 
-interface ILoyeoutProps {}
+interface ILayoutProps {}
 
-const Loyeout: React.FC<ILoyeoutProps> = () => {
-  return <div></div>
+const Layout: React.FC<ILayoutProps> = () => {
+  return (
+    <nav>
+      <ul>
+        <li>
+          <Link to="">Նորություններ</Link>
+        </li>
+        <li>
+          <Link to="">Մեր մասին</Link>
+        </li>
+      </ul>
+    </nav>
+  )
 }
 
-export default Loyeout
+export default Layout

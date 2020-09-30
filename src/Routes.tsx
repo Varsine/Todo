@@ -9,7 +9,7 @@ const OrderDetails = loadable(
   ({path}) => import("./containers/OrderDetails/OrderDetails")
 )
 const Checkout = loadable(({path}) => import("./containers/Checkout/Checkout"))
-const Login_Signup = loadable(
+const LoginSignup = loadable(
   ({path}) => import("./containers/Login_Signup/Login_Signup")
 )
 
@@ -22,7 +22,7 @@ const Routes: React.FC<IRoutesProps> = () => {
       <Quiz path="/quiz" />
       <OrderDetails path="/order-details" />
       <Checkout path="/checkout" />
-      <Login_Signup path="/login" />
+      <LoginSignup path="/login" />
     </Router>
   )
 }

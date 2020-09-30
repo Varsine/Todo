@@ -5,7 +5,11 @@ import "./Button.scss"
 interface IButtonProps {}
 
 const Button: React.FC<IButtonProps> = () => {
-  return <div></div>
+  return (
+    <div className="header-login">
+      <button>Մուտք</button>
+    </div>
+  )
 }
 
 export default Button

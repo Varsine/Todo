@@ -1,0 +1,19 @@
+@import "../../media-breakpoints/media-root";
+
+nav {
+    ul {
+        display: flex;
+
+        :first-child {
+            padding-left: 24px;
+        }
+
+        li {
+            :last-child {
+                text-decoration: none;
+                color: $_333333;
+                font-size: $introText;
+            }
+        }
+    }
+}

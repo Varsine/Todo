@@ -1,0 +1,13 @@
+@import "../../media-breakpoints/media-root";
+
+header {
+     @extend %flexCenterBetween;
+    height: 96px;
+    width: 100%;
+    padding: 0 280px !important;
+
+    .header-right-colum {
+        width: 524px;
+        @extend %flexCenterBetween;
+    }
+}

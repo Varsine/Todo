@@ -26,6 +26,7 @@ $e9dfff:#e9dfff;
 $FF3A3C:#FF3A3C;
 $EADDD9:#EADDD9;
 $FFF1ED:#FFF1ED;
+$FFFFFF:#FFFFFF;
 
 // text font-size
 
@@ -36,3 +37,11 @@ $introText:20px;
 $bodyText:16px;
 $captionText:14px;
 $microText:12px;
+
+// shablon-style
+
+%flexCenterBetween {
+	display: flex !important;
+	align-items: center;
+	justify-content: space-between;
+}
