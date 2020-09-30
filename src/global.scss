@@ -1,3 +1,5 @@
+@import "./media-breakpoints/media-root";
+
 body {
   font-family: 'Mardoto-Regular', Fallback, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -6,9 +8,12 @@ body {
 
 @font-face {
   font-family: 'Mardoto Regular';
-  src: url('./fonts/Mardoto-Regular.ttf'); /* IE9 Compat Modes */
-  src: url('./fonts/Mardoto-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./fonts/Mardoto-Regular.woff2')  format('truetype'), /* Safari, Android, iOS */
+  src: url('./fonts/Mardoto-Regular.ttf');
+  /* IE9 Compat Modes */
+  src: url('./fonts/Mardoto-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('./fonts/Mardoto-Regular.woff2') format('truetype'),
+    /* Safari, Android, iOS */
 }
 
 code {
@@ -16,3 +21,56 @@ code {
     monospace;
 }
 
+input {
+  border: none;
+  background-color: $f2ecff;
+  font-size: 16px;
+  width: 379px;
+  height: 56px;
+  border-radius: 21px;
+  padding-left: 19px;
+
+  &:hover {
+    background-color: $e9dfff;
+  }
+
+  &:active {
+    background-color: $f2ecff;
+    color: $_10202C;
+    border: ipx solid $e4d6ff;
+  }
+
+  &:invalid {
+    border-color: $FF3A3C;
+  }
+}
+
+button {
+  color: $_333333;
+  border: none;
+  background-color: $FF8A65;
+  font-size: 20px;
+  width: 144px;
+  height: 40px;
+  text-align: center;
+  border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  -ms-border-radius: 16px;
+  -o-border-radius: 16px;
+
+  &:hover {
+    background-color: $FF7A50;
+  }
+
+  &:disabled {
+    color: $EADDD9;
+    background-color: $FFF1ED;
+  }
+
+  &:active {
+    background-color: $FF8A65;
+    border: 1px solid $C75B39;
+  }
+
+}
