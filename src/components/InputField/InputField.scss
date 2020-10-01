@@ -1,0 +1,23 @@
+.app-input {
+    border: none;
+    background-color: $input-bg;
+    font-size: $body-text;
+    width: 379px;
+    height: 56px;
+    border-radius: 21px;
+    padding-left: 19px;
+
+    &:hover {
+        background-color: $input-bg-hover;
+    }
+
+    &:active {
+        background-color: $input-bg;
+        color: $text-color-on-primary;
+        border: 1px solid $secondary-color-light;
+    }
+
+    &:invalid {
+        border-color: $input-border-color-invalid;
+    }
+}

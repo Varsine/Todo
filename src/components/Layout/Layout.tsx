@@ -1,11 +1,11 @@
 import React from "react"
 
-import "./Loyeout.scss"
+import "./Layout.scss"
 
-interface ILoyeoutProps {}
+interface ILayoutProps {}
 
-const Loyeout: React.FC<ILoyeoutProps> = () => {
+const Layout: React.FC<ILayoutProps> = () => {
   return <div></div>
 }
 
-export default Loyeout
+export default Layout

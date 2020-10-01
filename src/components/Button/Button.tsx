@@ -1,11 +1,13 @@
-import React from "react"
+import React from "react";
 
-import "./Button.scss"
+import "./Button.scss";
 
-interface IButtonProps {}
-
-const Button: React.FC<IButtonProps> = () => {
-  return <div></div>
+interface IButtonProps {
+  className?: string
+  onClick: () => void
 }
 
+const Button: React.FC<IButtonProps> = ({ className = "", onClick }) => {
+  return (<button onClick={onClick} className={`app-button ${className}`}></button>)
+}
 export default Button
