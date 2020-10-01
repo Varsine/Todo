@@ -13,8 +13,8 @@
 
     &:active {
         background-color: $input-bg;
-        color: $text-colour-on-primery;
-        border: 1px solid $secondary-colour-light;
+        color: $text-color-on-primery;
+        border: 1px solid $secondary-color-light;
     }
 
     &:invalid {

@@ -5,9 +5,9 @@
     font-size: $body-text;
     padding: 15px 35.5px;
     border-radius: 34px;
-    color: $text-colour-on-surface;
+    color: $text-color-on-surface;
     border: none;
-    background-color: $primery-colour;
+    background-color: $primery-color;
     text-align: center;
 
     &:hover {
@@ -15,13 +15,13 @@
     }
 
     &:disabled {
-        color: $button-colour-disabled;
+        color: $button-color-disabled;
         background-color: $button-bg-disabled;
     }
 
     &:active {
-        background-color: $primery-colour;
-        border: 1px solid $primery-colour-dark;
+        background-color: $primery-color;
+        border: 1px solid $primery-color-dark;
     }
 
 }
