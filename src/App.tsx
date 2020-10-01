@@ -1,14 +1,18 @@
-import React from 'react';
-import LandingImage from 'assets/LandingImage.svg';
+import React from "react"
+
+import Layout from 'components/Layout/Layout';
+import Header from 'containers/Header/Header';
+import Routes from "Routes"
 
 const App = () => {
   return (
     <div>
-      <div>
-        <LandingImage />
-      </div>
+      <Header />
+      <Layout>
+        <Routes />
+      </Layout>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
