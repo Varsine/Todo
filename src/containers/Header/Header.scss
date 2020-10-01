@@ -1,37 +1,32 @@
 @import "~media-breakpoints/media-root";
 
-.header {
+.app-header {
+    font-family: 'Mardoto-Regular', Fallback, sans-serif;
     @extend %flex-center-between;
     height: 96px;
     width: 100%;
     padding: 0 280px;
 
-    .header-right-column {
+    &__right-column {
         @extend %flex-center-between;
 
-        &>* {
-            margin-left: 24px;
-        }
-    }
+        &__navigation {
+            ul {
+                display: flex;
 
-
-    .navigation {
-        ul {
-            display: flex;
-
-            :nth-child(2) {
-                padding-left: 24px;
-
-            }
-
-            li {
-
-                :last-child {
-                    text-decoration: none;
-                    color: $_333333;
-                    font-size: $intro-text;
+                li {
+                    padding: 0 12px;
                 }
             }
+        }
+
+        &__profile-header-icon {
+            margin: 0 12px;
+        }
+
+        &__cart-icon {
+            margin: 0 12px;
+
         }
     }
 }

@@ -7,26 +7,24 @@ $breakPoints: (mobile: (start: null, end: '360px'),
 
 // color and background
 
-$FF8A65:#FF8A65;
-$FF7A50: #FF7A50;
-$ffbb93:#ffbb93;
-$C75B39:#C75B39;
-$FF9966:#FF9966;
-$FF5E62:#FF5E62;
-$B0A5FF:#B0A5FF;
-$e4d6ff:#e4d6ff;
-$FFF1ED:#FFF1ED;
-$_7E76CB:#7E76CB;
-$FFFEFE:#FFFEFE;
-$_10202C:#10202C;
-$_250303:#250303;
-$_333333:#333333;
-$f2ecff:#f2ecff;
-$e9dfff:#e9dfff;
-$FF3A3C:#FF3A3C;
-$EADDD9:#EADDD9;
-$FFF1ED:#FFF1ED;
-$FFFFFF:#FFFFFF;
+$primery-colour:#FF8A65;
+$button-bg-hover: #FF7A50;
+$primery-colour-light:#ffbb93;
+$primery-colour-dark:#C75B39;
+$primery-colour-main-gradient:linear-gradient(to right, #FF9966, #FF5E62);
+$secondary-colour:#B0A5FF;
+$secondary-colour-light:#e4d6ff;
+$button-bg-disabled:#FFF1ED;
+$secondary-colour-dark:#7E76CB;
+$background-colour:#FFFEFE;
+$text-colour-on-primery:#10202C;
+$text-colour-on-primery-dark:#250303;
+$text-colour-on-surface:#333333;
+$input-bg:#f2ecff;
+$input-bg-hover:#e9dfff;
+$input-border-color-invalid:#FF3A3C;
+$button-colour-disabled:#EADDD9;
+$surface-colour:#FFFFFF;
 
 // text font-size
 

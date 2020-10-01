@@ -1,6 +1,6 @@
 .app-input {
     border: none;
-    background-color: $f2ecff;
+    background-color: $input-bg;
     font-size: $body-text;
     width: 379px;
     height: 56px;
@@ -8,16 +8,16 @@
     padding-left: 19px;
 
     &:hover {
-        background-color: $e9dfff;
+        background-color: $input-bg-hover;
     }
 
     &:active {
-        background-color: $f2ecff;
-        color: $_10202C;
-        border: ipx solid $e4d6ff;
+        background-color: $input-bg;
+        color: $text-colour-on-primery;
+        border: 1px solid $secondary-colour-light;
     }
 
     &:invalid {
-        border-color: $FF3A3C;
+        border-color: $input-border-color-invalid;
     }
 }

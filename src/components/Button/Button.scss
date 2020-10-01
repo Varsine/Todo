@@ -1,26 +1,27 @@
 @import "~media-breakpoints/media-root";
 
 .app-button {
+    margin: 0 12px;
     font-size: $body-text;
     padding: 15px 35.5px;
     border-radius: 34px;
-    color: $_333333;
+    color: $text-colour-on-surface;
     border: none;
-    background-color: $FF8A65;
+    background-color: $primery-colour;
     text-align: center;
 
     &:hover {
-        background-color: $FF7A50;
+        background-color: $button-bg-hover;
     }
 
     &:disabled {
-        color: $EADDD9;
-        background-color: $FFF1ED;
+        color: $button-colour-disabled;
+        background-color: $button-bg-disabled;
     }
 
     &:active {
-        background-color: $FF8A65;
-        border: 1px solid $C75B39;
+        background-color: $primery-colour;
+        border: 1px solid $primery-colour-dark;
     }
 
 }

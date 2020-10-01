@@ -1,8 +1,8 @@
-import React from "react"
+import React from "react";
 
-import BoxyLogo from "icons/BoxyLogo"
+import BoxyLogo from "icons/BoxyLogo";
 
-import "./Logo.scss"
+import "./Logo.scss";
 
 interface ILogoProps {}
 
