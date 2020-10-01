@@ -1,9 +1,12 @@
 import React from 'react';
+import LandingImage from 'assets/LandingImage.svg';
 
 const App = () => {
   return (
     <div>
-      React | Typescript | Sass boilerplate
+      <div>
+        <LandingImage />
+      </div>
     </div>
   );
 }
