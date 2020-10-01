@@ -1,0 +1,27 @@
+@import "~media/root";
+
+.app-button {
+    margin: 0 0 0 12px;
+    font-size: $body-text;
+    padding: 15px 35.5px;
+    border-radius: 34px;
+    color: $text-color-on-surface;
+    border: none;
+    background-color: $primary-color;
+    text-align: center;
+
+    &:hover {
+        background-color: $button-bg-hover;
+    }
+
+    &:disabled {
+        color: $button-color-disabled;
+        background-color: $button-bg-disabled;
+    }
+
+    &:active {
+        background-color: $primary-color;
+        border: 1px solid $primary-color-dark;
+    }
+
+}

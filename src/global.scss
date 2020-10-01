@@ -6,16 +6,15 @@ body {
 
 @font-face {
   font-family: 'Mardoto Regular';
-  src: url('./fonts/Mardoto-Regular.ttf'); /* IE9 Compat Modes */
-  src: url('./fonts/Mardoto-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('./fonts/Mardoto-Regular.woff2')  format('truetype'), /* Safari, Android, iOS */
+  src: url('./fonts/Mardoto-Regular.ttf');
+  /* IE9 Compat Modes */
+  src: url('./fonts/Mardoto-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */
+    url('./fonts/Mardoto-Regular.woff2') format('truetype'),
+    /* Safari, Android, iOS */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-$input-activated-color: #ccc;
-$input-focused-color: #ddd;
