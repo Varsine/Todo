@@ -1,11 +1,17 @@
-import React from "react"
+import React from 'react';
 
-import "./Auth.scss"
+import "./Auth.scss";
 
-interface IAuthProps {}
+interface IAuthProps {
+    
+};
 
 const Auth: React.FC<IAuthProps> = () => {
-  return <div></div>
+    return (
+        <div>
+
+        </div>
+    );
 }
 
-export default Auth
+export default Auth;

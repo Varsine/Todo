@@ -4,7 +4,7 @@ import "./Button.scss";
 
 interface IButtonProps {
   className?: string
-  onclick: () => void
+  onClick: () => void
 }
 
 const Button: React.FC<IButtonProps> = ({className = ""}) => {
