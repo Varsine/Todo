@@ -1,0 +1,23 @@
+.app-input {
+    border: none;
+    background-color: $f2ecff;
+    font-size: $body-text;
+    width: 379px;
+    height: 56px;
+    border-radius: 21px;
+    padding-left: 19px;
+
+    &:hover {
+        background-color: $e9dfff;
+    }
+
+    &:active {
+        background-color: $f2ecff;
+        color: $_10202C;
+        border: ipx solid $e4d6ff;
+    }
+
+    &:invalid {
+        border-color: $FF3A3C;
+    }
+}

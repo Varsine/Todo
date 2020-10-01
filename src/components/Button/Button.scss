@@ -1,6 +1,26 @@
-.header-login button {
-    font-size: 16px;
-    width: 120px;
-    height: 48px;
+@import "~media-breakpoints/media-root";
+
+.app-button {
+    font-size: $body-text;
+    padding: 15px 35.5px;
     border-radius: 34px;
+    color: $_333333;
+    border: none;
+    background-color: $FF8A65;
+    text-align: center;
+
+    &:hover {
+        background-color: $FF7A50;
+    }
+
+    &:disabled {
+        color: $EADDD9;
+        background-color: $FFF1ED;
+    }
+
+    &:active {
+        background-color: $FF8A65;
+        border: 1px solid $C75B39;
+    }
+
 }

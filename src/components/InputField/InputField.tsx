@@ -5,7 +5,7 @@ import "./InputField.scss"
 interface IInputFieldProps {}
 
 const InputField: React.FC<IInputFieldProps> = () => {
-  return <div></div>
+  return (<div></div>)
 }
 
 export default InputField

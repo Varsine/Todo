@@ -3,15 +3,13 @@ import React from "react"
 import {Router} from "@reach/router"
 import loadable from "@loadable/component"
 
-const Landing = loadable(({path}) => import("./containers/Landing/Landing"))
-const Quiz = loadable(({path}) => import("./containers/Quiz/Quiz"))
+const Landing = loadable(({path}) => import("containers/Landing/Landing"))
+const Quiz = loadable(({path}) => import("containers/Quiz/Quiz"))
 const OrderDetails = loadable(
-  ({path}) => import("./containers/OrderDetails/OrderDetails")
+  ({path}) => import("containers/OrderDetails/OrderDetails")
 )
-const Checkout = loadable(({path}) => import("./containers/Checkout/Checkout"))
-const LoginSignup = loadable(
-  ({path}) => import("./containers/Login_Signup/Login_Signup")
-)
+const Checkout = loadable(({path}) => import("containers/Checkout/Checkout"))
+const Auth = loadable(({path}) => import("containers/Auth/Auth"))
 
 interface IRoutesProps {}
 
@@ -22,7 +20,7 @@ const Routes: React.FC<IRoutesProps> = () => {
       <Quiz path="/quiz" />
       <OrderDetails path="/order-details" />
       <Checkout path="/checkout" />
-      <LoginSignup path="/login" />
+      <Auth path="/login" />
     </Router>
   )
 }

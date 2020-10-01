@@ -1,13 +1,14 @@
 import React from "react"
 
+import BoxyLogo from "icons/BoxyLogo"
+
 import "./Logo.scss"
-import BoxyLogo from "./../../icons/BoxyLogo"
 
 interface ILogoProps {}
 
 const Logo: React.FC<ILogoProps> = () => {
   return (
-    <div className="logo">
+    <div className="app-logo">
       <BoxyLogo />
     </div>
   )

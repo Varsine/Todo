@@ -1,13 +1,37 @@
-@import "../../media-breakpoints/media-root";
+@import "~media-breakpoints/media-root";
 
-header {
-     @extend %flexCenterBetween;
+.header {
+    @extend %flex-center-between;
     height: 96px;
     width: 100%;
-    padding: 0 280px !important;
+    padding: 0 280px;
 
-    .header-right-colum {
-        width: 524px;
-        @extend %flexCenterBetween;
+    .header-right-column {
+        @extend %flex-center-between;
+
+        &>* {
+            margin-left: 24px;
+        }
+    }
+
+
+    .navigation {
+        ul {
+            display: flex;
+
+            :nth-child(2) {
+                padding-left: 24px;
+
+            }
+
+            li {
+
+                :last-child {
+                    text-decoration: none;
+                    color: $_333333;
+                    font-size: $intro-text;
+                }
+            }
+        }
     }
 }
