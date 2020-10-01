@@ -3,8 +3,8 @@ import React from "react";
 import "./Button.scss";
 
 interface IButtonProps {
-  className?: string,
-  onClick(): void,
+  className?: string
+  onclick: () => void
 }
 
 const Button: React.FC<IButtonProps> = ({className = ""}) => {
