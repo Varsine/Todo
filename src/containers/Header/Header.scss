@@ -1,0 +1,17 @@
+@import '~media/root';
+
+.app-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 96px;
+    background-color: #1ac485;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    @include media(until-desktop) {
+        height: 64px;
+    }
+}
