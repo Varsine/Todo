@@ -33,7 +33,7 @@ const Header: React.FC<IHeaderProps> = () => {
         <div className="app-header__right-column__cart-icon">
           <CartIcon />
         </div>
-        <Button onClick={buttonClick} children="Մուտք" />
+        <Button onClick={buttonClick}>Մուտք</Button>
       </div>
     </header>
   )
