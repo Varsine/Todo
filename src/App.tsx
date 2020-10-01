@@ -1,15 +1,16 @@
 import React from "react"
 
-import Header from "containers/Header/Header"
-import Footer from "containers/Footer/Footer"
+import Layout from 'components/Layout/Layout';
+import Header from 'containers/Header/Header';
 import Routes from "Routes"
 
 const App = () => {
   return (
     <div>
       <Header />
-      <Routes />
-      <Footer />
+      <Layout>
+        <Routes />
+      </Layout>
     </div>
   )
 }

@@ -4,6 +4,9 @@ $breakPoints: (
 	tablet: (start: '768px', end: '1024px'),
 	desktop:(start: '1025px', end: '1360px'),
 	desctop-large: (start: '1361px', end: null),
+
+	until-tablet: (start: null, end: '1024px'),
+	until-desktop: (start: null, end: '1360px')
 );
 
 // color and background
