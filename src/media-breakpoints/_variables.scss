@@ -1,4 +1,5 @@
-$breakPoints: (mobile: (start: null, end: '360px'),
+$breakPoints: (
+	mobile: (start: null, end: '360px'),
 	mobile-large: (start: '361px', end: '767px'),
 	tablet: (start: '768px', end: '1024px'),
 	desktop:(start: '1025px', end: '1360px'),
@@ -7,34 +8,34 @@ $breakPoints: (mobile: (start: null, end: '360px'),
 
 // color and background
 
-$primery-color:#FF8A65;
-$button-bg-hover: #FF7A50;
-$primery-color-light:#ffbb93;
-$primery-color-dark:#C75B39;
-$primery-color-main-gradient:linear-gradient(to right, #FF9966, #FF5E62);
-$secondary-color:#B0A5FF;
-$secondary-color-light:#e4d6ff;
-$button-bg-disabled:#FFF1ED;
-$secondary-color-dark:#7E76CB;
-$background-color:#FFFEFE;
-$text-color-on-primery:#10202C;
-$text-color-on-primery-dark:#250303;
-$text-color-on-surface:#333333;
-$input-bg:#f2ecff;
-$input-bg-hover:#e9dfff;
-$input-border-color-invalid:#FF3A3C;
-$button-color-disabled:#EADDD9;
-$surface-color:#FFFFFF;
+$primary-color: #FF8A65;
+$button-bg-hover:  #FF7A50;
+$primary-color-light: #ffbb93;
+$primary-color-dark: #C75B39;
+$primary-color-main-gradient:linear-gradient(to right, #FF9966, #FF5E62);
+$secondary-color: #B0A5FF;
+$secondary-color-light: #e4d6ff;
+$button-bg-disabled: #FFF1ED;
+$secondary-color-dark: #7E76CB;
+$background-color: #FFFEFE;
+$text-color-on-primary: #10202C;
+$text-color-on-primary-dark: #250303;
+$text-color-on-surface: #333333;
+$input-bg: #f2ecff;
+$input-bg-hover: #e9dfff; 
+$input-border-color-invalid: #FF3A3C;
+$button-color-disabled: #EADDD9;
+$surface-color: #FFFFFF;
 
 // text font-size
 
-$heading1:48px;
-$heading2:32px;
+$heading1: 48px;
+$heading2: 32px;
 $heading3: 24px;
-$intro-text:20px;
-$body-text:16px;
-$caption-text:14px;
-$micro-text:12px;
+$intro-text: 20px;
+$body-text: 16px;
+$caption-text: 14px;
+$micro-text: 12px;
 
 // shablon-style
 

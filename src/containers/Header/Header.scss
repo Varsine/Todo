@@ -6,10 +6,8 @@
     height: 96px;
     width: 100%;
     padding: 0 280px;
-
     &__right-column {
         @extend %flex-center-between;
-
         &__navigation {
             ul {
                 display: flex;
@@ -19,14 +17,11 @@
                 }
             }
         }
-
         &__profile-header-icon {
             margin: 0 12px;
         }
-
         &__cart-icon {
             margin: 0 12px;
-
         }
     }
 }

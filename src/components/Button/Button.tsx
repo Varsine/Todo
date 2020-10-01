@@ -4,10 +4,10 @@ import "./Button.scss";
 
 interface IButtonProps {
   className?: string
-  onclick: () => void
+  onClick: () => void
 }
 
-const Button: React.FC<IButtonProps> = ({className = ""}) => {
-  return (<button className={`app-button ${className}`}></button>)
+const Button: React.FC<IButtonProps> = ({ className = "", onClick }) => {
+  return (<button onClick={onClick} className={`app-button ${className}`}></button>)
 }
 export default Button
