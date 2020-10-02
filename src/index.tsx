@@ -5,8 +5,8 @@ import * as serviceWorker from "./serviceWorker"
 
 import App from "./App"
 
-import "./global.scss"
-import "./_reset.scss"
+import "styles/global.scss"
+import "styles/_reset.scss"
 
 ReactDOM.render(
   <React.StrictMode>
