@@ -8,10 +8,10 @@ import Link from "components/Link/Link";
 
 import "./Header.scss";
 
-interface IHeaderProps {}
+interface IHeaderProps { }
 
 const Header: React.FC<IHeaderProps> = () => {
-  const buttonClick = () => {}
+  const buttonClick = () => { }
 
   return (
     <header className="app-header">

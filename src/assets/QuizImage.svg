@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="427.938" height="380.249" viewBox="0 0 427.938 380.249">
+  <g id="Group_876" data-name="Group 876" transform="translate(-0.093 -244.752)">
+    <rect id="Rectangle_310" data-name="Rectangle 310" width="23.281" height="17.604" transform="translate(115.691 500.864) rotate(-30)" fill="#f6c8a2"/>
+    <path id="Path_66186" data-name="Path 66186" d="M202.454,503.38l-9.374,34.988,26.582-5.188-1.59-14.881Z" transform="translate(-86.769 -2.51)" fill="#f6c8a2"/>
+    <path id="Path_66187" data-name="Path 66187" d="M0,636.837l149.91-86.552L134.8,524.11,0,601.936Z" transform="translate(0.093 -11.836)" fill="#f6c8a2"/>
+    <path id="Path_66188" data-name="Path 66188" d="M191.65,495.638,222.5,477.83l4.951,8.577,41.26,71.451a4.951,4.951,0,0,1-1.815,6.766l-9.583,5.545a4.951,4.951,0,0,1-6.266-1.1L196.6,504.214Z" transform="translate(-86.196 -17.444)" fill="#2d2d2c"/>
+    <path id="Path_66189" data-name="Path 66189" d="M201.883,492.12l-25.823,14.9,4.951,8.576,2.476,4.291a4.951,4.951,0,0,0,6.767,1.81l21.532-12.422-4.951-8.577Z" transform="translate(-79.184 -23.873)" fill="#2d2d2c"/>
+    <path id="Path_66190" data-name="Path 66190" d="M394.725,352.745h0a14.892,14.892,0,1,1,6.945-9.047,14.9,14.9,0,0,1-6.945,9.047" transform="translate(-167.501 51.335)" fill="#ececec"/>
+    <path id="Path_66191" data-name="Path 66191" d="M126.712,474.8a9.9,9.9,0,0,1,13.528,3.625l5,8.654a9.9,9.9,0,0,1-3.62,13.522h0a9.9,9.9,0,0,1-13.528-3.62l-5-8.654a9.9,9.9,0,0,1,3.62-13.528Z" transform="translate(-54.756 -15.485)" fill="#ececec"/>
+    <path id="Path_66192" data-name="Path 66192" d="M209.02,387.922l-28.1-48.67,22.005-12.7A133.059,133.059,0,0,0,266.08,241.44L336.3,363.062a133.053,133.053,0,0,0-105.305,12.169Z" transform="translate(-81.37 88.901)" fill="#ececec"/>
+    <path id="Path_66193" data-name="Path 66193" d="M319.157,302.262,284.048,241.44a133.059,133.059,0,0,1-63.188,85.116l14.05,24.338Z" transform="translate(-99.338 88.901)" fill="#fff" opacity="0.3"/>
+    <line id="Line_44" data-name="Line 44" x1="70.218" y1="121.622" transform="translate(184.709 330.341)" fill="none" stroke="#ff8a65" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+    <path id="Path_66194" data-name="Path 66194" d="M205.991,444.84,158.4,472.313a9.9,9.9,0,0,1-13.522-3.62l-18.2-31.522a9.9,9.9,0,0,1,3.625-13.528L177.89,396.17Z" transform="translate(-56.368 19.292)" fill="#ff8a65"/>
+    <path id="Path_66195" data-name="Path 66195" d="M191.941,420.5,177.89,396.16,130.3,423.633a9.9,9.9,0,0,0-3.625,13.528l9.1,15.761Z" transform="translate(-56.368 19.296)" fill="#fff" opacity="0.3"/>
+    <path id="Path_66196" data-name="Path 66196" d="M257.178,531.176,220.87,552.125l5.87,10.166,36.308-20.949a5.87,5.87,0,1,0-5.87-10.167" transform="translate(-99.342 -41.089)" fill="#f6c8a2"/>
+    <path id="Path_66197" data-name="Path 66197" d="M268.605,588.523a5.87,5.87,0,1,1,5.87,10.161l-42.91,24.756-16.025-4.291Z" transform="translate(-96.945 -66.848)" fill="#f6c8a2"/>
+    <path id="Path_66198" data-name="Path 66198" d="M275.758,569.525,241.65,589.209l5.87,10.161,34.108-19.684a5.87,5.87,0,0,0-5.87-10.161" transform="translate(-108.691 -58.379)" fill="#f6c8a2"/>
+    <path id="Path_66199" data-name="Path 66199" d="M266.491,550.347,231.31,570.663l5.881,10.139L272.4,560.491a5.87,5.87,0,1,0-5.908-10.144" transform="translate(-104.039 -49.708)" fill="#f6c8a2"/>
+    <path id="Path_66200" data-name="Path 66200" d="M611.633,88.409A80.613,80.613,0,1,1,501.512,58.9,80.613,80.613,0,0,1,611.633,88.409Z" transform="translate(-194.414 196.664)" fill="#f6f6f6"/>
+    <text id="QUIZ" transform="translate(311 309.174)" fill="#333" font-size="32" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">QUIZ</tspan></text>
+    <text id="TIME_" data-name="TIME!" transform="translate(308 360.346)" fill="#333" font-size="32" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">TIME!</tspan></text>
+    <path id="Path_66201" data-name="Path 66201" d="M402.281,290.129l14.632,25.342H387.65Z" transform="translate(-128.255 62.807)" fill="#f6f6f6"/>
+  </g>
+</svg>

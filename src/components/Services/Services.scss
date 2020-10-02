@@ -1,0 +1,10 @@
+@import "~media/root";
+
+.app-services {
+    &__link {
+        display: block;
+        font-size: $body-text;
+        color: $text-color-on-primary;
+        line-height: 32px;
+    }
+}

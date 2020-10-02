@@ -1,0 +1,9 @@
+@import "~media/root";
+
+.app-contact {
+    p {
+        font-size: $body-text;
+        color: $text-color-on-primary;
+        line-height: 32px;
+    }
+}

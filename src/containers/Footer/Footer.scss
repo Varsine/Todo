@@ -1,0 +1,42 @@
+@import "~media/root";
+
+.app-footer {
+
+    &__top-column {
+        height: 190px;
+        @extend %flex-center-between;
+        padding: 0 280px;
+        display: flex;
+        background-image: url(~images/footerTopBg.png);
+        color: $text-color-on-primary;
+
+        &__left-column {
+            display: flex;
+            align-items: center;
+
+            p {
+                padding: 15px 0 0 24px;
+                font-size: $heading2;
+                text-transform: uppercase;
+
+            }
+        }
+
+
+        &__button {
+            @include second-button-style(37px, $heading3, 25.5px 32px);
+        }
+    }
+
+    &__bottom-column {
+        padding: 105px 280px 175px 280px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__copy {
+        color: $text-color-on-primary;
+        font-size: $micro-text;
+        padding: 0 0 40px 280px;
+    }
+}
