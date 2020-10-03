@@ -5,23 +5,23 @@ import FbFooterIcon from 'icons/FbFooterIcon';
 import InstaFooterIcon from 'icons/InstaFooterIcon';
 import Heading from "components/HeaderCart/HeaderCart";
 
-import "./SocialMedia.scss"
+import "./FooterSocialMedia.scss";
 
-interface ISocialMediaProps {};
+interface IFooterSocialMediaProps {};
 
-const SocialMedia: React.FC<ISocialMediaProps> = () => {
+const FooterSocialMedia: React.FC<IFooterSocialMediaProps> = () => {
   return (
-    <div className="app-social-media">
+    <div className="footer-social-media">
       <Heading>Գտիր մեզ սոց․ցանցերում</Heading>
       <div>
         <Link
-          className="app-social-media__link"
+          className="footer-social-media__link"
           to="/https://www.facebook.com/boxyyerevan"
         >
           <FbFooterIcon />
         </Link>
         <Link
-          className="app-social-media__link"
+          className="footer-social-media__link"
           to="https://www.instagram.com/boxy_armenia/"
         >
           <InstaFooterIcon />
@@ -31,4 +31,4 @@ const SocialMedia: React.FC<ISocialMediaProps> = () => {
   )
 }
 
-export default SocialMedia
+export default FooterSocialMedia

@@ -13,7 +13,7 @@
         @include media(until-desktop) {
             padding: 64px 0 0 0;
         }
-        @include media(desctop) {
+        @include media(desktop) {
             margin: 0 80px;
         }
         @include media(tablet) {

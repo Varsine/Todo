@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 
-import Contact from "components/Contact/Contact";
-import Services from "components/Services/Services";
-import SocialMedia from "components/SocialMedia/SocialMedia";
-import FooterBoxyLogo from "icons/FooterBoxyLogo";
-import Button from "components/Button/Button";
+import FooterContacts from "components/FooterContacts/FooterContacts"
+import FooterServices from "components/FooterServices/FooterServices"
+import SocialMedia from "components/FooterSocialMedia/FooterSocialMedia"
+import FooterBoxyLogo from "icons/FooterBoxyLogo"
+import Button from "components/Button/Button"
 
-import "./Footer.scss";
+import "./Footer.scss"
 
 interface IFooterProps {}
 
@@ -17,7 +17,7 @@ const Footer: React.FC<IFooterProps> = () => {
       <div className="app-footer__top-column">
         <div className="app-footer__top-column__left-column">
           <FooterBoxyLogo />
-          <p>THINK OUT OF THE BOXY</p>
+          <p className="app-footer__top-column__left-column__text-content">THINK OUT OF THE BOXY</p>
         </div>
         <Button
           className="app-footer__top-column__button"
@@ -27,8 +27,8 @@ const Footer: React.FC<IFooterProps> = () => {
         </Button>
       </div>
       <div className="app-footer__bottom-column">
-        <Contact />
-        <Services />
+        <FooterContacts />
+        <FooterServices />
         <SocialMedia />
       </div>
       <p className="app-footer__copy">
