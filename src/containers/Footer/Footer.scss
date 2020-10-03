@@ -85,26 +85,26 @@
     }
 
     &__bottom-column {
-        padding: 105px 280px 175px 280px;
+        padding: 105px 280px;
         display: flex;
         justify-content: space-between;
 
         @include media(desktop) {
-            padding: 80px 80px 144px;
+            padding: 80px;
         }
 
         @include media(tablet) {
-            padding: 88px 64px 144px;
+            padding: 88px 64px;
         }
 
         @include media(until-mobile) {
-            padding: 56px 64px 64px;
+            padding: 56px 64px;
             flex-wrap: wrap-reverse;
 
         }
 
         @include media(mobile) {
-            padding: 56px 16px 16px;
+            padding: 56px 16px;
         }
     }
 
@@ -114,15 +114,15 @@
         padding: 0 0 40px 280px;
 
         @include media(desktop) {
-            padding: 10px 80px;
+            padding: 0 80px 40px 80px;
         }
 
         @include media(until-tablet) {
-            padding: 10px 64px;
+            padding: 0 64px 40px 64px;
         }
 
         @include media(mobile) {
-            padding: 10px 16px;
+            padding: 0 16px 32px 16px;
         }
     }
 }
