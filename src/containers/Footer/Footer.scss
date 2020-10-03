@@ -114,15 +114,15 @@
         padding: 0 0 40px 280px;
 
         @include media(desktop) {
-            padding: 0 80px;
+            padding: 10px 80px;
         }
 
         @include media(until-tablet) {
-            padding: 0 64px;
+            padding: 10px 64px;
         }
 
         @include media(mobile) {
-            padding: 0 16px;
+            padding: 10px 16px;
         }
     }
 }

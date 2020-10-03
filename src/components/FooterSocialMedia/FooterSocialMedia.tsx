@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'components/Link/Link'
 import FbFooterIcon from 'icons/FbFooterIcon';
 import InstaFooterIcon from 'icons/InstaFooterIcon';
-import Heading from "components/HeaderCart/HeaderCart";
+import Heading from "components/Heading/Heading";
 
 import "./FooterSocialMedia.scss";
 

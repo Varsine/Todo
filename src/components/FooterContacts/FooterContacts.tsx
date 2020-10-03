@@ -1,6 +1,6 @@
 import React from "react";
 
-import HeaderCart from "components/HeaderCart/HeaderCart";
+import HeaderCart from "components/Heading/Heading";
 import ContactsItem from "components/ContactsItem/ContactsItem";
 
 import "./FooterContacts.scss";

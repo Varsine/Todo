@@ -1,7 +1,7 @@
 import React from "react";
 
 import Link from "components/Link/Link";
-import Heading from "components/HeaderCart/HeaderCart";
+import Heading from "components/Heading/Heading";
 
 import "./FooterServices.scss"
 
