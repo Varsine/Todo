@@ -1,7 +1,8 @@
-import Footer from "containers/Footer/Footer";
 import React from "react";
 
-import "./Layout.scss"
+import Footer from "containers/Footer/Footer";
+
+import "./Layout.scss";
 
 interface ILayoutProps { }
 

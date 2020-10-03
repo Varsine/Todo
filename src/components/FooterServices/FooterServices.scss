@@ -1,0 +1,14 @@
+@import "~styles/root";
+
+.footer-services {
+    &__link {
+        display: block;
+        font-size: $body-text;
+        color: $text-color-primary;
+        line-height: 32px;
+
+        @include media(until-mobile) {
+            font-size: $caption-text;
+        }
+    }
+}

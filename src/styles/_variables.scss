@@ -1,0 +1,47 @@
+$breakPoints: (mobile: (start: null, end: '360px'),
+	mobile-large: (start: '361px', end: '767px'),
+	tablet: (start: '768px', end: '1024px'),
+	desktop:(start: '1025px', end: '1360px'),
+	desktop-large: (start: '1361px', end: null),
+	until-mobile: (start: null, end: '768px'),
+	until-tablet: (start: null, end: '1024px'),
+	until-desktop: (start: null, end: '1360px'));
+
+// text font-size
+
+$heading1: 48px;
+$heading2: 32px;
+$heading3: 24px;
+$intro-text: 20px;
+$body-text: 16px;
+$caption-text: 14px;
+$micro-text: 12px;
+
+// shablon-style
+
+%flex-center-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@mixin second-button-style ($radius, $size, $padding) {
+	background: $button-second-bg 0% 0% no-repeat padding-box;
+	box-shadow: 0px 3px 14px #00000029;
+	border-radius: $radius;
+	font-size: $size;
+	padding: $padding;
+
+	&:hover {
+		background-color: $button-second-bg-hover;
+	}
+
+	&:disabled {
+		background-color: $button-second-bg-disabled;
+		color: $button-second-color-disabled;
+	}
+
+	&:active {
+		border: 1px solid $secondary-color-dark;
+	}
+}
