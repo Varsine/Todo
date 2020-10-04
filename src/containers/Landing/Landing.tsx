@@ -1,13 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
+
+import InputField from "components/InputField/InputField"
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 
 import "./Landing.scss"
 
-interface ILandingProps {}
+interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  return <div>
-    sasdhbsah bdhsbah bddf hsbfh bdhsnbf dhnbsfjnnd jfnj dksf
-  </div>
+  const [value, setValue] = useState('');
+
+  const onChange = (newValue: string) => {
+    setValue(newValue);
+  }
+
+  return (
+    <div>
+      <InputField
+        Icon={ProfileHeaderIcon}
+        type='password'
+        value={value}
+        onChange={onChange}
+        placeholder="Enter Your Name..."
+      />
+    </div>
+  )
 }
 
 export default Landing

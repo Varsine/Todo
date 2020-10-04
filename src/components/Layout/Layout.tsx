@@ -12,7 +12,7 @@ const Layout: React.FC<ILayoutProps> = ({ children }) => {
       <div className="app-layout__main">
         {children}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
