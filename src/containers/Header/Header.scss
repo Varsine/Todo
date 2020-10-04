@@ -2,6 +2,7 @@
 
 .app-header {
     position: fixed;
+    z-index: 5;
     font-family: 'Mardoto-Regular', Fallback, sans-serif;
     @extend %flex-center-between;
     height: 96px;

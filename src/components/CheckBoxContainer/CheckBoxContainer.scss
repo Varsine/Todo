@@ -1,0 +1,13 @@
+@import "~styles/root";
+
+.checkout-content {
+    &__product {
+        position: relative;
+
+        &__img {
+            &:hover~div {
+                display: block;
+            }
+        }
+    }
+}

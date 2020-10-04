@@ -1,12 +1,12 @@
-import React from "react"
+import React from "react";
 
-import FooterContacts from "components/FooterContacts/FooterContacts"
-import FooterServices from "components/FooterServices/FooterServices"
-import SocialMedia from "components/FooterSocialMedia/FooterSocialMedia"
-import FooterBoxyLogo from "icons/FooterBoxyLogo"
-import Button from "components/Button/Button"
+import FooterContacts from "components/FooterContacts/FooterContacts";
+import FooterServices from "components/FooterServices/FooterServices";
+import SocialMedia from "components/FooterSocialMedia/FooterSocialMedia";
+import FooterBoxyLogo from "icons/FooterBoxyLogo";
+import Button from "components/Button/Button";
 
-import "./Footer.scss"
+import "./Footer.scss";
 
 interface IFooterProps {}
 

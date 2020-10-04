@@ -1,0 +1,62 @@
+ @import "~styles/root";
+
+ .app-landing {
+     font-family: 'Mardoto-Regular',
+         Fallback,
+         sans-serif;
+
+     &__top-column {
+         height: 899.1px;
+
+         &__left-column {
+             top: 0;
+             left: 0;
+             z-index: -1;
+             position: absolute;
+             height: 100%;
+             width: 983.4px;
+             background-size: 100% 100%;
+             background-repeat: no-repeat;
+             background-image: url(~images/landingtopBg.png);
+         }
+
+         &__right-column {
+             position: absolute;
+             right: 280px;
+             top: 289px;
+             text-align: right;
+
+             &__heading {
+                 font-size: $heading1;
+                 color: $text-color-surface;
+                 font-weight: normal;
+                 line-height: 55px;
+             }
+
+             &__button {
+                 color: $surface-color;
+                 font-size: $intro-text;
+                 letter-spacing: 2.5px;
+                 padding: 16px 44px;
+                 border-radius: 48px;
+             }
+
+         }
+     }
+
+     &__checkout-box {
+         display: flex;
+         justify-content: space-between;
+         padding: 144px 0;
+     }
+
+     &__about-boxy {
+         text-align: center;
+         padding: 0 319px 168px;
+
+         &__heading {
+             color: $text-color-surface;
+             font-size: $heading2;
+         }
+     }
+ }
