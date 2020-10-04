@@ -1,6 +1,7 @@
+// TODO handle error states and fieldset caption
+
 import React from "react";
 
-import ProfileInputIcon from "icons/ProfileInputIcon";
 import VisibleIcon from "icons/VisibleIcon";
 
 import "./InputField.scss";

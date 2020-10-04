@@ -7,7 +7,7 @@ import Routes from "Routes"
 const App = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Layout>
         <Routes />
       </Layout>
