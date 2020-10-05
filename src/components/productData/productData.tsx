@@ -1,18 +1,18 @@
 export const productData = [
   {
     name: "Regular",
-    cost: "14.900 Դ",
+    price: 14.9,
   },
   {
     name: "Regular Plus",
-    cost: "19.900 Դ",
+    price: 19.9,
   },
   {
     name: "Premium",
-    cost: "24.900 Դ",
+    price: 24.9,
   },
   {
     name: "Premium Plus",
-    cost: "29.900 Դ",
+    price: 29.9,
   },
 ];

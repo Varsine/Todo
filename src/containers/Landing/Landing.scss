@@ -6,57 +6,78 @@
          sans-serif;
 
      &__top-column {
-         height: 899.1px;
+         height: 100%;
 
          &__left-column {
              top: 0;
              left: 0;
-             z-index: -1;
              position: absolute;
              height: 100%;
-             width: 983.4px;
-             background-size: 100% 100%;
-             background-repeat: no-repeat;
-             background-image: url(~images/landingtopBg.png);
+
+             &__img {
+                 height: 100%;
+                 width: auto;
+             }
          }
 
          &__right-column {
-             position: absolute;
-             right: 280px;
-             top: 289px;
-             text-align: right;
+             display: flex;
+             justify-content: flex-end;
+             align-items: center;
+             height: 100%;
 
-             &__heading {
-                 font-size: $heading1;
-                 color: $text-color-surface;
-                 font-weight: normal;
-                 line-height: 55px;
-             }
+             &__children {
+                 text-align: right;
 
-             &__button {
-                 color: $surface-color;
-                 font-size: $intro-text;
-                 letter-spacing: 2.5px;
-                 padding: 16px 44px;
-                 border-radius: 48px;
+                 &__heading {
+                     font-size: $TextBlock1;
+                     color: $text-color-surface;
+                     font-weight: normal;
+                     line-height: 55px;
+                 }
+
+                 &__button {
+                     color: $surface-color;
+                     font-size: $intro-text;
+                     letter-spacing: 2.5px;
+                     padding: 16px 44px;
+                     border-radius: 48px;
+                 }
              }
 
          }
      }
 
-     &__checkout-box {
+     &__product-column {
          display: flex;
-         justify-content: space-between;
-         padding: 144px 0;
+         align-items: center;
+
+         &__children {
+             display: grid;
+             column-gap: 30px;
+             grid-template-columns: auto auto auto auto;
+         }
      }
 
      &__about-boxy {
-         text-align: center;
-         padding: 0 319px 168px;
+         display: flex;
+         justify-content: center;
 
-         &__heading {
-             color: $text-color-surface;
-             font-size: $heading2;
+         &__children {
+             max-width: 722px;
+             text-align: center;
+
+             &__text-block {
+                 color: $text-color-surface;
+                 font-size: $TextBlock2;
+             }
+
+             &__text-content {
+                 color: $text-color-surface;
+                 font-size: $intro-text;
+                 line-height: 30px;
+                 padding-bottom: 140px;
+             }
          }
      }
  }

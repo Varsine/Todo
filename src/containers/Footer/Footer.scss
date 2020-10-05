@@ -7,7 +7,7 @@
         @extend %flex-center-between;
         padding: 0 280px;
         display: flex;
-        background-image: url(~images/footerTopBg.png);
+        background-image: url(~assets/footerTopBg.png);
         background-repeat: no-repeat;
         background-size: 100% 100%;
         color: $text-color-primary;
@@ -43,7 +43,7 @@
 
             &__text-content {
                 padding: 15px 0 0 24px;
-                font-size: $heading2;
+                font-size: $TextBlock2;
                 text-transform: uppercase;
 
                 @include media(tablet) {
@@ -65,7 +65,7 @@
 
 
         &__button {
-            @include second-button-style(37px, $heading3, 25.5px 32px);
+            @include second-button-style(37px, $TextBlock3, 25.5px 32px);
 
             @include media(desktop) {
                 @include second-button-style(37px, $intro-text, 16px 23px);

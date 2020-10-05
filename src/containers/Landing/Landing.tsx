@@ -1,10 +1,12 @@
 import React from "react";
 
 import Button from "components/Button/Button";
-import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
-import Heading from "components/Heading/Heading";
-import LandingAbout from "components/LandingAbout/LandingAbout";
+import landingTopBg from "assets/landingTopBg.png";
+import TextBlock from "components/TextBlock/TextBlock";
 import {productData} from "components/productData/productData";
+import ProductCard from "components/ProductCard/ProductCard";
+import Heading from "components/Heading/Heading";
+import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
 
 import "./Landing.scss";
 
@@ -16,46 +18,60 @@ const Landing: React.FC<ILandingProps> = () => {
   const clickButtonHover = () => {}
   return (
     <div className="app-landing">
-      <div className="app-landing__top-column">
-        <div className="app-landing__top-column__left-column"></div>
-        <div className="app-landing__top-column__right-column">
-          <Heading className="app-landing__top-column__right-column__heading">
-            Ապահովում ենք երջանկություն <br />
-            և լավ տրամադրություն <br />
-            բոլորին և ամենուր
-          </Heading>
-          <Button
-            className="app-landing__top-column__right-column__button"
-            onClick={buttonClick}
-          >
-            Ստանալ
-          </Button>
-        </div>
-      </div>
-      <div className="app-landing__checkout-box">
-        {productData.map((productData) => {
-          return (
-            <CheckBoxContainer
-              productType={productData.name}
-              cost={productData.cost}
-              productClick={clickProductCart}
-              clickButtonHover={clickButtonHover}
+      <FullHeightWrap>
+        <div className="app-landing__top-column">
+          <div className="app-landing__top-column__left-column">
+            <img
+              className="app-landing__top-column__left-column__img"
+              src={landingTopBg}
+              alt=""
             />
-          )
-        })}
-      </div>
+          </div>
+          <div className="app-landing__top-column__right-column">
+            <div className="app-landing__top-column__right-column__children">
+              <Heading className="app-landing__top-column__right-column__children__heading">
+                Ապահովում ենք երջանկություն <br />
+                և լավ տրամադրություն <br />
+                բոլորին և ամենուր
+              </Heading>
+              <Button
+                className="app-landing__top-column__right-column__children__button"
+                onClick={buttonClick}
+              >
+                Ստանալ
+              </Button>
+            </div>
+          </div>
+        </div>
+      </FullHeightWrap>
+      <FullHeightWrap className="app-landing__product-column">
+        <div className="app-landing__product-column__children">
+          {productData.map((productData) => {
+            return (
+              <ProductCard
+                productName={productData.name}
+                price={productData.price}
+                productClick={clickProductCart}
+                clickButtonHover={clickButtonHover}
+              />
+            )
+          })}
+        </div>
+      </FullHeightWrap>
       <div className="app-landing__about-boxy">
-        <Heading className="app-landing__about-boxy__heading">
-          Ի՞նչ է Boxy-ն
-        </Heading>
-        <LandingAbout>
-          Boxy-ն գաղտնի հավաքված նվեր բոքս է, որի պարունակությունը որոշվում է
-          Ձեզ մի քանի հարցեր տալուց և Ձեր նախասիրությունները պարզելուց հետո։
-          Հետաքրքիր, զարմանալի, հաճելի ու բոլորովին անսպասելի նվեր Ձեր
-          մտերիմներին ու սիրելիներին: Boxy-ն կազատի Ձեզ նվեր ընտրելու բարդ
-          գործընթացից և, ինչու ոչ, կընդգծի Ձեր յուրօրինակությունը: Իսկ թե ինչ
-          կլինի Ձեր բոքսում կիմանաք միայն այն բացելուց հետո:
-        </LandingAbout>
+        <div className="app-landing__about-boxy__children">
+          <TextBlock className="app-landing__about-boxy__children__text-block">
+            Ի՞նչ է Boxy-ն
+          </TextBlock>
+          <p className="app-landing__about-boxy__children__text-content">
+            Boxy-ն գաղտնի հավաքված նվեր բոքս է, որի պարունակությունը որոշվում է
+            Ձեզ մի քանի հարցեր տալուց և Ձեր նախասիրությունները պարզելուց հետո։
+            Հետաքրքիր, զարմանալի, հաճելի ու բոլորովին անսպասելի նվեր Ձեր
+            մտերիմներին ու սիրելիներին: Boxy-ն կազատի Ձեզ նվեր ընտրելու բարդ
+            գործընթացից և, ինչու ոչ, կընդգծի Ձեր յուրօրինակությունը: Իսկ թե ինչ
+            կլինի Ձեր բոքսում կիմանաք միայն այն բացելուց հետո:
+          </p>
+        </div>
       </div>
     </div>
   )

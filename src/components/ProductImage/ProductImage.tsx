@@ -1,11 +1,27 @@
-import React from "react"
+import React from "react";
 
-import "./ProgressBar.scss"
+import "./ProductImage.scss";
 
-interface IProgressBarProps {}
-
-const ProgressBar: React.FC<IProgressBarProps> = () => {
-  return <div></div>
+interface IProductImageProps {
+  src: string
+  alt?: string
+  className?: string
+  onClick: () => void
 }
 
-export default ProgressBar
+const ProductImage: React.FC<IProductImageProps> = ({
+  src,
+  alt = "",
+  onClick,
+  className = "",
+}) => {
+  return (
+    <img
+      onClick={onClick}
+      className={`product-img ${className}`}
+      src={src}
+    />
+  )
+}
+
+export default ProductImage

@@ -8,22 +8,28 @@
     height: 96px;
     width: 100%;
     padding: 0 280px;
+
     @include media(until-desktop) {
         height: 64px;
     }
+
     &__right-column {
         @extend %flex-center-between;
+
         &__navigation {
             ul {
                 display: flex;
+
                 li {
                     padding: 0 12px;
                 }
             }
         }
+
         &__profile-header-icon {
             margin: 0 12px;
         }
+
         &__cart-icon {
             margin: 0 12px;
         }
