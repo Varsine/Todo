@@ -1,8 +1,7 @@
-// TODO handle error states and fieldset caption
-
-import React from "react";
+import React, { useState } from "react";
 
 import VisibleIcon from "icons/VisibleIcon";
+import NonVisibleIcon from "icons/NonVisibleIcon";
 
 import "./InputField.scss";
 
@@ -23,6 +22,7 @@ interface IInputFieldProps {
   type?: InputType;
   name?: string;
   className?: string;
+  hasError?: boolean;
 }
 
 const InputField: React.FC<IInputFieldProps> = ({
@@ -33,11 +33,19 @@ const InputField: React.FC<IInputFieldProps> = ({
   placeholder = '',
   type = InputTypes.text,
   name = '',
-  className = ''
+  className = '',
+  hasError = false,
 }) => {
   const isPassword: boolean = type === InputTypes.password;
+  const [isVisible, setVisible] = useState(!isPassword);
+
+  const hasErrorClass = hasError ? ' app-input-container__input--error' : '';
+  const IconClass = Icon ? ' app-input-container__input--left-padding' : '';
+  const VisibleIconClass = isPassword ? ' app-input-container__input--right-padding' : '';
+  const inputClassName = `app-input-container__input ${className}${hasErrorClass}${IconClass}${VisibleIconClass}`;
+
   return (
-    <div className="app-input-container">
+    <div className={`app-input-container`}>
       {Icon && (
         <div className="app-input-container__left-icon">
           <Icon />
@@ -45,16 +53,18 @@ const InputField: React.FC<IInputFieldProps> = ({
       )}
       <input
         name={name}
-        type={type}
+        type={isVisible ? 'text' : type}
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { onChange(e.target.value); }}
         disabled={loading}
         placeholder={placeholder}
-        className={`app-input-container__input ${className}`}
+        className={inputClassName}
       />
       {isPassword && (
-        <div className="app-input-container__right-icon">
-          <VisibleIcon />
+        <div className="app-input-container__right-icon" >
+          <div className="app-input-container__right-icon__inner-container" onClick={() => { setVisible(!isVisible); }}>
+            {isVisible ? <VisibleIcon /> : <NonVisibleIcon />}
+          </div>
         </div>
       )}
     </div>
