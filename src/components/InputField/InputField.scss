@@ -25,7 +25,7 @@
         &:focus {
             background-color: $input-bg;
             color: $text-color-primary;
-            border: 1px solid $secondary-color-light;
+            border: 1px solid $secondary-color-dark;
         }
         &--error {
             border: 1px solid $input-error-color;
