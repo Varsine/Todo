@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
-import TextBlock from "components/TextBlock/TextBlock"
-import ContactsItem from "components/ContactsItem/ContactsItem"
+import TextBlock from "components/TextBlock/TextBlock";
+import ContactsItem from "components/ContactsItem/ContactsItem";
 
 import "./FooterContacts.scss"
 
@@ -18,4 +18,4 @@ const FooterContacts: React.FC<IFooterContactsProps> = () => {
   )
 }
 
-export default FooterContacts
+export default FooterContacts;

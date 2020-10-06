@@ -18,24 +18,24 @@ const Landing: React.FC<ILandingProps> = () => {
   const clickButtonHover = () => {}
   return (
     <div className="app-landing">
-      <FullHeightWrap>
-        <div className="app-landing__top-column">
-          <div className="app-landing__top-column__left-column">
+      <FullHeightWrap className="app-landing__parent">
+        <div className="app-landing__parent__top-column">
+          <div className="app-landing__parent__top-column__left-column">
             <img
-              className="app-landing__top-column__left-column__img"
+              className="app-landing__parent__top-column__left-column__img"
               src={landingTopBg}
               alt=""
             />
           </div>
-          <div className="app-landing__top-column__right-column">
-            <div className="app-landing__top-column__right-column__children">
-              <Heading className="app-landing__top-column__right-column__children__heading">
+          <div className="app-landing__parent__top-column__right-column">
+            <div className="app-landing__parent__top-column__right-column__children">
+              <Heading className="app-landing__parent__top-column__right-column__children__heading">
                 Ապահովում ենք երջանկություն <br />
                 և լավ տրամադրություն <br />
                 բոլորին և ամենուր
               </Heading>
               <Button
-                className="app-landing__top-column__right-column__children__button"
+                className="app-landing__parent__top-column__right-column__children__button"
                 onClick={buttonClick}
               >
                 Ստանալ
@@ -77,4 +77,4 @@ const Landing: React.FC<ILandingProps> = () => {
   )
 }
 
-export default Landing
+export default Landing;

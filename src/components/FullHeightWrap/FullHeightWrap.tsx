@@ -13,4 +13,4 @@ const FullHeightWrap: React.FC<IFullHeightWrapProps> = ({
   return <div className={`full-height-wrap ${className}`}>{children}</div>
 }
 
-export default FullHeightWrap
+export default FullHeightWrap;

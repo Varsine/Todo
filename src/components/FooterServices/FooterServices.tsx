@@ -1,7 +1,7 @@
-import React from "react"
+import React from "react";
 
-import Link from "components/Link/Link"
-import TextBlock from "components/TextBlock/TextBlock"
+import Link from "components/Link/Link";
+import TextBlock from "components/TextBlock/TextBlock";
 
 import "./FooterServices.scss"
 
@@ -24,4 +24,4 @@ const FooterServices: React.FC<IFooterServicesProps> = () => {
   )
 }
 
-export default FooterServices
+export default FooterServices;

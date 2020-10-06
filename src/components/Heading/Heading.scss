@@ -1,8 +1,20 @@
 @import "~styles/root";
 
-.app-heading{
-    font-size: $TextBlock1;
+.app-heading {
+    font-size: $heading1;
     color: $text-color-surface;
     font-weight: normal;
     line-height: 55px;
+
+    @include media(desktop) {
+        font-size: $heading2;
+    }
+
+    @include media(tablet) {
+        font-size: $heading3;
+    }
+
+    @include media(until-mobile) {
+        font-size: $intro-text;
+    }
 }

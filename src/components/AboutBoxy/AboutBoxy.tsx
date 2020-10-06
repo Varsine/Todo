@@ -5,7 +5,7 @@ import "./AboutBoxy.scss"
 interface IAboutBoxyProps {}
 
 const AboutBoxy: React.FC<IAboutBoxyProps> = () => {
-  return <div></div>
+  return (<div></div>)
 }
 
 export default AboutBoxy

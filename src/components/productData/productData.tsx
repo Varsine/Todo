@@ -15,4 +15,12 @@ export const productData = [
     name: "Premium Plus",
     price: 29.9,
   },
-];
+]
+
+productData.map((val) => {
+  // const str = val.price.toString()
+  // let x = str + `00`
+  return Number(val.price+ "00").toFixed(3)
+
+  // return Number(val.price.toFixed(3))
+})

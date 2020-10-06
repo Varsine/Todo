@@ -1,15 +1,15 @@
 import React from "react";
 
-import "./ProductImage.scss";
+import "./Image.scss";
 
-interface IProductImageProps {
+interface IImageProps {
   src: string
   alt?: string
   className?: string
   onClick: () => void
 }
 
-const ProductImage: React.FC<IProductImageProps> = ({
+const Image: React.FC<IImageProps> = ({
   src,
   alt = "",
   onClick,
@@ -18,10 +18,11 @@ const ProductImage: React.FC<IProductImageProps> = ({
   return (
     <img
       onClick={onClick}
-      className={`product-img ${className}`}
+      className={`app-img ${className}`}
+      alt={`${alt}`}
       src={src}
     />
   )
 }
 
-export default ProductImage
+export default Image;
