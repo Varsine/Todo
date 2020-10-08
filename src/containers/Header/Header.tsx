@@ -1,38 +1,38 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect, useState} from "react"
 
-import CartIcon from "icons/CartIcon";
-import Button from "components/Button/Button";
-import Logo from "components/Logo/Logo";
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
-import Link from "components/Link/Link";
-import MobileMenuIcon from "icons/MobileMenuIcon";
+import CartIcon from "icons/CartIcon"
+import Button from "components/Button/Button"
+import Logo from "components/Logo/Logo"
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
+import Link from "components/Link/Link"
+import MobileMenuIcon from "icons/MobileMenuIcon"
 
-import "./Header.scss";
+import "./Header.scss"
 
 interface IHeaderProps {}
 
 const Header: React.FC<IHeaderProps> = () => {
   const buttonClick = () => {}
-  const headRef = useRef<HTMLHeadElement>(null)
   const navRef = useRef<HTMLElement>(null)
+  const [headerBackgrounded, setHeaderBackgrounded] = useState("")
 
   const handlerScroll = () => {
-    if (headRef.current) {
-      if (window.scrollY > 100) {
-        headRef.current.classList.add("scrolled")
-      } else {
-        headRef.current.classList.remove("scrolled")
-      }
+    if (window.scrollY > 100) {
+      setHeaderBackgrounded("scrolled")
+    } else {
+      setHeaderBackgrounded("")
     }
   }
-  window.addEventListener("scroll", handlerScroll)
-
+  useEffect(() => {
+    window.addEventListener("scroll", handlerScroll)
+  }, [])
+  
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu")
   }
-  
+
   return (
-    <header className="app-header" ref={headRef}>
+    <header className={`app-header ${headerBackgrounded}`}>
       <div className="app-header__mobile-menu-icon" onClick={openMobileMenu}>
         <MobileMenuIcon />
       </div>
@@ -75,4 +75,4 @@ const Header: React.FC<IHeaderProps> = () => {
   )
 }
 
-export default Header;
+export default Header

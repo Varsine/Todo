@@ -24,12 +24,8 @@
             margin: 0 64px;
         }
 
-        @include media(mobile-large) {
-            margin: 0 64px;
-        }
-
-        @include media(mobile) {
-            margin: 0 16px;
+        @include media(until-mobile) {
+            margin: 0 20px;
         }
     }
 }

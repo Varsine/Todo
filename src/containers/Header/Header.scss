@@ -15,14 +15,15 @@
 
     @include media(until-tablet) {
         padding: 0 64px;
+        background-color: $surface-color;
     }
 
     @include media(until-tablet) {
         padding: 0 64px;
     }
 
-    @include media(mobile) {
-        padding: 0 16px;
+    @include media(until-mobile) {
+        padding: 0 20px;
     }
 
     &__mobile-menu-icon {
@@ -42,12 +43,12 @@
     }
 
     &__logo {
-        height: 85px;
-        width: 125px;
+        height: 80px;
+        width: 77px;
 
         @include media(until-desktop) {
-            height: 60px;
-            width: 87px;
+            height: 57px;
+            width: 55px;
         }
     }
 
@@ -58,18 +59,11 @@
             @include media(until-tablet) {
                 position: absolute;
                 top: 64px;
-                left: 64px;
-                right: 64px;
+                left: 0;
+                right: 0;
                 background-color: $surface-color;
-            }
-
-            @include media(until-tablet) {
+                box-shadow: 2px 2px 5px #ccc;
                 display: none;
-            }
-
-            @include media(mobile) {
-                left: 16px;
-                right: 16px;
             }
 
             &__mobile-column {
@@ -124,7 +118,7 @@
                 border-radius: 50%;
             }
 
-            svg {
+            svg>path:last-child {
 
                 @include media(until-tablet) {
                     fill: $primary-color;
@@ -146,7 +140,7 @@
 }
 
 .scrolled {
-    background-color: $primary-color-light;
+    background-color: $surface-color;
 }
 
 .mobile-menu {
