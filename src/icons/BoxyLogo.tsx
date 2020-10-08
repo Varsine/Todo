@@ -2,7 +2,7 @@ import React from 'react';
 
 const BoxyLogo = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="125" height="85" viewBox="0 0 125 85">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 125 85">
             <defs>
                 <linearGradient id="linear-gradient" x1="0.036" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
                     <stop offset="0" stop-color="#ff8a65" />

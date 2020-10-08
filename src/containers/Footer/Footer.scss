@@ -7,7 +7,7 @@
         @extend %flex-center-between;
         padding: 0 280px;
         display: flex;
-        background-image: url(~images/footerTopBg.png);
+        background-image: url(~assets/footerTopBg.png);
         background-repeat: no-repeat;
         background-size: 100% 100%;
         color: $text-color-primary;
@@ -29,7 +29,6 @@
 
         @include media(mobile) {
             padding: 0 16px;
-
         }
 
         &__left-column {
@@ -57,12 +56,8 @@
                 @include media(mobile) {
                     font-size: $body-text;
                 }
-
             }
-
-
         }
-
 
         &__button {
             @include second-button-style(37px, $heading3, 25.5px 32px);
@@ -73,7 +68,6 @@
 
             @include media(tablet) {
                 @include second-button-style(37px, $intro-text, 12px 23px);
-
             }
 
             @include media(until-mobile) {
@@ -88,7 +82,6 @@
         padding: 105px 280px;
         display: flex;
         justify-content: space-between;
-
         @include media(desktop) {
             padding: 80px;
         }
@@ -100,7 +93,6 @@
         @include media(until-mobile) {
             padding: 56px 64px;
             flex-wrap: wrap-reverse;
-
         }
 
         @include media(mobile) {

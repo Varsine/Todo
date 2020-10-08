@@ -7,24 +7,148 @@
     height: 96px;
     width: 100%;
     padding: 0 280px;
+
     @include media(until-desktop) {
         height: 64px;
+        padding: 0 80px;
     }
+
+    @include media(until-tablet) {
+        padding: 0 64px;
+    }
+
+    @include media(until-tablet) {
+        padding: 0 64px;
+    }
+
+    @include media(mobile) {
+        padding: 0 16px;
+    }
+
+    &__mobile-menu-icon {
+        display: none;
+        width: 36px;
+        height: 36px;
+
+        @include media(until-tablet) {
+            display: block;
+            cursor: pointer;
+        }
+
+        @include media(mobile) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &__logo {
+        height: 85px;
+        width: 125px;
+
+        @include media(until-desktop) {
+            height: 60px;
+            width: 87px;
+        }
+    }
+
     &__right-column {
         @extend %flex-center-between;
+
         &__navigation {
+            @include media(until-tablet) {
+                position: absolute;
+                top: 64px;
+                left: 64px;
+                right: 64px;
+                background-color: $surface-color;
+            }
+
+            @include media(until-tablet) {
+                display: none;
+            }
+
+            @include media(mobile) {
+                left: 16px;
+                right: 16px;
+            }
+
+            &__mobile-column {
+                display: none;
+
+                @include media(until-tablet) {
+                    display: block;
+                }
+            }
+
             ul {
                 display: flex;
+
+                @include media(until-tablet) {
+                    display: block;
+                    text-align: center;
+                }
+
                 li {
                     padding: 0 12px;
+
+                    @include media(until-tablet) {
+                        padding: 13px 0;
+                        font-size: $body-text;
+                        border: 1px solid $mobile-menu-border-bg;
+                    }
+
+                    @include media(mobile) {
+                        padding: 13px 10px;
+                        text-align: start;
+                    }
                 }
             }
         }
+
         &__profile-header-icon {
             margin: 0 12px;
+
+            @include media(until-tablet) {
+                display: none;
+            }
         }
+
         &__cart-icon {
             margin: 0 12px;
+
+            @include media(until-tablet) {
+                width: 41px;
+                height: 41px;
+                padding: 9px;
+                border: 1px solid $primary-color;
+                border-radius: 50%;
+            }
+
+            svg {
+
+                @include media(until-tablet) {
+                    fill: $primary-color;
+                }
+            }
+        }
+
+        &__button {
+            @include media(until-desktop) {
+                padding: 11px 24px;
+                border-radius: 20px;
+            }
+
+            @include media(until-tablet) {
+                display: none;
+            }
         }
     }
+}
+
+.scrolled {
+    background-color: $primary-color-light;
+}
+
+.mobile-menu {
+    display: block;
 }
