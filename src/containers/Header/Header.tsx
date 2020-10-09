@@ -1,13 +1,13 @@
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect, useState} from "react"
 
-import CartIcon from "icons/CartIcon";
-import Button from "components/Button/Button";
-import Logo from "components/Logo/Logo";
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
-import Link from "components/Link/Link";
-import MobileMenuIcon from "icons/MobileMenuIcon";
+import CartIcon from "icons/CartIcon"
+import Button from "components/Button/Button"
+import Logo from "components/Logo/Logo"
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
+import Link from "components/Link/Link"
+import MobileMenuIcon from "icons/MobileMenuIcon"
 
-import "./Header.scss";
+import "./Header.scss"
 
 interface IHeaderProps {}
 
@@ -24,9 +24,12 @@ const Header: React.FC<IHeaderProps> = () => {
     }
   }
   useEffect(() => {
-      window.addEventListener("scroll", scrollHandler)
+    window.addEventListener("scroll", scrollHandler)
+    return () => {
+      window.removeEventListener("scroll", scrollHandler)
+    }
   }, [])
-
+ 
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu")
   }
@@ -75,4 +78,4 @@ const Header: React.FC<IHeaderProps> = () => {
   )
 }
 
-export default Header;
+export default Header
