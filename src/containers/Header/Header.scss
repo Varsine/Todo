@@ -1,148 +1,144 @@
-@import '~styles/root';
+@import "~styles/root";
 
 .app-header {
-    position: fixed;
-    font-family: 'Mardoto-Regular', Fallback, sans-serif;
-    @extend %flex-center-between;
-    height: 96px;
-    width: 100%;
-    padding: 0 280px;
+  position: fixed;
+  font-family: "Mardoto-Regular", Fallback, sans-serif;
+  @extend %flex-center-between;
+  height: 96px;
+  width: 100%;
+  padding: 0 280px;
+  transition: background-color 300ms ease-in-ut;
+
+  @include media(until-desktop) {
+    height: 64px;
+    padding: 0 80px;
+  }
+
+  @include media(until-tablet) {
+    padding: 0 64px;
+    background-color: $surface-color;
+  }
+
+  @include media(until-mobile) {
+    padding: 0 20px;
+  }
+
+  &__mobile-menu-icon {
+    display: none;
+    width: 36px;
+    height: 36px;
+
+    @include media(until-tablet) {
+      display: block;
+      cursor: pointer;
+    }
+
+    @include media(mobile) {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__logo {
+    height: 80px;
+    width: 77px;
 
     @include media(until-desktop) {
-        height: 64px;
-        padding: 0 80px;
+      height: 57px;
+      width: 55px;
     }
+  }
 
-    @include media(until-tablet) {
-        padding: 0 64px;
+  &__right-column {
+    @extend %flex-center-between;
+
+    &__navigation {
+      @include media(until-tablet) {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
         background-color: $surface-color;
-    }
-
-    @include media(until-tablet) {
-        padding: 0 64px;
-    }
-
-    @include media(until-mobile) {
-        padding: 0 20px;
-    }
-
-    &__mobile-menu-icon {
+        @include menu-shadow;
         display: none;
-        width: 36px;
-        height: 36px;
+      }
+
+      &__mobile-column {
+        display: none;
 
         @include media(until-tablet) {
-            display: block;
-            cursor: pointer;
+          display: block;
+        }
+      }
+
+      ul {
+        display: flex;
+
+        @include media(until-tablet) {
+          display: block;
+          text-align: center;
         }
 
-        @include media(mobile) {
-            width: 24px;
-            height: 24px;
+        li {
+          padding: 0 12px;
+
+          @include media(until-tablet) {
+            padding: 13px 0;
+            font-size: $body-text;
+            border: 1px solid $mobile-menu-border-bg;
+          }
+
+          @include media(mobile) {
+            padding: 13px 10px;
+            text-align: start;
+          }
         }
+      }
     }
 
-    &__logo {
-        height: 80px;
-        width: 77px;
+    &__profile-header-icon {
+      margin: 0 12px;
 
-        @include media(until-desktop) {
-            height: 57px;
-            width: 55px;
-        }
+      @include media(until-tablet) {
+        display: none;
+      }
     }
 
-    &__right-column {
-        @extend %flex-center-between;
+    &__cart-icon {
+      margin: 0 12px;
 
-        &__navigation {
-            @include media(until-tablet) {
-                position: absolute;
-                top: 64px;
-                left: 0;
-                right: 0;
-                background-color: $surface-color;
-                box-shadow: 2px 2px 5px #ccc;
-                display: none;
-            }
+      @include media(until-tablet) {
+        width: 41px;
+        height: 41px;
+        padding: 9px;
+        border: 1px solid $primary-color;
+        border-radius: 50%;
+        margin: 0;
+      }
 
-            &__mobile-column {
-                display: none;
-
-                @include media(until-tablet) {
-                    display: block;
-                }
-            }
-
-            ul {
-                display: flex;
-
-                @include media(until-tablet) {
-                    display: block;
-                    text-align: center;
-                }
-
-                li {
-                    padding: 0 12px;
-
-                    @include media(until-tablet) {
-                        padding: 13px 0;
-                        font-size: $body-text;
-                        border: 1px solid $mobile-menu-border-bg;
-                    }
-
-                    @include media(mobile) {
-                        padding: 13px 10px;
-                        text-align: start;
-                    }
-                }
-            }
-        }
-
-        &__profile-header-icon {
-            margin: 0 12px;
-
-            @include media(until-tablet) {
-                display: none;
-            }
-        }
-
-        &__cart-icon {
-            margin: 0 12px;
-
-            @include media(until-tablet) {
-                width: 41px;
-                height: 41px;
-                padding: 9px;
-                border: 1px solid $primary-color;
-                border-radius: 50%;
-            }
-
-            svg>path:last-child {
-
-                @include media(until-tablet) {
-                    fill: $primary-color;
-                }
-            }
-        }
-
-        &__button {
-            @include media(until-desktop) {
-                padding: 11px 24px;
-                border-radius: 20px;
-            }
-
-            @include media(until-tablet) {
-                display: none;
-            }
-        }
+      @include media(until-tablet) {
+        color: $primary-color;
+      }
     }
+
+    &__button {
+      @include media(until-desktop) {
+        padding: 11px 24px;
+        border-radius: 20px;
+      }
+
+      @include media(until-tablet) {
+        display: none;
+      }
+    }
+  }
 }
 
 .scrolled {
-    background-color: $surface-color;
+  background-color: $surface-color;
+  @include menu-shadow;
 }
 
 .mobile-menu {
-    display: block;
+  display: block;
 }

@@ -1,13 +1,13 @@
-import React, {useRef, useEffect, useState} from "react"
+import React, {useRef, useEffect, useState} from "react";
 
-import CartIcon from "icons/CartIcon"
-import Button from "components/Button/Button"
-import Logo from "components/Logo/Logo"
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
-import Link from "components/Link/Link"
-import MobileMenuIcon from "icons/MobileMenuIcon"
+import CartIcon from "icons/CartIcon";
+import Button from "components/Button/Button";
+import Logo from "components/Logo/Logo";
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
+import Link from "components/Link/Link";
+import MobileMenuIcon from "icons/MobileMenuIcon";
 
-import "./Header.scss"
+import "./Header.scss";
 
 interface IHeaderProps {}
 
@@ -16,7 +16,7 @@ const Header: React.FC<IHeaderProps> = () => {
   const navRef = useRef<HTMLElement>(null)
   const [headerBackgrounded, setHeaderBackgrounded] = useState("")
 
-  const handlerScroll = () => {
+  const scrollHandler = () => {
     if (window.scrollY > 100) {
       setHeaderBackgrounded("scrolled")
     } else {
@@ -24,9 +24,9 @@ const Header: React.FC<IHeaderProps> = () => {
     }
   }
   useEffect(() => {
-    window.addEventListener("scroll", handlerScroll)
+      window.addEventListener("scroll", scrollHandler)
   }, [])
-  
+
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu")
   }
@@ -75,4 +75,4 @@ const Header: React.FC<IHeaderProps> = () => {
   )
 }
 
-export default Header
+export default Header;
