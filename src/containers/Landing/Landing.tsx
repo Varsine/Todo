@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Landing.scss";
 
-interface ILandingProps {}
+interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
   return (
