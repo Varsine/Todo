@@ -27,6 +27,10 @@ $micro-text: 12px;
 	justify-content: space-between;
 }
 
+@mixin menu-shadow {
+	box-shadow: 2px 2px 5px #ccc;
+}
+
 @mixin second-button-style ($radius, $size, $padding) {
 	background: $button-second-bg 0% 0% no-repeat padding-box;
 	box-shadow: 0px 3px 14px #00000029;
