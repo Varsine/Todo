@@ -7,7 +7,7 @@
         @extend %flex-center-between;
         padding: 0 280px;
         display: flex;
-        background-image: url(~images/footerTopBg.png);
+        background-image: url(~assets/footerTopBg.png);
         background-repeat: no-repeat;
         background-size: 100% 100%;
         color: $text-color-primary;
@@ -25,11 +25,7 @@
             padding: 0 64px;
             justify-content: center;
             flex-wrap: wrap;
-        }
-
-        @include media(mobile) {
-            padding: 0 16px;
-
+            padding: 0 20px;
         }
 
         &__left-column {
@@ -57,12 +53,8 @@
                 @include media(mobile) {
                     font-size: $body-text;
                 }
-
             }
-
-
         }
-
 
         &__button {
             @include second-button-style(37px, $heading3, 25.5px 32px);
@@ -73,7 +65,6 @@
 
             @include media(tablet) {
                 @include second-button-style(37px, $intro-text, 12px 23px);
-
             }
 
             @include media(until-mobile) {
@@ -98,13 +89,8 @@
         }
 
         @include media(until-mobile) {
-            padding: 56px 64px;
+            padding: 56px 20px;
             flex-wrap: wrap-reverse;
-
-        }
-
-        @include media(mobile) {
-            padding: 56px 16px;
         }
     }
 
@@ -121,8 +107,8 @@
             padding: 0 64px 40px 64px;
         }
 
-        @include media(mobile) {
-            padding: 0 16px 32px 16px;
+        @include media(until-mobile) {
+            padding: 0 20px 32px 20px;
         }
     }
 }
