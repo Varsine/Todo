@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 
-import "./Image.scss"
+import "./Image.scss";
 
 interface IImageProps {
   src: string
@@ -12,7 +12,7 @@ interface IImageProps {
 const Image: React.FC<IImageProps> = ({
   src,
   alt = "",
-  onClick,
+  onClick = () => {},
   className = "",
 }) => {
   return (
@@ -25,4 +25,4 @@ const Image: React.FC<IImageProps> = ({
   )
 }
 
-export default Image
+export default Image;

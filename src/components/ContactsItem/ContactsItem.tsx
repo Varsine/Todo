@@ -13,4 +13,4 @@ const ContactsItem: React.FC<IContactsItemProps> = ({
   return (<p className={`app-contacts-item ${className}`}>{children}</p>)
 }
 
-export default ContactsItem
+export default ContactsItem;

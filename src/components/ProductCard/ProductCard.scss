@@ -1,0 +1,77 @@
+@import "~styles/root";
+
+.product-card {
+    &__image-column {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        margin-bottom: 10px;
+
+        &__img-container {
+            overflow: hidden;
+            object-fit: contain;
+            width: 100%;
+            height: 100%;
+        }
+
+        &__img-hover {
+            transition: bottom 300ms;
+            position: absolute;
+            z-index: 1;
+            height: 75px;
+            bottom: -75px;
+            width: 100%;
+            background-color: rgba(136, 132, 132, 0.8);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+
+            &__external-column {
+                width: 100%;
+                height: 100%;
+                bottom: 0;
+                padding: 0 30px;
+                position: absolute;
+                @extend %flex-center-between;
+
+                &__price {
+                    color: $surface-color;
+                    font-size: $intro-text;
+                    user-select: none;
+                }
+
+                &__button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 10px;
+                    padding: 5px 10px;
+                    &__text {
+                        margin-right: 7px;
+                    }
+                }
+            }
+        }
+    }
+
+    &__text-block {
+        font-size: $intro-text;
+        color: $text-color-surface;
+        text-align: center;
+
+        @include media(tablet) {
+            font-size: $body-text;
+            display: flex;
+            flex-wrap: wrap-reverse;
+            justify-content: center;
+        }
+
+        @include media(mobile) {
+            font-size: $caption-text;
+        }
+    }
+
+}
+
+.product-card__image-column:hover .product-card__image-column__img-hover {
+    bottom: 0;
+}

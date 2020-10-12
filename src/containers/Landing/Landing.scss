@@ -1,0 +1,144 @@
+ @import "~styles/root";
+
+ .app-landing {
+     font-family: 'Mardoto-Regular',
+         Fallback,
+         sans-serif;
+
+     &__parent {
+         &__top-column {
+             height: 100%;
+             display: flex;
+             justify-content: flex-end;
+
+             &__left-column {
+                 width: 100%;
+                 height: 100%;
+                 top: 0;
+                 left: 0;
+                 position: absolute;
+
+                 @include media(until-tablet) {
+                     height: 70%;
+                 }
+
+                 &__img {
+                     height: 100%;
+                     width: auto;
+
+                     @include media(until-tablet) {
+                         height: 100%;
+                         width: auto;
+                     }
+                 }
+             }
+
+             &__right-column {
+                 display: flex;
+                 justify-content: flex-end;
+                 align-items: center;
+                 height: 100%;
+                 z-index: 1;
+
+                 @include media(until-tablet) {
+                     justify-content: center;
+                     align-items: flex-end;
+                     width: 100%;
+                     height: auto;
+                 }
+
+                 &__children {
+                     text-align: right;
+
+                     @include media(until-tablet) {
+                         text-align: center;
+                         padding-bottom: 30px;
+                     }
+
+                     &__button {
+                         color: $surface-color;
+                         font-size: $intro-text;
+                         letter-spacing: 2.5px;
+                         margin-top: 40px;
+                         padding: 16px 44px;
+                         border-radius: 48px;
+                         @include media(until-tablet) {
+                             margin-top: 20px;
+                         }
+                     }
+                 }
+             }
+         }
+     }
+
+     &__product-column {
+         padding: 40px 0;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: space-between;
+         width: 100%;
+
+         @include media(until-tablet) {
+             height: auto;
+         }
+
+         &__children {
+             margin-bottom: 30px;
+             display: grid;
+             column-gap: 32px;
+             width: 100%;
+             grid-template-columns: auto auto auto auto;
+
+             @include media(desktop) {
+                 column-gap: 64px;
+             }
+
+             @include media(tablet) {
+                 grid-template-columns: auto auto;
+             }
+
+             @include media(until-mobile) {
+                 grid-template-columns: none;
+             }
+         }
+     }
+
+     &__about-boxy {
+         display: flex;
+         justify-content: center;
+
+         &__children {
+             max-width: 722px;
+             text-align: center;
+
+             &__text-block {
+                 color: $text-color-surface;
+                 font-size: $heading2;
+                 margin-bottom: 20px;
+
+                 @include media(desktop) {
+                     font-size: $heading3;
+                 }
+
+                 @include media(until-tablet) {
+                     font-size: $intro-text;
+                 }
+             }
+
+             &__text-content {
+                 color: $text-color-surface;
+                 font-size: $intro-text;
+                 line-height: 30px;
+
+                 @include media(desktop) {
+                     font-size: $intro-text;
+                 }
+
+                 @include media(until-tablet) {
+                     font-size: $body-text;
+                 }
+             }
+         }
+     }
+ }
