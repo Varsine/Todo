@@ -1,0 +1,10 @@
+@import "~styles/root";
+
+.full-height-wrap {
+    height: calc(100vh - 96px);
+    width: 100%;
+
+    @include media(until-desktop) {
+        height: calc(100vh - 64px);
+    }
+}

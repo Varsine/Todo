@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
-import "./CheckBoxContainer.scss"
+import "./CheckBoxContainer.scss";
 
 interface ICheckBoxContainerProps {}
 
 const CheckBoxContainer: React.FC<ICheckBoxContainerProps> = () => {
-  return <div></div>
+  return (<div></div>)
 }
 
 export default CheckBoxContainer

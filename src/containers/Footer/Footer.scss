@@ -1,6 +1,9 @@
 @import "~styles/root";
 
 .app-footer {
+    font-family: 'Mardoto-Regular',
+        Fallback,
+        sans-serif;
 
     &__top-column {
         height: 190px;

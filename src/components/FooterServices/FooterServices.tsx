@@ -1,7 +1,7 @@
 import React from "react";
 
 import Link from "components/Link/Link";
-import Heading from "components/Heading/Heading";
+import TextBlock from "components/TextBlock/TextBlock";
 
 import "./FooterServices.scss"
 
@@ -10,7 +10,7 @@ interface IFooterServicesProps {}
 const FooterServices: React.FC<IFooterServicesProps> = () => {
   return (
     <div className="footer-services">
-      <Heading>Սպասարկում</Heading>
+      <TextBlock>Սպասարկում</TextBlock>
       <Link className="footer-services__link" to="/faq">
         Հաճախ տրվող հարցեր
       </Link>
@@ -24,4 +24,4 @@ const FooterServices: React.FC<IFooterServicesProps> = () => {
   )
 }
 
-export default FooterServices
+export default FooterServices;

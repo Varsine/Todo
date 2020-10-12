@@ -121,7 +121,7 @@ const FooterBoxyLogo = () => {
                 transform="translate(282 2083.927)"
                 fill="rgba(0,0,0,0)"
                 stroke="#10202c"
-                stroke-miterlimit="10"
+                strokeMiterlimit="10"
                 stroke-width="2"
               />
             </g>
@@ -134,7 +134,7 @@ const FooterBoxyLogo = () => {
               transform="translate(282 2103.479)"
               fill="rgba(0,0,0,0)"
               stroke="#10202c"
-              stroke-miterlimit="10"
+              strokeMiterlimit="10"
               stroke-width="3"
             />
           </g>

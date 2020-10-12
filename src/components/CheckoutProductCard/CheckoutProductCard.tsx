@@ -1,11 +1,11 @@
-import React from "react"
+import React from "react";
 
-import "./CheckoutProductCard.scss"
+import "./ChechoutProductCard.scss";
 
-interface ICheckoutProductCardProps {}
+interface IChechoutProductCardProps {}
 
-const CheckoutProductCard: React.FC<ICheckoutProductCardProps> = () => {
-  return <div></div>
+const ChechoutProductCard: React.FC<IChechoutProductCardProps> = () => {
+  return (<div></div>)
 }
 
-export default CheckoutProductCard
+export default ChechoutProductCard
