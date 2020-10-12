@@ -3,7 +3,7 @@ import React from "react";
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
 import CartItem from "containers/CartItem/CartItem";
-import {productData} from "data-mockup/productDataMockup";
+import {productData} from "data-mockup/product-data.mockup";
 
 import "./Cart.scss";
 
@@ -27,7 +27,7 @@ const Cart: React.FC<ICartProps> = ({close, closeCartMenu}) => {
           </div>
         </div>
         <div className="cart-menu__inner__shopping">
-          {productData.map((product) => {
+          {productData.slice(0,2).map((product) => {
             return <CartItem productName={product.name} price={product.price} />
           })}
         </div>

@@ -5,7 +5,7 @@ import productImg from "assets/productImgSrc.png";
 import TextBlock from "components/TextBlock/TextBlock";
 import CloseIcon from "icons/CloseIcon";
 import Button from "components/Button/Button";
-import mockupData from "utils/priceToStringConverter";
+import priceToStringConverter from "utils/priceToStringConverter";
 
 import "./CartItem.scss";
 
@@ -54,7 +54,7 @@ const CartItem: React.FC<ICartItemProps> = ({productName, price}) => {
           </Button>
         </div>
         <div className="cart-item__right-column__price">
-          {mockupData(price, count)}
+          {`${priceToStringConverter(price * count)} Դ`}
         </div>
       </div>
     </div>

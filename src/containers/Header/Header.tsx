@@ -85,9 +85,9 @@ const Header: React.FC<IHeaderProps> = () => {
           Մուտք
         </Button>
       </div>
-      {cartMenu && true ? (
+      {cartMenu && (
         <Cart close={<CloseIcon />} closeCartMenu={toggleCartMenu} />
-      ) : null}
+      )}
     </header>
   )
 }
