@@ -4,25 +4,25 @@
   position: fixed;
   font-family: "Mardoto-Regular", Fallback, sans-serif;
   @extend %flex-center-between;
-  height: 96px;
+  height: $header-size;
   width: 100%;
-  padding: 0 280px;
+  padding: $layout-margin;
   transition: background-color 200ms ease-in-out;
   z-index: 100;
 
   @include media(until-desktop) {
-    height: 64px;
-    padding: 0 80px;
+    height: $header-size-small;
+    padding: $layout-margin-desktop;
   }
 
   @include media(until-tablet) {
-    padding: 0 64px;
+    padding: $layout-margin-tablet;
     background-color: $surface-color;
     box-shadow: 1px 1px 5px #ccc;
   }
 
   @include media(until-mobile) {
-    padding: 0 20px;
+    padding: $layout-margin-mobile;
   }
 
   &__mobile-menu-icon {
@@ -42,12 +42,14 @@
   }
 
   &__logo {
-    height: 80px;
-    width: 77px;
+    height: 65px;
+    width: 63px;
+    margin-top: -5px;
 
     @include media(until-desktop) {
-      height: 57px;
-      width: 55px;
+      height: 47px;
+      width: 45px;
+      margin: 0;
     }
   }
 

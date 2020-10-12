@@ -1,10 +1,11 @@
 import React, {useRef, useEffect, useState} from "react"
 
-import CartIcon from "icons/CartIcon"
-import Button from "components/Button/Button"
-import Logo from "components/Logo/Logo"
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
 import Link from "components/Link/Link"
+import Button from "components/Button/Button"
+import CartIcon from "icons/CartIcon"
+import BoxyLogo from "icons/BoxyLogo";
+import WhiteBoxyLogo from "icons/WhiteBoxyLogo";
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
 import MobileMenuIcon from "icons/MobileMenuIcon"
 
 import "./Header.scss"
@@ -40,7 +41,7 @@ const Header: React.FC<IHeaderProps> = () => {
         <MobileMenuIcon />
       </div>
       <div className="app-header__logo">
-        <Logo />
+        {headerBackgrounded ? <BoxyLogo /> : <WhiteBoxyLogo />}
       </div>
       <div className="app-header__right-column">
         <nav className="app-header__right-column__navigation" ref={navRef}>

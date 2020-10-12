@@ -10,7 +10,7 @@ interface IFooterServicesProps {}
 const FooterServices: React.FC<IFooterServicesProps> = () => {
   return (
     <div className="footer-services">
-      <TextBlock>Սպասարկում</TextBlock>
+      <TextBlock className="footer-services__text">Սպասարկում</TextBlock>
       <Link className="footer-services__link" to="/faq">
         Հաճախ տրվող հարցեր
       </Link>

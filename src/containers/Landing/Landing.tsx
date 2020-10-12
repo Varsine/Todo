@@ -14,7 +14,7 @@ import "./Landing.scss";
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  const [isMobile, setMobile] = useState(false);
+  const [isMobile, setMobile] = useState(window.innerWidth < 768);
   const productsContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,7 +34,8 @@ const Landing: React.FC<ILandingProps> = () => {
 
   const clickProductCart = () => { }
   const buttonClick = () => {
-    productsContainerRef.current?.scrollIntoView({ behavior: "smooth" })
+    // window.scrollTo({ top: productsContainerRef.current?.scrollHeight, behavior: 'smooth' })
+    productsContainerRef.current?.scrollIntoView({ behavior: "smooth", block: 'end' })
   }
   const clickButtonHover = () => { }
   return (
@@ -65,8 +66,8 @@ const Landing: React.FC<ILandingProps> = () => {
           </div>
         </div>
       </FullHeightWrap>
-      <div ref={productsContainerRef}>
-        <FullHeightWrap className="app-landing__product-column">
+      <FullHeightWrap >
+        <div ref={productsContainerRef} className="app-landing__product-column">
           <div className="app-landing__product-column__children">
             {productData.map((productItem: IProductDataItem) => {
               return (
@@ -95,8 +96,8 @@ const Landing: React.FC<ILandingProps> = () => {
           </p>
             </div>
           </div>
-        </FullHeightWrap>
-      </div>
+        </div>
+      </FullHeightWrap>
     </div>
   )
 }
