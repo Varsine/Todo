@@ -25,27 +25,26 @@ const ProductCard: React.FC<IProductCardProps> = ({
   return (
     <div className="product-card">
       <div className="product-card__image-column">
-        <div className="product-card__image-column__img">
+        <div className="product-card__image-column__img-container">
           <Image onClick={productClick} src={productImgSrc} />
         </div>
         <div className="product-card__image-column__img-hover">
-          <div className="product-card__image-column__img-hover__basis"></div>
           <div className="product-card__image-column__img-hover__external-column">
-            <p className="product-card__image-column__img-hover__external-column__price">
+            <span className="product-card__image-column__img-hover__external-column__price">
               {`${priceToStringConverter(price)} Դ`}
-            </p>
+            </span>
             <Button
               className="product-card__image-column__img-hover__external-column__button"
               onClick={clickButtonHover}
             >
-              Գնել
+              <span className="product-card__image-column__img-hover__external-column__button__text">Գնել</span>
               <CartIcon />
             </Button>
           </div>
         </div>
       </div>
       <TextBlock className="product-card__text-block">
-        <span>{`Նվեր տուփ ${productName}`}</span>
+        {`Նվեր տուփ ${productName}`}
       </TextBlock>
     </div>
   )

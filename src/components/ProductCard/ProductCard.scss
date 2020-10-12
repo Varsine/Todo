@@ -1,35 +1,29 @@
 @import "~styles/root";
 
 .product-card {
-
     &__image-column {
         position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        margin-bottom: 10px;
 
-
-        &__img {
+        &__img-container {
+            overflow: hidden;
             object-fit: contain;
             width: 100%;
             height: 100%;
         }
 
         &__img-hover {
+            transition: bottom 300ms;
             position: absolute;
+            z-index: 1;
             height: 75px;
-            bottom: 0;
+            bottom: -75px;
             width: 100%;
-
-            &__basis {
-                position: absolute;
-                height: 100%;
-                bottom: 0;
-                background-color: rgb(136, 132, 132);
-                opacity: 0.9;
-                filter: blur(3px);
-                border-bottom-left-radius: 16px;
-                border-bottom-right-radius: 16px;
-                width: 100%;
-                -webkit-filter: blur(3px);
-            }
+            background-color: rgba(136, 132, 132, 0.8);
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
 
             &__external-column {
                 width: 100%;
@@ -42,13 +36,18 @@
                 &__price {
                     color: $surface-color;
                     font-size: $intro-text;
+                    user-select: none;
                 }
 
                 &__button {
-                    @extend %flex-center-between;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border-radius: 10px;
-                    padding: 5px;
-                    width: 35%;
+                    padding: 5px 10px;
+                    &__text {
+                        margin-right: 7px;
+                    }
                 }
             }
         }
@@ -71,4 +70,8 @@
         }
     }
 
+}
+
+.product-card__image-column:hover .product-card__image-column__img-hover {
+    bottom: 0;
 }
