@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import Image from "components/Image/Image";
 import productImg from "assets/productImgSrc.png";
@@ -10,21 +10,20 @@ import priceToStringConverter from "utils/priceToStringConverter";
 import "./CartItem.scss";
 
 interface ICartItemProps {
-  productName: string
-  price: number
+  productName: string,
+  count: number,
+  price: number,
+  clickIncrement: () => void,
+  clickDecreaset: () => void,
 }
 
-const CartItem: React.FC<ICartItemProps> = ({productName, price}) => {
-  const [count, setCount] = useState(1)
-
-  const incrementItem = () => {
-    setCount(count + 1)
-  }
-  const decreaseItem = () => {
-    if (count > 1) {
-      setCount(count - 1)
-    }
-  }
+const CartItem: React.FC<ICartItemProps> = ({
+  productName,
+  count,
+  price,
+  clickDecreaset,
+  clickIncrement,
+}) => {
 
   return (
     <div className="cart-item">
@@ -41,20 +40,20 @@ const CartItem: React.FC<ICartItemProps> = ({productName, price}) => {
         <div className="cart-item__right-column__count">
           <Button
             className="cart-item__right-column__count__button"
-            onClick={decreaseItem}
+            onClick={clickDecreaset}
           >
             -
           </Button>
           <div className="cart-item__right-column__count__number">{count}</div>
           <Button
             className="cart-item__right-column__count__button"
-            onClick={incrementItem}
+            onClick={clickIncrement}
           >
             +
           </Button>
         </div>
         <div className="cart-item__right-column__price">
-          {`${priceToStringConverter(price * count)} Դ`}
+         {`${priceToStringConverter(price * count)} Դ`}
         </div>
       </div>
     </div>

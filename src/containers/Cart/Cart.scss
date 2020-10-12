@@ -2,8 +2,6 @@
 
 .cart-menu {
     position: fixed;
-    width: 100%;
-    height: 100%;
     top: 0;
     left: 0;
     right: 0;
@@ -23,10 +21,14 @@
         font-size: $heading3;
         animation: ChengeRigth 0.4s linear;
 
-        &__basket{
+        &__basket {
             display: flex;
             justify-content: space-between;
             margin: 0 0 54px 0;
+
+            &__text {
+                padding: 0;
+            }
 
             &__close-icon {
                 width: 34px;
