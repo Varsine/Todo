@@ -2,12 +2,10 @@ import React from 'react';
 
 import "./Heading.scss";
 
-interface IHeadingProps {
-  className?: string
-};
+interface IHeadingProps {};
 
-const Heading: React.FC<IHeadingProps> = ({className = "", children}) => {
-  return (<h1 className={`app-heading ${className}`}>{children}</h1>)
+const Heading: React.FC<IHeadingProps> = () => {
+return (<div></div>)
 }
 
-export default Heading
+export default Heading;

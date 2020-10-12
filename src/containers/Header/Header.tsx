@@ -1,13 +1,15 @@
-import React, {useRef, useEffect, useState} from "react"
+import React, {useRef, useEffect, useState} from "react";
 
-import CartIcon from "icons/CartIcon"
-import Button from "components/Button/Button"
-import Logo from "components/Logo/Logo"
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
-import Link from "components/Link/Link"
-import MobileMenuIcon from "icons/MobileMenuIcon"
+import CartIcon from "icons/CartIcon";
+import Button from "components/Button/Button";
+import Logo from "components/Logo/Logo";
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
+import Link from "components/Link/Link";
+import MobileMenuIcon from "icons/MobileMenuIcon";
+import Cart from "containers/Cart/Cart";
+import CloseIcon from "icons/CloseIcon";
 
-import "./Header.scss"
+import "./Header.scss";
 
 interface IHeaderProps {}
 
@@ -15,6 +17,11 @@ const Header: React.FC<IHeaderProps> = () => {
   const buttonClick = () => {}
   const navRef = useRef<HTMLElement>(null)
   const [headerBackgrounded, setHeaderBackgrounded] = useState("")
+  const [cartMenu, setCartMenu] = useState(false)
+
+  const toggleCartMenu = () => {
+    setCartMenu(!cartMenu)
+  }
 
   const scrollHandler = () => {
     if (window.scrollY > 100) {
@@ -23,13 +30,14 @@ const Header: React.FC<IHeaderProps> = () => {
       setHeaderBackgrounded("")
     }
   }
+  
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
     return () => {
       window.removeEventListener("scroll", scrollHandler)
     }
   }, [])
- 
+
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu")
   }
@@ -64,7 +72,10 @@ const Header: React.FC<IHeaderProps> = () => {
         <div className="app-header__right-column__profile-header-icon">
           <ProfileHeaderIcon />
         </div>
-        <div className="app-header__right-column__cart-icon">
+        <div
+          className="app-header__right-column__cart-icon"
+          onClick={toggleCartMenu}
+        >
           <CartIcon />
         </div>
         <Button
@@ -74,8 +85,11 @@ const Header: React.FC<IHeaderProps> = () => {
           Մուտք
         </Button>
       </div>
+      {cartMenu && true ? (
+        <Cart close={<CloseIcon />} closeCartMenu={toggleCartMenu} />
+      ) : null}
     </header>
   )
 }
 
-export default Header
+export default Header;

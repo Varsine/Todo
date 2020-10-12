@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'components/Link/Link'
 import FbFooterIcon from 'icons/FbFooterIcon';
 import InstaFooterIcon from 'icons/InstaFooterIcon';
-import Heading from "components/Heading/Heading";
+import TextBlock from "components/TextBlock/TextBlock";
 
 import "./FooterSocialMedia.scss";
 
@@ -12,7 +12,7 @@ interface IFooterSocialMediaProps {};
 const FooterSocialMedia: React.FC<IFooterSocialMediaProps> = () => {
   return (
     <div className="footer-social-media">
-      <Heading>Գտիր մեզ սոց․ցանցերում</Heading>
+      <TextBlock>Գտիր մեզ սոց․ցանցերում</TextBlock>
       <div>
         <Link
           className="footer-social-media__link"
@@ -31,4 +31,4 @@ const FooterSocialMedia: React.FC<IFooterSocialMediaProps> = () => {
   )
 }
 
-export default FooterSocialMedia
+export default FooterSocialMedia;

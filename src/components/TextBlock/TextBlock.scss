@@ -1,0 +1,16 @@
+@import "~styles/root";
+
+.app-text-block {
+    font-size: $intro-text;
+    color: $text-color-primary;
+    padding: 0 0 27px 0;
+    font-weight: 600;
+
+    @include media(until-tablet) {
+        font-size: $body-text;
+    }
+
+    @include media(until-mobile) {
+        padding: 40px 0 24px;
+    }
+}
