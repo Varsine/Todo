@@ -32,7 +32,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
           <div className="product-card__image-column__img-hover__basis"></div>
           <div className="product-card__image-column__img-hover__external-column">
             <p className="product-card__image-column__img-hover__external-column__price">
-              {priceToStringConverter(price)}
+              {`${priceToStringConverter(price)} Դ`}
             </p>
             <Button
               className="product-card__image-column__img-hover__external-column__button"

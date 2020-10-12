@@ -6,22 +6,22 @@ export interface IProductDataItem {
 export const productData: IProductDataItem[] = [
     {
         name: "Regular",
-        price: 14.9,
+        price: 14900,
     },
     {
 
         name: "Regular Plus",
 
-        price: 19.9,
+        price: 19900,
 
     },
     {
         name: "Premium",
-        price: 24.9,
+        price: 24900,
     },
     {
 
         name: "Premium Plus",
-        price: 29.9,
+        price: 29900,
     },
 ]

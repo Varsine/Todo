@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Button from "components/Button/Button";
 import landingTopBg from "assets/landingTopBg.png";
+import landingTopBgMobile from "assets/landingTopBgMobile.png";
 import TextBlock from "components/TextBlock/TextBlock";
 import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 import ProductCard from "components/ProductCard/ProductCard";
@@ -13,6 +14,23 @@ import "./Landing.scss";
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
+  const [isMobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    }
+  }, []);
+
+  const handleResize = () => {
+    if (window.innerWidth < 768) {
+      setMobile(true);
+    } else {
+      setMobile(false);
+    }
+  }
+
   const clickProductCart = () => { }
   const buttonClick = () => { }
   const clickButtonHover = () => { }
@@ -23,7 +41,7 @@ const Landing: React.FC<ILandingProps> = () => {
           <div className="app-landing__parent__top-column__left-column">
             <img
               className="app-landing__parent__top-column__left-column__img"
-              src={landingTopBg}
+              src={!isMobile ? landingTopBg : landingTopBgMobile}
               alt=""
             />
           </div>
