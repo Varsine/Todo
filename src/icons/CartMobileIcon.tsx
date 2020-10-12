@@ -5,7 +5,7 @@ const CartMobileIcon = () => {
         <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
                 <g id="Group_1083" data-name="Group 1083" transform="translate(-305.599 -14.599)">
-                    <g id="Ellipse_119" data-name="Ellipse 119" transform="translate(305.599 14.599)" fill="#fff" stroke="#ff8a65" strokeWidth="0.5">
+                    <g id="Ellipse_119" data-name="Ellipse 119" transform="translate(305.599 14.599)" fill="#fff" stroke="#ff8a65" stroke-width="0.5">
                         <circle cx="22" cy="22" r="22" stroke="none" />
                         <circle cx="22" cy="22" r="21.75" fill="none" />
                     </g>

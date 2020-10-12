@@ -122,7 +122,7 @@ const FooterBoxyLogo = () => {
                 fill="rgba(0,0,0,0)"
                 stroke="#10202c"
                 strokeMiterlimit="10"
-                strokeWidth="2"
+                stroke-width="2"
               />
             </g>
             <rect
@@ -135,7 +135,7 @@ const FooterBoxyLogo = () => {
               fill="rgba(0,0,0,0)"
               stroke="#10202c"
               strokeMiterlimit="10"
-              strokeWidth="3"
+              stroke-width="3"
             />
           </g>
         </g>
