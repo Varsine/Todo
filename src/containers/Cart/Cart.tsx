@@ -3,16 +3,16 @@ import React from "react";
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
 import CartItem from "containers/CartItem/CartItem";
+import CloseIcon from "icons/CloseIcon";
 import {productData} from "data-mockup/product-data.mockup";
 
 import "./Cart.scss";
 
 interface ICartProps {
-  close: any
   closeCartMenu: () => void
 }
 
-const Cart: React.FC<ICartProps> = ({close, closeCartMenu}) => {
+const Cart: React.FC<ICartProps> = ({closeCartMenu}) => {
   const clickContinue = () => {}
   return (
     <div className="cart-menu">
@@ -23,7 +23,7 @@ const Cart: React.FC<ICartProps> = ({close, closeCartMenu}) => {
             onClick={closeCartMenu}
             className="cart-menu__inner__basket__close-icon"
           >
-            {close}
+            <CloseIcon/>
           </div>
         </div>
         <div className="cart-menu__inner__shopping">

@@ -1,13 +1,12 @@
 import React, {useRef, useEffect, useState} from "react";
 
-import CartIcon from "icons/CartIcon";
 import Button from "components/Button/Button";
 import Logo from "components/Logo/Logo";
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 import Link from "components/Link/Link";
-import MobileMenuIcon from "icons/MobileMenuIcon";
 import Cart from "containers/Cart/Cart";
-import CloseIcon from "icons/CloseIcon";
+import MobileMenuIcon from "icons/MobileMenuIcon";
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
+import CartIcon from "icons/CartIcon";
 
 import "./Header.scss";
 
@@ -86,7 +85,7 @@ const Header: React.FC<IHeaderProps> = () => {
         </Button>
       </div>
       {cartMenu && (
-        <Cart close={<CloseIcon />} closeCartMenu={toggleCartMenu} />
+        <Cart closeCartMenu={toggleCartMenu} />
       )}
     </header>
   )
