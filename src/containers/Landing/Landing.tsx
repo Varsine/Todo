@@ -25,9 +25,10 @@ const Landing: React.FC<ILandingProps> = () => {
   }, []);
 
   const handleResize = () => {
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 768 && !isMobile) {
       setMobile(true);
-    } else {
+    } else if (window.innerWidth >= 768 && isMobile) {
+      console.log('here')
       setMobile(false);
     }
   }

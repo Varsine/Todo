@@ -25,9 +25,9 @@ const Header: React.FC<IHeaderProps> = () => {
     }
   }
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler)
+    window.addEventListener("scroll", scrollHandler);
     return () => {
-      window.removeEventListener("scroll", scrollHandler)
+      window.removeEventListener("scroll", scrollHandler);
     }
   }, [])
  
@@ -41,7 +41,7 @@ const Header: React.FC<IHeaderProps> = () => {
         <MobileMenuIcon />
       </div>
       <div className="app-header__logo">
-        {headerBackgrounded ? <BoxyLogo /> : <WhiteBoxyLogo />}
+        {headerBackgrounded || (window.innerWidth < 1024) ? <BoxyLogo /> : <WhiteBoxyLogo />}
       </div>
       <div className="app-header__right-column">
         <nav className="app-header__right-column__navigation" ref={navRef}>
