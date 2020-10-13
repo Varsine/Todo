@@ -32,7 +32,7 @@ const CartItem: React.FC<ICartItemProps> = ({
       </div>
       <div className="cart-item__right-column">
         <div className="cart-item__right-column__product-name">
-          <TextBlock>Նվեր տուփ - {productName}</TextBlock>
+          <TextBlock className="cart-item__right-column__product-name__text">Նվեր տուփ - {productName}</TextBlock>
           <div className="cart-item__right-column__product-name__close-icon">
             <CloseIcon />
           </div>

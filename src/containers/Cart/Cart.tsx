@@ -1,18 +1,20 @@
-import React, {useState} from "react"
+import React, {useState} from "react";
 
-import TextBlock from "components/TextBlock/TextBlock"
-import Button from "components/Button/Button"
-import CartItem from "containers/CartItem/CartItem"
-import CloseIcon from "icons/CloseIcon"
-import priceToStringConverter from "utils/priceToStringConverter"
-import {productData} from "data-mockup/product-data.mockup"
+import TextBlock from "components/TextBlock/TextBlock";
+import Button from "components/Button/Button";
+import CartItem from "containers/CartItem/CartItem";
+import CloseIcon from "icons/CloseIcon";
+import priceToStringConverter from "utils/priceToStringConverter";
+import {productData} from "data-mockup/product-data.mockup";
 
-import "./Cart.scss"
+import "./Cart.scss";
 
 interface ICartProps {
   closeCartMenu: () => void
+  className?: string
 }
-const Cart: React.FC<ICartProps> = ({closeCartMenu}) => {
+
+const Cart: React.FC<ICartProps> = ({closeCartMenu, className}) => {
   const [count, setCount] = useState(1)
 
   const incrementItem = () => {
@@ -26,8 +28,9 @@ const Cart: React.FC<ICartProps> = ({closeCartMenu}) => {
   const total = productData[0].price * count + productData[1].price * count
   const clickContinue = () => {}
   return (
-    <div className="cart-menu">
-      <div className="cart-menu__inner" >
+    <div className={`cart-menu ${className}`}>
+      <div className="cart-menu__basis" onClick={closeCartMenu}></div>
+      <div className="cart-menu__inner">
         <div className="cart-menu__inner__basket">
           <TextBlock className="cart-menu__inner__basket__text">
             Իմ զամբյուղը
@@ -53,7 +56,9 @@ const Cart: React.FC<ICartProps> = ({closeCartMenu}) => {
           })}
         </div>
         <div className="cart-menu__inner__total">
-          <TextBlock>Ընդամենը</TextBlock>
+          <TextBlock className="cart-menu__inner__total__text">
+            Ընդամենը
+          </TextBlock>
           <div className="cart-menu__inner__total__value">
             {`${priceToStringConverter(total)} Դ`}
           </div>
@@ -71,4 +76,4 @@ const Cart: React.FC<ICartProps> = ({closeCartMenu}) => {
   )
 }
 
-export default Cart
+export default Cart;

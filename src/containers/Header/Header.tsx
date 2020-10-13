@@ -17,11 +17,10 @@ const Header: React.FC<IHeaderProps> = () => {
   const navRef = useRef<HTMLElement>(null)
   const [headerBackgrounded, setHeaderBackgrounded] = useState("")
   const [cartMenu, setCartMenu] = useState(false)
-
+  const [mobileCart, setMobileCart] = useState("")
   const toggleCartMenu = () => {
     setCartMenu(!cartMenu)
   }
-
   const scrollHandler = () => {
     if (window.scrollY > 100) {
       setHeaderBackgrounded("scrolled")
@@ -29,7 +28,7 @@ const Header: React.FC<IHeaderProps> = () => {
       setHeaderBackgrounded("")
     }
   }
-  
+
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler)
     return () => {
@@ -39,6 +38,10 @@ const Header: React.FC<IHeaderProps> = () => {
 
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu")
+    setMobileCart("mobile-cart")
+    if (!navRef.current?.className.includes("mobile-menu")) {
+      setMobileCart("")
+    }
   }
 
   return (
@@ -85,7 +88,7 @@ const Header: React.FC<IHeaderProps> = () => {
         </Button>
       </div>
       {cartMenu && (
-        <Cart closeCartMenu={toggleCartMenu} />
+        <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />
       )}
     </header>
   )

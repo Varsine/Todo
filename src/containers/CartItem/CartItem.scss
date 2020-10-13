@@ -10,12 +10,21 @@
     padding: 8px;
     margin: 10px 0;
 
+    @include media(until-desktop) {
+        height: 104px;
+    }
+
     &__left-column {
 
         &__img {
             width: 120px;
             height: 120px;
             border-radius: 0;
+
+            @include media(until-desktop) {
+                width: 88px;
+                height: 88px;
+            }
         }
     }
 
@@ -27,27 +36,60 @@
             display: flex;
             justify-content: space-between;
 
+            &__text {
+                padding: 0;
+                color: $text-color-surface;
+
+                @include media(until-desktop) {
+                    font-size: $body-text;
+                }
+
+                @include media(until-mobile) {
+                    font-size: $caption-text;
+                }
+            }
+
             &__close-icon {
+                cursor: pointer;
                 width: 24px;
                 height: 24px;
+
+                @include media(until-desktop) {
+                    width: 20px;
+                    height: 20px;
+                }
             }
         }
 
         &__count {
+            margin: 14px 0 35px;
             display: flex;
             color: $text-color-primary;
 
+            @include media(until-desktop) {
+                margin: 11px 0 19px;
+            }
+
             &__button {
-                height: 24px;
                 padding: 0;
+                height: 24px;
                 width: 24px;
                 border-radius: 4px;
                 background-color: $count-button-bg;
+
+                @include media(until-desktop) {
+                    height: 20px;
+                    width: 20px;
+                }
             }
 
             &__number {
                 padding: 2px 8px;
                 font-size: $intro-text;
+
+                @include media(until-desktop) {
+                    font-size: $body-text;
+                }
             }
         }
 
@@ -55,6 +97,10 @@
             text-align: end;
             color: $text-color-surface;
             font-size: $intro-text;
+
+            @include media(until-desktop) {
+                font-size: $body-text;
+            }
         }
     }
 }
