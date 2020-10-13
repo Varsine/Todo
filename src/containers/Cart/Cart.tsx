@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
 import CartItem from "containers/CartItem/CartItem";
 import CloseIcon from "icons/CloseIcon";
 import priceToStringConverter from "utils/priceToStringConverter";
-import {productData} from "data-mockup/product-data.mockup";
+import { productData } from "data-mockup/product-data.mockup";
 
 import "./Cart.scss";
 
@@ -13,20 +13,20 @@ interface ICartProps {
   closeCartMenu: () => void
 }
 
-const Cart: React.FC<ICartProps> = ({closeCartMenu}) => {
-  const [count, setCount] = useState(1)
+const Cart: React.FC<ICartProps> = ({ closeCartMenu }) => {
+  const [count, setCount] = useState(1);
 
   const incrementItem = () => {
-    setCount(count + 1)
+    setCount(count + 1);
   }
   const decreaseItem = () => {
     if (count > 1) {
-      setCount(count - 1)
+      setCount(count - 1);
     }
   }
 
   const total = productData[0].price * count + productData[1].price * count
-  const clickContinue = () => {}
+  const clickContinue = () => { }
   return (
     <div className="cart-menu">
       <div className="cart-menu__inner">

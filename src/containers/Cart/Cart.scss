@@ -24,6 +24,7 @@
         &__basket {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin: 0 0 54px 0;
 
             &__text {
@@ -31,8 +32,12 @@
             }
 
             &__close-icon {
+                cursor: pointer;
                 width: 34px;
                 height: 34px;
+                &:hover {
+                    transform: scale(1.2);
+                }
             }
         }
 
@@ -54,7 +59,7 @@
         }
 
         &__parent-btn {
-            padding: 40px 0;
+            margin-top: 40px;
             display: flex;
             justify-content: center;
 
