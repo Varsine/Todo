@@ -1,14 +1,14 @@
-import React, {useRef, useEffect, useState} from "react"
+import React, {useRef, useEffect, useState} from "react";
 
-import Link from "components/Link/Link"
-import Button from "components/Button/Button"
-import CartIcon from "icons/CartIcon"
+import Link from "components/Link/Link";
+import Button from "components/Button/Button";
 import BoxyLogo from "icons/BoxyLogo";
-import WhiteBoxyLogo from "icons/WhiteBoxyLogo";
-import ProfileHeaderIcon from "icons/ProfileHeaderIcon"
-import MobileMenuIcon from "icons/MobileMenuIcon"
+import MobileMenuIcon from "icons/MobileMenuIcon";
+import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
+import CartIcon from "icons/CartIcon";
+import Cart from "containers/Cart/Cart";
 
-import "./Header.scss"
+import "./Header.scss";
 
 interface IHeaderProps {}
 
@@ -16,7 +16,11 @@ const Header: React.FC<IHeaderProps> = () => {
   const buttonClick = () => {}
   const navRef = useRef<HTMLElement>(null)
   const [headerBackgrounded, setHeaderBackgrounded] = useState("")
-
+  const [cartMenu, setCartMenu] = useState(false)
+  const [mobileCart, setMobileCart] = useState("")
+  const toggleCartMenu = () => {
+    setCartMenu(!cartMenu)
+  }
   const scrollHandler = () => {
     if (window.scrollY > 100) {
       setHeaderBackgrounded("scrolled")
@@ -24,15 +28,20 @@ const Header: React.FC<IHeaderProps> = () => {
       setHeaderBackgrounded("")
     }
   }
+
   useEffect(() => {
     window.addEventListener("scroll", scrollHandler);
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     }
   }, [])
- 
+
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu")
+    setMobileCart("mobile-cart")
+    if (!navRef.current?.className.includes("mobile-menu")) {
+      setMobileCart("")
+    }
   }
 
   return (
@@ -65,7 +74,10 @@ const Header: React.FC<IHeaderProps> = () => {
         <div className="app-header__right-column__profile-header-icon">
           <ProfileHeaderIcon />
         </div>
-        <div className="app-header__right-column__cart-icon">
+        <div
+          className="app-header__right-column__cart-icon"
+          onClick={toggleCartMenu}
+        >
           <CartIcon />
         </div>
         <Button
@@ -75,8 +87,11 @@ const Header: React.FC<IHeaderProps> = () => {
           Մուտք
         </Button>
       </div>
+      {cartMenu && (
+        <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />
+      )}
     </header>
   )
 }
 
-export default Header
+export default Header;

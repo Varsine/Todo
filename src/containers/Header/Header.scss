@@ -102,6 +102,7 @@
 
     &__profile-header-icon {
       margin: 0 12px;
+      cursor: pointer;
 
       @include media(until-tablet) {
         display: none;
@@ -110,6 +111,7 @@
 
     &__cart-icon {
       margin: 0 12px;
+      cursor: pointer;
 
       @include media(until-tablet) {
         width: 41px;
@@ -145,4 +147,14 @@
 
 .mobile-menu {
   display: block;
+}
+
+.mobile-cart {
+  @include media(until-tablet) {
+    top: 240px;
+  }
+
+  @include media(until-mobile) {
+    top: 177px;
+  }
 }
