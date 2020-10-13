@@ -146,3 +146,13 @@
 .mobile-menu {
   display: block;
 }
+
+.mobile-cart {
+  @include media(until-tablet) {
+    top: 240px;
+  }
+
+  @include media(until-mobile) {
+    top: 177px;
+  }
+}
