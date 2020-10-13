@@ -13,16 +13,16 @@ interface ICartItemProps {
   productName: string,
   count: number,
   price: number,
-  clickIncrement: () => void,
-  clickDecreaset: () => void,
+  clickPlus: () => void,
+  clickMinus: () => void,
 }
 
 const CartItem: React.FC<ICartItemProps> = ({
   productName,
   count,
   price,
-  clickDecreaset,
-  clickIncrement,
+  clickPlus,
+  clickMinus,
 }) => {
 
   return (
@@ -40,14 +40,14 @@ const CartItem: React.FC<ICartItemProps> = ({
         <div className="cart-item__right-column__count">
           <Button
             className="cart-item__right-column__count__button"
-            onClick={clickDecreaset}
+            onClick={clickMinus}
           >
             -
           </Button>
           <div className="cart-item__right-column__count__number">{count}</div>
           <Button
             className="cart-item__right-column__count__button"
-            onClick={clickIncrement}
+            onClick={clickPlus}
           >
             +
           </Button>
