@@ -13,9 +13,7 @@ export const productData: IProductDataItem[] = [
     {
         id: 2,
         name: "Regular Plus",
-
         price: 19900,
-
     },
     {
         id: 3,

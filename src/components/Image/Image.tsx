@@ -6,20 +6,20 @@ interface IImageProps {
   src: string
   alt?: string
   className?: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const Image: React.FC<IImageProps> = ({
   src,
   alt = "",
-  onClick,
+  onClick = () => {},
   className = "",
 }) => {
   return (
     <img
       onClick={onClick}
       className={`app-img ${className}`}
-      alt={`${alt}`}
+      alt={alt}
       src={src}
     />
   )

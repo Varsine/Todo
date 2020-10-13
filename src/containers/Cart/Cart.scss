@@ -1,0 +1,83 @@
+@import "~styles/root";
+
+.cart-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.63);
+
+    &__inner {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 34%;
+        background-color: $surface-color;
+        padding: 40px;
+        border-bottom: 1px solid $mobile-menu-border-bg;
+        color: $text-color-surface;
+        font-size: $heading3;
+        animation: ChengeRigth 0.4s linear;
+
+        &__basket {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 0 54px 0;
+
+            &__text {
+                padding: 0;
+            }
+
+            &__close-icon {
+                cursor: pointer;
+                width: 34px;
+                height: 34px;
+                &:hover {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        &__shopping {
+            max-height: 50%;
+            padding-bottom: 6px;
+            border-bottom: 1px solid $mobile-menu-border-bg;
+        }
+
+        &__total {
+            margin-top: 16px;
+            display: flex;
+            justify-content: space-between;
+
+            &__value {
+                color: $text-color-surface;
+                font-size: $intro-text;
+            }
+        }
+
+        &__parent-btn {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+
+            &__button {
+                color: $text-color-primary;
+                background-color: $primary-color-light;
+                font-size: $intro-text;
+            }
+        }
+    }
+}
+
+@keyframes ChengeRigth {
+    0% {
+        right: -33%;
+    }
+
+    100% {
+        right: 0;
+    }
+}

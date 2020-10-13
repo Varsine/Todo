@@ -3,7 +3,7 @@ import React from "react";
 import Link from "components/Link/Link";
 import TextBlock from "components/TextBlock/TextBlock";
 
-import "./FooterServices.scss"
+import "./FooterServices.scss";
 
 interface IFooterServicesProps {}
 
