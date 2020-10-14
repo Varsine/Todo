@@ -3,6 +3,7 @@ import React, {useRef, useEffect, useState} from "react";
 import Link from "components/Link/Link";
 import Button from "components/Button/Button";
 import BoxyLogo from "icons/BoxyLogo";
+import WhiteBoxyLogo from "icons/WhiteBoxyLogo";
 import MobileMenuIcon from "icons/MobileMenuIcon";
 import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 import CartIcon from "icons/CartIcon";
