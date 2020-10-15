@@ -1,0 +1,23 @@
+@import "~styles/root";
+
+.app-label {
+    display: flex;
+    align-items: center;
+    font-size: $body-text;
+    color: $text-color-surface;
+
+    &__input-radio {
+        margin: 0 24px;
+        appearance: none;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        border: 2px solid $primary-color;
+
+        &:checked {
+            box-shadow: 0 0 3px 3px $primary-color;
+            border: 8px solid $surface-color;
+            background-color: $primary-color;
+        }
+    }
+}

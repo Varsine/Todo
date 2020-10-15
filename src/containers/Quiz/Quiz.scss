@@ -1,0 +1,91 @@
+@import "~styles/root";
+
+.app-quiz {
+    font-family: 'Mardoto-Regular',
+        Fallback,
+        sans-serif;
+
+    &__bg-img {
+        position: absolute;
+        top: 245px;
+        left: 0;
+        width: 427px;
+        height: 380px;
+    }
+
+    &__content {
+        text-align: center;
+        margin-top: 80px;
+        height: calc(100vh - 96px);
+
+        &__heading {
+            font-size: $heading2;
+        }
+
+        &__dots {
+            margin: 80px 4px 0;
+            display: inline-block;
+            height: 9px;
+            width: 9px;
+            background-color: $dots-bg;
+            border-radius: 50%;
+        }
+
+        &__question {
+            font-size: $intro-text;
+            padding: 0;
+            color: $text-color-surface;
+            margin: 38px 0 30px;
+        }
+
+        &__options {
+            display: flex;
+            justify-content: center;
+
+            &__text-area {
+                width: 576px;
+                height: 208px;
+                border-radius: 8px;
+                padding: 16px 24px;
+                opacity: 41%;
+                color: $text-color-surface;
+                font-size: $body-text;
+                border: 1px solid #CCCCCC;
+            }
+        }
+
+        &__button {
+            display: flex;
+            justify-content: center;
+            margin: 38px 0 0;
+
+            &__prev {
+                display: flex;
+                align-items: center;
+                margin: 0 8px;
+                padding: 12px 33px;
+                background-color: $secondary-color-light;
+                border-radius: 20px;
+                box-shadow: 0px 3px 6px $quiz-option-shadow;
+
+                &:hover {
+                    background-color: $secondary-color-dark;
+                }
+            }
+
+            &__next {
+                display: flex;
+                align-items: center;
+                margin: 0 8px;
+                padding: 12px 33px;
+                background-color: $primary-color-light;
+                border-radius: 20px;
+                box-shadow: 0px 3px 6px $quiz-option-shadow;
+            }
+        }
+    }
+}
+
+.active-dot {
+    background-color: $mobile-menu-border-bg;
+}
