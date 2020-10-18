@@ -1,6 +1,6 @@
 import React from "react";
 
-import productImgSrc from "assets/productImgSrc.png";
+import productImgSrc from "assets/product-image.png";
 import Image from "components/Image/Image";
 import Button from "components/Button/Button";
 import CartIcon from "icons/CartIcon";
@@ -44,7 +44,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
         </div>
       </div>
       <TextBlock className="product-card__text-block">
-        {`Նվեր տուփ ${productName}`}
+        {productName}
       </TextBlock>
     </div>
   )

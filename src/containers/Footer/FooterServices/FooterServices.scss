@@ -1,6 +1,9 @@
 @import "~styles/root";
 
 .footer-services {
+    &__text {
+        margin-bottom: 15px;
+    }
     &__link {
         display: block;
         font-size: $body-text;
