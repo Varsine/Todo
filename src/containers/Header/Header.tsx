@@ -1,12 +1,13 @@
 import React, {useRef, useEffect, useState} from "react";
 
-import Button from "components/Button/Button";
-import Logo from "components/Logo/Logo";
 import Link from "components/Link/Link";
-import Cart from "containers/Cart/Cart";
+import Button from "components/Button/Button";
+import BoxyLogo from "icons/BoxyLogo";
+import WhiteBoxyLogo from "icons/WhiteBoxyLogo";
 import MobileMenuIcon from "icons/MobileMenuIcon";
 import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 import CartIcon from "icons/CartIcon";
+import Cart from "containers/Cart/Cart";
 
 import "./Header.scss";
 
@@ -30,9 +31,9 @@ const Header: React.FC<IHeaderProps> = () => {
   }
 
   useEffect(() => {
-    window.addEventListener("scroll", scrollHandler)
+    window.addEventListener("scroll", scrollHandler);
     return () => {
-      window.removeEventListener("scroll", scrollHandler)
+      window.removeEventListener("scroll", scrollHandler);
     }
   }, [])
 
@@ -50,7 +51,7 @@ const Header: React.FC<IHeaderProps> = () => {
         <MobileMenuIcon />
       </div>
       <div className="app-header__logo">
-        <Logo />
+        {headerBackgrounded || (window.innerWidth < 1024) ? <BoxyLogo /> : <WhiteBoxyLogo />}
       </div>
       <div className="app-header__right-column">
         <nav className="app-header__right-column__navigation" ref={navRef}>

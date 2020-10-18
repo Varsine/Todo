@@ -12,7 +12,8 @@ export const productData: IProductDataItem[] = [
     },
     {
         id: 2,
-        name: "Regular Plus",
+        name: "Regular +",
+
         price: 19900,
     },
     {
@@ -22,7 +23,7 @@ export const productData: IProductDataItem[] = [
     },
     {
         id: 4,
-        name: "Premium Plus",
+        name: "Premium +",
         price: 29900,
     },
 ]

@@ -1,27 +1,25 @@
  @import "~styles/root";
 
  .app-landing {
-     font-family: 'Mardoto-Regular',
-         Fallback,
-         sans-serif;
-
+     font-family: 'Mardoto-Regular', Fallback, sans-serif;
      &__parent {
          &__top-column {
              height: 100%;
              display: flex;
              justify-content: flex-end;
-
              &__left-column {
                  width: 100%;
                  height: 100%;
                  top: 0;
                  left: 0;
                  position: absolute;
-
+                 overflow: hidden;
                  @include media(until-tablet) {
                      height: 70%;
                  }
-
+                 @include media(until-mobile) {
+                     height: 60%;
+                 }
                  &__img {
                      height: 100%;
                      width: auto;
@@ -38,23 +36,23 @@
                  justify-content: flex-end;
                  align-items: center;
                  height: 100%;
+                 width: 100%;
                  z-index: 1;
 
                  @include media(until-tablet) {
                      justify-content: center;
                      align-items: flex-end;
-                     width: 100%;
-                     height: auto;
                  }
 
                  &__children {
                      text-align: right;
-
                      @include media(until-tablet) {
                          text-align: center;
-                         padding-bottom: 30px;
+                         padding-bottom: 50px;
                      }
-
+                     @include media(until-mobile) {
+                         padding-bottom: 35px;
+                     }
                      &__button {
                          color: $surface-color;
                          font-size: $intro-text;
@@ -72,15 +70,14 @@
      }
 
      &__product-column {
-         padding: 40px 0;
+         padding: 50px 0;
          display: flex;
          flex-direction: column;
          align-items: center;
          justify-content: space-between;
-         width: 100%;
-
-         @include media(until-tablet) {
-             height: auto;
+         height: 100%;
+         @include media(until-mobile) {
+             padding: 20px 0;
          }
 
          &__children {
@@ -90,16 +87,16 @@
              width: 100%;
              grid-template-columns: auto auto auto auto;
 
-             @include media(desktop) {
-                 column-gap: 64px;
+             @include media(until-desktop) {
+                 column-gap: 16px;
              }
 
              @include media(tablet) {
-                 grid-template-columns: auto auto;
+                 grid-template-columns: auto auto auto auto;
              }
 
              @include media(until-mobile) {
-                 grid-template-columns: none;
+                 grid-template-columns: auto auto;
              }
          }
      }

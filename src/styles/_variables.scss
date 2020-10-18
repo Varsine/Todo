@@ -4,10 +4,18 @@ $breakPoints: (
 	tablet: (start: '768px', end: '1024px'),
 	desktop:(start: '1025px', end: '1360px'),
 	desktop-large: (start: '1361px', end: null),
-	until-mobile: (start: null, end: '768px'),
+	until-mobile: (start: null, end: '767px'),
 	until-tablet: (start: null, end: '1024px'),
 	until-desktop: (start: null, end: '1360px')
 );
+
+$layout-margin: 0 180px;
+$layout-margin-desktop: 0 80px;
+$layout-margin-tablet: 0 64px;
+$layout-margin-mobile: 0 20px;
+
+$header-size: 80px;
+$header-size-small: 64px;
 
 // text font-size
 
@@ -19,35 +27,7 @@ $body-text: 16px;
 $caption-text: 14px;
 $micro-text: 12px;
 
-// shablon-style
+// template-style
 
-%flex-center-between {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
 
-@mixin menu-shadow {
-	box-shadow: 2px 2px 5px #ccc;
-}
 
-@mixin second-button-style ($radius, $size, $padding) {
-	background: $button-second-bg 0% 0% no-repeat padding-box;
-	box-shadow: 0px 3px 14px #00000029;
-	border-radius: $radius;
-	font-size: $size;
-	padding: $padding;
-
-	&:hover {
-		background-color: $button-second-bg-hover;
-	}
-
-	&:disabled {
-		background-color: $button-second-bg-disabled;
-		color: $button-second-color-disabled;
-	}
-
-	&:active {
-		border: 1px solid $secondary-color-dark;
-	}
-}

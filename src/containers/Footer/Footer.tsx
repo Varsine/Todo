@@ -1,8 +1,8 @@
 import React from "react";
 
-import FooterContacts from "components/FooterContacts/FooterContacts";
-import FooterServices from "components/FooterServices/FooterServices";
-import SocialMedia from "components/FooterSocialMedia/FooterSocialMedia";
+import FooterContacts from "./FooterContacts/FooterContacts";
+import FooterServices from "./FooterServices/FooterServices";
+import SocialMedia from "./FooterSocialMedia/FooterSocialMedia";
 import FooterBoxyLogo from "icons/FooterBoxyLogo";
 import Button from "components/Button/Button";
 

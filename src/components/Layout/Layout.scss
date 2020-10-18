@@ -8,22 +8,23 @@
 
     &__main {
         flex: 1;
-        padding: 96px 0 0 0;
-        margin: 0 280px;
+        padding-top: $header-size;
+        margin: $layout-margin;
+
         @include media(until-desktop) {
-            padding: 64px 0 0 0;
+            padding-top: $header-size-small;
         }
 
         @include media(desktop) {
-            margin: 0 80px;
+            margin: $layout-margin-desktop;
         }
 
         @include media(tablet) {
-            margin: 0 64px;
+            margin: $layout-margin-tablet;
         }
 
         @include media(until-mobile) {
-            margin: 0 20px;
+            margin: $layout-margin-mobile;
         }
     }
 }

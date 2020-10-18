@@ -12,7 +12,7 @@ interface IFooterSocialMediaProps {};
 const FooterSocialMedia: React.FC<IFooterSocialMediaProps> = () => {
   return (
     <div className="footer-social-media">
-      <TextBlock>Գտիր մեզ սոց․ցանցերում</TextBlock>
+      <TextBlock className="footer-social-media__text">Գտիր մեզ սոց․ցանցերում</TextBlock>
       <div>
         <Link
           className="footer-social-media__link"
