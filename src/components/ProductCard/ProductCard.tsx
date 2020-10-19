@@ -1,6 +1,5 @@
 import React from "react";
 
-import productImgSrc from "assets/product-image.png";
 import Image from "components/Image/Image";
 import Button from "components/Button/Button";
 import CartIcon from "icons/CartIcon";
@@ -10,10 +9,11 @@ import priceToStringConverter from "utils/priceToStringConverter";
 import "./ProductCard.scss";
 
 interface IProductCardProps {
-  productName: string
-  productClick: () => void
-  clickButtonHover: () => void
-  price: number
+  productName: string;
+  productClick: () => void;
+  clickButtonHover: () => void;
+  price: number;
+  productImgSrc: string;
 }
 
 const ProductCard: React.FC<IProductCardProps> = ({
@@ -21,6 +21,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
   productClick,
   clickButtonHover,
   price,
+  productImgSrc,
 }) => {
   const priceString = `${priceToStringConverter(price)} Դ`;
   return (

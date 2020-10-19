@@ -23,12 +23,9 @@ const Landing: React.FC<ILandingProps> = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
     const offsetTop = productsContainerRef.current?.offsetTop || 0;
     window.scrollTo({ top: (offsetTop - headerSize) || 0, behavior: 'smooth' });
-    console.log("window.scrollY: ", window.scrollY)
-
   }
   const clickButtonHover = () => { }
 
-  const imageSource = (deviceType === 'desktop') || (deviceType === 'tablet') ? landingTopBg : landingTopBgMobile;
   return (
     <div className="app-landing">
       <FullHeightWrap className="app-landing__parent">
@@ -36,8 +33,8 @@ const Landing: React.FC<ILandingProps> = () => {
           <div className="app-landing__parent__top-column__left-column">
             <img
               className="app-landing__parent__top-column__left-column__img"
-              src={imageSource}
-              alt=""
+              src={deviceType !== 'mobile' ? landingTopBg : landingTopBgMobile}
+              alt="Landing-Illustration"
             />
           </div>
           <div className="app-landing__parent__top-column__right-column">
@@ -64,6 +61,7 @@ const Landing: React.FC<ILandingProps> = () => {
               <ProductCard
                 productName={productItem.name}
                 price={productItem.price}
+                productImgSrc={productItem.imageSource}
                 productClick={clickProductCart}
                 clickButtonHover={clickButtonHover}
                 key={productItem.id}
