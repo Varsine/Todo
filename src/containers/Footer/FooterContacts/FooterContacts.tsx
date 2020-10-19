@@ -11,9 +11,9 @@ const FooterContacts: React.FC<IFooterContactsProps> = () => {
   return (
     <div className="footer-contacts">
       <TextBlock className="footer-contacts__text">Հետադարձ կապ</TextBlock>
-      <ContactsItem>Էլ․ հասցե՝ hasmikghukasyan@yahoo.com</ContactsItem>
-      <ContactsItem>Հասցե՝ Yerevan, Argishti str. 11/3</ContactsItem>
-      <ContactsItem>Հեռ․՝ +37441-05-11-50</ContactsItem>
+      <ContactsItem>Էլ․ հասցե՝ boxy.armenia@gmail.com</ContactsItem>
+      {/* <ContactsItem>Հասցե՝ Yerevan, Argishti str. 11/3</ContactsItem> */}
+      <ContactsItem>Հեռ․՝ +374(41) 05-11-50</ContactsItem>
     </div>
   )
 }
