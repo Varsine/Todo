@@ -58,20 +58,30 @@
         }
     }
 
-    &__text-block {
+    &__product-name {
         font-size: $intro-text;
         color: $text-color-surface;
         text-align: center;
 
+        @include media(until-tablet) {
+            font-size: 16px;
+            text-align: start;
+            margin-bottom: 10px;
+        }
+
         @include media(tablet) {
-            font-size: $body-text;
             display: flex;
             flex-wrap: wrap-reverse;
-            justify-content: center;
         }
 
         @include media(mobile) {
             font-size: $caption-text;
+        }
+    }
+    &__mobile-price {
+        display: none;
+        @include media(until-tablet) {
+            display: block;
         }
     }
 

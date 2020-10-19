@@ -22,6 +22,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
   clickButtonHover,
   price,
 }) => {
+  const priceString = `${priceToStringConverter(price)} Դ`;
   return (
     <div className="product-card">
       <div className="product-card__image-column">
@@ -31,7 +32,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
         <div className="product-card__image-column__img-hover">
           <div className="product-card__image-column__img-hover__external-column">
             <span className="product-card__image-column__img-hover__external-column__price">
-              {`${priceToStringConverter(price)} Դ`}
+              {priceString}
             </span>
             <Button
               className="product-card__image-column__img-hover__external-column__button"
@@ -43,8 +44,11 @@ const ProductCard: React.FC<IProductCardProps> = ({
           </div>
         </div>
       </div>
-      <TextBlock className="product-card__text-block">
+      <TextBlock className="product-card__product-name">
         {productName}
+      </TextBlock>
+      <TextBlock className="product-card__mobile-price">
+        {priceString}
       </TextBlock>
     </div>
   )

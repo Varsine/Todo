@@ -13,7 +13,7 @@ const FooterContacts: React.FC<IFooterContactsProps> = () => {
       <TextBlock className="footer-contacts__text">Հետադարձ կապ</TextBlock>
       <ContactsItem>Էլ․ հասցե՝ hasmikghukasyan@yahoo.com</ContactsItem>
       <ContactsItem>Հասցե՝ Yerevan, Argishti str. 11/3</ContactsItem>
-      <ContactsItem>Հեռ․՝ +37455-xx-xx-xx</ContactsItem>
+      <ContactsItem>Հեռ․՝ +37441-05-11-50</ContactsItem>
     </div>
   )
 }
