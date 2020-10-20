@@ -5,7 +5,7 @@ import Layout from "components/Layout/Layout"
 import Header from "containers/Header/Header"
 import { quizSelection as selectionMockup } from "data-mockup/quiz-data.mockup"
 
-export const QuizContext = createContext({selectionMockup})
+export const QuizContext = createContext({selectionMockup: })
 
 const App = () => {
   const [quizSelection, setQuizSelection] = useState(selectionMockup)

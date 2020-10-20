@@ -64,7 +64,8 @@ export const quizSelection: IQuizSelectionItem[] = [
   {
     quizId: 4,
     selection: null,
-  }, {
+  },
+  {
     quizId: 5,
     selection: null,
   },
@@ -72,4 +73,4 @@ export const quizSelection: IQuizSelectionItem[] = [
     quizId: 6,
     selection: null,
   },
-]
+];

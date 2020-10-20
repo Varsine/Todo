@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react"
 
-import {QuizContext} from "App"
+import { QuizContext } from "App"
 import Link from "components/Link/Link"
 import Button from "components/Button/Button"
 import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer"
@@ -13,7 +13,7 @@ import RightIcon from "icons/RightIcon"
 
 import "./Quiz.scss"
 
-interface IQuizProps {}
+interface IQuizProps { }
 
 const Quiz: React.FC<IQuizProps> = () => {
   const quizArray = useContext(QuizContext)
@@ -31,7 +31,7 @@ const Quiz: React.FC<IQuizProps> = () => {
       setCurrentIndex(currentIndex - 1)
     }
   }
- 
+
 
   const checkAnswer = () => {
     setDisabled(false)
@@ -50,9 +50,8 @@ const Quiz: React.FC<IQuizProps> = () => {
             {quizArray.map((data, index) => {
               return (
                 <span
-                  className={`app-quiz__content__dots ${
-                    currentIndex === index && "active-dot"
-                  }`}
+                  className={`app-quiz__content__dots ${currentIndex === index && "active-dot"
+                    }`}
                 ></span>
               )
             })}
