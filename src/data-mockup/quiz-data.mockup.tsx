@@ -7,37 +7,37 @@ export interface IQuizData {
 
 export const quizData: IQuizData[] = [
   {
-    id: 0,
+    id: 1,
     inputName: "gen",
     question: "Խնդրում ենք նշել Ձեր սեռը։",
     options: ["Արական", "Իգական", "Ձեզ ինչ"],
   },
   {
-    id: 1,
+    id: 2,
     inputName: "old",
     question: "Խնդրում ենք նշել Ձեր տարիքը։",
     options: ["15-25 տ․", "26-35 տ․", "36-45 տ․", "45+ տ․"],
   },
   {
-    id: 2,
+    id: 3,
     inputName: "car",
     question: "Ունե՞ք մեքենա։",
     options: ["Այո", "Ոչ", "Բա չըլներ"],
   },
   {
-    id: 3,
+    id: 4,
     inputName: "cigarettes",
     question: "Ծխախոտ օգտագործու՞մ եք։",
     options: ["Այո", "Ոչ"],
   },
   {
-    id: 4,
+    id: 5,
     inputName: "sport",
     question: "Սպորտով զբաղվում ե՞ք։",
     options: ["Այո", "Ոչ", "Որ մի լավ բան նվիրեք կզբաղվեմ"],
   },
   {
-    id: 5,
+    id: 6,
     inputName: "comment",
     question: "Ունե՞ք այլ մեկնաբանություններ։",
     options: ["Հավելյալ նշումներ"],

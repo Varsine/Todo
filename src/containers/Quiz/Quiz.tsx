@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react"
 
-import {QuizContext} from "App"
+import { QuizContext } from "App";
+import { quizData } from 'data-mockup/quiz-data.mockup'
 import Link from "components/Link/Link"
 import Button from "components/Button/Button"
 import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer"
@@ -13,29 +14,32 @@ import RightIcon from "icons/RightIcon"
 
 import "./Quiz.scss"
 
-interface IQuizProps {}
+interface IQuizProps { }
 
 const Quiz: React.FC<IQuizProps> = () => {
-  const quizArray = useContext(QuizContext)
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [disabled, setDisabled] = useState(true)
+  const quizContext = useContext(QuizContext);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [disabled, setDisabled] = useState(true);
+
   const nextQuestionHandler = () => {
-    if (currentIndex < quizArray.length - 1) {
+    if (currentIndex < quizData.length - 1) {
       setCurrentIndex(currentIndex + 1)
     } else {
       return
     }
   }
+
   const prevQuestionHandler = () => {
     if (currentIndex !== 0) {
       setCurrentIndex(currentIndex - 1)
     }
   }
- 
 
-  const checkAnswer = () => {
-    setDisabled(false)
+  const checkAnswer = (quizId: number, selection: number) => {
+    setDisabled(false);
+    quizContext.selectQuiz(quizId, selection);
   }
+
   return (
     <div className="app-quiz">
       <div className="app-quiz__bg-img">
@@ -47,79 +51,34 @@ const Quiz: React.FC<IQuizProps> = () => {
             Արի՛ պատասխանենք մի քանի հարցի միասին
           </Heading>
           <div>
-            {quizArray.map((data, index) => {
+            {quizData.map((data, index) => {
               return (
                 <span
-                  className={`app-quiz__content__dots ${
-                    currentIndex === index && "active-dot"
-                  }`}
+                  className={`app-quiz__content__dots ${currentIndex === index && "active-dot"
+                    }`}
                 ></span>
               )
             })}
           </div>
           <TextBlock className="app-quiz__content__question">
-            {quizArray[currentIndex].question}
+            {quizData[currentIndex].question}
           </TextBlock>
           <div className="app-quiz__content__options">
             <div className="app-quiz__content__options__children">
               {currentIndex === 5 && (
                 <textarea
                   className="app-quiz__content__options__children__text-area"
-                  placeholder={quizArray[currentIndex].options[0]}
+                  placeholder={quizData[currentIndex].options[0]}
                 ></textarea>
               )}
-              {currentIndex === 0 &&
-                quizArray[0].options.map((option) => {
+              {quizData[currentIndex].options.map((option, idx) => {
                   return (
                     <CheckBoxContainer
                       className="app-quiz__content__options__children__option"
-                      onClick={checkAnswer}
+                      onClick={() => checkAnswer(quizData[currentIndex].id, idx)}
                       text={option}
-                      name={quizArray[0].inputName}
-                    />
-                  )
-                })}
-              {currentIndex === 1 &&
-                quizArray[1].options.map((option) => {
-                  return (
-                    <CheckBoxContainer
-                      className="app-quiz__content__options__children__option"
-                      onClick={checkAnswer}
-                      text={option}
-                      name={quizArray[1].inputName}
-                    />
-                  )
-                })}
-              {currentIndex === 2 &&
-                quizArray[2].options.map((option) => {
-                  return (
-                    <CheckBoxContainer
-                      className="app-quiz__content__options__children__option"
-                      onClick={checkAnswer}
-                      text={option}
-                      name={quizArray[2].inputName}
-                    />
-                  )
-                })}
-              {currentIndex === 3 &&
-                quizArray[3].options.map((option) => {
-                  return (
-                    <CheckBoxContainer
-                      className="app-quiz__content__options__children__option"
-                      onClick={checkAnswer}
-                      text={option}
-                      name={quizArray[3].inputName}
-                    />
-                  )
-                })}
-              {currentIndex === 4 &&
-                quizArray[4].options.map((option) => {
-                  return (
-                    <CheckBoxContainer
-                      className="app-quiz__content__options__children__option"
-                      onClick={checkAnswer}
-                      text={option}
-                      name={quizArray[4].inputName}
+                      name={quizData[currentIndex].inputName}
+                      selected={quizContext.quizSelection[currentIndex].selection === idx}
                     />
                   )
                 })}

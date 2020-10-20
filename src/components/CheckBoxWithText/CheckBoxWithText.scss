@@ -15,7 +15,7 @@
         height: 30px;
         border: 2px solid $primary-color;
 
-        &:checked {
+        &--selected {
             box-shadow: 0 0 3px 3px $primary-color;
             border: 8px solid $surface-color;
             background-color: $primary-color;
