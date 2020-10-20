@@ -3,20 +3,22 @@ import React from "react";
 import "./CheckBoxWithText.scss";
 
 interface ICheckBoxWithTextProps {
-  name: string
-  className?: string
-  onClick: () => void
+  name: string;
+  onClick: () => void;
+  selected: boolean;
+  className?: string;
 }
 
 const CheckBoxWithText: React.FC<ICheckBoxWithTextProps> = ({
-  children,
   name,
-  className="",
-  onClick
+  onClick,
+  selected,
+  className = "",
+  children,
 }) => {
   return (
     <label className={`app-label ${className}`} onClick={onClick}>
-      <input className="app-label__input-radio"  type="radio" name={name} />
+      <input className={`app-label__input-radio ${selected ? 'app-label__input-radio--selected' : ''}`} type="radio" name={name} />
       {children}
     </label>
   )

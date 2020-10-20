@@ -1,27 +1,30 @@
-import React, { useState, createContext, useEffect } from "react"
+import React, { useState, createContext } from "react"
 
 import Routes from "Routes"
 import Layout from "components/Layout/Layout"
 import Header from "containers/Header/Header"
-import { quizSelection as selectionMockup } from "data-mockup/quiz-data.mockup"
+import { quizData as selectionMockup } from "data-mockup/quiz-data.mockup"
 
-export const QuizContext = createContext({selectionMockup: })
+export const QuizContext = createContext({
+  quizSelection: selectionMockup,
+  selectQuiz: (q: number, s: number) => { }
+});
 
 const App = () => {
-  const [quizSelection, setQuizSelection] = useState(selectionMockup)
+  const [quizSelection, setQuizSelection] = useState(selectionMockup);
 
   const selectQuiz = (quizId: number, selection: number) => {
     const copy = [...quizSelection]
-    const quizElement = copy.find((el) => el.quizId === quizId)
-    if(quizElement) {
+    const quizElement = copy.find((el) => el.id === quizId)
+    if (quizElement) {
       quizElement.selection = selection;
       setQuizSelection(copy);
-    } 
+    }
   }
 
   return (
     <div>
-      <QuizContext.Provider value={{quizSelection, selectQuiz}}>
+      <QuizContext.Provider value={{ quizSelection, selectQuiz }}>
         <Header />
         <Layout>
           <Routes />
