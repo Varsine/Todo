@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import CheckBoxWithText from "components/CheckBoxWithText/CheckBoxWithText";
+import CheckBoxWithText from "components/CheckBoxWithText/CheckBoxWithText"
 
-import "./CheckBoxContainer.scss";
+import "./CheckBoxContainer.scss"
 
 interface ICheckBoxContainerProps {
   name: string
@@ -14,7 +14,7 @@ interface ICheckBoxContainerProps {
 const CheckBoxContainer: React.FC<ICheckBoxContainerProps> = ({
   name,
   text,
-  className,
+  className = "",
   onClick,
 }) => {
   return (
@@ -24,4 +24,4 @@ const CheckBoxContainer: React.FC<ICheckBoxContainerProps> = ({
   )
 }
 
-export default CheckBoxContainer;
+export default CheckBoxContainer

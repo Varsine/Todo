@@ -42,15 +42,25 @@
             display: flex;
             justify-content: center;
 
-            &__text-area {
+            &__children {
                 width: 576px;
-                height: 208px;
-                border-radius: 8px;
-                padding: 16px 24px;
-                opacity: 41%;
-                color: $text-color-surface;
-                font-size: $body-text;
-                border: 1px solid #CCCCCC;
+
+                &__text-area {
+                    width: 576px;
+                    height: 208px;
+                    border-radius: 8px;
+                    padding: 16px 24px;
+                    opacity: 41%;
+                    color: $text-color-surface;
+                    font-size: $body-text;
+                    border: 1px solid #CCCCCC;
+                }
+
+                &__option {
+                    padding: 15px 0;
+                    margin: 8px 0;
+                    width: 100%;
+                }
             }
         }
 

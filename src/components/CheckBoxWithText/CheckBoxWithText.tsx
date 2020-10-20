@@ -11,7 +11,7 @@ interface ICheckBoxWithTextProps {
 const CheckBoxWithText: React.FC<ICheckBoxWithTextProps> = ({
   children,
   name,
-  className,
+  className="",
   onClick
 }) => {
   return (

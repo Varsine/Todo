@@ -1,27 +1,29 @@
-import React, {useState} from "react";
+import React, { useState, useContext } from "react"
 
-import Link from "components/Link/Link";
-import Button from "components/Button/Button";
-import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
-import Heading from "components/Heading/Heading";
-import TextBlock from "components/TextBlock/TextBlock";
-import Image from "components/Image/Image";
-import QuizPageBg from "assets/QuizPageBg.png";
-import LeftIcon from "icons/LeftIcon";
-import RightIcon from "icons/RightIcon";
-import {quizData} from "data-mockup/quiz-data.mockup";
+import {QuizContext} from "App"
+import Link from "components/Link/Link"
+import Button from "components/Button/Button"
+import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer"
+import Heading from "components/Heading/Heading"
+import TextBlock from "components/TextBlock/TextBlock"
+import Image from "components/Image/Image"
+import QuizPageBg from "assets/QuizPageBg.png"
+import LeftIcon from "icons/LeftIcon"
+import RightIcon from "icons/RightIcon"
 
-import "./Quiz.scss";
+import "./Quiz.scss"
 
 interface IQuizProps {}
 
 const Quiz: React.FC<IQuizProps> = () => {
+  const quizArray = useContext(QuizContext)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [disabled, setDisabled] = useState(true)
-
   const nextQuestionHandler = () => {
-    if (currentIndex < quizData.length - 1) {
+    if (currentIndex < quizArray.length - 1) {
       setCurrentIndex(currentIndex + 1)
+    } else {
+      return
     }
   }
   const prevQuestionHandler = () => {
@@ -29,10 +31,11 @@ const Quiz: React.FC<IQuizProps> = () => {
       setCurrentIndex(currentIndex - 1)
     }
   }
+ 
+
   const checkAnswer = () => {
     setDisabled(false)
   }
-  const {options, inputName, question, note} = quizData[currentIndex]
   return (
     <div className="app-quiz">
       <div className="app-quiz__bg-img">
@@ -44,7 +47,7 @@ const Quiz: React.FC<IQuizProps> = () => {
             Արի՛ պատասխանենք մի քանի հարցի միասին
           </Heading>
           <div>
-            {quizData.map((data, index) => {
+            {quizArray.map((data, index) => {
               return (
                 <span
                   className={`app-quiz__content__dots ${
@@ -55,33 +58,78 @@ const Quiz: React.FC<IQuizProps> = () => {
             })}
           </div>
           <TextBlock className="app-quiz__content__question">
-            {question}
+            {quizArray[currentIndex].question}
           </TextBlock>
           <div className="app-quiz__content__options">
-            <div>
-              {currentIndex === 5 ? (
+            <div className="app-quiz__content__options__children">
+              {currentIndex === 5 && (
                 <textarea
-                  className="app-quiz__content__options__text-area"
-                  placeholder={note}
+                  className="app-quiz__content__options__children__text-area"
+                  placeholder={quizArray[currentIndex].options[0]}
                 ></textarea>
-              ) : (
-                options.map((option) => {
+              )}
+              {currentIndex === 0 &&
+                quizArray[0].options.map((option) => {
                   return (
                     <CheckBoxContainer
+                      className="app-quiz__content__options__children__option"
                       onClick={checkAnswer}
                       text={option}
-                      name={inputName}
+                      name={quizArray[0].inputName}
                     />
                   )
-                })
-              )}
+                })}
+              {currentIndex === 1 &&
+                quizArray[1].options.map((option) => {
+                  return (
+                    <CheckBoxContainer
+                      className="app-quiz__content__options__children__option"
+                      onClick={checkAnswer}
+                      text={option}
+                      name={quizArray[1].inputName}
+                    />
+                  )
+                })}
+              {currentIndex === 2 &&
+                quizArray[2].options.map((option) => {
+                  return (
+                    <CheckBoxContainer
+                      className="app-quiz__content__options__children__option"
+                      onClick={checkAnswer}
+                      text={option}
+                      name={quizArray[2].inputName}
+                    />
+                  )
+                })}
+              {currentIndex === 3 &&
+                quizArray[3].options.map((option) => {
+                  return (
+                    <CheckBoxContainer
+                      className="app-quiz__content__options__children__option"
+                      onClick={checkAnswer}
+                      text={option}
+                      name={quizArray[3].inputName}
+                    />
+                  )
+                })}
+              {currentIndex === 4 &&
+                quizArray[4].options.map((option) => {
+                  return (
+                    <CheckBoxContainer
+                      className="app-quiz__content__options__children__option"
+                      onClick={checkAnswer}
+                      text={option}
+                      name={quizArray[4].inputName}
+                    />
+                  )
+                })}
             </div>
           </div>
-          <div className=" app-quiz__content__button">
+          <div className="app-quiz__content__button">
             {
               <Link to="">
                 <Button
-                  className=" app-quiz__content__button__prev"
+                  className="app-quiz__content__button__prev"
                   disabled={disabled}
                   onClick={prevQuestionHandler}
                 >
@@ -92,7 +140,7 @@ const Quiz: React.FC<IQuizProps> = () => {
             {
               <Link to="">
                 <Button
-                  className=" app-quiz__content__button__next"
+                  className="app-quiz__content__button__next"
                   disabled={disabled}
                   onClick={nextQuestionHandler}
                 >
@@ -107,4 +155,4 @@ const Quiz: React.FC<IQuizProps> = () => {
   )
 }
 
-export default Quiz;
+export default Quiz
