@@ -1,18 +1,33 @@
 import React from "react";
-import {Link as RouterLink} from "@reach/router";
+import { Link as RouterLink } from "@reach/router";
 
 import "./Link.scss";
 
 interface ILinkProps {
-  to: string
-  className?: string
+  to: string;
+  out?: boolean;
+  className?: string;
 }
 
-const Link: React.FC<ILinkProps> = ({to, className = "", children}) => {
+const Link: React.FC<ILinkProps> = ({
+  to,
+  out = false,
+  className = "",
+  children,
+}) => {
   return (
-    <RouterLink to={to} className={`app-link ${className}`}>
-      {children}
-    </RouterLink>
+    <React.Fragment>
+      {!out ? (
+        <RouterLink to={to} className={`app-link ${className}`}>
+          {children}
+        </RouterLink>
+      ) : (
+          <a href={to} className={`app-link ${className}`} target="blank">
+            {children}
+          </a>
+        )
+      }
+    </React.Fragment>
   )
 }
 export default Link

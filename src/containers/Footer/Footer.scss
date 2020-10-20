@@ -72,10 +72,10 @@
 
             @include media(until-mobile) {
                 @include second-button-style(37px, $body-text, 10.5px 26.5px);
-                margin: 16px 0 0 0;
+                margin: 16px 0;
                 box-shadow: none;
             }
-        }
+        } 
     }
 
     &__bottom-column {
