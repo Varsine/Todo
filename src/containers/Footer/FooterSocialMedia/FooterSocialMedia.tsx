@@ -16,12 +16,14 @@ const FooterSocialMedia: React.FC<IFooterSocialMediaProps> = () => {
       <div>
         <Link
           className="footer-social-media__link"
-          to="/https://www.facebook.com/boxyyerevan"
+          out
+          to="https://www.facebook.com/boxyyerevan"
         >
           <FbFooterIcon />
         </Link>
         <Link
           className="footer-social-media__link"
+          out
           to="https://www.instagram.com/boxy_armenia/"
         >
           <InstaFooterIcon />

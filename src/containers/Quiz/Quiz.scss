@@ -11,15 +11,44 @@
         left: 0;
         width: 427px;
         height: 380px;
+
+        @include media(until-desktop) {
+            width: 344px;
+            height: 305px;
+        }
+
+        @include media(until-tablet) {
+            width: 244px;
+            height: 216px;
+        }
+
+        @include media(until-mobile) {
+            display: none;
+        }
     }
 
     &__content {
         text-align: center;
-        margin-top: 80px;
-        height: calc(100vh - 96px);
+        margin: 80px 0 160px;
+
+        @include media(until-desktop) {
+            margin: 40px 0 150px;
+        }
+
+        @include media(until-mobile) {
+            margin: 32px 0 160px;
+        }
 
         &__heading {
             font-size: $heading2;
+
+            @include media(until-desktop) {
+                font-size: $heading3;
+            }
+
+            @include media(until-tablet) {
+                font-size: $intro-text;
+            }
         }
 
         &__dots {
@@ -29,13 +58,25 @@
             width: 9px;
             background-color: $dots-bg;
             border-radius: 50%;
+
+            @include media(until-desktop) {
+                margin: 40px 4px 0;
+            }
+
+            @include media(until-tablet) {
+                margin: 36px 4px 0;
+            }
         }
 
         &__question {
             font-size: $intro-text;
             padding: 0;
             color: $text-color-surface;
-            margin: 38px 0 30px;
+            margin: 30px 0;
+
+            @include media(until-tablet) {
+                font-size: $body-text;
+            }
         }
 
         &__options {
@@ -44,6 +85,10 @@
 
             &__children {
                 width: 576px;
+
+                @include media(until-desktop) {
+                    width: 400px;
+                }
 
                 &__text-area {
                     width: 576px;
@@ -54,12 +99,19 @@
                     color: $text-color-surface;
                     font-size: $body-text;
                     border: 1px solid #CCCCCC;
+
+                    @include media(until-desktop) {
+                        width: 400px;
+                    }
                 }
 
                 &__option {
                     padding: 15px 0;
                     margin: 8px 0;
                     width: 100%;
+                }
+                &__age-slider{
+                    display: inline;
                 }
             }
         }

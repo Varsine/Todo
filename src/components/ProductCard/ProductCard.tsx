@@ -1,6 +1,5 @@
 import React from "react";
 
-import productImgSrc from "assets/product-image.png";
 import Image from "components/Image/Image";
 import Button from "components/Button/Button";
 import CartIcon from "icons/CartIcon";
@@ -10,10 +9,11 @@ import priceToStringConverter from "utils/priceToStringConverter";
 import "./ProductCard.scss";
 
 interface IProductCardProps {
-  productName: string
-  productClick: () => void
-  clickButtonHover: () => void
-  price: number
+  productName: string;
+  productClick: () => void;
+  clickButtonHover: () => void;
+  price: number;
+  productImgSrc: string;
 }
 
 const ProductCard: React.FC<IProductCardProps> = ({
@@ -21,7 +21,9 @@ const ProductCard: React.FC<IProductCardProps> = ({
   productClick,
   clickButtonHover,
   price,
+  productImgSrc,
 }) => {
+  const priceString = `${priceToStringConverter(price)} Դ`;
   return (
     <div className="product-card">
       <div className="product-card__image-column">
@@ -31,7 +33,7 @@ const ProductCard: React.FC<IProductCardProps> = ({
         <div className="product-card__image-column__img-hover">
           <div className="product-card__image-column__img-hover__external-column">
             <span className="product-card__image-column__img-hover__external-column__price">
-              {`${priceToStringConverter(price)} Դ`}
+              {priceString}
             </span>
             <Button
               className="product-card__image-column__img-hover__external-column__button"
@@ -43,8 +45,11 @@ const ProductCard: React.FC<IProductCardProps> = ({
           </div>
         </div>
       </div>
-      <TextBlock className="product-card__text-block">
+      <TextBlock className="product-card__product-name">
         {productName}
+      </TextBlock>
+      <TextBlock className="product-card__mobile-price">
+        {priceString}
       </TextBlock>
     </div>
   )

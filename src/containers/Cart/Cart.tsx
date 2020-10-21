@@ -35,8 +35,6 @@ const Cart: React.FC<ICartProps> = ({closeCartMenu, className}) => {
     }
   }
 
-  const clickContinue = () => {}
-
   const total = counts.reduce((a, b) => a + b.price * b.count, 0)
 
   return (
@@ -82,7 +80,7 @@ const Cart: React.FC<ICartProps> = ({closeCartMenu, className}) => {
           <Link to="/quiz">
             <Button
               className="cart-menu__inner__parent-btn__button"
-              onClick={clickContinue}
+              onClick={closeCartMenu}
             >
               Շարունակել
             </Button>

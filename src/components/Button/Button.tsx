@@ -4,8 +4,8 @@ import "./Button.scss";
 
 interface IButtonProps {
   className?: string;
-  onClick: () => void
-  disabled?:boolean
+  onClick: () => void;
+  disabled?: boolean;
 }
 
 const Button: React.FC<IButtonProps> = ({ disabled=false, className = "", onClick, children }) => {

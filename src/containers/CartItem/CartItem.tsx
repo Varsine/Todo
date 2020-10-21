@@ -10,11 +10,11 @@ import priceToStringConverter from "utils/priceToStringConverter";
 import "./CartItem.scss";
 
 interface ICartItemProps {
-  productName: string,
-  count: number,
-  price: number,
-  clickPlus: () => void,
-  clickMinus: () => void,
+  productName: string;
+  count: number;
+  price: number;
+  clickPlus: () => void;
+  clickMinus: () => void;
 }
 
 const CartItem: React.FC<ICartItemProps> = ({

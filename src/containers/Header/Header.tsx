@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from "react";
+import React, { useRef, useEffect, useState, useContext } from "react";
 
 import Link from "components/Link/Link";
 import Button from "components/Button/Button";
@@ -8,25 +8,27 @@ import MobileMenuIcon from "icons/MobileMenuIcon";
 import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 import CartIcon from "icons/CartIcon";
 import Cart from "containers/Cart/Cart";
+import { DeviceContext } from 'App';
 
 import "./Header.scss";
 
-interface IHeaderProps {}
+interface IHeaderProps { }
 
 const Header: React.FC<IHeaderProps> = () => {
-  const buttonClick = () => {}
-  const navRef = useRef<HTMLElement>(null)
-  const [headerBackgrounded, setHeaderBackgrounded] = useState("")
-  const [cartMenu, setCartMenu] = useState(false)
-  const [mobileCart, setMobileCart] = useState("")
+  const navRef = useRef<HTMLElement>(null);
+  const [headerBackgrounded, setHeaderBackgrounded] = useState("");
+  const [cartMenu, setCartMenu] = useState(false);
+  const [mobileCart, setMobileCart] = useState("");
+  const deviceType = useContext(DeviceContext);
+
   const toggleCartMenu = () => {
-    setCartMenu(!cartMenu)
+    setCartMenu(!cartMenu);
   }
   const scrollHandler = () => {
     if (window.scrollY > 100) {
-      setHeaderBackgrounded("scrolled")
+      setHeaderBackgrounded("scrolled");
     } else {
-      setHeaderBackgrounded("")
+      setHeaderBackgrounded("");
     }
   }
 
@@ -35,23 +37,24 @@ const Header: React.FC<IHeaderProps> = () => {
     return () => {
       window.removeEventListener("scroll", scrollHandler);
     }
-  }, [])
+  }, []);
 
   const openMobileMenu = () => {
-    navRef.current?.classList.toggle("mobile-menu")
-    setMobileCart("mobile-cart")
+    navRef.current?.classList.toggle("mobile-menu");
+    setMobileCart("mobile-cart");
     if (!navRef.current?.className.includes("mobile-menu")) {
-      setMobileCart("")
+      setMobileCart("");
     }
   }
+  const suggestionClick = () => { }
 
   return (
-    <header className={`app-header ${headerBackgrounded}`}>
+    <header id="app-header" className={`app-header ${headerBackgrounded}`}>
       <div className="app-header__mobile-menu-icon" onClick={openMobileMenu}>
         <MobileMenuIcon />
       </div>
       <div className="app-header__logo">
-        {headerBackgrounded || (window.innerWidth < 1024) ? <BoxyLogo /> : <WhiteBoxyLogo />}
+        {headerBackgrounded || (deviceType !== 'desktop') ? <BoxyLogo /> : <WhiteBoxyLogo />}
       </div>
       <div className="app-header__right-column">
         <nav className="app-header__right-column__navigation" ref={navRef}>
@@ -83,7 +86,7 @@ const Header: React.FC<IHeaderProps> = () => {
         </div>
         <Button
           className="app-header__right-column__button"
-          onClick={buttonClick}
+          onClick={suggestionClick}
         >
           Մուտք
         </Button>

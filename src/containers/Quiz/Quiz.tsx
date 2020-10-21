@@ -1,18 +1,18 @@
-import React, { useState, useContext } from "react"
+import React, { useState, useContext } from "react";
 
 import { QuizContext } from "App";
-import { quizData } from 'data-mockup/quiz-data.mockup'
-import Link from "components/Link/Link"
-import Button from "components/Button/Button"
-import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer"
-import Heading from "components/Heading/Heading"
-import TextBlock from "components/TextBlock/TextBlock"
-import Image from "components/Image/Image"
-import QuizPageBg from "assets/QuizPageBg.png"
-import LeftIcon from "icons/LeftIcon"
-import RightIcon from "icons/RightIcon"
+import Link from "components/Link/Link";
+import Button from "components/Button/Button";
+import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
+import Heading from "components/Heading/Heading";
+import TextBlock from "components/TextBlock/TextBlock";
+import Image from "components/Image/Image";
+import QuizPageBg from "assets/QuizPageBg.png";
+import LeftIcon from "icons/LeftIcon";
+import RightIcon from "icons/RightIcon";
 
 import "./Quiz.scss"
+import AgeSlider from "containers/AgeSlider/AgeSlider";
 
 interface IQuizProps { }
 
@@ -22,12 +22,10 @@ const Quiz: React.FC<IQuizProps> = () => {
   const [disabled, setDisabled] = useState(true);
 
   const nextQuestionHandler = () => {
-    if (currentIndex < quizContext.selectQuiz.length - 1) {
+    if (currentIndex < quizContext.quizSelection.length - 1) {
       setCurrentIndex(currentIndex + 1)
     }
   }
-  console.log(quizContext.selectQuiz)
-  console.log(currentIndex)
 
   const prevQuestionHandler = () => {
     if (currentIndex !== 0) {
@@ -35,12 +33,11 @@ const Quiz: React.FC<IQuizProps> = () => {
     }
   }
 
-// const {options, inputName, question}=quizContext.quizSelection[currentIndex]
   const checkAnswer = (quizId: number, selection: number) => {
     setDisabled(false);
     quizContext.selectQuiz(quizId, selection);
   }
-
+  const { options, id, inputName, selection, question } = quizContext.quizSelection[currentIndex]
   return (
     <div className="app-quiz">
       <div className="app-quiz__bg-img">
@@ -52,7 +49,7 @@ const Quiz: React.FC<IQuizProps> = () => {
             Արի՛ պատասխանենք մի քանի հարցի միասին
           </Heading>
           <div>
-            {quizData.map((data, index) => {
+            {quizContext.quizSelection.map((data, index) => {
               return (
                 <span
                   className={`app-quiz__content__dots ${currentIndex === index && "active-dot"
@@ -62,27 +59,28 @@ const Quiz: React.FC<IQuizProps> = () => {
             })}
           </div>
           <TextBlock className="app-quiz__content__question">
-            {quizData[currentIndex].question}
+            {question}
           </TextBlock>
           <div className="app-quiz__content__options">
             <div className="app-quiz__content__options__children">
-              {currentIndex === 5 && (
+              {currentIndex === quizContext.quizSelection.length - 1 && (
                 <textarea
                   className="app-quiz__content__options__children__text-area"
-                  placeholder={quizData[currentIndex].options[0]}
+                  placeholder={options[0]}
                 ></textarea>
               )}
-              {quizData[currentIndex].options.map((option, idx) => {
-                  return (
-                    <CheckBoxContainer
-                      className="app-quiz__content__options__children__option"
-                      onClick={() => checkAnswer(quizData[currentIndex].id, idx)}
-                      text={option}
-                      name={quizData[currentIndex].inputName}
-                      selected={quizContext.quizSelection[currentIndex].selection === idx}
-                    />
-                  )
-                })}
+              {currentIndex < quizContext.quizSelection.length - 1 && (currentIndex === 1) ?
+                (<AgeSlider/>) :
+                options.map((option, idx) => {
+                  return <CheckBoxContainer
+                    className="app-quiz__content__options__children__option"
+                    onClick={() => checkAnswer(id, idx)}
+                    text={option}
+                    name={inputName}
+                    selected={selection === idx}
+                  />
+                }
+                )}
             </div>
           </div>
           <div className="app-quiz__content__button">
@@ -115,4 +113,4 @@ const Quiz: React.FC<IQuizProps> = () => {
   )
 }
 
-export default Quiz
+export default Quiz;
