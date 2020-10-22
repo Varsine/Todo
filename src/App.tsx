@@ -3,27 +3,27 @@ import React, { createContext, useEffect, useState } from "react";
 import Routes from "Routes";
 import Layout from "components/Layout/Layout";
 import Header from "containers/Header/Header";
-import { quizData as selectionMockup } from "data-mockup/quiz-data.mockup";
+import { quizData as DataMockup } from "data-mockup/quiz-data.mockup";
 
 type DeviceType = 'mobile' | 'tablet' | 'desktop';
 
 export const DeviceContext = createContext<DeviceType>('desktop');
 
 export const QuizContext = createContext({
-  quizSelection: selectionMockup,
+  quizData: DataMockup,
   selectQuiz: (q: number, s: number) => { }
 });
 
 const App = () => {
-  const [quizSelection, setQuizSelection] = useState(selectionMockup);
+  const [quizData, setQuizData] = useState(DataMockup);
   const [device, setDevice] = useState<DeviceType>(checkDeviceSize());
 
   const selectQuiz = (quizId: number, selection: number) => {
-    const copy = [...quizSelection]
+    const copy = [...quizData]
     const quizElement = copy.find((el) => el.id === quizId)
     if (quizElement) {
       quizElement.selection = selection;
-      setQuizSelection(copy);
+      setQuizData(copy);
     }
   };
 
@@ -51,7 +51,7 @@ const App = () => {
   return (
     <DeviceContext.Provider value={device}>
       <div>
-        <QuizContext.Provider value={{ quizSelection, selectQuiz }}>
+        <QuizContext.Provider value={{ quizData, selectQuiz }}>
           <Header />
           <Layout>
             <Routes />

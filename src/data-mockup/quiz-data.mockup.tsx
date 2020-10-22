@@ -11,7 +11,7 @@ export const quizData: IQuizData[] = [
     id: 1,
     inputName: "gen",
     question: "Խնդրում ենք նշել Ձեր սեռը։",
-    options: ["Արական", "Իգական", "Ձեզ ինչ"],
+    options: ["Արական", "Իգական", "Ձեզ ինչ 🤔"],
     selection: null,
   },
   {
@@ -25,7 +25,7 @@ export const quizData: IQuizData[] = [
     id: 3,
     inputName: "car",
     question: "Ունե՞ք մեքենա։",
-    options: ["Այո", "Ոչ", "Բա չըլներ"],
+    options: ["Այո", "Ոչ", "Բա չըլներ 🙄"],
     selection: null,
   },
   {
@@ -39,7 +39,7 @@ export const quizData: IQuizData[] = [
     id: 5,
     inputName: "sport",
     question: "Սպորտով զբաղվում ե՞ք։",
-    options: ["Այո", "Ոչ", "Որ մի լավ բան նվիրեք կզբաղվեմ"],
+    options: ["Այո", "Ոչ", "Որ մի լավ բան նվիրեք կզբաղվեմ  😜"],
     selection: null,
   },
   {
@@ -49,35 +49,8 @@ export const quizData: IQuizData[] = [
     options: ["Հավելյալ նշումներ"],
     selection: null,
   },
-]
-// export interface IQuizSelectionItem {
-//   quizId: number;
-//   selection: number | null;
-// }
+];
 
-// export const quizSelection: IQuizSelectionItem[] = [
-//   {
-//     quizId: 1,
-//     selection: null,
-//   },
-//   {
-//     quizId: 2,
-//     selection: null,
-//   },
-//   {
-//     quizId: 3,
-//     selection: null,
-//   },
-//   {
-//     quizId: 4,
-//     selection: null,
-//   },
-//   {
-//     quizId: 5,
-//     selection: null,
-//   },
-//   {
-//     quizId: 6,
-//     selection: null,
-//   },
-// ];
+ for(let i=1; i<=100; i++){
+   quizData[1].options.push(i.toString()) ;
+};

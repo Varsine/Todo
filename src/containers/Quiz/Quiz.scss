@@ -1,25 +1,28 @@
 @import "~styles/root";
 
 .app-quiz {
+    min-height: 100vh;
     font-family: 'Mardoto-Regular',
         Fallback,
         sans-serif;
 
+
     &__bg-img {
         position: absolute;
-        top: 245px;
+        top: 220px;
         left: 0;
-        width: 427px;
-        height: 380px;
+        width: 380px;
+        height: 340px;
 
         @include media(until-desktop) {
-            width: 344px;
-            height: 305px;
+            top: 150px;
+            width: 320px;
+            height: 280px;
         }
 
         @include media(until-tablet) {
-            width: 244px;
-            height: 216px;
+            width: 200px;
+            height: 180px;
         }
 
         @include media(until-mobile) {
@@ -28,43 +31,22 @@
     }
 
     &__content {
+        height: calc(100vh - $header-size);
+        display: flex;
+        justify-content: center;
+        align-items: center;
         text-align: center;
-        margin: 80px 0 160px;
-
-        @include media(until-desktop) {
-            margin: 40px 0 150px;
-        }
-
-        @include media(until-mobile) {
-            margin: 32px 0 160px;
-        }
 
         &__heading {
             font-size: $heading2;
 
             @include media(until-desktop) {
                 font-size: $heading3;
+                margin: 20px 0;
             }
 
             @include media(until-tablet) {
                 font-size: $intro-text;
-            }
-        }
-
-        &__dots {
-            margin: 80px 4px 0;
-            display: inline-block;
-            height: 9px;
-            width: 9px;
-            background-color: $dots-bg;
-            border-radius: 50%;
-
-            @include media(until-desktop) {
-                margin: 40px 4px 0;
-            }
-
-            @include media(until-tablet) {
-                margin: 36px 4px 0;
             }
         }
 
@@ -82,6 +64,8 @@
         &__options {
             display: flex;
             justify-content: center;
+            align-items: center;
+            min-height: 242px;
 
             &__children {
                 width: 576px;
@@ -106,11 +90,11 @@
                 }
 
                 &__option {
-                    padding: 15px 0;
                     margin: 8px 0;
                     width: 100%;
                 }
-                &__age-slider{
+
+                &__age-slider {
                     display: inline;
                 }
             }
@@ -146,8 +130,4 @@
             }
         }
     }
-}
-
-.active-dot {
-    background-color: $mobile-menu-border-bg;
-}
+};

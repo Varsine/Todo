@@ -16,6 +16,7 @@
 
     &:disabled {
         background-color: $button-bg-disabled;
+        color: $button-color-disabled;
     }
 
     &:active {
