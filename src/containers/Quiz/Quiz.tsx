@@ -72,8 +72,9 @@ const Quiz: React.FC<IQuizProps> = () => {
                   ></textarea>
                 ) : (
                     (currentIndex === 1) ?
-                      (<AgeSlider nextAge={nextAgeHandler} prevAge={prevAgeHandler} currentAge={currentAge} ageArray={quizContext.quizData[1].options} selected={selection === currentAge}
-                        onClick={() => checkAnswer(id, currentAge)} />
+                      (<AgeSlider id={id} nextAge={nextAgeHandler} prevAge={prevAgeHandler} currentAge={currentAge} ageArray={options} selection ={selection}
+                        onClick={checkAnswer
+                        } />
                       )
                       : (options.map((option, idx) => {
                         return <CheckBoxContainer
