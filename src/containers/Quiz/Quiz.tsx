@@ -7,14 +7,14 @@ import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
 import Heading from "components/Heading/Heading";
 import TextBlock from "components/TextBlock/TextBlock";
 import Image from "components/Image/Image";
+import ProgressBar from "components/ProgressBar/ProgressBar";
+import AgeSlider from "components/AgeSlider/AgeSlider";
 import QuizPageBg from "assets/QuizPageBg.png";
 import LeftIcon from "icons/LeftIcon";
 import RightIcon from "icons/RightIcon";
-import AgeSlider from "components/AgeSlider/AgeSlider";
 
 
 import "./Quiz.scss"
-import ProgressBar from "components/ProgressBar/ProgressBar";
 
 interface IQuizProps { }
 
