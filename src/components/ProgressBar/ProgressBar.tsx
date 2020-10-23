@@ -1,21 +1,18 @@
-import React from "react"
+import React from "react";
 
-import "./ProgressBar.scss"
+import "./ProgressBar.scss";
 
 interface IProgressBarProps {
-  dotsArray: Array<any>;
+  arrayLength: number;
   currentDot: number;
 }
 
-const ProgressBar: React.FC<IProgressBarProps> = ({dotsArray, currentDot}) => {
+const ProgressBar: React.FC<IProgressBarProps> = ({ arrayLength, currentDot }) => {
   return (
     <div>
-      {dotsArray.map((data, index) => {
-        return (
-          <span
-            className={`app-dot ${currentDot === index && "app-dot--active"}`}></span>
-        )
-      })}
+      {Array(arrayLength).fill(0).map((_, idx) => (
+          <span key={idx} className={`app-dot ${currentDot === idx && "app-dot--active"}`}></span>)
+      )}
     </div>
   )
 }

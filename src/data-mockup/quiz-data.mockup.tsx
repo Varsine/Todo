@@ -3,7 +3,7 @@ export interface IQuizData {
   inputName: string;
   question: string;
   options: Array<string>;
-  selection: number | null;
+  selection: number | string | null;
 }
 
 export const quizData: IQuizData[] = [
@@ -50,7 +50,3 @@ export const quizData: IQuizData[] = [
     selection: null,
   },
 ];
-
- for(let i=1; i<=100; i++){
-   quizData[1].options.push(i.toString()) ;
-};

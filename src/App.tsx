@@ -11,14 +11,14 @@ export const DeviceContext = createContext<DeviceType>('desktop');
 
 export const QuizContext = createContext({
   quizData: DataMockup,
-  selectQuiz: (q: number, s: number) => { }
+  selectQuiz: (q: number, s: number | string) => { }
 });
 
 const App = () => {
   const [quizData, setQuizData] = useState(DataMockup);
   const [device, setDevice] = useState<DeviceType>(checkDeviceSize());
 
-  const selectQuiz = (quizId: number, selection: number) => {
+  const selectQuiz = (quizId: number, selection: number | string) => {
     const copy = [...quizData]
     const quizElement = copy.find((el) => el.id === quizId)
     if (quizElement) {

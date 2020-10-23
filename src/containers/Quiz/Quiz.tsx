@@ -22,7 +22,7 @@ const Quiz: React.FC<IQuizProps> = () => {
   const quizContext = useContext(QuizContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [disabled, setDisabled] = useState(true);
-  const [currentAge, setCurrentAge] = useState(24)
+  const [currentAge, setCurrentAge] = useState(24);
 
   const nextAgeHandler = () => {
     setCurrentAge(currentAge + 1)
@@ -47,7 +47,13 @@ const Quiz: React.FC<IQuizProps> = () => {
     setDisabled(false);
     quizContext.selectQuiz(quizId, selection);
   }
-  const { options, id, inputName, selection, question } = quizContext.quizData[currentIndex]
+
+  const { options, id, inputName, selection, question } = quizContext.quizData[currentIndex];
+
+  const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    quizContext.selectQuiz(id, e.target.value);
+  }
+
   return (
     <div className="app-quiz">
       <div className="app-quiz__bg-img">
@@ -59,33 +65,43 @@ const Quiz: React.FC<IQuizProps> = () => {
             <Heading className="app-quiz__content__heading">
               Արի՛ պատասխանենք մի քանի հարցի միասին
           </Heading>
-            <ProgressBar dotsArray={quizContext.quizData} currentDot={currentIndex} />
+            <ProgressBar
+              arrayLength={quizContext.quizData.length}
+              currentDot={currentIndex}
+            />
             <TextBlock className="app-quiz__content__question">
               {question}
             </TextBlock>
             <div className="app-quiz__content__options">
               <div className="app-quiz__content__options__children">
-                {currentIndex === quizContext.quizData.length - 1 ? (
-                  <textarea
-                    className="app-quiz__content__options__children__text-area"
-                    placeholder={options[0]}
-                  ></textarea>
-                ) : (
-                    (currentIndex === 1) ?
-                      (<AgeSlider id={id} nextAge={nextAgeHandler} prevAge={prevAgeHandler} currentAge={currentAge} ageArray={options} selection ={selection}
-                        onClick={checkAnswer
-                        } />
-                      )
-                      : (options.map((option, idx) => {
-                        return <CheckBoxContainer
-                          className="app-quiz__content__options__children__option"
-                          onClick={() => checkAnswer(id, idx)}
-                          text={option}
-                          name={inputName}
-                          selected={selection === idx}
-                        />
-                      }
-                      )))}
+                {currentIndex !== 1 && currentIndex !== 5 ? (
+                  options.map((option, idx) => (
+                    <CheckBoxContainer
+                      key={`${id}-${option}`}
+                      className="app-quiz__content__options__children__option"
+                      onClick={() => checkAnswer(id, idx)}
+                      text={option}
+                      name={inputName}
+                      selected={selection === idx}
+                    />
+                  ))) : currentIndex === 1 ? (
+                    <AgeSlider
+                      id={id}
+                      nextAge={nextAgeHandler}
+                      prevAge={prevAgeHandler}
+                      currentAge={currentAge}
+                      selection={selection}
+                      onClick={checkAnswer}
+                    />
+                  ) : (
+                      <textarea
+                        className="app-quiz__content__options__children__text-area"
+                        placeholder={options[0]}
+                        value={selection || ''}
+                        onChange={handleTextInput}
+                      />
+                    )
+                }
               </div>
             </div>
             <div className="app-quiz__content__button">
@@ -104,7 +120,7 @@ const Quiz: React.FC<IQuizProps> = () => {
                 <Link to="">
                   <Button
                     className="app-quiz__content__button__next"
-                    disabled={disabled}
+                    disabled={disabled || selection === null}
                     onClick={nextQuestionHandler}
                   >
                     Առաջ <RightIcon />
