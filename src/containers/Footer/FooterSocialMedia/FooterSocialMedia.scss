@@ -1,11 +1,14 @@
 .footer-social-media {
     &__text {
         margin-bottom: 15px;
+        padding: 27px 0 0;
     }
+
     &__link {
         padding: 0 16px 0 0;
         transition: transform 200ms ease-in-out;
         display: inline-block;
+
         &:hover {
             transform: scale(1.2);
         }
