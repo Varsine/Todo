@@ -7,12 +7,14 @@ interface ILinkProps {
   to: string;
   out?: boolean;
   className?: string;
+  blank?: boolean;
 }
 
 const Link: React.FC<ILinkProps> = ({
   to,
   out = false,
   className = "",
+  blank = true,
   children,
 }) => {
   return (
@@ -22,7 +24,7 @@ const Link: React.FC<ILinkProps> = ({
           {children}
         </RouterLink>
       ) : (
-          <a href={to} className={`app-link ${className}`} target="blank">
+          <a href={to} className={`app-link ${className}`} target={blank ? 'blank' : ''}>
             {children}
           </a>
         )
