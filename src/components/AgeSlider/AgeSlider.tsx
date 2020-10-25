@@ -8,11 +8,10 @@ import "./AgeSlider.scss";
 
 interface IAgeSliderProps {
     id: number;
-    onClick: (x: number, y: number) => void;
+    onClick: (newSelection: number) => void;
     prevAge: () => void;
     nextAge: () => void;
-    currentAge: number;
-    selection: number | string | null;
+    selection: number;
     className?: string;
 };
 
@@ -21,10 +20,9 @@ const AgeSlider: React.FC<IAgeSliderProps> = ({ id,
     onClick,
     prevAge,
     nextAge,
-    currentAge,
     className = "",
 }) => {
-    const currentArray = [currentAge - 2, currentAge - 1, currentAge, currentAge + 1, currentAge + 2];
+    const currentArray = [selection - 2, selection - 1, selection, selection + 1, selection + 2];
 
     return (
         <div className={`age-slider ${className}`}>
@@ -32,8 +30,8 @@ const AgeSlider: React.FC<IAgeSliderProps> = ({ id,
             {currentArray.map((age) => {
                 return (
                     <span
-                        onClick={() => onClick(id, Number(age))}
-                        className={`age-slider__item ${selection === Number(age) ? "age-slider__item--selected" : ""}`}
+                        onClick={() => onClick(age)}
+                        className={`age-slider__item ${selection === age ? "age-slider__item--selected" : ""}`}
                         key={age}
                     >
                         {age}

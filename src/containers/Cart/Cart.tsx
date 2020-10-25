@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
@@ -6,7 +6,7 @@ import CartItem from "containers/CartItem/CartItem";
 import Link from "components/Link/Link";
 import CloseIcon from "icons/CloseIcon";
 import priceToStringConverter from "utils/priceToStringConverter";
-import {productData as mockupData, IProductDataItem} from "data-mockup/product-data.mockup";
+import { productData as mockupData, IProductDataItem } from "data-mockup/product-data.mockup";
 
 import "./Cart.scss";
 
@@ -17,10 +17,10 @@ interface ICartProps {
 
 const productData = mockupData.slice(0, 2)
 
-const Cart: React.FC<ICartProps> = ({closeCartMenu, className}) => {
+const Cart: React.FC<ICartProps> = ({ closeCartMenu, className }) => {
   const [counts, setCounts] = useState(
     productData.map((el: IProductDataItem) => {
-      return {id: el.id, count: 1, price: el.price}
+      return { id: el.id, count: 1, price: el.price }
     })
   )
 
