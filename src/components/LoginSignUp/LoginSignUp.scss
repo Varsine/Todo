@@ -1,0 +1,75 @@
+@import "~styles/root";
+
+.login-sign-up {
+    text-align: center;
+    width: 384px;
+
+    &__header {
+        font-size: $heading2;
+        margin: 60px 0 16px;
+    }
+
+    &__sign-up-div {
+        font-size: $body-text;
+        display: flex;
+        justify-content: center;
+        margin: 0 0 22px;
+
+        &__text-one {
+            cursor: pointer;
+        }
+
+        &__text-two {
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0 8px;
+        }
+    }
+
+    &__login-div {
+        font-size: $body-text;
+        display: flex;
+        justify-content: space-between;
+        margin: 4px 0 0;
+
+        &__text-one {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        &__text-two {
+            cursor: pointer;
+        }
+    }
+
+    &__button {
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 16px;
+        font-size: $intro-text;
+        margin: 58px 0 16px;
+        padding: 6px 24px;
+        color: $text-color-primary;
+    }
+
+    &__text-block {
+        font-size: $body-text;
+        font-weight: normal;
+        color: $text-color-surface;
+    }
+
+    &__social-media-div {
+        display: flex;
+        align-items: center;
+        margin: 78px 0 0;
+
+        &__p-text {
+            padding: 0 10px 0 0;
+            font-size: $body-text;
+            color: $text-color-surface;
+        }
+
+        &__link {
+            margin: 0 6px;
+        }
+    }
+}

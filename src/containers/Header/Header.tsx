@@ -1,14 +1,14 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
 
+import { DeviceContext } from 'App';
 import Link from "components/Link/Link";
+import Cart from "containers/Cart/Cart";
 import Button from "components/Button/Button";
 import BoxyLogo from "icons/BoxyLogo";
 import WhiteBoxyLogo from "icons/WhiteBoxyLogo";
 import MobileMenuIcon from "icons/MobileMenuIcon";
 import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 import CartIcon from "icons/CartIcon";
-import Cart from "containers/Cart/Cart";
-import { DeviceContext } from 'App';
 
 import "./Header.scss";
 
@@ -84,12 +84,13 @@ const Header: React.FC<IHeaderProps> = () => {
         >
           <CartIcon />
         </div>
+        <Link to="/login">
         <Button
           className="app-header__right-column__button"
           onClick={suggestionClick}
         >
           Մուտք
-        </Button>
+        </Button></Link>
       </div>
       {cartMenu && (
         <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />

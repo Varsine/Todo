@@ -1,0 +1,21 @@
+@import "~styles/root";
+
+.app-auth {
+    display: flex;
+    justify-content: flex-end;
+    height: 100vh;
+
+    &__img {
+        position: absolute;
+        top: 180px;
+        left: 77px;
+        height: 520px;
+        width: 870px;
+    }
+
+    &__input {
+        border-radius: 21px;
+        margin: 12px 0;
+        box-shadow: 2px 3px 6px #00000029;
+}
+}
