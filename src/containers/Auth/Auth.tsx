@@ -8,10 +8,10 @@ import InputValidation from 'components/InputValidation/InputValidation';
 
 import "./Auth.scss";
 
-enum InputNames{
-    email= "email",
-    password= "password",
-    name="name",
+enum InputNames {
+    email = "email",
+    password = "password",
+    name = "name",
 }
 
 interface IAuthProps { };
@@ -28,7 +28,6 @@ const Auth: React.FC<IAuthProps> = () => {
     });
 
     const inputChangeHandler = (val: string, name: InputNames) => {
-        console.log(name, val)
         setState({
             ...state,
             [name]: val,
@@ -89,9 +88,9 @@ const Auth: React.FC<IAuthProps> = () => {
                     >
                         <InputField
                             name="email"
-                            value={name}
+                            value={email}
                             className="app-auth__input"
-                            onChange={(val) => inputChangeHandler(val, InputNames.email)}
+                            onChange={(val) => { inputChangeHandler(val, InputNames.email) }}
                             placeholder="Էլ․հասցե"
                             type="text"
                         />
@@ -99,7 +98,7 @@ const Auth: React.FC<IAuthProps> = () => {
                             name="password"
                             value={password}
                             className="app-auth__input"
-                            onChange={(val) => inputChangeHandler(val, InputNames.password)}
+                            onChange={(val) => { inputChangeHandler(val, InputNames.password) }}
                             placeholder="Գաղտնաբառ"
                             type="password"
                         />
