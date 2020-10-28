@@ -1,0 +1,145 @@
+@import "~styles/root";
+
+.login-sign-up {
+    text-align: center;
+    width: 384px;
+
+    &__header {
+        font-size: $heading2;
+        margin: 60px 0 16px;
+
+        @include media(until-desktop) {
+            font-size: $heading3;
+        }
+
+        @include media(until-mobile) {
+            color: $surface-color;
+        }
+    }
+
+    &__sign-up-div {
+        font-size: $body-text;
+        display: flex;
+        justify-content: center;
+        margin: 0 0 22px;
+
+        @include media(until-desktop) {
+            font-size: $caption-text;
+        }
+
+        @include media(until-mobile) {
+            color: $surface-color;
+            font-size: $body-text;
+        }
+
+        &__text-one {
+            cursor: pointer;
+        }
+
+        &__text-two {
+            cursor: pointer;
+            text-decoration: underline;
+            padding: 0 8px;
+        }
+    }
+
+    &__login-div {
+        font-size: $body-text;
+        display: flex;
+        justify-content: space-between;
+        margin: 4px 0 0;
+
+        @include media(until-desktop) {
+            font-size: $caption-text;
+        }
+
+        @include media(until-mobile) {
+            font-size: $body-text;
+        }
+
+        &__text-one {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        &__text-two {
+            cursor: pointer;
+        }
+    }
+
+    &__button {
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 16px;
+        font-size: $intro-text;
+        margin: 58px 0 16px;
+        padding: 6px 24px;
+        color: $text-color-primary;
+
+        @include media(until-desktop) {
+            font-size: $body-text;
+        }
+    }
+
+    &__text-block {
+        font-size: $body-text;
+        font-weight: normal;
+        color: $text-color-surface;
+
+        @include media(until-desktop) {
+            font-size: $caption-text;
+        }
+
+        @include media(until-tablet) {
+            font-size: $micro-text;
+        }
+    }
+
+    &__social-media-div {
+        display: flex;
+        align-items: center;
+        margin: 78px 0 0;
+
+        @include media(until-desktop) {
+            margin: 78px 0;
+        }
+
+        @include media(until-mobile) {
+            display: block;
+        }
+
+        &__p-text {
+            padding: 0 10px 0 0;
+            font-size: $body-text;
+            color: $text-color-surface;
+
+            @include media(until-mobile) {
+                padding: 0 0 28px;
+                font-size: $caption-text;
+
+                &::after {
+                    content: url(~assets/Line.png);
+                    padding: 0 5px;
+                }
+
+                &::before {
+                    content: url(~assets/Line.png);
+                    padding: 0 8px;
+                }
+            }
+
+            @include media(mobile) {
+                &::after {
+                    content: "";
+                }
+
+                &::before {
+                    content: "";
+                }
+            }
+        }
+
+        &__link {
+            margin: 0 6px;
+        }
+    }
+}

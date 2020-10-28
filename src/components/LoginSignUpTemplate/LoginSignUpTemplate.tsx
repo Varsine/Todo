@@ -7,9 +7,9 @@ import TextBlock from 'components/TextBlock/TextBlock';
 import GoogleIcon from 'icons/GoogleIcon';
 import FbLoginIcon from 'icons/FbLoginIcon';
 
-import "./LoginSignUp.scss";
+import "./LoginSignUpTemplate.scss";
 
-interface ILoginSignUpProps {
+interface ILoginSignUpTemplateProps {
     header: string;
     buttonClick: () => void;
     onClick: () => void;
@@ -19,7 +19,7 @@ interface ILoginSignUpProps {
     forgetText?: string;
 };
 
-const LoginSignUp: React.FC<ILoginSignUpProps> = ({
+const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
     header,
     buttonClick,
     onClick,
@@ -45,11 +45,13 @@ const LoginSignUp: React.FC<ILoginSignUpProps> = ({
             <TextBlock className="login-sign-up__text-block">Բաց թողնել</TextBlock>
             <div className="login-sign-up__social-media-div">
                 <p className="login-sign-up__social-media-div__p-text">կամ մուտք գործել</p>
-                <Link className="login-sign-up__social-media-div__link" to=""><FbLoginIcon /></Link>
-                <Link className="login-sign-up__social-media-div__link" to=""><GoogleIcon /></Link>
+                <div>
+                    <Link className="login-sign-up__social-media-div__link" to=""><FbLoginIcon /></Link>
+                    <Link className="login-sign-up__social-media-div__link" to=""><GoogleIcon /></Link>
+                </div>
             </div>
         </div>
     )
 }
 
-export default LoginSignUp;
+export default LoginSignUpTemplate;

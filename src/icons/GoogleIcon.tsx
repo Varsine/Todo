@@ -2,7 +2,7 @@ import React from 'react';
 
 const GoogleIcon = () => {
     return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 24 24">
             <g id="Group_702" data-name="Group 702" transform="translate(-1327.03 -785.03)">
                 <rect id="Rectangle_151" data-name="Rectangle 151" width="24" height="24" transform="translate(1327.03 785.03)" fill="#fff" />
                 <g id="google" transform="translate(1329.621 787.633)">
