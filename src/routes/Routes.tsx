@@ -17,7 +17,7 @@ const Routes: React.FC<IRoutesProps> = () => {
       <Quiz path="/quiz" />
       <OrderDetails path="/order-details" />
       <Checkout path="/checkout" />
-      <Auth path="/login" />
+      <Auth path="/auth" />
     </Router>
   )
 }
