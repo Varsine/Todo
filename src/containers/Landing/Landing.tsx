@@ -8,22 +8,24 @@ import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 import ProductCard from "components/ProductCard/ProductCard";
 import Heading from "components/Heading/Heading";
 import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
-import { DeviceContext } from 'App';
+import { AppContext } from "app-context/appContext";
+import { DeviceTypes } from "app-context/contextTypes";
 
 import "./Landing.scss";
 
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  const deviceType = useContext(DeviceContext);
+  const { state: { device } } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
 
-  const clickProductCart = () => { }
-  const buttonClick = () => {
+  const handleGetBtnClick = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
     const offsetTop = productsContainerRef.current?.offsetTop || 0;
     window.scrollTo({ top: (offsetTop - headerSize) || 0, behavior: 'smooth' });
   }
+
+  const clickProductCart = () => { }
   const clickButtonHover = () => { }
 
   return (
@@ -33,7 +35,7 @@ const Landing: React.FC<ILandingProps> = () => {
           <div className="app-landing__parent__top-column__left-column">
             <img
               className="app-landing__parent__top-column__left-column__img"
-              src={deviceType !== 'mobile' ? landingTopBg : landingTopBgMobile}
+              src={device !== DeviceTypes.mobile ? landingTopBg : landingTopBgMobile}
               alt="Landing-Illustration"
             />
           </div>
@@ -46,7 +48,7 @@ const Landing: React.FC<ILandingProps> = () => {
               </Heading>
               <Button
                 className="app-landing__parent__top-column__right-column__children__button"
-                onClick={buttonClick}
+                onClick={handleGetBtnClick}
               >
                 Ստանալ
               </Button>

@@ -19,7 +19,7 @@ export const quizData: IQuizData[] = [
     inputName: "old",
     question: "Խնդրում ենք նշել Ձեր տարիքը։",
     options: [],
-    selection: null,
+    selection: 25,
   },
   {
     id: 3,
