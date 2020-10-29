@@ -1,0 +1,10 @@
+@import "~styles/root";
+
+.order-details-container {
+    width: 640px;
+    height: 536px;
+    box-shadow: 0px 3px 55px #00000029;
+    border-radius: 14px;
+    background-color: $surface-color;
+    padding: 29px 46px 35px 46px;
+}

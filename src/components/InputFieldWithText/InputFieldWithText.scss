@@ -1,0 +1,15 @@
+@import "~styles/root";
+
+.container {
+    text-align: start;
+
+    &__text {
+        font-size: $intro-text;
+        padding: 16px 0;
+        display: inline-block;
+    }
+
+    &__input {
+        height: 64px;
+    }
+}

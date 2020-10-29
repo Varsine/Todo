@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from "react";
+import { useLocation } from '@reach/router';
 
 import Link from "components/Link/Link";
 import Button from "components/Button/Button";
@@ -8,7 +9,8 @@ import MobileMenuIcon from "icons/MobileMenuIcon";
 import ProfileHeaderIcon from "icons/ProfileHeaderIcon";
 import CartIcon from "icons/CartIcon";
 import Cart from "containers/Cart/Cart";
-import { DeviceContext } from 'App';
+import { AppContext } from 'app-context/appContext';
+import { DeviceTypes } from "app-context/contextTypes";
 
 import "./Header.scss";
 
@@ -19,7 +21,8 @@ const Header: React.FC<IHeaderProps> = () => {
   const [headerBackgrounded, setHeaderBackgrounded] = useState("");
   const [cartMenu, setCartMenu] = useState(false);
   const [mobileCart, setMobileCart] = useState("");
-  const deviceType = useContext(DeviceContext);
+  const { state: { device } } = useContext(AppContext);
+  const loc = useLocation();
 
   const toggleCartMenu = () => {
     setCartMenu(!cartMenu);
@@ -46,7 +49,10 @@ const Header: React.FC<IHeaderProps> = () => {
       setMobileCart("");
     }
   }
+
   const suggestionClick = () => { }
+
+  const isColoredLogo = headerBackgrounded || (device !== DeviceTypes.desktop) || loc.pathname !== '/';
 
   return (
     <header id="app-header" className={`app-header ${headerBackgrounded}`}>
@@ -54,29 +60,33 @@ const Header: React.FC<IHeaderProps> = () => {
         <MobileMenuIcon />
       </div>
       <div className="app-header__logo">
-        {headerBackgrounded || (deviceType !== 'desktop') ? <BoxyLogo /> : <WhiteBoxyLogo />}
+        <Link to='/'>
+          {isColoredLogo ? <BoxyLogo /> : <WhiteBoxyLogo />}
+        </Link>
       </div>
       <div className="app-header__right-column">
         <nav className="app-header__right-column__navigation" ref={navRef}>
           <ul>
             <li>
-              <Link to="">Նորություններ</Link>
+              <Link to="/order-details">Նորություններ</Link>
             </li>
             <li>
-              <Link to="">Մեր մասին</Link>
+              <Link to="/about-us">Մեր մասին</Link>
             </li>
             <div className="app-header__right-column__navigation__mobile-column">
               <li>
-                <Link to="">Մուտք</Link>
+                <Link to="/auth">Մուտք</Link>
               </li>
               <li>
-                <Link to="">Անձնական էջ</Link>
+                <Link to="/profile">Անձնական էջ</Link>
               </li>
             </div>
           </ul>
         </nav>
         <div className="app-header__right-column__profile-header-icon">
-          <ProfileHeaderIcon />
+          <Link to="/profile">
+            <ProfileHeaderIcon />
+          </Link>
         </div>
         <div
           className="app-header__right-column__cart-icon"
