@@ -8,7 +8,7 @@ import "./SignUp.scss";
 
 interface ISignUpProps {
     buttonClick: () => void;
-    changeAuth: () => void;
+    onAuthChangeClick: () => void;
     name: string;
     email: string;
     password: string;
@@ -22,7 +22,7 @@ interface ISignUpProps {
 
 const SignUp: React.FC<ISignUpProps> = ({
     buttonClick,
-    changeAuth,
+    onAuthChangeClick,
     name,
     email,
     password,
@@ -34,11 +34,12 @@ const SignUp: React.FC<ISignUpProps> = ({
     passwordErrorMessage,
 }) => {
     return (
-        <LoginSignUpTemplate header="Գրանցում"
-            buttonClick={buttonClick}
+        <LoginSignUpTemplate
+            header="Գրանցում"
             signUpQuestion="Արդեն գրանցվա՞ծ եք։"
             loginText="Մուտք գործել"
-            onClick={changeAuth}
+            buttonClick={buttonClick}
+            onClick={onAuthChangeClick}
         >
             <InputField
                 name='name'

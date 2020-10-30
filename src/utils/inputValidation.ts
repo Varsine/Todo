@@ -25,7 +25,7 @@ export const inputValidation = (value: string, type: InputNames): IValidationAns
         case InputNames.name:
             if (value.length < 3) {
                 isValid = false;
-                errorText = 'Նվազագույնը 4 տառ'
+                errorText = 'Նվազագույնը 3 տառ'
             } else {
                 isValid = true;
                 errorText = ''

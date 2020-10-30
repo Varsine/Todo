@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import Image from 'components/Image/Image';
 import authImg from 'assets/AuthImage.svg';
@@ -45,7 +45,7 @@ const Auth: React.FC = () => {
         })
     }
 
-    const changeAuth = () => {
+    const onAuthChangeClick = () => {
         setAuthState(!authState);
         setState({
             ...state,
@@ -57,26 +57,14 @@ const Auth: React.FC = () => {
         })
     }
 
-    const [className, setClassName] = useState("")
-    const mobileMenu = () => {
-        if (window.innerWidth < 1024 && document.getElementById("mobile-menu")?.className.includes("mobile-menu")) {
-            setClassName("mobile-auth")
-        } else {
-            setClassName("")
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener("click", mobileMenu)
-    })
     return (
-        <div className={`app-auth ${className} `} >
+        <div className='app-auth' >
             <div className="app-auth__img">
                 <Image src={authImg} />
             </div>
             {!authState ?
-                (<Login buttonClick={loginHandler}
-                    changeAuth={changeAuth}
+                (<Login onClick={loginHandler}
+                    onAuthChangeClick={onAuthChangeClick}
                     email={email}
                     password={password}
                     onChangeEmail={(val) => inputChangeHandler(val, InputNames.email)}
@@ -86,7 +74,7 @@ const Auth: React.FC = () => {
 
                 />) :
                 (<SignUp buttonClick={signUpHandler}
-                    changeAuth={changeAuth}
+                    onAuthChangeClick={onAuthChangeClick}
                     name={name}
                     email={email}
                     password={password}

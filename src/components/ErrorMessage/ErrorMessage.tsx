@@ -7,7 +7,6 @@ interface IErrorMessageProps {
 };
 
 const ErrorMessage: React.FC<IErrorMessageProps> = ({ className = "", children }) => {
-
     return (<p className={`error-message ${className}`}>{children}</p>);
 }
 

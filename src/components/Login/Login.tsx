@@ -7,8 +7,8 @@ import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import "./Login.scss";
 
 interface ILoginProps {
-    buttonClick: () => void;
-    changeAuth: () => void;
+    onClick: () => void;
+    onAuthChangeClick: () => void;
     email: string;
     password: string;
     onChangeEmail: (value: string) => void;
@@ -18,8 +18,8 @@ interface ILoginProps {
 };
 
 const Login: React.FC<ILoginProps> = ({
-    buttonClick,
-    changeAuth,
+    onClick,
+    onAuthChangeClick,
     email,
     password,
     onChangeEmail,
@@ -28,11 +28,12 @@ const Login: React.FC<ILoginProps> = ({
     passwordErrorMessage,
 }) => {
     return (
-        <LoginSignUpTemplate header="Մուտք"
-            buttonClick={buttonClick}
-            signUpText="Գրանցվել"
-            onClick={changeAuth}
+        <LoginSignUpTemplate
+            header="Մուտք"
+            registerText="Գրանցվել"
             forgetText="Մոռացե՞լ ես գաղտնաբառը"
+            buttonClick={onClick}
+            onClick={onAuthChangeClick}
         >
             <InputField
                 name="email"

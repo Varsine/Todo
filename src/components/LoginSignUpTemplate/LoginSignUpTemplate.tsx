@@ -15,7 +15,7 @@ interface ILoginSignUpTemplateProps {
     onClick: () => void;
     signUpQuestion?: string;
     loginText?: string;
-    signUpText?: string;
+    registerText?: string;
     forgetText?: string;
 };
 
@@ -24,7 +24,7 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
     buttonClick,
     onClick,
     signUpQuestion,
-    signUpText,
+    registerText,
     children,
     loginText,
     forgetText
@@ -32,17 +32,22 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
     return (
         <div className="login-sign-up">
             <Heading className="login-sign-up__header">{header}</Heading>
-            <div className="login-sign-up__sign-up-div">
-                <p className="login-sign-up__sign-up-div__text-one">{signUpQuestion}</p>
-                <p className="login-sign-up__sign-up-div__text-two" onClick={onClick}>{loginText}</p>
+            <div className="login-sign-up__content">
+                <div className="login-sign-up__content__sign-up-div">
+                    <p className="login-sign-up__content__sign-up-div__text-one">{signUpQuestion}</p>
+                    <p className="login-sign-up__content__sign-up-div__text-two" onClick={onClick}>{loginText}</p>
+                </div>
+                <div className="login-sign-up__content__input-div">{children}</div>
+                <div className="login-sign-up__content__login-div">
+                    <p className="login-sign-up__content__login-div__text-one" onClick={onClick} >{registerText}</p>
+                    <p className="login-sign-up__content__login-div__text-two" >{forgetText}</p>
+                </div>
             </div>
-            <div className="login-sign-up__input-div">{children}</div>
-            <div className="login-sign-up__login-div">
-                <p className="login-sign-up__login-div__text-one" onClick={onClick} >{signUpText}</p>
-                <p className="login-sign-up__login-div__text-two" >{forgetText}</p>
+            <div className="login-sign-up__button-div">
+                <Button className="login-sign-up__button-div__btn" onClick={buttonClick}>{header}</Button>
             </div>
-            <Button className="login-sign-up__button" onClick={buttonClick}>{header}</Button>
             <TextBlock className="login-sign-up__text-block">Բաց թողնել</TextBlock>
+
             <div className="login-sign-up__social-media-div">
                 <p className="login-sign-up__social-media-div__p-text">կամ մուտք գործել</p>
                 <div>

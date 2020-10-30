@@ -1,92 +1,127 @@
 @import "~styles/root";
 
 .login-sign-up {
-    text-align: center;
-    width: 384px;
+    width: 548px;
+
+    @include media(desktop) {
+        width: 384px;
+    }
+
+    @include media(until-tablet) {
+        width: 400px;
+    }
+
+    @include media(until-mobile) {
+        width: 328px;
+    }
 
     &__header {
+        text-align: center;
         font-size: $heading2;
-        margin: 60px 0 16px;
+        margin: 151px 0 16px;
+        line-height: normal;
 
         @include media(until-desktop) {
             font-size: $heading3;
+            margin-top: 88px;
         }
 
-        @include media(until-mobile) {
+        @include media(until-tablet) {
             color: $surface-color;
         }
     }
 
-    &__sign-up-div {
-        font-size: $body-text;
+    &__content {
+        height: 310px;
+
+        @include media(desktop) {
+            height: 280px;
+        }
+
+        &__sign-up-div {
+            text-align: center;
+            font-size: $body-text;
+            display: flex;
+            height: 16px;
+            justify-content: center;
+            margin: 0 0 16px;
+
+            @include media(until-desktop) {
+                font-size: $caption-text;
+            }
+
+            @include media(until-tablet) {
+                color: $surface-color;
+            }
+
+            &__text-one {
+                cursor: pointer;
+            }
+
+            &__text-two {
+                cursor: pointer;
+                text-decoration: underline;
+                padding: 0 8px;
+            }
+        }
+
+        &__login-div {
+            font-size: $body-text;
+            display: flex;
+            justify-content: space-between;
+            margin: 4px 0 0px;
+
+            @include media(until-desktop) {
+                font-size: $caption-text;
+            }
+
+            &__text-one {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            &__text-two {
+                cursor: pointer;
+            }
+        }
+    }
+
+    &__button-div {
         display: flex;
         justify-content: center;
-        margin: 0 0 22px;
+        margin: 0 0 16px;
 
-        @include media(until-desktop) {
-            font-size: $caption-text;
-        }
+        &__btn {
+            height: 48px;
+            border-radius: 34px;
+            font-size: $intro-text;
+            color: $text-color-primary;
+            padding: 12px 30px;
+            box-shadow: 0px 3px 6px #00000029;
 
-        @include media(until-mobile) {
-            color: $surface-color;
-            font-size: $body-text;
-        }
+            @include media(until-desktop) {
+                font-size: $body-text;
+                padding: 8px 28px;
+                border-radius: 32px;
+            }
 
-        &__text-one {
-            cursor: pointer;
-        }
-
-        &__text-two {
-            cursor: pointer;
-            text-decoration: underline;
-            padding: 0 8px;
-        }
-    }
-
-    &__login-div {
-        font-size: $body-text;
-        display: flex;
-        justify-content: space-between;
-        margin: 4px 0 0;
-
-        @include media(until-desktop) {
-            font-size: $caption-text;
-        }
-
-        @include media(until-mobile) {
-            font-size: $body-text;
-        }
-
-        &__text-one {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        &__text-two {
-            cursor: pointer;
-        }
-    }
-
-    &__button {
-        box-shadow: 0px 3px 6px #00000029;
-        border-radius: 16px;
-        font-size: $intro-text;
-        margin: 58px 0 16px;
-        padding: 6px 24px;
-        color: $text-color-primary;
-
-        @include media(until-desktop) {
-            font-size: $body-text;
+            @include media(until-tablet) {
+                height: 40px;
+            }
         }
     }
 
     &__text-block {
+        text-align: center;
         font-size: $body-text;
         font-weight: normal;
+        display: block;
+        margin: 0 0 114px 0;
         color: $text-color-surface;
 
         @include media(until-desktop) {
             font-size: $caption-text;
+            margin: 0 0 56px 0;
         }
 
         @include media(until-tablet) {
@@ -97,14 +132,14 @@
     &__social-media-div {
         display: flex;
         align-items: center;
-        margin: 78px 0 0;
 
         @include media(until-desktop) {
-            margin: 78px 0;
+            margin: 0 0 78px 0;
         }
 
-        @include media(until-mobile) {
+        @include media(until-tablet) {
             display: block;
+            text-align: center;
         }
 
         &__p-text {
@@ -112,7 +147,7 @@
             font-size: $body-text;
             color: $text-color-surface;
 
-            @include media(until-mobile) {
+            @include media(until-tablet) {
                 padding: 0 0 28px;
                 font-size: $caption-text;
 

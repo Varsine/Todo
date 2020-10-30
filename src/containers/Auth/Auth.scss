@@ -12,7 +12,7 @@
         height: auto;
     }
 
-    @include media(until-mobile) {
+    @include media(until-tablet) {
         background-image: url("~assets/AuthMobileBg.png");
         background-size: 100% 100%;
         justify-content: center;
@@ -20,41 +20,30 @@
 
     &__img {
         position: absolute;
-        top: 200px;
+        top: 269px;
         left: 77px;
+        width: 40%;
         height: auto;
-        width: 50%;
 
         @include media(until-desktop) {
-            top: 220px;
+            top: 152px;
+            width: 52%;
             left: 0;
         }
 
         @include media(until-tablet) {
-            width: 40%;
-            top: 250px;
-        }
-
-        @include media(until-mobile) {
             display: none;
         }
     }
 
     &__input {
+        height: 64px;
         border-radius: 21px;
         margin: 12px 0;
         box-shadow: 2px 3px 6px #00000029;
-    }
-}
 
-.mobile-auth {
-    height: auto;
-
-    @include media(until-tablet) {
-        margin-top: 150px;
+        @include media(desktop) {
+            height: 56px;
+        }
     }
-
-    @include media(until-mobile) {
-        margin-top: 89px;
-    }
-}
+};
