@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 
 import OrderDetailsContainer from "components/OrderDetailsContainer/OrderDetailsContainer";
 import InputFieldWithText from "components/InputFieldWithText/InputFieldWithText";
@@ -18,10 +18,10 @@ const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
 }) => {
 
     return (
-        <OrderDetailsContainer>
-            <div>
-                <p>Արդյոք սա նվե՞ր է</p>
-                <div>{children}</div>
+        <OrderDetailsContainer className="order-details-right" >
+            <div className="order-details-right__check-box-div">
+                <p className="order-details-right__check-box-div__text">Արդյոք սա նվե՞ր է</p>
+                <div className="order-details-right__check-box-div__content">{children}</div>
             </div>
             <InputFieldWithText
                 placeholder="Պողոս Պողոսյան"
@@ -31,9 +31,9 @@ const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
                 value={getterName}
                 text="Նվերը ստացողի անունը և ազգանունը"
             />
-            <div>
-                <p>Մեկնաբանություններ</p>
-                <textarea>Հավելյալ նշումներ</textarea>
+            <div className="order-details-right__textarea-box">
+                <p className="order-details-right__textarea-box__text">Մեկնաբանություններ</p>
+                <textarea className="order-details-right__textarea-box__area">Հավելյալ նշումներ</textarea>
             </div>
         </OrderDetailsContainer>
     );

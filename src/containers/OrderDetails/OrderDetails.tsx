@@ -6,9 +6,10 @@ import Link from 'components/Link/Link';
 import OrderDetailsLeftBox from "components/OrderDetailsLeftBox/OrderDetailsLeftBox";
 import OrderDetailsRightBox from "components/OrderDetailsRightBox/OrderDetailsRightBox";
 import CheckBoxWithText from 'components/CheckBoxWithText/CheckBoxWithText';
-import { presentData } from 'data-mockup/order-present-data.mockup';
 
 import "./OrderDetails.scss";
+
+const present = ['Այո', 'Ոչ'];
 
 enum InputNames {
   name = "name",
@@ -26,9 +27,9 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
     address: "",
     phone: "",
     email: "",
-    getter: ""
+    getter: "",
+    selection: 2
   });
-
 
   const inputChangeHandler = (val: string, name: InputNames) => {
     setState({
@@ -37,14 +38,15 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
     })
   }
 
-  const checkAnswer = (selection: number | null, idx: number) => {
-    return selection = idx
+  const checkAnswer = (idx: number) => {
+    return setState({
+      ...state,
+      selection: idx
+    })
   }
 
-  const onClickCheckBox = () => { }
-
   const clickContinue = () => { }
-  const { name, address, phone, email, getter } = state
+  const { name, address, phone, email, getter, selection } = state
   return (
     <div className="order-details">
       <div className="order-details__bg"></div>
@@ -62,17 +64,18 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
         />
         <OrderDetailsRightBox
           getterName={getter}
-          onChangeName={(val) => inputChangeHandler(val, InputNames.name)}
+          onChangeName={(val) => inputChangeHandler(val, InputNames.getter)}
         >
           {
-            presentData.map((el, idx) => {
+            present.map((el, idx) => {
               return (
                 <CheckBoxWithText
-                  selected={el.selection === idx}
-                  name={el.inputName}
-                  onClick={() => checkAnswer(el.selection, idx)}
+                  className="order-details__boxes__check-box"
+                  selected={selection === idx}
+                  name="present"
+                  onClick={() => checkAnswer(idx)}
                 >
-                  {el.present}
+                  {el}
                 </CheckBoxWithText>
               )
             })

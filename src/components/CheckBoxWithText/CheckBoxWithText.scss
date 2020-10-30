@@ -7,13 +7,14 @@
     align-items: center;
     font-size: $body-text;
     color: $text-color-surface;
+    padding: 0 0 0 24px;
     cursor: pointer;
     &:hover {
         background-color: #f5e6dd;
     }
 
     &__input-radio {
-        margin: 0 24px;
+        margin: 0 24px 0 0;
         appearance: none;
         border-radius: 50%;
         width: 30px;
