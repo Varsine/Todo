@@ -1,31 +1,69 @@
 @import "~styles/root";
 
 .order-details-right {
+    margin-left: 80px;
+
+    @include media(until-tablet) {
+        margin-left: 64px;
+    }
+
+    @include media(until-mobile) {
+        margin-left: 18px;
+    }
+
     &__check-box-div {
+        @include media(until-mobile) {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         &__text {
             font-size: $intro-text;
             padding: 16px 0;
-            text-align: start;
+
+            @include media(until-mobile) {
+                width: 100%;
+                text-align: center;
+            }
+
+            @include media(desktop) {
+                font-size: $body-text;
+                padding: 16px 0 8px;
+            }
         }
 
         &__content {
             display: flex;
             padding: 17.5px 0;
+
+            @include media(desktop) {
+                padding: 15.5px 0;
+            }
         }
     }
 
     &__textarea-box {
         &__text {
-            text-align: start;
             font-size: $intro-text;
             padding: 16px 0;
+
+            @include media(desktop) {
+                font-size: $body-text;
+                padding: 16px 0 8px;
+            }
         }
 
         &__area {
-            width: 100%;
-            height: 187px;
+            width: calc(100% - 32px);
+            height: 150px;
             border-radius: 13px;
+            padding: 16px;
             border: 1px solid $secondary-color-light;
+
+            @include media(until-desktop) {
+                height: 120px;
+            }
         }
     }
 }

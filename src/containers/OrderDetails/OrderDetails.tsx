@@ -82,9 +82,11 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
           }
         </OrderDetailsRightBox>
       </div>
-      <Link to="/">
-        <Button className="order-details__btn" onClick={clickContinue}>Շարունակել</Button>
-      </Link>
+      <div className="order-details__btn-div">
+        <Link to="/">
+          <Button className="order-details__btn-div__button" onClick={clickContinue}>Շարունակել</Button>
+        </Link>
+      </div>
     </div>
   )
 }
