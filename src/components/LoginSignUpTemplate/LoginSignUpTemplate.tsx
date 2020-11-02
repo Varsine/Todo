@@ -50,9 +50,9 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
 
             <div className="login-sign-up__social-media-div">
                 <p className="login-sign-up__social-media-div__p-text">կամ մուտք գործել</p>
-                <div>
-                    <Link className="login-sign-up__social-media-div__link" to=""><FbLoginIcon /></Link>
-                    <Link className="login-sign-up__social-media-div__link" to=""><GoogleIcon /></Link>
+                <div className="login-sign-up__social-media-div__links-container">
+                    <Link className="login-sign-up__social-media-div__links-container__link" to=""><FbLoginIcon /></Link>
+                    <Link className="login-sign-up__social-media-div__links-container__link" to=""><GoogleIcon /></Link>
                 </div>
             </div>
         </div>

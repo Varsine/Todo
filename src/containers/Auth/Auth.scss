@@ -1,21 +1,32 @@
 @import "~styles/root";
 
 .app-auth {
-    font-family: 'Mardoto-Regular',
-        Fallback,
-        sans-serif;
+    font-family: "Mardoto-Regular", Fallback, sans-serif;
     display: flex;
     justify-content: flex-end;
-    height: 100vh;
+    min-height: calc(100vh - #{$header-size});
 
     @include media(until-desktop) {
-        height: auto;
+        min-height: calc(100vh - #{$header-size-small});
     }
-
     @include media(until-tablet) {
+        justify-content: center;
+    }
+    
+    &__background {
+        position: fixed;
+        z-index: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - #{$header-size-small});
         background-image: url("~assets/AuthMobileBg.png");
         background-size: 100% 100%;
-        justify-content: center;
+        display: none;
+        top: $header-size-small;
+        @include media(until-tablet) {
+            display: block;
+            justify-content: center;
+        }
     }
 
     &__img {
@@ -46,4 +57,4 @@
             height: 56px;
         }
     }
-};
+}

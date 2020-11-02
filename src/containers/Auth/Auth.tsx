@@ -58,7 +58,8 @@ const Auth: React.FC = () => {
     }
 
     return (
-        <div className='app-auth' >
+        <div className="app-auth" >
+            <div className="app-auth__background"></div>
             <div className="app-auth__img">
                 <Image src={authImg} />
             </div>

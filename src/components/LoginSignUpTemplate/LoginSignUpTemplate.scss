@@ -2,6 +2,8 @@
 
 .login-sign-up {
     width: 548px;
+    padding-top: 50px;
+    z-index: 1;
 
     @include media(desktop) {
         width: 384px;
@@ -9,6 +11,7 @@
 
     @include media(until-tablet) {
         width: 400px;
+        padding-top: 70px;
     }
 
     @include media(until-mobile) {
@@ -18,12 +21,10 @@
     &__header {
         text-align: center;
         font-size: $heading2;
-        margin: 151px 0 16px;
         line-height: normal;
 
         @include media(until-desktop) {
             font-size: $heading3;
-            margin-top: 88px;
         }
 
         @include media(until-tablet) {
@@ -70,6 +71,7 @@
             display: flex;
             justify-content: space-between;
             margin: 4px 0 0px;
+            padding: 0 15px;
 
             @include media(until-desktop) {
                 font-size: $caption-text;
@@ -116,7 +118,7 @@
         font-size: $body-text;
         font-weight: normal;
         display: block;
-        margin: 0 0 114px 0;
+        margin: 0 0 70px 0;
         color: $text-color-surface;
 
         @include media(until-desktop) {
@@ -133,22 +135,18 @@
         display: flex;
         align-items: center;
 
-        @include media(until-desktop) {
-            margin: 0 0 78px 0;
-        }
-
         @include media(until-tablet) {
             display: block;
             text-align: center;
         }
 
         &__p-text {
-            padding: 0 10px 0 0;
+            margin: 0 10px 0 0;
             font-size: $body-text;
             color: $text-color-surface;
 
             @include media(until-tablet) {
-                padding: 0 0 28px;
+                margin: 0 0 28px;
                 font-size: $caption-text;
 
                 &::after {
@@ -172,9 +170,14 @@
                 }
             }
         }
-
-        &__link {
-            margin: 0 6px;
+        &__links-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &__link {
+                display: block;
+                margin: 0 6px;
+            }
         }
     }
 }
