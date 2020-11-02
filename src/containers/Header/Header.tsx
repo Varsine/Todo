@@ -94,12 +94,14 @@ const Header: React.FC<IHeaderProps> = () => {
         >
           <CartIcon />
         </div>
-        <Button
-          className="app-header__right-column__button"
-          onClick={suggestionClick}
-        >
-          Մուտք
+        <Link to="/auth">
+          <Button
+            className="app-header__right-column__button"
+            onClick={suggestionClick}
+          >
+            Մուտք
         </Button>
+        </Link>
       </div>
       {cartMenu && (
         <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />

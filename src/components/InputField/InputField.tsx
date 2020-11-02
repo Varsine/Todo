@@ -5,7 +5,7 @@ import NonVisibleIcon from "icons/NonVisibleIcon";
 
 import "./InputField.scss";
 
-enum InputTypes {
+enum InputComponentTypes {
   text = 'text',
   password = 'password',
   email = 'email',
@@ -32,12 +32,12 @@ const InputField: React.FC<IInputFieldProps> = ({
   Icon = null,
   loading = false,
   placeholder = '',
-  type = InputTypes.text,
+  type = InputComponentTypes.text,
   name = '',
   className = '',
   hasError = false,
 }) => {
-  const isPassword: boolean = type === InputTypes.password;
+  const isPassword: boolean = type === InputComponentTypes.password;
   const [isVisible, setVisible] = useState(!isPassword);
 
   const hasErrorClass = hasError ? ' app-input-container__input--error' : '';
