@@ -46,9 +46,13 @@
                 &__children {
                     text-align: right;
                     margin-bottom: 240px;
-                    @include media(until-tablet) {
+                    @include media(tablet) {
                         text-align: center;
-                        margin-bottom: 100px;
+                        margin-bottom: 30px;
+                    }
+                    @include media(until-mobile) {
+                        margin-bottom: 70px;
+                        text-align: center;
                     }
                     &__button {
                         color: $surface-color;
