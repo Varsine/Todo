@@ -1,7 +1,8 @@
 import React from 'react';
 
-import OrderDetailsContainer from "components/OrderDetailsContainer/OrderDetailsContainer";
+import OrderDetailsContainer from "containers/OrderDetails/OrderDetailsContainer/OrderDetailsContainer";
 import InputFieldWithText from "components/InputFieldWithText/InputFieldWithText";
+import TextareaField from 'components/TextareaField/TextareaField';
 import ProfileInputIcon from "icons/ProfileInputIcon";
 
 import "./OrderDetailsRightBox.scss";
@@ -16,7 +17,6 @@ const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
     getterName,
     children,
 }) => {
-
     return (
         <OrderDetailsContainer className="order-details-right" >
             <div className="order-details-right__check-box-div">
@@ -33,7 +33,10 @@ const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
             />
             <div className="order-details-right__textarea-box">
                 <p className="order-details-right__textarea-box__text">Մեկնաբանություններ</p>
-                <textarea className="order-details-right__textarea-box__area">Հավելյալ նշումներ</textarea>
+                <TextareaField 
+                className="order-details-right__textarea-box__area"
+                placeholder="Հավելյալ նշումներ"
+                />
             </div>
         </OrderDetailsContainer>
     );

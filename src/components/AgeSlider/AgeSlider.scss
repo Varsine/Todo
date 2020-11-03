@@ -5,7 +5,7 @@
     justify-content: center;
 
     &__btn {
-        @include age-styles(60px, 60px, 0px 2px 10px #00000029);
+        @include age-styles(60px, 60px, 0px 2px 10px $border-boxes-shadow);
         padding: 0;
     }
 
@@ -13,7 +13,7 @@
         @include age-styles(60px, 60px, none);
 
         &--selected {
-            @include age-styles(60px, 60px, 0px 2px 10px #00000029);
+            @include age-styles(60px, 60px, 0px 2px 10px $border-boxes-shadow);
         }
     }
 };

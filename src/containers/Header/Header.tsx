@@ -68,7 +68,7 @@ const Header: React.FC<IHeaderProps> = () => {
         <nav className="app-header__right-column__navigation" ref={navRef}>
           <ul>
             <li>
-              <Link to="/order-details">Նորություններ</Link>
+              <Link to="/news">Նորություններ</Link>
             </li>
             <li>
               <Link to="/about-us">Մեր մասին</Link>
@@ -94,12 +94,14 @@ const Header: React.FC<IHeaderProps> = () => {
         >
           <CartIcon />
         </div>
-        <Button
-          className="app-header__right-column__button"
-          onClick={suggestionClick}
-        >
-          Մուտք
+        <Link to="/auth">
+          <Button
+            className="app-header__right-column__button"
+            onClick={suggestionClick}
+          >
+            Մուտք
         </Button>
+        </Link>
       </div>
       {cartMenu && (
         <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />

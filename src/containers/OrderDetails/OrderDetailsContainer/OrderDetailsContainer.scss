@@ -3,7 +3,7 @@
 .order-details-container {
     width: 50%;
     max-width: 740px;
-    box-shadow: 0px 3px 55px #00000029;
+    box-shadow: 0px 3px 55px $border-boxes-shadow;
     border-radius: 14px;
     background-color: $surface-color;
     padding: 29px 46px 35px 46px;

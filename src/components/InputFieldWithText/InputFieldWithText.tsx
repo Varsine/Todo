@@ -4,13 +4,7 @@ import InputField from 'components/InputField/InputField';
 
 import "./InputFieldWithText.scss";
 
-enum InputTypes {
-    text = 'text',
-    email = 'email',
-    tel = 'tel'
-}
-
-type InputType = 'text' | 'email' | 'tel';
+type InputType = 'text' | 'email' | 'number';
 
 interface IInputFieldWithTextProps {
     text: string;

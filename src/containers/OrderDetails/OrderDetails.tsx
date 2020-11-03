@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Heading from 'components/Heading/Heading';
 import Button from "components/Button/Button";
 import Link from 'components/Link/Link';
-import OrderDetailsLeftBox from "components/OrderDetailsLeftBox/OrderDetailsLeftBox";
-import OrderDetailsRightBox from "components/OrderDetailsRightBox/OrderDetailsRightBox";
+import OrderDetailsLeftBox from "containers/OrderDetails/OrderDetailsLeftBox/OrderDetailsLeftBox";
+import OrderDetailsRightBox from "containers/OrderDetails/OrderDetailsRightBox/OrderDetailsRightBox";
 import CheckBoxWithText from 'components/CheckBoxWithText/CheckBoxWithText';
 
 import "./OrderDetails.scss";
@@ -60,7 +60,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
           name={name}
           address={address}
           email={email}
-          phone={phone}
+          phone={phone.replace(/[^0-9]/g, '')}
         />
         <OrderDetailsRightBox
           getterName={getter}
@@ -70,6 +70,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
             present.map((el, idx) => {
               return (
                 <CheckBoxWithText
+                  key={el + idx}
                   className="order-details__boxes__check-box"
                   selected={selection === idx}
                   name="present"

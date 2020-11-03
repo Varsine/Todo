@@ -18,7 +18,7 @@
   @include media(until-tablet) {
     padding: $layout-margin-tablet;
     background-color: $surface-color;
-    box-shadow: 1px 1px 5px #ccc;
+    border-box-shadow: 1px 1px 5px #ccc;
   }
 
   @include media(until-mobile) {

@@ -1,0 +1,10 @@
+@import "~styles/root";
+
+.error-message {
+    color: $input-error-color;
+    font-size: $body-text;
+    padding: 0 15px;
+    @include media(until-tablet) {
+        text-align: center;
+    }
+}

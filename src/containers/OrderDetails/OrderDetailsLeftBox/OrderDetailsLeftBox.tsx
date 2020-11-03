@@ -1,6 +1,6 @@
 import React from 'react';
 
-import OrderDetailsContainer from "components/OrderDetailsContainer/OrderDetailsContainer";
+import OrderDetailsContainer from "containers/OrderDetails/OrderDetailsContainer/OrderDetailsContainer";
 import InputFieldWithText from "components/InputFieldWithText/InputFieldWithText";
 import LocationIcon from 'icons/LocationIcon';
 import PhoneIcon from 'icons/PhoneIcon';
@@ -51,7 +51,7 @@ const OrderDetailsLeftBox: React.FC<IOrderDetailsLeftBoxProps> = ({
             <InputFieldWithText
                 placeholder="+374 55-55-55"
                 Icon={PhoneIcon}
-                type='tel'
+                type='number'
                 onChange={onChangePhone}
                 value={phone}
                 text="Հեռախոսահամար"

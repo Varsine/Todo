@@ -1,0 +1,60 @@
+@import "~styles/root";
+
+.app-auth {
+    font-family: "Mardoto-Regular", Fallback, sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    min-height: calc(100vh - #{$header-size});
+
+    @include media(until-desktop) {
+        min-height: calc(100vh - #{$header-size-small});
+    }
+    @include media(until-tablet) {
+        justify-content: center;
+    }
+    
+    &__background {
+        position: fixed;
+        z-index: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - #{$header-size-small});
+        background-image: url("~assets/AuthMobileBg.png");
+        background-size: 100% 100%;
+        display: none;
+        top: $header-size-small;
+        @include media(until-tablet) {
+            display: block;
+            justify-content: center;
+        }
+    }
+
+    &__img {
+        position: absolute;
+        top: 269px;
+        left: 77px;
+        width: 40%;
+        height: auto;
+
+        @include media(until-desktop) {
+            top: 152px;
+            width: 52%;
+            left: 0;
+        }
+
+        @include media(until-tablet) {
+            display: none;
+        }
+    }
+
+    &__input {
+        height: 64px;
+        border-radius: 21px;
+        margin: 12px 0;
+        box-shadow: 2px 3px 6px $border-boxes-shadow;
+
+        @include media(desktop) {
+            height: 56px;
+        }
+    }
+}
