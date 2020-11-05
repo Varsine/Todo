@@ -39,12 +39,16 @@ const Auth: React.FC = () => {
     }
 
     const loginHandler = () => {
+        const emailValid = inputValidation(email, InputNames.email);
+        const passwordValid = inputValidation(password, InputNames.password);
         setState({
             ...state,
-            emailError: inputValidation(email, InputNames.email).errorText,
-            passwordError: inputValidation(password, InputNames.password).errorText,
+            emailError: emailValid.errorText,
+            passwordError: passwordValid.errorText,
         })
-        navigate("/order-details")
+        if(emailValid.isValid && passwordValid.isValid) {
+            navigate("/order-details");
+        }
     }
 
     const onAuthChangeClick = () => {
