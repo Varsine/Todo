@@ -64,7 +64,7 @@
             font-size: $body-text;
             display: flex;
             justify-content: space-between;
-            margin: 4px 0 0px;
+            margin: 4px 0 8px 0;
             padding: 0 15px;
 
             @include media(until-desktop) {

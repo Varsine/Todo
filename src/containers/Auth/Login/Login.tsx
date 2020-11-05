@@ -16,6 +16,7 @@ interface ILoginProps {
     onChangePassword: (value: string) => void;
     emailErrorMessage: string;
     passwordErrorMessage: string;
+    loading: boolean;
 };
 
 const Login: React.FC<ILoginProps> = ({
@@ -28,6 +29,7 @@ const Login: React.FC<ILoginProps> = ({
     onChangePassword,
     emailErrorMessage,
     passwordErrorMessage,
+    loading,
 }) => {
     return (
         <LoginSignUpTemplate
@@ -37,6 +39,7 @@ const Login: React.FC<ILoginProps> = ({
             buttonClick={onLogin}
             onClick={onAuthChangeClick}
             skipHandler={skipHandler}
+            loading={loading}
         >
             <InputField
                 name="email"
@@ -45,6 +48,7 @@ const Login: React.FC<ILoginProps> = ({
                 onChange={onChangeEmail}
                 placeholder="Էլ․հասցե"
                 type="text"
+                loading={loading}
             />
             <ErrorMessage>{emailErrorMessage}</ErrorMessage>
             <InputField
@@ -54,6 +58,7 @@ const Login: React.FC<ILoginProps> = ({
                 onChange={onChangePassword}
                 placeholder="Գաղտնաբառ"
                 type="password"
+                loading={loading}
             />
             <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
         </LoginSignUpTemplate>

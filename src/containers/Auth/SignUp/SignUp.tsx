@@ -19,6 +19,7 @@ interface ISignUpProps {
     nameErrorMessage: string;
     emailErrorMessage: string;
     passwordErrorMessage: string;
+    loading: boolean;
 };
 
 const SignUp: React.FC<ISignUpProps> = ({
@@ -34,6 +35,7 @@ const SignUp: React.FC<ISignUpProps> = ({
     nameErrorMessage,
     emailErrorMessage,
     passwordErrorMessage,
+    loading,
 }) => {
     return (
         <LoginSignUpTemplate
@@ -43,6 +45,7 @@ const SignUp: React.FC<ISignUpProps> = ({
             buttonClick={onSignup}
             onClick={onAuthChangeClick}
             skipHandler={skipHandler}
+            loading={loading}
         >
             <InputField
                 name='name'
@@ -51,6 +54,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 onChange={onChangeName}
                 placeholder="Անուն"
                 type="text"
+                loading={loading}
             />
             <ErrorMessage>{nameErrorMessage}</ErrorMessage>
             <InputField
@@ -60,6 +64,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 onChange={onChangeEmail}
                 placeholder="Էլ․հասցե"
                 type="text"
+                loading={loading}
             />
             <ErrorMessage>{emailErrorMessage}</ErrorMessage>
             <InputField
@@ -69,6 +74,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 onChange={onChangePassword}
                 placeholder="Գաղտնաբառ"
                 type="password"
+                loading={loading}
             />
             <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
         </LoginSignUpTemplate>
