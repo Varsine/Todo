@@ -33,19 +33,13 @@
     }
 
     &__content {
-        height: 310px;
-
-        @include media(desktop) {
-            height: 280px;
-        }
-
         &__sign-up-div {
             text-align: center;
             font-size: $body-text;
             display: flex;
             height: 16px;
             justify-content: center;
-            margin: 0 0 16px;
+            margin: 12px 0;
 
             @include media(until-desktop) {
                 font-size: $caption-text;
@@ -118,12 +112,17 @@
         font-size: $body-text;
         font-weight: normal;
         display: block;
-        margin: 0 0 70px 0;
+        margin: 25px 0 70px 0;
         color: $text-color-surface;
+        cursor: pointer;
+        user-select: none;
+        &:hover {
+            text-decoration: underline;
+        }
 
         @include media(until-desktop) {
             font-size: $caption-text;
-            margin: 0 0 56px 0;
+            margin: 25px 0 56px 0;
         }
 
         @include media(until-tablet) {
