@@ -13,6 +13,7 @@ interface ILoginSignUpTemplateProps {
     header: string;
     buttonClick: () => void;
     onClick: () => void;
+    skipHandler: () => void;
     signUpQuestion?: string;
     loginText?: string;
     registerText?: string;
@@ -23,6 +24,7 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
     header,
     buttonClick,
     onClick,
+    skipHandler,
     signUpQuestion,
     registerText,
     children,
@@ -46,8 +48,9 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
             <div className="login-sign-up__button-div">
                 <Button className="login-sign-up__button-div__btn" onClick={buttonClick}>{header}</Button>
             </div>
-            <TextBlock className="login-sign-up__text-block">Բաց թողնել</TextBlock>
-
+            <div onClick={skipHandler}>
+                <TextBlock className="login-sign-up__text-block" >Բաց թողնել</TextBlock>
+            </div>
             <div className="login-sign-up__social-media-div">
                 <p className="login-sign-up__social-media-div__p-text">կամ մուտք գործել</p>
                 <div className="login-sign-up__social-media-div__links-container">
