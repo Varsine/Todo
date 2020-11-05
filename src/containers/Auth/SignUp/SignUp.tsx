@@ -18,7 +18,6 @@ interface ISignUpProps {
     nameErrorMessage: string;
     emailErrorMessage: string;
     passwordErrorMessage: string;
-    to: string;
 };
 
 const SignUp: React.FC<ISignUpProps> = ({
@@ -33,7 +32,6 @@ const SignUp: React.FC<ISignUpProps> = ({
     nameErrorMessage,
     emailErrorMessage,
     passwordErrorMessage,
-    to
 }) => {
     return (
         <LoginSignUpTemplate
@@ -42,7 +40,6 @@ const SignUp: React.FC<ISignUpProps> = ({
             loginText="Մուտք գործել"
             buttonClick={buttonClick}
             onClick={onAuthChangeClick}
-            to={to}
         >
             <InputField
                 name='name'

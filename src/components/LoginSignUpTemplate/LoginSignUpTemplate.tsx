@@ -13,7 +13,6 @@ interface ILoginSignUpTemplateProps {
     header: string;
     buttonClick: () => void;
     onClick: () => void;
-    to: string;
     signUpQuestion?: string;
     loginText?: string;
     registerText?: string;
@@ -24,7 +23,6 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
     header,
     buttonClick,
     onClick,
-    to,
     signUpQuestion,
     registerText,
     children,
@@ -45,9 +43,9 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
                     <p className="login-sign-up__content__login-div__text-two" >{forgetText}</p>
                 </div>
             </div>
-            <Link to={to} className="login-sign-up__button-div">
+            <div className="login-sign-up__button-div">
                 <Button className="login-sign-up__button-div__btn" onClick={buttonClick}>{header}</Button>
-            </Link>
+            </div>
             <TextBlock className="login-sign-up__text-block">Բաց թողնել</TextBlock>
 
             <div className="login-sign-up__social-media-div">

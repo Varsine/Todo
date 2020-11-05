@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { navigate } from "@reach/router";
 import Image from 'components/Image/Image';
 import authImg from 'assets/AuthImage.svg';
 import Login from "containers/Auth/Login/Login";
@@ -17,8 +18,6 @@ const Auth: React.FC = () => {
         nameError: "",
         emailError: "",
         passwordError: "",
-        loginTo: "",
-        signUpTo: "",
     });
 
     const inputChangeHandler = (val: string, name: InputNames) => {
@@ -28,7 +27,7 @@ const Auth: React.FC = () => {
         })
     }
 
-    const { name, email, password, nameError, emailError, passwordError, loginTo, signUpTo } = state;
+    const { name, email, password, nameError, emailError, passwordError } = state;
 
     const signUpHandler = () => {
         setState({
@@ -45,13 +44,7 @@ const Auth: React.FC = () => {
             emailError: inputValidation(email, InputNames.email).errorText,
             passwordError: inputValidation(password, InputNames.password).errorText,
         })
-        if (emailError === inputValidation(email, InputNames.email).errorText &&
-            passwordError === inputValidation(password, InputNames.password).errorText) {
-            setState({
-                ...state,
-                loginTo: "/order-details"
-            })
-        }
+        navigate("/order-details")
     }
 
     const onAuthChangeClick = () => {
@@ -73,7 +66,6 @@ const Auth: React.FC = () => {
             </div>
             {!authState ?
                 (<Login onClick={loginHandler}
-                    to={loginTo}
                     onAuthChangeClick={onAuthChangeClick}
                     email={email}
                     password={password}
@@ -86,7 +78,6 @@ const Auth: React.FC = () => {
                 (<SignUp buttonClick={signUpHandler}
                     onAuthChangeClick={onAuthChangeClick}
                     name={name.slice(0, 1).toUpperCase() + name.slice(1,)}
-                    to={signUpTo}
                     email={email}
                     password={password}
                     onChangeName={(val) => inputChangeHandler(val, InputNames.name)}

@@ -15,7 +15,6 @@ interface ILoginProps {
     onChangePassword: (value: string) => void;
     emailErrorMessage: string;
     passwordErrorMessage: string;
-    to: string;
 };
 
 const Login: React.FC<ILoginProps> = ({
@@ -27,7 +26,6 @@ const Login: React.FC<ILoginProps> = ({
     onChangePassword,
     emailErrorMessage,
     passwordErrorMessage,
-    to,
 }) => {
     return (
         <LoginSignUpTemplate
@@ -36,7 +34,6 @@ const Login: React.FC<ILoginProps> = ({
             forgetText="Մոռացե՞լ ես գաղտնաբառը"
             buttonClick={onClick}
             onClick={onAuthChangeClick}
-            to={to}
         >
             <InputField
                 name="email"
