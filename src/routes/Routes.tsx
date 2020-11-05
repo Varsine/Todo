@@ -22,4 +22,4 @@ const Routes: React.FC<IRoutesProps> = () => {
   )
 }
 
-export default Routes
+export default Routes;

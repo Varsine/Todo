@@ -1,42 +1,57 @@
 import React from 'react';
 
-import LoginSignUpTemplate from 'components/LoginSignUpTemplate/LoginSignUpTemplate';
+import LoginSignUpTemplate from 'containers/Auth/LoginSignUpTemplate/LoginSignUpTemplate';
 import InputField from 'components/InputField/InputField';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
-import "./Login.scss";
+import "./SignUp.scss";
 
-interface ILoginProps {
-    onClick: () => void;
+interface ISignUpProps {
+    buttonClick: () => void;
     onAuthChangeClick: () => void;
+    name: string;
     email: string;
     password: string;
+    onChangeName: (value: string) => void;
     onChangeEmail: (value: string) => void;
     onChangePassword: (value: string) => void;
+    nameErrorMessage: string;
     emailErrorMessage: string;
     passwordErrorMessage: string;
 };
 
-const Login: React.FC<ILoginProps> = ({
-    onClick,
+const SignUp: React.FC<ISignUpProps> = ({
+    buttonClick,
     onAuthChangeClick,
+    name,
     email,
     password,
+    onChangeName,
     onChangeEmail,
     onChangePassword,
+    nameErrorMessage,
     emailErrorMessage,
     passwordErrorMessage,
 }) => {
     return (
         <LoginSignUpTemplate
-            header="Մուտք"
-            registerText="Գրանցվել"
-            forgetText="Մոռացե՞լ ես գաղտնաբառը"
-            buttonClick={onClick}
+            header="Գրանցում"
+            signUpQuestion="Արդեն գրանցվա՞ծ եք։"
+            loginText="Մուտք գործել"
+            buttonClick={buttonClick}
             onClick={onAuthChangeClick}
         >
             <InputField
-                name="email"
+                name='name'
+                value={name}
+                className="app-auth__input"
+                onChange={onChangeName}
+                placeholder="Անուն"
+                type="text"
+            />
+            <ErrorMessage>{nameErrorMessage}</ErrorMessage>
+            <InputField
+                name='email'
                 value={email}
                 className="app-auth__input"
                 onChange={onChangeEmail}
@@ -45,7 +60,7 @@ const Login: React.FC<ILoginProps> = ({
             />
             <ErrorMessage>{emailErrorMessage}</ErrorMessage>
             <InputField
-                name="password"
+                name='password'
                 value={password}
                 className="app-auth__input"
                 onChange={onChangePassword}
@@ -57,4 +72,4 @@ const Login: React.FC<ILoginProps> = ({
     );
 }
 
-export default Login;
+export default SignUp;

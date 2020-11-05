@@ -1,21 +1,22 @@
 import React, { useState, useContext } from "react";
 
+import { AppContext } from "app-context/appContext";
+import { ActionTypes } from "app-context/actionTypes";
 import Link from "components/Link/Link";
 import Button from "components/Button/Button";
 import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
 import Heading from "components/Heading/Heading";
 import TextBlock from "components/TextBlock/TextBlock";
 import Image from "components/Image/Image";
+import AgeSlider from "components/AgeSlider/AgeSlider";
+import ProgressBar from "components/ProgressBar/ProgressBar";
 import QuizPageBg from "assets/QuizPageBg.png";
 import LeftIcon from "icons/LeftIcon";
 import RightIcon from "icons/RightIcon";
-import AgeSlider from "components/AgeSlider/AgeSlider";
-import ProgressBar from "components/ProgressBar/ProgressBar";
-import { AppContext } from "app-context/appContext";
-import { ActionTypes } from "app-context/actionTypes";
 import {quizData as quizMockup} from 'data-mockup/quiz-data.mockup';
 
 import "./Quiz.scss"
+import TextareaField from "components/TextareaField/TextareaField";
 
 interface IQuizProps { }
 
@@ -91,14 +92,14 @@ const Quiz: React.FC<IQuizProps> = () => {
                     />
                   ))) : currentIndex === 1 ? (
                     <AgeSlider
-                      id={id}
                       nextAge={nextAgeHandler}
                       prevAge={prevAgeHandler}
                       selection={selection}
                       onClick={checkAnswer}
                     />
                   ) : (
-                      <textarea
+
+                      <TextareaField
                         className="app-quiz__content__options__children__text-area"
                         placeholder={options[0]}
                         value={selection || ''}

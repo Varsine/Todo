@@ -1,0 +1,29 @@
+@import "~styles/root";
+
+.container {
+
+    &__text {
+        font-size: $intro-text;
+        padding: 16px 0;
+        display: inline-block;
+
+        @include media(until-desktop) {
+            font-size: $body-text;
+            padding: 16px 0 8px;
+        }
+    }
+
+    &__input {
+        height: 64px;
+        font-size: $body-text;
+
+        @include media(desktop) {
+            height: 56px;
+        }
+
+        @include media(until-mobile) {
+            font-size: $caption-text;
+            height: 48px;
+        }
+    }
+}

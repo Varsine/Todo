@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
+import { navigate } from "@reach/router";
 import Image from 'components/Image/Image';
 import authImg from 'assets/AuthImage.svg';
-import Login from "components/Login/Login";
-import SignUp from 'components/SignUp/SignUp';
+import Login from "containers/Auth/Login/Login";
+import SignUp from 'containers/Auth/SignUp/SignUp';
 import { inputValidation, InputNames } from 'utils/inputValidation';
 
 import "./Auth.scss";
@@ -38,11 +39,16 @@ const Auth: React.FC = () => {
     }
 
     const loginHandler = () => {
+        const emailValid = inputValidation(email, InputNames.email);
+        const passwordValid = inputValidation(password, InputNames.password);
         setState({
             ...state,
-            emailError: inputValidation(email, InputNames.email).errorText,
-            passwordError: inputValidation(password, InputNames.password).errorText,
+            emailError: emailValid.errorText,
+            passwordError: passwordValid.errorText,
         })
+        if(emailValid.isValid && passwordValid.isValid) {
+            navigate("/order-details");
+        }
     }
 
     const onAuthChangeClick = () => {
@@ -56,7 +62,6 @@ const Auth: React.FC = () => {
             passwordError: "",
         })
     }
-
     return (
         <div className="app-auth" >
             <div className="app-auth__background"></div>
@@ -76,7 +81,7 @@ const Auth: React.FC = () => {
                 />) :
                 (<SignUp buttonClick={signUpHandler}
                     onAuthChangeClick={onAuthChangeClick}
-                    name={name}
+                    name={name.slice(0, 1).toUpperCase() + name.slice(1,)}
                     email={email}
                     password={password}
                     onChangeName={(val) => inputChangeHandler(val, InputNames.name)}

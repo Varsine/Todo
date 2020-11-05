@@ -14,7 +14,7 @@
     }
     
     &__background {
-        position: fixed;
+        position: absolute;
         z-index: 0;
         left: 0;
         width: 100%;
@@ -51,7 +51,7 @@
         height: 64px;
         border-radius: 21px;
         margin: 12px 0;
-        box-shadow: 2px 3px 6px #00000029;
+        box-shadow: 2px 3px 6px $border-boxes-shadow;
 
         @include media(desktop) {
             height: 56px;

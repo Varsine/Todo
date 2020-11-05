@@ -8,10 +8,11 @@ import "./InputField.scss";
 enum InputComponentTypes {
   text = 'text',
   password = 'password',
-  email = 'email'
+  email = 'email',
+  tel = 'number'
 }
 
-type InputType = 'text' | 'password' | 'email';
+type InputType = 'text' | 'password' | 'email' | 'number';
 
 interface IInputFieldProps {
   value: string;

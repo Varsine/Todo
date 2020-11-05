@@ -7,7 +7,6 @@ import RightIcon from 'icons/RightIcon';
 import "./AgeSlider.scss";
 
 interface IAgeSliderProps {
-    id: number;
     onClick: (newSelection: number) => void;
     prevAge: () => void;
     nextAge: () => void;
@@ -15,7 +14,7 @@ interface IAgeSliderProps {
     className?: string;
 };
 
-const AgeSlider: React.FC<IAgeSliderProps> = ({ id,
+const AgeSlider: React.FC<IAgeSliderProps> = ({ 
     selection,
     onClick,
     prevAge,
