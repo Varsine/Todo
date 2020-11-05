@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginSignUpTemplate from 'components/LoginSignUpTemplate/LoginSignUpTemplate';
+import LoginSignUpTemplate from 'containers/Auth/LoginSignUpTemplate/LoginSignUpTemplate';
 import InputField from 'components/InputField/InputField';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
