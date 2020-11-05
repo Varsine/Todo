@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import Button from "components/Button/Button";
 import landingTopBg from "assets/landingTopBg.png";
@@ -12,13 +12,15 @@ import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
 
 import "./Landing.scss";
+import PopupTemplate from "components/PopupTemplate/PopupTemplate";
+import productImg from 'assets/productImgSrc.png';
 
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
   const { state: { device } } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
-
+  const [addCartPopup, setAddCartPopup] = useState(false)
   const handleGetBtnClick = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
     const offsetTop = productsContainerRef.current?.offsetTop || 0;
@@ -26,8 +28,12 @@ const Landing: React.FC<ILandingProps> = () => {
   }
 
   const clickProductCart = () => { }
-  const clickButtonHover = () => { }
+  const clickButtonHover = () => {
+    setAddCartPopup(!addCartPopup)
+  }
+  const addCartPopupBtnClick = () => {
 
+  }
   return (
     <div className="app-landing">
       <FullHeightWrap className="app-landing__parent">
@@ -87,6 +93,16 @@ const Landing: React.FC<ILandingProps> = () => {
           </div>
         </div>
       </div>
+      {addCartPopup && (
+        <PopupTemplate cartPopup
+          header="Ցանկանում ե՞ք ավելացնել զամբյուղի մեջ"
+          src={productImg}
+          onClick={addCartPopupBtnClick}
+          buttonText='Ավելացնել'
+          productName="premium"
+          price="122"
+        />
+      )}
     </div>
   )
 }
