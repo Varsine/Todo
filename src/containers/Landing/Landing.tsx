@@ -20,14 +20,14 @@ const Landing: React.FC<ILandingProps> = () => {
   const { state: { device } } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
   const [addCartPopup, setAddCartPopup] = useState(false);
-  const [dataModal, setDataModal] = useState({name:"", price:10})
+  const [dataModal, setDataModal] = useState({name:"", price:1})
   const handleGetBtnClick = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
     const offsetTop = productsContainerRef.current?.offsetTop || 0;
     window.scrollTo({ top: (offsetTop - headerSize) || 0, behavior: 'smooth' });
   }
 
-  const clickProductCart = (data:{name:string, price:any}) => {
+  const clickProductCart = (data:{name:string, price:number}) => {
     setAddCartPopup(!addCartPopup)
     setDataModal(data)
   }

@@ -22,10 +22,13 @@
 
     &__inner {
         position: relative;
-        width: 630px;
         background-color: $surface-color;
         padding: 29px;
         border-radius: 10px;
+
+        @include media(until-tablet) {
+            padding: 16px;
+        }
 
         &__close-icon {
             cursor: pointer;
@@ -33,17 +36,43 @@
             width: 24px;
             position: absolute;
             right: 29px;
+
+            @include media(until-tablet) {
+                right: 16px;
+            }
         }
 
         &__content {
-            padding: 24px 55px;
+            padding: 26px 55px;
             text-align: center;
+
+            @include media(until-desktop) {
+                padding: 15px 55px;
+            }
+
+            @include media(until-tablet) {
+                padding: 16px 40px;
+            }
+
+            @include media(until-mobile) {
+                width: 200px;
+                padding: 0;
+                margin: 16px 40px;
+            }
 
             &__title {
                 color: $text-color-surface;
                 padding: 8px 0 0;
                 font-weight: normal;
                 font-size: $heading3;
+
+                @include media(until-desktop) {
+                    font-size: $intro-text;
+                }
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
             }
         }
     }
