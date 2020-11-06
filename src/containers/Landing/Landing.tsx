@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import Button from "components/Button/Button";
 import landingTopBg from "assets/landingTopBg.png";
@@ -8,6 +8,7 @@ import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 import ProductCard from "components/ProductCard/ProductCard";
 import Heading from "components/Heading/Heading";
 import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
+import AddCartPopup from 'components/AddCartPopup/AddCartPopup';
 import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
 
@@ -18,6 +19,8 @@ interface ILandingProps { }
 const Landing: React.FC<ILandingProps> = () => {
   const { state: { device } } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
+  const [showAddCartPopup, setShowAddCartPopup] = useState(false);
+  const [selectedProduct, selectProduct] = useState<IProductDataItem | null>(null);
 
   const handleGetBtnClick = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
@@ -25,8 +28,17 @@ const Landing: React.FC<ILandingProps> = () => {
     window.scrollTo({ top: (offsetTop - headerSize) || 0, behavior: 'smooth' });
   }
 
-  const clickProductCart = () => { }
+  const clickProductCart = (product: IProductDataItem) => {
+    selectProduct(product);
+    setShowAddCartPopup(!showAddCartPopup);
+  }
+
   const clickButtonHover = () => { }
+
+  const addCartPopupBtnClick = () => { }
+  const onClose = () => {
+    setShowAddCartPopup(!showAddCartPopup)
+  }
 
   return (
     <div className="app-landing">
@@ -64,7 +76,7 @@ const Landing: React.FC<ILandingProps> = () => {
                 productName={productItem.name}
                 price={productItem.price}
                 productImgSrc={productItem.imageSource}
-                productClick={clickProductCart}
+                productClick={()=>clickProductCart(productItem)}
                 clickButtonHover={clickButtonHover}
                 key={productItem.id}
               />
@@ -87,10 +99,16 @@ const Landing: React.FC<ILandingProps> = () => {
           </div>
         </div>
       </div>
+      {showAddCartPopup && selectedProduct && (
+        <AddCartPopup
+          onClick={addCartPopupBtnClick}
+          onClose={onClose}
+          productName={selectedProduct.name}
+          price={selectedProduct.price}
+        />
+      )}
     </div>
   )
 }
 
 export default Landing;
-
-

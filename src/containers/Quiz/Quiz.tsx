@@ -10,17 +10,14 @@ import TextBlock from "components/TextBlock/TextBlock";
 import Image from "components/Image/Image";
 import AgeSlider from "components/AgeSlider/AgeSlider";
 import ProgressBar from "components/ProgressBar/ProgressBar";
+import TextareaField from "components/TextareaField/TextareaField";
 import QuizPageBg from "assets/QuizPageBg.png";
 import LeftIcon from "icons/LeftIcon";
 import RightIcon from "icons/RightIcon";
-import {quizData as quizMockup} from 'data-mockup/quiz-data.mockup';
 
 import "./Quiz.scss"
-import TextareaField from "components/TextareaField/TextareaField";
 
-interface IQuizProps { }
-
-const Quiz: React.FC<IQuizProps> = () => {
+const Quiz: React.FC = () => {
   const { state: { quizData }, dispatch } = useContext(AppContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [disabled, setDisabled] = useState(true);
@@ -29,7 +26,6 @@ const Quiz: React.FC<IQuizProps> = () => {
     if (currentIndex < quizData.length - 1) {
       setCurrentIndex(currentIndex + 1)
     }
-    console.log("quizMockup: ", quizMockup)
   }
 
   const prevQuestionHandler = () => {

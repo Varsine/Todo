@@ -69,18 +69,13 @@
             min-height: 242px;
 
             &__children {
-                width: 576px;
-
-                @include media(until-desktop) {
-                    width: 400px;
-                }
-
+                width: 100%;
+                max-width: 450px;
                 &__text-area {
-                    width: 576px;
                     height: 208px;
+                    width: 100%;
                     border-radius: 8px;
                     padding: 16px 24px;
-                    opacity: 41%;
                     color: $text-color-surface;
                     font-size: $body-text;
                     border: 1px solid #CCCCCC;

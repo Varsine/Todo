@@ -4,7 +4,7 @@ import "./TextareaField.scss";
 
 interface ITextareaFieldProps {
     placeholder: string;
-    onChange? : (ev: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange?: (ev: React.ChangeEvent<HTMLTextAreaElement>) => void;
     value?: string;
     className?: string;
 };
@@ -15,12 +15,14 @@ const TextareaField: React.FC<ITextareaFieldProps> = ({
     value,
     onChange
 }) => {
-    return (<textarea
-        className={`app-textarea ${className}`}
-        value={value} 
-        onChange={onChange}
-        placeholder={placeholder}>
-    </textarea>);
+    return (
+        <textarea
+            className={`app-textarea ${className}`}
+            value={value}
+            onChange={onChange}
+            placeholder={placeholder}>
+        </textarea>
+    );
 }
 
 export default TextareaField;

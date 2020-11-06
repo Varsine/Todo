@@ -1,0 +1,75 @@
+@import "~styles/root";
+
+.add-cart-popup {
+    &__img {
+        height: 208px;
+        width: 208px;
+        margin: 31px 0;
+        border-radius: 16px;
+
+        @include media(until-desktop) {
+            height: 166px;
+            width: 166px;
+            margin: 40px 0;
+        }
+
+        @include media(until-tablet) {
+            margin: 24px 0;
+        }
+
+        @include media(until-mobile) {
+            height: 108px;
+            width: 108px;
+            margin: 16px 0;
+        }
+    }
+
+    &__product-data {
+        display: flex;
+        justify-content: space-between;
+        font-size: $intro-text;
+
+        @include media(until-desktop) {
+            font-size: $body-text;
+        }
+
+        &__name {
+            color: $text-color-surface;
+            font-weight: normal;
+
+            @include media(until-mobile) {
+                font-size: $caption-text;
+                width: 50%;
+            }
+        }
+
+        &__price {
+            color: $text-color-surface;
+
+            @include media(until-mobile) {
+                font-size: $micro-text;
+            }
+        }
+    }
+
+    &__button {
+        margin: 40px 0 0;
+        font-size: $intro-text;
+        border-radius: 16px;
+        padding: 16px 39px;
+
+        @include media(until-desktop) {
+            font-size: $body-text;
+            padding: 14px 36px;
+        }
+
+        @include media(until-tablet) {
+            padding: 10px 28px;
+        }
+
+        @include media(until-mobile) {
+            padding: 10px 28px;
+            margin: 24px 0 0;
+        }
+    }
+}

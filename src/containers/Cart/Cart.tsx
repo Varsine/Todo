@@ -11,8 +11,8 @@ import { productData as mockupData, IProductDataItem } from "data-mockup/product
 import "./Cart.scss";
 
 interface ICartProps {
-  closeCartMenu: () => void
-  className?: string
+  closeCartMenu: () => void;
+  className?: string;
 }
 
 const productData = mockupData.slice(0, 2)

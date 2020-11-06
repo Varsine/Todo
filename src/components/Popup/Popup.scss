@@ -1,0 +1,99 @@
+@import "~styles/root";
+
+.app-popup {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    
+
+    &__basis {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.63);
+    }
+
+    &__inner {
+        position: relative;
+        background-color: $surface-color;
+        padding: 29px;
+        border-radius: 10px;
+        animation-name: anim-popup;
+        animation-duration: 0.2s;
+        @keyframes anim-popup {
+            0% {
+                transform: scale(0.4);
+            }
+            25% {
+                transform: scale(0.6);
+            }
+            50% {
+                transform: scale(0.8);
+            }
+            75% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @include media(until-tablet) {
+            padding: 16px;
+        }
+
+        &__close-icon {
+            cursor: pointer;
+            height: 24px;
+            width: 24px;
+            position: absolute;
+            right: 29px;
+
+            @include media(until-tablet) {
+                right: 16px;
+            }
+        }
+
+        &__content {
+            padding: 26px 55px;
+            text-align: center;
+
+            @include media(until-desktop) {
+                padding: 15px 55px;
+            }
+
+            @include media(until-tablet) {
+                padding: 16px 40px;
+            }
+
+            @include media(until-mobile) {
+                width: 200px;
+                padding: 0;
+                margin: 16px 40px;
+            }
+
+            &__title {
+                color: $text-color-surface;
+                padding: 8px 0 0;
+                font-weight: normal;
+                font-size: $heading3;
+
+                @include media(until-desktop) {
+                    font-size: $intro-text;
+                }
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+        }
+    }
+}
