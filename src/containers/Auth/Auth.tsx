@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { navigate } from "@reach/router";
 import Image from 'components/Image/Image';
@@ -8,6 +8,9 @@ import SignUp from 'containers/Auth/SignUp/SignUp';
 import { inputValidation, InputNames } from 'utils/inputValidation';
 
 import "./Auth.scss";
+import service from 'api/service';
+import { AppContext } from 'app-context/appContext';
+import { ActionTypes } from 'app-context/actionTypes';
 
 const initialState = {
     name: "",
@@ -21,6 +24,8 @@ const initialState = {
 const Auth: React.FC = () => {
     const [authState, setAuthState] = useState(false)
     const [state, setState] = useState(initialState);
+    const [loading, setLoading] = useState(false);
+    const { dispatch } = useContext(AppContext);
 
     const inputChangeHandler = (val: string, name: InputNames) => {
         setState({ ...state, [name]: val, })
@@ -46,7 +51,16 @@ const Auth: React.FC = () => {
             passwordError: passwordValid.errorText,
         })
         if (emailValid.isValid && passwordValid.isValid) {
-            navigate("/order-details");
+            setLoading(true);
+            service.login({ email: state.email, password: state.password })
+                .then(user => {
+                    console.log("user: ", user);
+                    dispatch({ type: ActionTypes.SET_USER, payload: { user } })
+                    navigate("/order-details");
+                })
+                .finally(() => {
+                    setLoading(false);
+                })
         }
     }
 
@@ -76,6 +90,7 @@ const Auth: React.FC = () => {
                     onChangePassword={(val) => inputChangeHandler(val, InputNames.password)}
                     emailErrorMessage={emailError}
                     passwordErrorMessage={passwordError}
+                    loading={loading}
                 />) :
                 (<SignUp
                     onSignup={signUpHandler}
@@ -90,6 +105,7 @@ const Auth: React.FC = () => {
                     emailErrorMessage={emailError}
                     passwordErrorMessage={passwordError}
                     nameErrorMessage={nameError}
+                    loading={loading}
                 />)
             }
         </div>

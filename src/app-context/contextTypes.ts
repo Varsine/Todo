@@ -12,7 +12,14 @@ export interface IAction {
     payload?: any;
 }
 
+export interface IUser {
+    id: number;
+    name: string;
+    email: string;
+}
+
 export interface State {
     device: DeviceTypes;
     quizData: IQuizData[];
+    user: IUser | null;
 }
