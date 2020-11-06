@@ -1,0 +1,50 @@
+@import "~styles/root";
+
+.app-popup {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+
+    &__basis {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.63);
+    }
+
+    &__inner {
+        position: relative;
+        width: 630px;
+        background-color: $surface-color;
+        padding: 29px;
+        border-radius: 10px;
+
+        &__close-icon {
+            cursor: pointer;
+            height: 24px;
+            width: 24px;
+            position: absolute;
+            right: 29px;
+        }
+
+        &__content {
+            padding: 24px 55px;
+            text-align: center;
+
+            &__title {
+                color: $text-color-surface;
+                padding: 8px 0 0;
+                font-weight: normal;
+                font-size: $heading3;
+            }
+        }
+    }
+}

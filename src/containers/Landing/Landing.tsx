@@ -8,31 +8,33 @@ import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 import ProductCard from "components/ProductCard/ProductCard";
 import Heading from "components/Heading/Heading";
 import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
+import AddCartPopup from 'components/AddCartPopup/AddCartPopup';
 import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
 
 import "./Landing.scss";
-import PopupTemplate from "components/PopupTemplate/PopupTemplate";
-import productImg from 'assets/productImgSrc.png';
 
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
   const { state: { device } } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
-  const [addCartPopup, setAddCartPopup] = useState(false)
+  const [addCartPopup, setAddCartPopup] = useState(false);
+  const [dataModal, setDataModal] = useState({name:"", price:10})
   const handleGetBtnClick = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
     const offsetTop = productsContainerRef.current?.offsetTop || 0;
     window.scrollTo({ top: (offsetTop - headerSize) || 0, behavior: 'smooth' });
   }
 
-  const clickProductCart = () => { }
-  const clickButtonHover = () => {
+  const clickProductCart = (data:{name:string, price:any}) => {
     setAddCartPopup(!addCartPopup)
+    setDataModal(data)
   }
-  const addCartPopupBtnClick = () => {
-
+  const clickButtonHover = () => { }
+  const addCartPopupBtnClick = () => { }
+  const onClose = () => {
+    setAddCartPopup(!addCartPopup)
   }
   return (
     <div className="app-landing">
@@ -70,7 +72,7 @@ const Landing: React.FC<ILandingProps> = () => {
                 productName={productItem.name}
                 price={productItem.price}
                 productImgSrc={productItem.imageSource}
-                productClick={clickProductCart}
+                productClick={()=>clickProductCart(productItem)}
                 clickButtonHover={clickButtonHover}
                 key={productItem.id}
               />
@@ -94,13 +96,11 @@ const Landing: React.FC<ILandingProps> = () => {
         </div>
       </div>
       {addCartPopup && (
-        <PopupTemplate cartPopup
-          header="Ցանկանում ե՞ք ավելացնել զամբյուղի մեջ"
-          src={productImg}
+        <AddCartPopup
           onClick={addCartPopupBtnClick}
-          buttonText='Ավելացնել'
-          productName="premium"
-          price="122"
+          onClose={onClose}
+          productName={dataModal.name}
+          price={dataModal.price}
         />
       )}
     </div>
@@ -108,5 +108,3 @@ const Landing: React.FC<ILandingProps> = () => {
 }
 
 export default Landing;
-
-
