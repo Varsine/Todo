@@ -9,22 +9,21 @@ import { inputValidation, InputNames } from 'utils/inputValidation';
 
 import "./Auth.scss";
 
+const initialState = {
+    name: "",
+    email: "",
+    password: "",
+    nameError: "",
+    emailError: "",
+    passwordError: "",
+}
+
 const Auth: React.FC = () => {
     const [authState, setAuthState] = useState(false)
-    const [state, setState] = useState({
-        name: "",
-        email: "",
-        password: "",
-        nameError: "",
-        emailError: "",
-        passwordError: "",
-    });
+    const [state, setState] = useState(initialState);
 
     const inputChangeHandler = (val: string, name: InputNames) => {
-        setState({
-            ...state,
-            [name]: val,
-        })
+        setState({ ...state, [name]: val, })
     }
 
     const { name, email, password, nameError, emailError, passwordError } = state;
@@ -46,22 +45,20 @@ const Auth: React.FC = () => {
             emailError: emailValid.errorText,
             passwordError: passwordValid.errorText,
         })
-        if(emailValid.isValid && passwordValid.isValid) {
+        if (emailValid.isValid && passwordValid.isValid) {
             navigate("/order-details");
         }
     }
 
+    const skipHandler = () => {
+        navigate('/order-details');
+    }
+
     const onAuthChangeClick = () => {
         setAuthState(!authState);
-        setState({
-            ...state,
-            email: "",
-            password: "",
-            nameError: "",
-            emailError: "",
-            passwordError: "",
-        })
+        setState(initialState);
     }
+
     return (
         <div className="app-auth" >
             <div className="app-auth__background"></div>
@@ -69,19 +66,22 @@ const Auth: React.FC = () => {
                 <Image src={authImg} />
             </div>
             {!authState ?
-                (<Login onClick={loginHandler}
+                (<Login
+                    onLogin={loginHandler}
                     onAuthChangeClick={onAuthChangeClick}
+                    skipHandler={skipHandler}
                     email={email}
                     password={password}
                     onChangeEmail={(val) => inputChangeHandler(val, InputNames.email)}
                     onChangePassword={(val) => inputChangeHandler(val, InputNames.password)}
                     emailErrorMessage={emailError}
                     passwordErrorMessage={passwordError}
-
                 />) :
-                (<SignUp buttonClick={signUpHandler}
+                (<SignUp
+                    onSignup={signUpHandler}
                     onAuthChangeClick={onAuthChangeClick}
-                    name={name.slice(0, 1).toUpperCase() + name.slice(1,)}
+                    skipHandler={skipHandler}
+                    name={name}
                     email={email}
                     password={password}
                     onChangeName={(val) => inputChangeHandler(val, InputNames.name)}

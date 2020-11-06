@@ -1,6 +1,8 @@
 @import "~styles/root";
 
 .app-header {
+  top: 0;
+  left: 0;
   position: fixed;
   font-family: "Mardoto-Regular", Fallback, sans-serif;
   @extend %flex-center-between;

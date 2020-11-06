@@ -7,8 +7,9 @@ import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 import "./SignUp.scss";
 
 interface ISignUpProps {
-    buttonClick: () => void;
+    onSignup: () => void;
     onAuthChangeClick: () => void;
+    skipHandler: () => void;
     name: string;
     email: string;
     password: string;
@@ -21,8 +22,9 @@ interface ISignUpProps {
 };
 
 const SignUp: React.FC<ISignUpProps> = ({
-    buttonClick,
+    onSignup,
     onAuthChangeClick,
+    skipHandler,
     name,
     email,
     password,
@@ -38,8 +40,9 @@ const SignUp: React.FC<ISignUpProps> = ({
             header="Գրանցում"
             signUpQuestion="Արդեն գրանցվա՞ծ եք։"
             loginText="Մուտք գործել"
-            buttonClick={buttonClick}
+            buttonClick={onSignup}
             onClick={onAuthChangeClick}
+            skipHandler={skipHandler}
         >
             <InputField
                 name='name'
