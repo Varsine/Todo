@@ -2,4 +2,11 @@
 
 .app-textarea {
     border: 1px solid $secondary-color-light;
+    resize: none;
+    &:focus {
+        box-shadow: 1px 1px 6px #ccc;
+    }
+    &::placeholder {
+        color: #ccc;
+    }
 }

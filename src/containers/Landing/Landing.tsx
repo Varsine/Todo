@@ -19,23 +19,27 @@ interface ILandingProps { }
 const Landing: React.FC<ILandingProps> = () => {
   const { state: { device } } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
-  const [addCartPopup, setAddCartPopup] = useState(false);
-  const [dataModal, setDataModal] = useState({name:"", price:1})
+  const [showAddCartPopup, setShowAddCartPopup] = useState(false);
+  const [selectedProduct, selectProduct] = useState<IProductDataItem | null>(null);
+
   const handleGetBtnClick = () => {
     const headerSize = document.getElementById('app-header')?.clientHeight || 0;
     const offsetTop = productsContainerRef.current?.offsetTop || 0;
     window.scrollTo({ top: (offsetTop - headerSize) || 0, behavior: 'smooth' });
   }
 
-  const clickProductCart = (data:{name:string, price:number}) => {
-    setAddCartPopup(!addCartPopup)
-    setDataModal(data)
+  const clickProductCart = (product: IProductDataItem) => {
+    selectProduct(product);
+    setShowAddCartPopup(!showAddCartPopup);
   }
+
   const clickButtonHover = () => { }
+
   const addCartPopupBtnClick = () => { }
   const onClose = () => {
-    setAddCartPopup(!addCartPopup)
+    setShowAddCartPopup(!showAddCartPopup)
   }
+
   return (
     <div className="app-landing">
       <FullHeightWrap className="app-landing__parent">
@@ -95,12 +99,12 @@ const Landing: React.FC<ILandingProps> = () => {
           </div>
         </div>
       </div>
-      {addCartPopup && (
+      {showAddCartPopup && selectedProduct && (
         <AddCartPopup
           onClick={addCartPopupBtnClick}
           onClose={onClose}
-          productName={dataModal.name}
-          price={dataModal.price}
+          productName={selectedProduct.name}
+          price={selectedProduct.price}
         />
       )}
     </div>

@@ -1,7 +1,6 @@
 @import "~styles/root";
 
 .add-cart-popup {
-
     &__img {
         height: 208px;
         width: 208px;
@@ -33,7 +32,6 @@
         @include media(until-desktop) {
             font-size: $body-text;
         }
-
 
         &__name {
             color: $text-color-surface;
