@@ -1,0 +1,58 @@
+@import "~styles/root";
+
+.suggestion-popup {
+    padding: 11px 79px;
+
+    @include media(until-tablet) {
+        padding: 16px 47px;
+    }
+
+    @include media(until-mobile) {
+        padding: 16px 34px;
+    }
+
+    &__img {
+        height: 191px;
+        width: 113px;
+        margin: 40px 0px;
+
+        @include media(until-desktop) {
+            height: 135px;
+            width: 80px;
+        }
+
+        @include media(until-tablet) {
+            margin: 24px 0;
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        border-radius: 4px;
+        font-size: $micro-text;
+        height: 80px;
+        padding: 8px 16px;
+        background-color: $textarea-suggestion-bg;
+
+        @include media(until-mobile) {
+            padding: 8px;
+        }
+    }
+
+    &__button {
+        margin: 40px 0 0;
+        font-size: $intro-text;
+        border-radius: 16px;
+        padding: 16px 44px;
+
+        @include media(until-desktop) {
+            font-size: $body-text;
+            padding: 15px 41px;
+        }
+
+        @include media(until-tablet) {
+            padding: 11px 33px;
+            margin: 24px 0 0;
+        }
+    }
+}

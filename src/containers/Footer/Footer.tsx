@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
+import SuggestionPopup from "components/SuggestionPopup/SuggestionPopup";
+import Button from "components/Button/Button";
 import FooterContacts from "./FooterContacts/FooterContacts";
 import FooterServices from "./FooterServices/FooterServices";
 import SocialMedia from "./FooterSocialMedia/FooterSocialMedia";
 import FooterBoxyLogo from "icons/FooterBoxyLogo";
-import Button from "components/Button/Button";
 
 import "./Footer.scss";
 
-interface IFooterProps {}
+interface IFooterProps { }
 
 const Footer: React.FC<IFooterProps> = () => {
-  const buttonClick = () => {}
+  const [showSuggestionPopup, setShowSuggestionPopup] = useState(false)
+
+  const handlerSuggestionStatus = () => {
+    setShowSuggestionPopup(!showSuggestionPopup)
+  }
+  const sendSuggestion = () => { }
   return (
     <div className="app-footer">
       <div className="app-footer__top-column">
@@ -21,7 +27,7 @@ const Footer: React.FC<IFooterProps> = () => {
         </div>
         <Button
           className="app-footer__top-column__button"
-          onClick={buttonClick}
+          onClick={handlerSuggestionStatus}
         >
           Առաջարկ ունե՞ս
         </Button>
@@ -35,6 +41,12 @@ const Footer: React.FC<IFooterProps> = () => {
         © <span>{new Date().getFullYear()}</span> Boxy: Բոլոր իրավունքները
         պաշտպանված են։
       </p>
+      {showSuggestionPopup && (
+        <SuggestionPopup
+          onClick={sendSuggestion}
+          onClose={handlerSuggestionStatus}
+        />
+      )}
     </div>
   )
 }

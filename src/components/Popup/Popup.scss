@@ -10,7 +10,7 @@
     right: 0;
     bottom: 0;
     z-index: 100;
-    
+
 
     &__basis {
         position: absolute;
@@ -25,29 +25,44 @@
         position: relative;
         background-color: $surface-color;
         padding: 29px;
+        width: 680px;
         border-radius: 10px;
         animation-name: anim-popup;
         animation-duration: 0.2s;
+
         @keyframes anim-popup {
             0% {
                 transform: scale(0.4);
             }
+
             25% {
                 transform: scale(0.6);
             }
+
             50% {
                 transform: scale(0.8);
             }
+
             75% {
                 transform: scale(0.9);
             }
+
             100% {
                 transform: scale(1);
             }
         }
 
+        @include media(until-desktop) {
+            width: 600px;
+        }
+
         @include media(until-tablet) {
+            width: 512px;
             padding: 16px;
+        }
+
+        @include media(until-mobile) {
+           max-width: 328px;
         }
 
         &__close-icon {
@@ -63,28 +78,22 @@
         }
 
         &__content {
-            padding: 26px 55px;
+            padding: 26px 79px;
             text-align: center;
 
             @include media(until-desktop) {
-                padding: 15px 55px;
+                padding: 15px 79px;
             }
 
             @include media(until-tablet) {
                 padding: 16px 40px;
             }
 
-            @include media(until-mobile) {
-                width: 200px;
-                padding: 0;
-                margin: 16px 40px;
-            }
-
             &__title {
                 color: $text-color-surface;
-                padding: 8px 0 0;
                 font-weight: normal;
                 font-size: $heading3;
+                line-height: normal;
 
                 @include media(until-desktop) {
                     font-size: $intro-text;
