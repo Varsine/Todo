@@ -25,29 +25,28 @@ interface OrderDetailsProps { }
 
 const OrderDetails: React.FC<OrderDetailsProps> = () => {
   const { state: { orderDetails }, dispatch } = useContext(AppContext);
-  const [stateOrder, setStateOrder] = useState(orderDetails)
+  const [orderState, setOrderState] = useState(orderDetails)
+  const [disabled, setDisabled] = useState(true);
 
   const inputChangeHandler = (val: string, name: InputNames) => {
-    setStateOrder({
-      ...stateOrder,
+    setOrderState({
+      ...orderState,
       [name]: val,
     })
-    dispatch({ type: ActionTypes.SET_ORDER_DETAILS, payload: stateOrder })
+    dispatch({ type: ActionTypes.SET_ORDER_DETAILS, payload: orderState })
   }
 
   const checkAnswer = (idx: number) => {
-    return setStateOrder({
-      ...stateOrder,
+    return setOrderState({
+      ...orderState,
       selection: idx
     })
   }
 
   const clickContinue = () => {
-    if (name !== "" && address !== "" && phone !== "" && email !== "") {
-      navigate('/checkout')
-    }
+    navigate('/checkout')
   }
-  const { name, address, phone, email, getter, selection } = stateOrder
+  const { name, address, phone, email, getter, selection } = orderState
   return (
     <div className="order-details">
       <div className="order-details__bg"></div>
@@ -85,7 +84,9 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
         </OrderDetailsRightBox>
       </div>
       <div className="order-details__btn-div">
-          <Button className="order-details__btn-div__button" onClick={clickContinue}>Շարունակել</Button>
+        <Button className="order-details__btn-div__button"
+          disabled={!(name.trim() && address.trim() && phone.trim() && email.trim()) && disabled}
+          onClick={clickContinue}>Շարունակել</Button>
       </div>
     </div>
   )
