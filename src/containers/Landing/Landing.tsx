@@ -73,7 +73,7 @@ const Landing: React.FC<ILandingProps> = () => {
           {productData.map((productItem: IProductDataItem) => {
             return (
               <ProductCard
-                productName={productItem.name}
+                productName={`Նվեր տուփ - ${productItem.name}`}
                 price={productItem.price}
                 productImgSrc={productItem.imageSource}
                 productClick={()=>clickProductCart(productItem)}
