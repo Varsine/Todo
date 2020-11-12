@@ -47,13 +47,12 @@ const Checkout: React.FC<ICheckoutProps> = () => {
               name="cash"
               onClick={onCash}
               text="Կանխիկ"
-              selected
+              selected={selected}
             />
           </div>
         </div>
         <CheckoutProductDetails
           orderProductName={orderProduct.name}
-          onCash={onCash}
           deliver={`${priceToStringConverter(deliver)} Դ`}
           cost={`${priceToStringConverter(cost)} Դ`}
           total={`${priceToStringConverter(total)} Դ`}

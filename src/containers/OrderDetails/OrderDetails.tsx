@@ -3,7 +3,6 @@ import React, { useState, useContext } from "react";
 import { navigate } from "@reach/router";
 import Heading from 'components/Heading/Heading';
 import Button from "components/Button/Button";
-import Link from 'components/Link/Link';
 import OrderDetailsLeftBox from "containers/OrderDetails/OrderDetailsLeftBox/OrderDetailsLeftBox";
 import OrderDetailsRightBox from "containers/OrderDetails/OrderDetailsRightBox/OrderDetailsRightBox";
 import CheckBoxWithText from 'components/CheckBoxWithText/CheckBoxWithText';

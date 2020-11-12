@@ -56,15 +56,19 @@
                 display: flex;
                 justify-content: center;
                 padding: 0 0 12px;
-
-                &__child {
-                    padding-left: 8px;
-                }
             }
 
             @include media(until-mobile) {
                 font-size: $caption-text;
                 line-height: 22px;
+            }
+
+            &__child {
+                display: block;
+
+                @include media(tablet) {
+                    padding-left: 8px;
+                }
             }
         }
     }

@@ -8,7 +8,6 @@ import "./CheckoutProductDetails.scss";
 
 interface ICheckoutProductDetailsProps {
     orderProductName: string;
-    onCash: () => void;
     deliver: string;
     cost: string;
     total: string;
@@ -16,7 +15,6 @@ interface ICheckoutProductDetailsProps {
 
 const CheckoutProductDetails: React.FC<ICheckoutProductDetailsProps> = ({
     orderProductName,
-    onCash,
     deliver,
     cost,
     total,
@@ -26,10 +24,10 @@ const CheckoutProductDetails: React.FC<ICheckoutProductDetailsProps> = ({
             <TextBlock className='checkout-product-details__heading'>Ձեր պատվերը</TextBlock>
             <div className="checkout-product-details__product">
                 <Image className="checkout-product-details__product__img"
-                    onClick={onCash}
                     src={productImg} />
                 <p className="checkout-product-details__product__name">Նվեր տուփ
-                <p className="checkout-product-details__product__name__child">{orderProductName}</p></p>
+                <span className="checkout-product-details__product__name__child">{orderProductName}</span>
+                </p>
             </div>
             <div className='checkout-product-details__line'></div>
             <div className='checkout-product-details__payment-data'>
