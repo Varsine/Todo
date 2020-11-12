@@ -10,26 +10,31 @@ export interface IProductDataItem {
 export const productData: IProductDataItem[] = [
     {
         id: 1,
-        name: "Նվեր տուփ - Regular",
+        name: "Regular",
         price: 14900,
         imageSource,
     },
     {
         id: 2,
-        name: "Նվեր տուփ - Regular Plus",
+        name: "Regular Plus",
         price: 19900,
         imageSource,
     },
     {
         id: 3,
-        name: "Նվեր տուփ - Premium",
+        name: "Premium",
         price: 24900,
         imageSource,
     },
     {
         id: 4,
-        name: "Նվեր տուփ - Premium Plus",
+        name: "Premium Plus",
         price: 29900,
         imageSource,
     },
-]
+];
+
+export const deliverData = {
+    price: 0,
+    days: '1-3'
+}

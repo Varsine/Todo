@@ -1,0 +1,171 @@
+@import "~styles/root";
+
+.checkout-product-details {
+    width: 50%;
+
+    @include media(until-tablet) {
+        width: 100%;
+    }
+
+    &__heading {
+        font-weight: normal;
+        color: $text-color-surface;
+        font-size: $intro-text;
+        margin: 0 0 24px;
+
+        @include media(until-mobile) {
+            font-size: $body-text;
+            margin: 0 0 16px;
+        }
+    }
+
+    &__product {
+        border-radius: 8px;
+        padding: 8px;
+        box-shadow: 0px 1px 10px #0000001A;
+        display: flex;
+        align-items: center;
+
+        @include media(tablet) {
+            flex-wrap: wrap-reverse;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        &__img {
+            border-radius: 0;
+            width: 120px;
+            height: 120px;
+
+            @include media(until-tablet) {
+                width: 88px;
+                height: 88px;
+            }
+        }
+
+        &__name {
+            line-height: 32px;
+            padding-left: 16px;
+            font-size: $intro-text;
+            color: $text-color-surface;
+
+            @include media(tablet) {
+                width: 100%;
+                padding: 0;
+                line-height: normal;
+                display: flex;
+                justify-content: center;
+                padding: 0 0 12px;
+            }
+
+            @include media(until-mobile) {
+                font-size: $caption-text;
+                line-height: 22px;
+            }
+
+            &__child {
+                display: block;
+
+                @include media(tablet) {
+                    padding-left: 8px;
+                }
+            }
+        }
+    }
+
+    &__line {
+        background-color: $mobile-menu-border-bg;
+        height: 1px;
+        margin: 24px 0;
+
+        @include media(until-mobile) {
+            margin: 16px 0;
+        }
+    }
+
+    &__payment-data {
+        &__cost {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0 24px;
+
+            &__text {
+                color: $text-color-surface;
+                font-size: $body-text;
+                font-weight: normal;
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+
+            &__value {
+                color: $text-color-surface;
+                font-size: $intro-text;
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+        }
+
+        &__deliver {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0 8px;
+
+            &__text {
+                color: $text-color-surface;
+                font-size: $body-text;
+                font-weight: normal;
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+
+            &__value {
+                color: $text-color-surface;
+                font-size: $intro-text;
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+        }
+
+        &__term {
+            color: $text-color-surface;
+            font-size: $caption-text;
+
+            @include media(until-mobile) {
+                font-size: $micro-text;
+            }
+        }
+
+        &__total {
+            display: flex;
+            justify-content: space-between;
+            padding: 24px 0 48px;
+
+            &__text {
+                color: $text-color-surface;
+                font-size: $intro-text;
+                font-weight: normal;
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+
+            &__value {
+                color: $text-color-surface;
+                font-size: $intro-text;
+
+                @include media(until-mobile) {
+                    font-size: $body-text;
+                }
+            }
+        }
+    }
+}
