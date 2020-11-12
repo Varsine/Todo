@@ -18,11 +18,14 @@ export default (state: State, action: IAction): State => {
             return { ...state, quizData: quizDataMockup }
 
         case ActionTypes.SET_USER:
-            return {...state, user: action.payload.user};
+            return { ...state, user: action.payload.user };
 
         case ActionTypes.SET_DEVICE_TYPE:
             return { ...state, device: action.payload }
-            
+
+        case ActionTypes.SET_ORDER_DETAILS:
+            return { ...state, orderDetails: action.payload }
+
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)
         }

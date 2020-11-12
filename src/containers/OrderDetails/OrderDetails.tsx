@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
+import { navigate } from "@reach/router";
 import Heading from 'components/Heading/Heading';
 import Button from "components/Button/Button";
 import Link from 'components/Link/Link';
 import OrderDetailsLeftBox from "containers/OrderDetails/OrderDetailsLeftBox/OrderDetailsLeftBox";
 import OrderDetailsRightBox from "containers/OrderDetails/OrderDetailsRightBox/OrderDetailsRightBox";
 import CheckBoxWithText from 'components/CheckBoxWithText/CheckBoxWithText';
+import { AppContext } from "app-context/appContext";
+import { ActionTypes } from "app-context/actionTypes";
 
 import "./OrderDetails.scss";
 
@@ -22,31 +25,30 @@ enum InputNames {
 interface OrderDetailsProps { }
 
 const OrderDetails: React.FC<OrderDetailsProps> = () => {
-  const [state, setState] = useState({
-    name: "",
-    address: "",
-    phone: "",
-    email: "",
-    getter: "",
-    selection: 2
-  });
+  const { state: { orderDetails }, dispatch } = useContext(AppContext);
+  const [stateOrder, setStateOrder] = useState(orderDetails)
 
   const inputChangeHandler = (val: string, name: InputNames) => {
-    setState({
-      ...state,
+    setStateOrder({
+      ...stateOrder,
       [name]: val,
     })
+    dispatch({ type: ActionTypes.SET_ORDER_DETAILS, payload: stateOrder })
   }
 
   const checkAnswer = (idx: number) => {
-    return setState({
-      ...state,
+    return setStateOrder({
+      ...stateOrder,
       selection: idx
     })
   }
 
-  const clickContinue = () => { }
-  const { name, address, phone, email, getter, selection } = state
+  const clickContinue = () => {
+    if (name !== "" && address !== "" && phone !== "" && email !== "") {
+      navigate('/checkout')
+    }
+  }
+  const { name, address, phone, email, getter, selection } = stateOrder
   return (
     <div className="order-details">
       <div className="order-details__bg"></div>
@@ -84,9 +86,7 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
         </OrderDetailsRightBox>
       </div>
       <div className="order-details__btn-div">
-        <Link to="/">
           <Button className="order-details__btn-div__button" onClick={clickContinue}>Շարունակել</Button>
-        </Link>
       </div>
     </div>
   )

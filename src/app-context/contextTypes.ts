@@ -17,9 +17,18 @@ export interface IUser {
     name: string;
     email: string;
 }
+export interface IOrderDetails {
+    name: string;
+    address: string;
+    phone: string;
+    email: string;
+    getter: string;
+    selection: number | null;
+}
 
 export interface State {
     device: DeviceTypes;
     quizData: IQuizData[];
     user: IUser | null;
+    orderDetails: IOrderDetails;
 }

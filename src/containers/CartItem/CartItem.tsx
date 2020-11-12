@@ -1,10 +1,10 @@
 import React from "react";
 
 import Image from "components/Image/Image";
-import productImg from "assets/productImgSrc.png";
-import TextBlock from "components/TextBlock/TextBlock";
-import CloseIcon from "icons/CloseIcon";
 import Button from "components/Button/Button";
+import TextBlock from "components/TextBlock/TextBlock";
+import productImg from "assets/productImgSrc.png";
+import CloseIcon from "icons/CloseIcon";
 import priceToStringConverter from "utils/priceToStringConverter";
 
 import "./CartItem.scss";
