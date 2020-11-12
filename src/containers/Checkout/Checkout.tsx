@@ -1,33 +1,34 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { navigate } from "@reach/router";
 
 import { AppContext } from "app-context/appContext";
 import Heading from "components/Heading/Heading";
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
 import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
-import { productData as mockupData} from "data-mockup/product-data.mockup";
+import { deliverData, productData } from "data-mockup/product-data.mockup";
 import priceToStringConverter from "utils/priceToStringConverter";
 import CheckoutProductDetails from "./CheckoutProductDetails/CheckoutProductDetails";
 
 import "./Checkout.scss";
 
-interface ICheckoutProps { };
-
-const Checkout: React.FC<ICheckoutProps> = () => {
+const Checkout: React.FC = () => {
   const { state: { orderDetails } } = useContext(AppContext);
-  const orderProduct = mockupData[0]
-  const [selected, setSelected] = useState(true)
+  const orderProduct = productData[0];
   const cost = orderProduct.price;
-  const deliver = 500;
-  const total = cost + deliver;
+  const total = cost + deliverData.price;
 
   const clickOrder = () => { }
 
-  const onCash = () => {
-    setSelected(!selected)
-  }
+  const { name, address, phone, email } = orderDetails;
 
-  const { name, address, phone, email } = orderDetails
+  useEffect(() => {
+    // TODO handle this more efficiently
+    if (!orderDetails.name.trim()) {
+      navigate('/');
+    }
+  }, []);
+
   return (
     <div className='app-checkout'>
       <Heading className='app-checkout__title'>Տվյալների ստուգում</Heading>
@@ -45,15 +46,16 @@ const Checkout: React.FC<ICheckoutProps> = () => {
             <CheckBoxContainer
               className="app-checkout__content__left-column__payment-method__check-box"
               name="cash"
-              onClick={onCash}
+              onClick={() => { }}
               text="Կանխիկ"
-              selected={selected}
+              selected
             />
           </div>
         </div>
         <CheckoutProductDetails
           orderProductName={orderProduct.name}
-          deliver={`${priceToStringConverter(deliver)} Դ`}
+          deliverPrice={`${priceToStringConverter(deliverData.price)} Դ`}
+          deliverDate={deliverData.days}
           cost={`${priceToStringConverter(cost)} Դ`}
           total={`${priceToStringConverter(total)} Դ`}
         />

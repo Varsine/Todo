@@ -8,14 +8,16 @@ import "./CheckoutProductDetails.scss";
 
 interface ICheckoutProductDetailsProps {
     orderProductName: string;
-    deliver: string;
+    deliverPrice: string;
+    deliverDate: string;
     cost: string;
     total: string;
 };
 
 const CheckoutProductDetails: React.FC<ICheckoutProductDetailsProps> = ({
     orderProductName,
-    deliver,
+    deliverPrice,
+    deliverDate,
     cost,
     total,
 }) => {
@@ -37,9 +39,9 @@ const CheckoutProductDetails: React.FC<ICheckoutProductDetailsProps> = ({
                 </div>
                 <div className='checkout-product-details__payment-data__deliver'>
                     <TextBlock className='checkout-product-details__payment-data__deliver__text'>Առաքում</TextBlock>
-                    <div className='checkout-product-details__payment-data__deliver__value'>{deliver}</div>
+                    <div className='checkout-product-details__payment-data__deliver__value'>{deliverPrice}</div>
                 </div>
-                <p className='checkout-product-details__payment-data__term'>Առաքվում է 1-2 օրվա ընթացքում</p>
+                <p className='checkout-product-details__payment-data__term'>{`Առաքվում է ${deliverDate} օրվա ընթացքում`}</p>
                 <div className='checkout-product-details__payment-data__total'>
                     <TextBlock className='checkout-product-details__payment-data__total__text'>Ընդամենը</TextBlock>
                     <div className='checkout-product-details__payment-data__total__value'>{total}</div>

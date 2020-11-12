@@ -32,4 +32,9 @@ export const productData: IProductDataItem[] = [
         price: 29900,
         imageSource,
     },
-]
+];
+
+export const deliverData = {
+    price: 0,
+    days: '1-3'
+}

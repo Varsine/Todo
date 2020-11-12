@@ -21,19 +21,16 @@ enum InputNames {
   getter = "getter"
 }
 
-interface OrderDetailsProps { }
-
-const OrderDetails: React.FC<OrderDetailsProps> = () => {
+const OrderDetails: React.FC = () => {
   const { state: { orderDetails }, dispatch } = useContext(AppContext);
-  const [orderState, setOrderState] = useState(orderDetails)
-  const [disabled, setDisabled] = useState(true);
+  const [orderState, setOrderState] = useState(orderDetails);
 
   const inputChangeHandler = (val: string, name: InputNames) => {
     setOrderState({
       ...orderState,
       [name]: val,
-    })
-    dispatch({ type: ActionTypes.SET_ORDER_DETAILS, payload: orderState })
+    });
+    dispatch({ type: ActionTypes.SET_ORDER_DETAILS, payload: orderState });
   }
 
   const checkAnswer = (idx: number) => {
@@ -46,7 +43,14 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
   const clickContinue = () => {
     navigate('/checkout')
   }
-  const { name, address, phone, email, getter, selection } = orderState
+
+  const checkButtonDisabledState = () => {
+    // TODO handle validations
+    return !(name.trim() && address.trim() && phone.trim() && email.trim());
+  }
+
+  const { name, address, phone, email, getter, selection } = orderState;
+
   return (
     <div className="order-details">
       <div className="order-details__bg"></div>
@@ -66,26 +70,23 @@ const OrderDetails: React.FC<OrderDetailsProps> = () => {
           getterName={getter}
           onChangeName={(val) => inputChangeHandler(val, InputNames.getter)}
         >
-          {
-            present.map((el, idx) => {
-              return (
-                <CheckBoxWithText
-                  key={el + idx}
-                  className="order-details__boxes__check-box"
-                  selected={selection === idx}
-                  name="present"
-                  onClick={() => checkAnswer(idx)}
-                >
-                  {el}
-                </CheckBoxWithText>
-              )
-            })
-          }
+          {present.map((el, idx) => (
+            <CheckBoxWithText
+              key={el + idx}
+              className="order-details__boxes__check-box"
+              selected={selection === idx}
+              name="present"
+              onClick={() => checkAnswer(idx)}
+            >
+              {el}
+            </CheckBoxWithText>
+          )
+          )}
         </OrderDetailsRightBox>
       </div>
       <div className="order-details__btn-div">
         <Button className="order-details__btn-div__button"
-          disabled={!(name.trim() && address.trim() && phone.trim() && email.trim()) && disabled}
+          disabled={checkButtonDisabledState()}
           onClick={clickContinue}>Շարունակել</Button>
       </div>
     </div>

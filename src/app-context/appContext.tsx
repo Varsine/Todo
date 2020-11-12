@@ -9,7 +9,7 @@ const initialOrderData = {
     phone: "",
     email: "",
     getter: "",
-    selection: 2
+    selection: 1
 }
 
 export const initialState = {
