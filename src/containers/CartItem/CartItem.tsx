@@ -15,6 +15,7 @@ interface ICartItemProps {
   price: number;
   clickPlus: () => void;
   clickMinus: () => void;
+  removeOrderItem: () => void;
 }
 
 const CartItem: React.FC<ICartItemProps> = ({
@@ -23,8 +24,8 @@ const CartItem: React.FC<ICartItemProps> = ({
   price,
   clickPlus,
   clickMinus,
+  removeOrderItem,
 }) => {
-
   return (
     <div className="cart-item">
       <div className="cart-item__left-column">
@@ -33,7 +34,7 @@ const CartItem: React.FC<ICartItemProps> = ({
       <div className="cart-item__right-column">
         <div className="cart-item__right-column__product-name">
           <TextBlock className="cart-item__right-column__product-name__text">Նվեր տուփ - {productName}</TextBlock>
-          <div className="cart-item__right-column__product-name__close-icon">
+          <div className="cart-item__right-column__product-name__close-icon" onClick={removeOrderItem}>
             <CloseIcon />
           </div>
         </div>

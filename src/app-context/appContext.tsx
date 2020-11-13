@@ -17,6 +17,7 @@ export const initialState = {
     quizData,
     user: null,
     orderDetails: initialOrderData,
+    orders: [],
 }
 
 export const AppContext = createContext<any>(initialState);

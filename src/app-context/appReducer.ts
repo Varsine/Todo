@@ -26,6 +26,34 @@ export default (state: State, action: IAction): State => {
         case ActionTypes.SET_ORDER_DETAILS:
             return { ...state, orderDetails: action.payload }
 
+        case ActionTypes.ADD_ORDER:
+            const isAlreadyAdded = state.orders.find(el => el.id === action.payload.id);
+            if (isAlreadyAdded) {
+                return state;
+            }
+            return { ...state, orders: [...state.orders, { ...action.payload, count: 1 }] }
+
+        case ActionTypes.CHANGE_ORDER_COUNT:
+            const el = state.orders.find(el => el.id === action.payload.id);
+            if (el) {
+                if (el.count + action.payload.changeCount <= 0) {
+                    return { ...state, orders: state.orders.filter(el => el.id !== action.payload.id) }
+                }
+                return {
+                    ...state,
+                    orders: state.orders.map(el => {
+                        if (el.id === action.payload.id) {
+                            return { ...el, count: el.count + action.payload.changeCount }
+                        }
+                        return el;
+                    })
+                };
+            }
+            return state;
+
+        case ActionTypes.REMOVE_ORDER_ITEM:
+            return { ...state, orders: state.orders.filter(el => el.id !== action.payload.id) }
+
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)
         }
