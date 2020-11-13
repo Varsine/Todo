@@ -27,6 +27,7 @@ const Header: React.FC<IHeaderProps> = () => {
   const toggleCartMenu = () => {
     setCartMenu(!cartMenu);
   }
+
   const scrollHandler = () => {
     if (window.scrollY > 100) {
       setHeaderBackgrounded("scrolled");
@@ -49,8 +50,6 @@ const Header: React.FC<IHeaderProps> = () => {
       setMobileCart("");
     }
   }
-
-  const suggestionClick = () => { }
 
   const isColoredLogo = headerBackgrounded || (device !== DeviceTypes.desktop) || loc.pathname !== '/';
 
@@ -97,7 +96,7 @@ const Header: React.FC<IHeaderProps> = () => {
         <Link to="/auth">
           <Button
             className="app-header__right-column__button"
-            onClick={suggestionClick}
+            onClick={() => { }}
           >
             Մուտք
         </Button>

@@ -1,3 +1,4 @@
+import { IProductDataItem } from 'data-mockup/product-data.mockup';
 import { IQuizData } from 'data-mockup/quiz-data.mockup';
 import { ActionTypes } from './actionTypes';
 
@@ -31,4 +32,5 @@ export interface State {
     quizData: IQuizData[];
     user: IUser | null;
     orderDetails: IOrderDetails;
+    orders: IProductDataItem[];
 }

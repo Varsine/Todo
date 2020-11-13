@@ -13,11 +13,12 @@ import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
 
 import "./Landing.scss";
+import { ActionTypes } from "app-context/actionTypes";
 
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  const { state: { device } } = useContext(AppContext);
+  const { state: { device }, dispatch } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
   const [showAddCartPopup, setShowAddCartPopup] = useState(false);
   const [selectedProduct, selectProduct] = useState<IProductDataItem | null>(null);
@@ -33,11 +34,17 @@ const Landing: React.FC<ILandingProps> = () => {
     setShowAddCartPopup(!showAddCartPopup);
   }
 
-  const clickButtonHover = () => { }
+  const clickButtonHover = (productItem: IProductDataItem) => {
+    dispatch({ type: ActionTypes.ADD_ORDER, payload: productItem });
+  }
 
-  const addCartPopupBtnClick = () => { }
+  const addCartPopupBtnClick = (productItem: IProductDataItem) => {
+    dispatch({ type: ActionTypes.ADD_ORDER, payload: productItem });
+    onClose();
+  }
+
   const onClose = () => {
-    setShowAddCartPopup(!showAddCartPopup)
+    setShowAddCartPopup(!showAddCartPopup);
   }
 
   return (
@@ -76,8 +83,8 @@ const Landing: React.FC<ILandingProps> = () => {
                 productName={`Նվեր տուփ - ${productItem.name}`}
                 price={productItem.price}
                 productImgSrc={productItem.imageSource}
-                productClick={()=>clickProductCart(productItem)}
-                clickButtonHover={clickButtonHover}
+                productClick={() => clickProductCart(productItem)}
+                clickButtonHover={() => clickButtonHover(productItem)}
                 key={productItem.id}
               />
             )
@@ -101,7 +108,7 @@ const Landing: React.FC<ILandingProps> = () => {
       </div>
       {showAddCartPopup && selectedProduct && (
         <AddCartPopup
-          onClick={addCartPopupBtnClick}
+          onClick={() => addCartPopupBtnClick(selectedProduct)}
           onClose={onClose}
           productName={selectedProduct.name}
           price={selectedProduct.price}

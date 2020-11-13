@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
@@ -6,7 +6,9 @@ import CartItem from "containers/CartItem/CartItem";
 import Link from "components/Link/Link";
 import CloseIcon from "icons/CloseIcon";
 import priceToStringConverter from "utils/priceToStringConverter";
-import { productData as mockupData, IProductDataItem } from "data-mockup/product-data.mockup";
+import { IProductDataItem } from "data-mockup/product-data.mockup";
+import { AppContext } from "app-context/appContext";
+import { ActionTypes } from "app-context/actionTypes";
 
 import "./Cart.scss";
 
@@ -15,27 +17,19 @@ interface ICartProps {
   className?: string;
 }
 
-const productData = mockupData.slice(0, 2)
-
 const Cart: React.FC<ICartProps> = ({ closeCartMenu, className }) => {
-  const [counts, setCounts] = useState(
-    productData.map((el: IProductDataItem) => {
-      return { id: el.id, count: 1, price: el.price }
-    })
-  )
+  const { state: { orders }, dispatch } = useContext(AppContext);
 
-  const changeItemCount = (id: number, newCount: number) => {
-    if (newCount > 0) {
-      const countsCopy = [...counts]
-      const whichEl = countsCopy.find((el) => el.id === id)
-      if (whichEl) {
-        whichEl.count = newCount
-        setCounts(countsCopy)
-      }
-    }
+  const changeItemCount = (id: number, changeCount: number) => {
+    console.log("changeItemCount: ", id, changeCount);
+    dispatch({ type: ActionTypes.CHANGE_ORDER_COUNT, payload: { id, changeCount } });
   }
 
-  const total = counts.reduce((a, b) => a + b.price * b.count, 0)
+  const removeOrderItem = (id: number) => {
+    dispatch({ type: ActionTypes.REMOVE_ORDER_ITEM, payload: { id } });
+  }
+
+  const total = orders.reduce((a: number, b: IProductDataItem) => a + b.price * b.count, 0);
 
   return (
     <div className={`cart-menu ${className}`}>
@@ -52,40 +46,45 @@ const Cart: React.FC<ICartProps> = ({ closeCartMenu, className }) => {
             <CloseIcon />
           </div>
         </div>
-        <div className="cart-menu__inner__shopping">
-          {productData.slice(0, 2).map((product: IProductDataItem) => {
-            const currentCount =
-              counts.find((el) => el.id === product.id)?.count || 1
-            return (
-              <CartItem
-                key={product.id}
-                count={currentCount}
-                price={product.price}
-                clickMinus={() => changeItemCount(product.id, currentCount - 1)}
-                clickPlus={() => changeItemCount(product.id, currentCount + 1)}
-                productName={product.name}
-              />
-            )
-          })}
-        </div>
-        <div className="cart-menu__inner__total">
-          <TextBlock className="cart-menu__inner__total__text">
-            Ընդամենը
-          </TextBlock>
-          <div className="cart-menu__inner__total__value">
-            {`${priceToStringConverter(total)} Դ`}
-          </div>
-        </div>
-        <div className="cart-menu__inner__parent-btn">
-          <Link to="/quiz">
-            <Button
-              className="cart-menu__inner__parent-btn__button"
-              onClick={closeCartMenu}
-            >
-              Շարունակել
+        {orders.length > 0 ? (
+          <>
+            <div className="cart-menu__inner__shopping">
+              {orders.map((product: IProductDataItem) => {
+                return (
+                  <CartItem
+                    key={product.id}
+                    count={product.count}
+                    price={product.price}
+                    productName={product.name}
+                    clickMinus={() => changeItemCount(product.id, -1)}
+                    clickPlus={() => changeItemCount(product.id, 1)}
+                    removeOrderItem={() => removeOrderItem(product.id)}
+                  />
+                )
+              })}
+            </div>
+            <div className="cart-menu__inner__total">
+              <TextBlock className="cart-menu__inner__total__text">
+                Ընդամենը
+              </TextBlock>
+              <div className="cart-menu__inner__total__value">
+                {`${priceToStringConverter(total)} Դ`}
+              </div>
+            </div>
+            <div className="cart-menu__inner__parent-btn">
+              <Link to="/quiz">
+                <Button
+                  className="cart-menu__inner__parent-btn__button"
+                  onClick={closeCartMenu}
+                >
+                  Շարունակել
             </Button>
-          </Link>
-        </div>
+              </Link>
+            </div>
+          </>
+        ) : (
+            <div>No Orders.</div>
+          )}
       </div>
     </div>
   )
