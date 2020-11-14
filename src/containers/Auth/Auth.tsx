@@ -47,6 +47,7 @@ const Auth: React.FC = () => {
             setLoading(true);
             service.signup({ name: state.name, email: state.email, password: state.password })
                 .then(user => {
+                    console.log("user: ", user)
                     dispatch({ type: ActionTypes.SET_USER, payload: { user } })
                     navigate("/order-details");
                 })
@@ -76,6 +77,7 @@ const Auth: React.FC = () => {
             setLoading(true);
             service.login({ email: state.email, password: state.password })
                 .then(user => {
+                    console.log("user: ", user)
                     dispatch({ type: ActionTypes.SET_USER, payload: { user } })
                     navigate("/order-details");
                 })
