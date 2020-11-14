@@ -7,8 +7,6 @@ import PhoneIcon from 'icons/PhoneIcon';
 import MailIcon from "icons/MailIcon";
 import ProfileInputIcon from "icons/ProfileInputIcon";
 
-import "./OrderDetailsLeftBox.scss";
-
 interface IOrderDetailsLeftBoxProps {
     onChangeName: (value: string) => void;
     onChangeAddress: (value: string) => void;

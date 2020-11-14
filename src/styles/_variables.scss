@@ -1,12 +1,36 @@
 $breakPoints: (
-	mobile: (start: null, end: '360px'),
-	mobile-large: (start: '361px', end: '767px'),
-	tablet: (start: '768px', end: '1024px'),
-	desktop:(start: '1025px', end: '1360px'),
-	desktop-large: (start: '1361px', end: null),
-	until-mobile: (start: null, end: '767px'),
-	until-tablet: (start: null, end: '1024px'),
-	until-desktop: (start: null, end: '1360px')
+	mobile: (
+		start: null,
+		end: "360px",
+	),
+	mobile-large: (
+		start: "361px",
+		end: "767px",
+	),
+	tablet: (
+		start: "768px",
+		end: "1024px",
+	),
+	desktop: (
+		start: "1025px",
+		end: "1360px",
+	),
+	desktop-large: (
+		start: "1361px",
+		end: null,
+	),
+	until-mobile: (
+		start: null,
+		end: "767px",
+	),
+	until-tablet: (
+		start: null,
+		end: "1024px",
+	),
+	until-desktop: (
+		start: null,
+		end: "1360px",
+	),
 );
 
 $layout-margin: 0 180px;

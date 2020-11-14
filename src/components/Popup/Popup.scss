@@ -11,7 +11,6 @@
     bottom: 0;
     z-index: 100;
 
-
     &__basis {
         position: absolute;
         top: 0;
@@ -62,7 +61,7 @@
         }
 
         @include media(until-mobile) {
-           max-width: 328px;
+            max-width: 328px;
         }
 
         &__close-icon {
