@@ -9,22 +9,16 @@
 			@media (max-width: $end) {
 				@content;
 			}
-		}
-
-		@else if $end==null {
+		} @else if $end==null {
 			@media (min-width: $start) {
 				@content;
 			}
-		}
-
-		@else {
+		} @else {
 			@media (min-width: $start) and (max-width: $end) {
 				@content;
 			}
 		}
-	}
-
-	@else {
+	} @else {
 		@warn "Invalid breakpoint `#{$breakpoint}`.";
 	}
 }
@@ -33,7 +27,7 @@
 	box-shadow: 2px 2px 5px #ccc;
 }
 
-@mixin second-button-style ($radius, $size, $padding) {
+@mixin second-button-style($radius, $size, $padding) {
 	background: $button-second-bg;
 	box-shadow: 0px 3px 14px $border-boxes-shadow;
 	border-radius: $radius;

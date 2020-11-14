@@ -1,9 +1,7 @@
 @import "~styles/root";
 
 .order-details {
-    font-family: 'Mardoto-Regular',
-        Fallback,
-        sans-serif;
+    font-family: "Mardoto-Regular", Fallback, sans-serif;
     margin: 0 0 110px;
     padding: 40px 0 26px;
     min-height: calc(100vh - #{$header-size});

@@ -3,10 +3,7 @@
 .app-quiz {
     min-height: 100vh;
     padding: 80px 0;
-    font-family: 'Mardoto-Regular',
-        Fallback,
-        sans-serif;
-
+    font-family: "Mardoto-Regular", Fallback, sans-serif;
 
     &__bg-img {
         position: absolute;
@@ -32,7 +29,7 @@
     }
 
     &__content {
-        height: calc(100vh - $header-size);
+        height: calc(100vh - #{$header-size});
         display: flex;
         justify-content: center;
         align-items: center;
@@ -78,7 +75,7 @@
                     padding: 16px 24px;
                     color: $text-color-surface;
                     font-size: $body-text;
-                    border: 1px solid #CCCCCC;
+                    border: 1px solid #cccccc;
 
                     @include media(until-desktop) {
                         width: 400px;
@@ -114,7 +111,7 @@
                     background-color: $secondary-color-dark;
                 }
                 &:disabled {
-                    background-color: #F3EDFF;
+                    background-color: #f3edff;
                 }
             }
 
@@ -129,4 +126,4 @@
             }
         }
     }
-};
+}

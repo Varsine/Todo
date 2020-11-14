@@ -1,9 +1,7 @@
 @import "~styles/root";
 
 .app-checkout {
-    font-family: 'Mardoto-Regular',
-        Fallback,
-        sans-serif;
+    font-family: "Mardoto-Regular", Fallback, sans-serif;
     height: calc(100vh - #{$header-size});
     padding: 58px 0 0;
 
