@@ -1,3 +1,5 @@
+import firebase from 'firebase/app';
+
 class Service {
     _request = (url: string, params: any) => {
         fetch(url, params)
@@ -23,29 +25,28 @@ class Service {
                 console.log("Error: ", err); // TODO handle toast
             });
     }
-    login = (loginData: { email: string, password: string }) => {
-        // return this._request('api/login', { body: JSON.stringify(loginData) })
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({
-                    id: 1,
-                    name: 'John Doe',
-                    email: 'john.doe@test.com'
-                })
-            }, 3000)
-        }) // test login imitiation
+    
+    login = async (loginData: { email: string, password: string }) => {
+        const res = await firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
+        const user = firebase.auth().currentUser;
+        if (user) {
+            const { displayName, email, photoURL } = user;
+            return { displayName, email, photoURL };
+        }
+        return res;
     }
-    signup = (signupData: { name: string, email: string, password: string }) => {
-        // return this._request('api/login', { body: JSON.stringify(signupData) })
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                resolve({
-                    id: 1,
-                    name: 'John Doe',
-                    email: 'john.doe@test.com'
-                })
-            }, 3000) // test signup imitation
-        })
+    
+    signup = async (signupData: { name: string, email: string, password: string }) => {
+        const res = await firebase.auth().createUserWithEmailAndPassword(signupData.email, signupData.password);
+        const user = firebase.auth().currentUser;
+        if (user) {
+            await user.updateProfile({
+                displayName: signupData.name,
+                photoURL: 'https://www.shareicon.net/data/512x512/2016/05/24/770117_people_512x512.png',
+            })
+            return this.login({ email: signupData.email, password: signupData.password });
+        }
+        return res;
     }
 }
 

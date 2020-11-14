@@ -21,7 +21,6 @@ const Cart: React.FC<ICartProps> = ({ closeCartMenu, className }) => {
   const { state: { orders }, dispatch } = useContext(AppContext);
 
   const changeItemCount = (id: number, changeCount: number) => {
-    console.log("changeItemCount: ", id, changeCount);
     dispatch({ type: ActionTypes.CHANGE_ORDER_COUNT, payload: { id, changeCount } });
   }
 

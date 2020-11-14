@@ -34,12 +34,34 @@ const Auth: React.FC = () => {
     const { name, email, password, nameError, emailError, passwordError } = state;
 
     const signUpHandler = () => {
+        const nameValid = inputValidation(name, InputNames.name);
+        const emailValid = inputValidation(email, InputNames.email);
+        const passwordValid = inputValidation(password, InputNames.password);
         setState({
             ...state,
-            nameError: inputValidation(name, InputNames.name).errorText,
-            emailError: inputValidation(email, InputNames.email).errorText,
-            passwordError: inputValidation(password, InputNames.password).errorText,
+            nameError: nameValid.errorText,
+            emailError: emailValid.errorText,
+            passwordError: passwordValid.errorText,
         })
+        if (nameValid.isValid && emailValid.isValid && passwordValid.isValid) {
+            setLoading(true);
+            service.signup({ name: state.name, email: state.email, password: state.password })
+                .then(user => {
+                    dispatch({ type: ActionTypes.SET_USER, payload: { user } })
+                    navigate("/order-details");
+                })
+                .catch(err => {
+                    setState({
+                        ...state,
+                        nameError: err && err.message ? err.message : 'Unknown Error',
+                        emailError: '',
+                        passwordError: '',
+                    });
+                })
+                .finally(() => {
+                    setLoading(false);
+                })
+        }
     }
 
     const loginHandler = () => {
@@ -54,9 +76,15 @@ const Auth: React.FC = () => {
             setLoading(true);
             service.login({ email: state.email, password: state.password })
                 .then(user => {
-                    console.log("user: ", user);
                     dispatch({ type: ActionTypes.SET_USER, payload: { user } })
                     navigate("/order-details");
+                })
+                .catch(err => {
+                    setState({
+                        ...state,
+                        emailError: err && err.message ? err.message : 'Unknown Error',
+                        passwordError: ''
+                    });
                 })
                 .finally(() => {
                     setLoading(false);
