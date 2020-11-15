@@ -8,6 +8,8 @@ interface ISignUpProps {
     onSignup: () => void;
     onAuthChangeClick: () => void;
     skipHandler: () => void;
+    googleLogin: () => void;
+    facebookLogin: () => void;
     name: string;
     email: string;
     password: string;
@@ -24,6 +26,8 @@ const SignUp: React.FC<ISignUpProps> = ({
     onSignup,
     onAuthChangeClick,
     skipHandler,
+    googleLogin,
+    facebookLogin,
     name,
     email,
     password,
@@ -43,6 +47,8 @@ const SignUp: React.FC<ISignUpProps> = ({
             buttonClick={onSignup}
             onClick={onAuthChangeClick}
             skipHandler={skipHandler}
+            googleLogin={googleLogin}
+            facebookLogin={facebookLogin}
             loading={loading}
         >
             <InputField

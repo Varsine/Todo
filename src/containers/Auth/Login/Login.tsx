@@ -8,6 +8,8 @@ interface ILoginProps {
     onLogin: () => void;
     onAuthChangeClick: () => void;
     skipHandler: () => void;
+    googleLogin: () => void;
+    facebookLogin: () => void;
     email: string;
     password: string;
     onChangeEmail: (value: string) => void;
@@ -21,6 +23,8 @@ const Login: React.FC<ILoginProps> = ({
     onLogin,
     onAuthChangeClick,
     skipHandler,
+    googleLogin,
+    facebookLogin,
     email,
     password,
     onChangeEmail,
@@ -37,6 +41,8 @@ const Login: React.FC<ILoginProps> = ({
             buttonClick={onLogin}
             onClick={onAuthChangeClick}
             skipHandler={skipHandler}
+            googleLogin={googleLogin}
+            facebookLogin={facebookLogin}
             loading={loading}
         >
             <InputField

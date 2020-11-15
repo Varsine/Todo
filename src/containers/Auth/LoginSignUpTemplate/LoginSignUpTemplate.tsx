@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Heading from 'components/Heading/Heading';
-import Link from 'components/Link/Link';
 import Button from 'components/Button/Button';
 import TextBlock from 'components/TextBlock/TextBlock';
 import GoogleIcon from 'icons/GoogleIcon';
@@ -14,6 +13,8 @@ interface ILoginSignUpTemplateProps {
     buttonClick: () => void;
     onClick: () => void;
     skipHandler: () => void;
+    googleLogin: () => void;
+    facebookLogin: () => void;
     signUpQuestion?: string;
     loading: boolean;
     loginText?: string;
@@ -26,6 +27,8 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
     buttonClick,
     onClick,
     skipHandler,
+    googleLogin,
+    facebookLogin,
     signUpQuestion,
     loading,
     registerText,
@@ -63,9 +66,9 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
             )}
             <div className="login-sign-up__social-media-div">
                 <p className="login-sign-up__social-media-div__p-text">կամ մուտք գործել</p>
-                <div className="login-sign-up__social-media-div__links-container">
-                    <Link className="login-sign-up__social-media-div__links-container__link" to=""><FbLoginIcon /></Link>
-                    <Link className="login-sign-up__social-media-div__links-container__link" to=""><GoogleIcon /></Link>
+                <div className="login-sign-up__social-media-div__social-container">
+                    <span className="login-sign-up__social-media-div__social-container__item" onClick={facebookLogin}><FbLoginIcon /></span>
+                    <span className="login-sign-up__social-media-div__social-container__item" onClick={googleLogin}><GoogleIcon /></span>
                 </div>
             </div>
         </div >

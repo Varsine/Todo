@@ -1,5 +1,13 @@
 {
   "name": "boxy",
+  "author": {
+    "name": "Sokrat Poghosyan and Vars Poghosyan",
+    "email": "boxy.armenia@gmail.com",
+    "url": "https://www.boxy.am/"
+  },
+  "contributors": [
+    "Hasmik Ghukasyan"
+  ],
   "version": "0.1.0",
   "private": true,
   "dependencies": {

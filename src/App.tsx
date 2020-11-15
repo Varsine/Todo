@@ -18,8 +18,8 @@ const App = () => {
       <AppContextProvider>
         <Layout>
           <Routes />
-          <ToastContainer 
-
+          <ToastContainer
+            position='bottom-right'
           />
         </Layout>
       </AppContextProvider>

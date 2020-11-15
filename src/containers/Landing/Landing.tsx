@@ -48,7 +48,6 @@ const Landing: React.FC<ILandingProps> = () => {
   const showNotif = (text: string, type: TypeOptions, className: string = '') => {
     toast(text, {
       type,
-      position: "bottom-right",
       className,
       onClick: () => {
         dispatch({ type: ActionTypes.TOGGLE_CART });

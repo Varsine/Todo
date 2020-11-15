@@ -168,13 +168,18 @@
                 }
             }
         }
-        &__links-container {
+        &__social-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            &__link {
+            &__item {
                 display: block;
                 margin: 0 6px;
+                cursor: pointer;
+                transition: transform 300ms ease-in-out;
+                &:hover {
+                    transform: scale(1.2);
+                }
             }
         }
     }

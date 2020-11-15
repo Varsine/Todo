@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { navigate } from "@reach/router";
 import Image from 'components/Image/Image';
@@ -7,10 +8,11 @@ import Login from "containers/Auth/Login/Login";
 import SignUp from 'containers/Auth/SignUp/SignUp';
 import { inputValidation, InputNames } from 'utils/inputValidation';
 
-import "./Auth.scss";
 import service from 'api/service';
 import { AppContext } from 'app-context/appContext';
 import { ActionTypes } from 'app-context/actionTypes';
+
+import "./Auth.scss";
 
 const initialState = {
     name: "",
@@ -98,6 +100,34 @@ const Auth: React.FC = () => {
         navigate('/order-details');
     }
 
+    const googleLoginHandler = async () => {
+        try {
+            const user = await service.googleSignIn();
+            if (user && user.id) {
+                dispatch({ type: ActionTypes.SET_USER, payload: { user } });
+                console.log("googleLoginUser: ", user)
+                navigate("/order-details");
+            }
+        }
+        catch (err) {
+            toast.error('Network Error: ', err && err.message ? err.message : 'Unknown Error')
+        }
+    }
+
+    const facebookLoginHandler = async () => {
+        // try {
+        //     const user = service.facebookLogin();
+        //     if (user && user.id) {
+        //         dispatch({ type: ActionTypes.SET_USER, payload: { user } });
+        //         console.log("googleLoginUser: ", user)
+        //         navigate("/order-details");
+        //     }
+        // }
+        // catch (err) {
+        //     toast.error('Network Error: ', err && err.message ? err.message : (err && typeof err === 'string') ? err : 'Unknown Error');
+        // }
+    }
+
     const onAuthChangeClick = () => {
         setAuthState(!authState);
         setState(initialState);
@@ -114,6 +144,8 @@ const Auth: React.FC = () => {
                     onLogin={loginHandler}
                     onAuthChangeClick={onAuthChangeClick}
                     skipHandler={skipHandler}
+                    googleLogin={googleLoginHandler}
+                    facebookLogin={facebookLoginHandler}
                     email={email}
                     password={password}
                     onChangeEmail={(val) => inputChangeHandler(val, InputNames.email)}
@@ -126,6 +158,8 @@ const Auth: React.FC = () => {
                     onSignup={signUpHandler}
                     onAuthChangeClick={onAuthChangeClick}
                     skipHandler={skipHandler}
+                    googleLogin={googleLoginHandler}
+                    facebookLogin={facebookLoginHandler}
                     name={name}
                     email={email}
                     password={password}
