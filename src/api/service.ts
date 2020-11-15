@@ -1,4 +1,7 @@
 import firebase from 'firebase/app';
+import { toast } from 'react-toastify';
+
+import { IUser } from 'app-context/contextTypes';
 
 class Service {
     _request = (url: string, params: any) => {
@@ -22,20 +25,21 @@ class Service {
                 }
             })
             .catch(err => {
-                console.log("Error: ", err); // TODO handle toast
+                toast.error('Network Error: ', err && err.message ? err.message : 'Unknown Error')
             });
     }
-    
+
     login = async (loginData: { email: string, password: string }) => {
         const res = await firebase.auth().signInWithEmailAndPassword(loginData.email, loginData.password)
         const user = firebase.auth().currentUser;
+        console.log("user: ", user);
         if (user) {
-            const { displayName, email, photoURL } = user;
-            return { displayName, email, photoURL };
+            const { displayName, email, photoURL, phoneNumber } = user;
+            return { displayName, email, photoURL, phoneNumber };
         }
         return res;
     }
-    
+
     signup = async (signupData: { name: string, email: string, password: string }) => {
         const res = await firebase.auth().createUserWithEmailAndPassword(signupData.email, signupData.password);
         const user = firebase.auth().currentUser;
@@ -48,6 +52,25 @@ class Service {
         }
         return res;
     }
+
+    googleSignIn = async (): Promise<IUser> => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        const googleRes = await firebase.auth().signInWithPopup(provider);
+        const { user } = googleRes;
+        console.log("Google user: ", user);
+        if (user) {
+            const { uid, displayName, email, photoURL, phoneNumber } = user;
+            return { id: uid, displayName, email, photoURL, phoneNumber };
+        } else {
+            throw new Error('User Not Found.');
+        }
+    }
+
+    // facebookLogin = async (): Promise<IUser> => {
+    //     const provider = new firebase.auth.FacebookAuthProvider();
+    //     const fbRes = await firebase.auth().signInWithPopup(provider);
+    //     console.log("fbRes: ", fbRes);
+    // }
 }
 
 const service = new Service();

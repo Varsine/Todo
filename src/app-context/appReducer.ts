@@ -26,6 +26,9 @@ export default (state: State, action: IAction): State => {
         case ActionTypes.SET_ORDER_DETAILS:
             return { ...state, orderDetails: action.payload }
 
+        case ActionTypes.TOGGLE_CART:
+            return { ...state, isCartOpen: !state.isCartOpen };
+
         case ActionTypes.ADD_ORDER:
             const isAlreadyAdded = state.orders.find(el => el.id === action.payload.id);
             if (isAlreadyAdded) {

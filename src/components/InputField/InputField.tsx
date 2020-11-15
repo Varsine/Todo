@@ -17,6 +17,7 @@ type InputType = 'text' | 'password' | 'email' | 'number';
 interface IInputFieldProps {
   value: string;
   onChange: (value: string) => void;
+  onEnterPressed?: () => void;
   Icon?: React.FC;
   loading?: boolean,
   placeholder?: string;
@@ -29,6 +30,7 @@ interface IInputFieldProps {
 const InputField: React.FC<IInputFieldProps> = ({
   value,
   onChange,
+  onEnterPressed = () => {},
   Icon = null,
   loading = false,
   placeholder = '',
@@ -45,6 +47,12 @@ const InputField: React.FC<IInputFieldProps> = ({
   const VisibleIconClass = isPassword ? ' app-input-container__input--right-padding' : '';
   const inputClassName = `app-input-container__input ${className}${hasErrorClass}${IconClass}${VisibleIconClass}`;
 
+  const handleKeyPressed = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter') {
+      onEnterPressed();
+    }
+  }
+
   return (
     <div className={`app-input-container`}>
       {Icon && (
@@ -60,6 +68,7 @@ const InputField: React.FC<IInputFieldProps> = ({
         disabled={loading}
         placeholder={placeholder}
         className={inputClassName}
+        onKeyPress={handleKeyPressed}
       />
       {isPassword && (
         <div className="app-input-container__right-icon" >

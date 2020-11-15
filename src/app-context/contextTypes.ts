@@ -14,9 +14,11 @@ export interface IAction {
 }
 
 export interface IUser {
-    id: number;
-    name: string;
-    email: string;
+    id: string | number;
+    displayName: string | null;
+    email: string | null;
+    photoURL: string | null;
+    phoneNumber: string | null;
 }
 export interface IOrderDetails {
     name: string;
@@ -33,4 +35,5 @@ export interface State {
     user: IUser | null;
     orderDetails: IOrderDetails;
     orders: IProductDataItem[];
+    isCartOpen: boolean;
 }

@@ -24,35 +24,13 @@
         position: relative;
         background-color: $surface-color;
         padding: 29px;
-        width: 680px;
+        width: 650px;
         border-radius: 10px;
         animation-name: anim-popup;
         animation-duration: 0.2s;
 
-        @keyframes anim-popup {
-            0% {
-                transform: scale(0.4);
-            }
-
-            25% {
-                transform: scale(0.6);
-            }
-
-            50% {
-                transform: scale(0.8);
-            }
-
-            75% {
-                transform: scale(0.9);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
         @include media(until-desktop) {
-            width: 600px;
+            width: 570px;
         }
 
         @include media(until-tablet) {
@@ -60,7 +38,11 @@
             padding: 16px;
         }
 
-        @include media(until-mobile) {
+        @include media(mobile-large) {
+            width: 340px;
+        }
+
+        @include media(mobile) {
             max-width: 328px;
         }
 

@@ -46,11 +46,7 @@
                     font-size: $intro-text;
                 }
 
-                @include media(mobile-large) {
-                    font-size: $intro-text;
-                }
-
-                @include media(mobile) {
+                @include media(until-mobile) {
                     font-size: $body-text;
                 }
             }

@@ -1,5 +1,13 @@
 {
   "name": "boxy",
+  "author": {
+    "name": "Sokrat Poghosyan and Vars Poghosyan",
+    "email": "boxy.armenia@gmail.com",
+    "url": "https://www.boxy.am/"
+  },
+  "contributors": [
+    "Hasmik Ghukasyan"
+  ],
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -14,6 +22,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3",
+    "react-toastify": "^6.1.0",
     "typescript": "~3.7.2"
   },
   "scripts": {

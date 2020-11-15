@@ -30,7 +30,7 @@
         padding: 40px;
         border-bottom: 1px solid $mobile-menu-border-bg;
         font-size: $heading3;
-        animation: ChengeRigth 0.4s linear;
+        animation: change-right 0.4s linear;
 
         @include media(until-desktop) {
             width: 530px;
@@ -126,15 +126,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes ChengeRigth {
-    0% {
-        right: -33%;
-    }
-
-    100% {
-        right: 0;
     }
 }

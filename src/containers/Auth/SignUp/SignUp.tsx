@@ -4,12 +4,12 @@ import LoginSignUpTemplate from 'containers/Auth/LoginSignUpTemplate/LoginSignUp
 import InputField from 'components/InputField/InputField';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
-import "./SignUp.scss";
-
 interface ISignUpProps {
     onSignup: () => void;
     onAuthChangeClick: () => void;
     skipHandler: () => void;
+    googleLogin: () => void;
+    facebookLogin: () => void;
     name: string;
     email: string;
     password: string;
@@ -26,6 +26,8 @@ const SignUp: React.FC<ISignUpProps> = ({
     onSignup,
     onAuthChangeClick,
     skipHandler,
+    googleLogin,
+    facebookLogin,
     name,
     email,
     password,
@@ -45,6 +47,8 @@ const SignUp: React.FC<ISignUpProps> = ({
             buttonClick={onSignup}
             onClick={onAuthChangeClick}
             skipHandler={skipHandler}
+            googleLogin={googleLogin}
+            facebookLogin={facebookLogin}
             loading={loading}
         >
             <InputField
@@ -55,6 +59,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 placeholder="Անուն"
                 type="text"
                 loading={loading}
+                onEnterPressed={onSignup}
             />
             <ErrorMessage>{nameErrorMessage}</ErrorMessage>
             <InputField
@@ -65,6 +70,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 placeholder="Էլ․հասցե"
                 type="text"
                 loading={loading}
+                onEnterPressed={onSignup}
             />
             <ErrorMessage>{emailErrorMessage}</ErrorMessage>
             <InputField
@@ -75,6 +81,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 placeholder="Գաղտնաբառ"
                 type="password"
                 loading={loading}
+                onEnterPressed={onSignup}
             />
             <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
         </LoginSignUpTemplate>
