@@ -24,7 +24,7 @@
 }
 
 @mixin menu-shadow {
-	box-shadow: 2px 2px 5px #ccc;
+	box-shadow: 1px 1px 2px #ccc;
 }
 
 @mixin second-button-style($radius, $size, $padding) {

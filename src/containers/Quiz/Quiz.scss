@@ -32,7 +32,6 @@
         height: calc(100vh - #{$header-size});
         display: flex;
         justify-content: center;
-        align-items: center;
         text-align: center;
 
         &__heading {
@@ -78,7 +77,7 @@
                     border: 1px solid #cccccc;
 
                     @include media(until-desktop) {
-                        width: 400px;
+                        max-width: 500px;
                     }
                 }
 

@@ -25,14 +25,16 @@
             transition: bottom 300ms;
             position: absolute;
             z-index: 1;
-            height: 55px;
-            bottom: -55px;
+            height: 64px;
+            bottom: -64px;
             width: 100%;
-            background-color: rgba(136, 132, 132, 0.8);
+            background-color: rgba(136, 132, 132, 0.5);
+            backdrop-filter: blur(1px);
             border-bottom-left-radius: 16px;
             border-bottom-right-radius: 16px;
 
             &__external-column {
+                z-index: 100;
                 width: 100%;
                 height: 100%;
                 bottom: 0;
@@ -43,6 +45,7 @@
                 &__price {
                     color: $surface-color;
                     font-size: $intro-text;
+                    font-weight: bold;
                     user-select: none;
                 }
 
@@ -51,9 +54,10 @@
                     align-items: center;
                     justify-content: center;
                     border-radius: 10px;
-                    padding: 5px 10px;
+                    padding: 3px 8px 3px 16px;
                     &__text {
-                        margin-right: 7px;
+                        font-size: 14px;
+                        margin-right: 12px;
                     }
                 }
             }

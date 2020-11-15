@@ -49,7 +49,8 @@
         }
 
         @include media(until-mobile) {
-            padding: 32px;
+            padding: 32px 10px 12px 10px;
+            font-size: 20px;
         }
     }
 

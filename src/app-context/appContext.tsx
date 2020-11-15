@@ -18,6 +18,7 @@ export const initialState = {
     user: null,
     orderDetails: initialOrderData,
     orders: [],
+    isCartOpen: false,
 }
 
 export const AppContext = createContext<any>(initialState);

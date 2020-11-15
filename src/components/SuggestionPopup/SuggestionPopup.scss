@@ -1,20 +1,20 @@
 @import "~styles/root";
 
 .suggestion-popup {
-    padding: 11px 79px;
+    padding: 12px 40px;
 
     @include media(until-tablet) {
         padding: 16px 47px;
     }
 
     @include media(until-mobile) {
-        padding: 16px 34px;
+        padding: 24px 12px;
     }
 
     &__img {
         height: 191px;
         width: 113px;
-        margin: 40px 0px;
+        margin: 12px 0px;
 
         @include media(until-desktop) {
             height: 135px;
@@ -30,9 +30,9 @@
         width: 100%;
         border-radius: 4px;
         font-size: $micro-text;
-        height: 80px;
-        padding: 8px 16px;
+        height: 150px;
         background-color: $textarea-suggestion-bg;
+        border-color: #eee;
 
         @include media(until-mobile) {
             padding: 8px;
@@ -40,7 +40,7 @@
     }
 
     &__button {
-        margin: 40px 0 0;
+        margin: 24px 0 0;
         font-size: $intro-text;
         border-radius: 16px;
         padding: 16px 44px;

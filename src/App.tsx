@@ -7,6 +7,8 @@ import Layout from "components/Layout/Layout";
 
 import { AppContextProvider } from "app-context/AppContextProvider";
 import { firebaseConfig } from "api/firebaseConfig";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 firebase.initializeApp(firebaseConfig);
 
@@ -14,9 +16,12 @@ const App = () => {
   return (
     <div>
       <AppContextProvider>
-          <Layout>
-            <Routes />
-          </Layout>
+        <Layout>
+          <Routes />
+          <ToastContainer 
+
+          />
+        </Layout>
       </AppContextProvider>
     </div>
   )

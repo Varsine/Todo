@@ -37,10 +37,12 @@ const LoginSignUpTemplate: React.FC<ILoginSignUpTemplateProps> = ({
         <div className="login-sign-up">
             <Heading className="login-sign-up__header">{header}</Heading>
             <div className="login-sign-up__content">
-                <div className="login-sign-up__content__sign-up-div">
-                    <p className="login-sign-up__content__sign-up-div__text-one">{signUpQuestion}</p>
-                    <p className="login-sign-up__content__sign-up-div__text-two" onClick={onClick}>{loginText}</p>
-                </div>
+                {signUpQuestion && (
+                    <div className="login-sign-up__content__sign-up-div">
+                        <p className="login-sign-up__content__sign-up-div__text-one">{signUpQuestion}</p>
+                        <p className="login-sign-up__content__sign-up-div__text-two" onClick={onClick}>{loginText}</p>
+                    </div>
+                )}
                 <div className="login-sign-up__content__input-div">{children}</div>
                 <div className="login-sign-up__content__login-div">
                     <p className="login-sign-up__content__login-div__text-one" onClick={onClick} >{registerText}</p>

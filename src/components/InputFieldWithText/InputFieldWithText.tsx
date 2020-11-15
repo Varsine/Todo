@@ -17,13 +17,13 @@ interface IInputFieldWithTextProps {
 };
 
 const InputFieldWithText: React.FC<IInputFieldWithTextProps> = ({
-    className,
     text,
     value,
     onChange,
     Icon,
     placeholder,
     type,
+    className = '',
 }) => {
     return (
         <div className={`container ${className}`}>

@@ -1,4 +1,5 @@
 import React, { useContext, useRef, useState } from "react";
+import { toast, TypeOptions } from "react-toastify";
 
 import Button from "components/Button/Button";
 import landingTopBg from "assets/landingTopBg.png";
@@ -18,7 +19,7 @@ import { ActionTypes } from "app-context/actionTypes";
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  const { state: { device }, dispatch } = useContext(AppContext);
+  const { state: { device, orders }, dispatch } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
   const [showAddCartPopup, setShowAddCartPopup] = useState(false);
   const [selectedProduct, selectProduct] = useState<IProductDataItem | null>(null);
@@ -34,17 +35,29 @@ const Landing: React.FC<ILandingProps> = () => {
     setShowAddCartPopup(!showAddCartPopup);
   }
 
-  const clickButtonHover = (productItem: IProductDataItem) => {
-    dispatch({ type: ActionTypes.ADD_ORDER, payload: productItem });
+  const addToCartBtnClick = (productItem: IProductDataItem) => {
+    onClose();
+    if (orders.find((el: IProductDataItem) => el.id === productItem.id)) {
+      showNotif('Ապրանքը արդեն զամբյուղում է', 'info', 'app-landing-info-notif');
+    } else {
+      dispatch({ type: ActionTypes.ADD_ORDER, payload: productItem });
+      showNotif('Ապրանքը ավելացվել է Ձեր զամբյուղ', 'success', 'app-landing-success-notif');
+    }
   }
 
-  const addCartPopupBtnClick = (productItem: IProductDataItem) => {
-    dispatch({ type: ActionTypes.ADD_ORDER, payload: productItem });
-    onClose();
+  const showNotif = (text: string, type: TypeOptions, className: string = '') => {
+    toast(text, {
+      type,
+      position: "bottom-right",
+      className,
+      onClick: () => {
+        dispatch({ type: ActionTypes.TOGGLE_CART });
+      }
+    });
   }
 
   const onClose = () => {
-    setShowAddCartPopup(!showAddCartPopup);
+    setShowAddCartPopup(false);
   }
 
   return (
@@ -84,7 +97,7 @@ const Landing: React.FC<ILandingProps> = () => {
                 price={productItem.price}
                 productImgSrc={productItem.imageSource}
                 productClick={() => clickProductCart(productItem)}
-                clickButtonHover={() => clickButtonHover(productItem)}
+                clickButtonHover={() => addToCartBtnClick(productItem)}
                 key={productItem.id}
               />
             )
@@ -108,7 +121,7 @@ const Landing: React.FC<ILandingProps> = () => {
       </div>
       {showAddCartPopup && selectedProduct && (
         <AddCartPopup
-          onClick={() => addCartPopupBtnClick(selectedProduct)}
+          onClick={() => addToCartBtnClick(selectedProduct)}
           onClose={onClose}
           productName={selectedProduct.name}
           price={selectedProduct.price}

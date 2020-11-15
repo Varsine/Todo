@@ -4,8 +4,6 @@ import LoginSignUpTemplate from 'containers/Auth/LoginSignUpTemplate/LoginSignUp
 import InputField from 'components/InputField/InputField';
 import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
-import "./Login.scss";
-
 interface ILoginProps {
     onLogin: () => void;
     onAuthChangeClick: () => void;
@@ -49,7 +47,8 @@ const Login: React.FC<ILoginProps> = ({
                 placeholder="Էլ․հասցե"
                 type="text"
                 loading={loading}
-            />
+                onEnterPressed={onLogin}
+                />
             <ErrorMessage>{emailErrorMessage}</ErrorMessage>
             <InputField
                 name="password"
@@ -59,6 +58,7 @@ const Login: React.FC<ILoginProps> = ({
                 placeholder="Գաղտնաբառ"
                 type="password"
                 loading={loading}
+                onEnterPressed={onLogin}
             />
             <ErrorMessage>{passwordErrorMessage}</ErrorMessage>
         </LoginSignUpTemplate>

@@ -101,6 +101,9 @@
         }
       }
     }
+    &__button {
+      margin-left: 12px;
+    }
 
     &__profile-header-icon {
       margin: 0 12px;
@@ -114,7 +117,7 @@
     &__cart-icon {
       margin: 0 12px;
       cursor: pointer;
-
+      position: relative;
       @include media(until-tablet) {
         width: 41px;
         height: 41px;
@@ -123,9 +126,32 @@
         border-radius: 50%;
         margin: 0;
       }
+      
+      &--animate {
+        animation: cart-anim 400ms;
+      }
 
       @include media(until-tablet) {
         color: $primary-color;
+      }
+      &__bell {
+        position: absolute;
+        top: -7px;
+        right: -6px;
+        border-radius: 50%;
+        width: 19px;
+        height: 19px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary-color;
+        visibility: hidden;
+        color: #333333;
+        &--show {
+          visibility: visible;
+          animation: bell-notif 2s;
+        }
       }
     }
 

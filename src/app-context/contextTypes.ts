@@ -33,4 +33,5 @@ export interface State {
     user: IUser | null;
     orderDetails: IOrderDetails;
     orders: IProductDataItem[];
+    isCartOpen: boolean;
 }

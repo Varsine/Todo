@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { navigate } from "@reach/router";
 
 import { AppContext } from "app-context/appContext";
 import { ActionTypes } from "app-context/actionTypes";
@@ -25,6 +26,8 @@ const Quiz: React.FC = () => {
   const nextQuestionHandler = () => {
     if (currentIndex < quizData.length - 1) {
       setCurrentIndex(currentIndex + 1)
+    } else {
+      navigate('auth');
     }
   }
 
@@ -94,7 +97,6 @@ const Quiz: React.FC = () => {
                       onClick={checkAnswer}
                     />
                   ) : (
-
                       <TextareaField
                         className="app-quiz__content__options__children__text-area"
                         placeholder={options[0]}
@@ -106,28 +108,20 @@ const Quiz: React.FC = () => {
               </div>
             </div>
             <div className="app-quiz__content__button">
-              {
-                <Link to="">
-                  <Button
-                    className="app-quiz__content__button__prev"
-                    disabled={disabled}
-                    onClick={prevQuestionHandler}
-                  >
-                    <LeftIcon /> Հետ
+              <Button
+                className="app-quiz__content__button__prev"
+                disabled={disabled}
+                onClick={prevQuestionHandler}
+              >
+                <LeftIcon /> Հետ
                 </Button>
-                </Link>
-              }
-              {
-                <Link to="">
-                  <Button
-                    className="app-quiz__content__button__next"
-                    disabled={disabled || selection === null}
-                    onClick={nextQuestionHandler}
-                  >
-                    Առաջ <RightIcon />
-                  </Button>
-                </Link>
-              }
+              <Button
+                className="app-quiz__content__button__next"
+                disabled={disabled || selection === null}
+                onClick={nextQuestionHandler}
+              >
+                Առաջ <RightIcon />
+              </Button>
             </div>
           </div>
         </div>
