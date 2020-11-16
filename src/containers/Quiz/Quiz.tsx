@@ -3,7 +3,6 @@ import { navigate } from "@reach/router";
 
 import { AppContext } from "app-context/appContext";
 import { ActionTypes } from "app-context/actionTypes";
-import Link from "components/Link/Link";
 import Button from "components/Button/Button";
 import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
 import Heading from "components/Heading/Heading";

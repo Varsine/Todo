@@ -104,8 +104,8 @@ const Auth: React.FC = () => {
         try {
             const user = await service.googleSignIn();
             if (user && user.id) {
+                console.log("google login user: ", user)
                 dispatch({ type: ActionTypes.SET_USER, payload: { user } });
-                console.log("googleLoginUser: ", user)
                 navigate("/order-details");
             }
         }
@@ -115,17 +115,17 @@ const Auth: React.FC = () => {
     }
 
     const facebookLoginHandler = async () => {
-        // try {
-        //     const user = service.facebookLogin();
-        //     if (user && user.id) {
-        //         dispatch({ type: ActionTypes.SET_USER, payload: { user } });
-        //         console.log("googleLoginUser: ", user)
-        //         navigate("/order-details");
-        //     }
-        // }
-        // catch (err) {
-        //     toast.error('Network Error: ', err && err.message ? err.message : (err && typeof err === 'string') ? err : 'Unknown Error');
-        // }
+        try {
+            const user = await service.facebookLogin();
+            if (user && user.id) {
+                console.log("facebook login user: ", user)
+                dispatch({ type: ActionTypes.SET_USER, payload: { user } });
+                navigate("/order-details");
+            }
+        }
+        catch (err) {
+            toast.error('Network Error: ', err && err.message ? err.message : (err && typeof err === 'string') ? err : 'Unknown Error');
+        }
     }
 
     const onAuthChangeClick = () => {

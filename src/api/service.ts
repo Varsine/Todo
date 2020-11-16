@@ -57,7 +57,7 @@ class Service {
         const provider = new firebase.auth.GoogleAuthProvider();
         const googleRes = await firebase.auth().signInWithPopup(provider);
         const { user } = googleRes;
-        console.log("Google user: ", user);
+        console.log("Google Full user: ", user);
         if (user) {
             const { uid, displayName, email, photoURL, phoneNumber } = user;
             return { id: uid, displayName, email, photoURL, phoneNumber };
@@ -66,11 +66,18 @@ class Service {
         }
     }
 
-    // facebookLogin = async (): Promise<IUser> => {
-    //     const provider = new firebase.auth.FacebookAuthProvider();
-    //     const fbRes = await firebase.auth().signInWithPopup(provider);
-    //     console.log("fbRes: ", fbRes);
-    // }
+    facebookLogin = async (): Promise<IUser> => {
+        const provider = new firebase.auth.FacebookAuthProvider();
+        const fbRes = await firebase.auth().signInWithPopup(provider);
+        const { user } = fbRes;
+        console.log("Facebook Full user: ", user)
+        if (user) {
+            const { uid, displayName, email, photoURL, phoneNumber } = user;
+            return { id: uid, displayName, email, photoURL, phoneNumber };
+        } else {
+            throw new Error('User Not Found.');
+        }
+    }
 }
 
 const service = new Service();

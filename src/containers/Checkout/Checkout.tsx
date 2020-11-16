@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from "react";
-import { navigate } from "@reach/router";
+import React, { useContext } from "react";
 
 import { AppContext } from "app-context/appContext";
 import Heading from "components/Heading/Heading";
@@ -21,13 +20,6 @@ const Checkout: React.FC = () => {
   const clickOrder = () => { }
 
   const { name, address, phone, email } = orderDetails;
-
-  useEffect(() => {
-    // TODO handle this more efficiently
-    if (!orderDetails.name.trim()) {
-      navigate('/');
-    }
-  }, []);
 
   return (
     <div className='app-checkout'>
