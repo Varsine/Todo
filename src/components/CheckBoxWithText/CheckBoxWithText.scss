@@ -9,8 +9,10 @@
     color: $text-color-surface;
     padding: 0 0 0 24px;
     cursor: pointer;
+
     &:hover {
-        background-color: #f5e6dd;
+        // background-color: #f5e6dd;
+        background-image: linear-gradient(#fff1ed, #ffbb93)
     }
 
     &__input-radio {

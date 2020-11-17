@@ -67,6 +67,7 @@
             &__children {
                 width: 100%;
                 max-width: 450px;
+
                 &__text-area {
                     height: 208px;
                     width: 100%;
@@ -75,6 +76,11 @@
                     color: $text-color-surface;
                     font-size: $body-text;
                     border: 1px solid #cccccc;
+                    animation: anima-textarea 1s alternate;
+
+                    &:focus {
+                        background-color: $textarea-suggestion-bg;
+                    }
 
                     @include media(until-desktop) {
                         max-width: 500px;
@@ -84,6 +90,7 @@
                 &__option {
                     margin: 8px 0;
                     width: 100%;
+                    animation: anima-quiz 1s alternate;
                 }
 
                 &__age-slider {
@@ -109,6 +116,7 @@
                 &:hover {
                     background-color: $secondary-color-dark;
                 }
+
                 &:disabled {
                     background-color: #f3edff;
                 }
