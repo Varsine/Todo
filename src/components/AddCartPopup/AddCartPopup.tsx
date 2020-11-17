@@ -27,6 +27,7 @@ const AddCartPopup: React.FC<IAddCartPopupProps> = ({
         <Popup className="add-cart-popup"
             title="Ցանկանում ե՞ք ավելացնել զամբյուղի մեջ"
             onClose={onClose}
+            closeIcon={true}
         >
             <Image className="add-cart-popup__img" src={productImg} />
             <div className="add-cart-popup__product-data">

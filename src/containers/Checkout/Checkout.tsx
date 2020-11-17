@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import { AppContext } from "app-context/appContext";
 import Heading from "components/Heading/Heading";
 import TextBlock from "components/TextBlock/TextBlock";
 import Button from "components/Button/Button";
 import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
+import ThankYouPopup from 'components/ThankYouPopup/ThankYouPopup';
 import { deliverData, productData } from "data-mockup/product-data.mockup";
 import priceToStringConverter from "utils/priceToStringConverter";
 import CheckoutProductDetails from "./CheckoutProductDetails/CheckoutProductDetails";
@@ -12,12 +13,15 @@ import CheckoutProductDetails from "./CheckoutProductDetails/CheckoutProductDeta
 import "./Checkout.scss";
 
 const Checkout: React.FC = () => {
+  const [showThanksPopup, setShowThanksPopup] = useState(false)
   const { state: { orderDetails } } = useContext(AppContext);
   const orderProduct = productData[0];
   const cost = orderProduct.price;
   const total = cost + deliverData.price;
 
-  const clickOrder = () => { }
+  const clickOrder = () => {
+    setShowThanksPopup(!showThanksPopup)
+  }
 
   const { name, address, phone, email } = orderDetails;
 
@@ -57,6 +61,9 @@ const Checkout: React.FC = () => {
           <Button onClick={clickOrder} className='app-checkout__btn-div__parent__button'>Պատվիրել</Button>
         </div>
       </div>
+      {showThanksPopup && (
+        <ThankYouPopup onClick={clickOrder} />
+      )}
     </div>
   )
 };

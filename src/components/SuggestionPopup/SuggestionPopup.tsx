@@ -21,6 +21,7 @@ const SuggestionPopup: React.FC<ISuggestionPopupProps> = ({
     <Popup className="suggestion-popup"
       title="Boxy-ին սպասում է քո նոր և հետաքրքիր գաղափարներին"
       onClose={onClose}
+      closeIcon={true}
     >
       <Image className="suggestion-popup__img" src={suggestionLump} />
       <TextareaField className="suggestion-popup__textarea" placeholder="Գրիր առաջարկդ այստեղ" />
