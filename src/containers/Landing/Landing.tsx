@@ -2,19 +2,19 @@ import React, { useContext, useRef, useState } from "react";
 import { toast, TypeOptions } from "react-toastify";
 
 import Button from "components/Button/Button";
-import landingTopBg from "assets/landingTopBg.png";
-import landingTopBgMobile from "assets/landingTopBgMobile.png";
 import TextBlock from "components/TextBlock/TextBlock";
-import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 import ProductCard from "components/ProductCard/ProductCard";
 import Heading from "components/Heading/Heading";
 import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
 import AddCartPopup from 'components/AddCartPopup/AddCartPopup';
 import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
+import { ActionTypes } from "app-context/actionTypes";
+import landingTopBg from "assets/landingTopBg.png";
+import landingTopBgMobile from "assets/landingTopBgMobile.png";
+import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 
 import "./Landing.scss";
-import { ActionTypes } from "app-context/actionTypes";
 
 interface ILandingProps { }
 
