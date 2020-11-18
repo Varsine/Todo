@@ -3,9 +3,10 @@ import React from 'react';
 import OrderDetailsContainer from "containers/OrderDetails/OrderDetailsContainer/OrderDetailsContainer";
 import InputFieldWithText from "components/InputFieldWithText/InputFieldWithText";
 import LocationIcon from 'icons/LocationIcon';
-import PhoneIcon from 'icons/PhoneIcon';
 import MailIcon from "icons/MailIcon";
 import ProfileInputIcon from "icons/ProfileInputIcon";
+import PhoneInput from 'components/PhoneInput/PhoneInput';
+import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
 interface IOrderDetailsLeftBoxProps {
     onChangeName: (value: string) => void;
@@ -16,6 +17,12 @@ interface IOrderDetailsLeftBoxProps {
     address: string;
     email: string;
     phone: string;
+    errors: {
+        nameError: string,
+        shippingAddress: string,
+        phoneError: string,
+        emailError: string,
+    }
 };
 
 const OrderDetailsLeftBox: React.FC<IOrderDetailsLeftBoxProps> = ({
@@ -26,7 +33,8 @@ const OrderDetailsLeftBox: React.FC<IOrderDetailsLeftBoxProps> = ({
     name,
     address,
     email,
-    phone
+    phone,
+    errors,
 }) => {
     return (
         <OrderDetailsContainer>
@@ -38,6 +46,7 @@ const OrderDetailsLeftBox: React.FC<IOrderDetailsLeftBoxProps> = ({
                 value={name}
                 text="Անուն և Ազգանուն"
             />
+            <ErrorMessage>{errors.nameError}</ErrorMessage>
             <InputFieldWithText
                 placeholder="Բաղրամյան 26, Երևան"
                 Icon={LocationIcon}
@@ -46,14 +55,12 @@ const OrderDetailsLeftBox: React.FC<IOrderDetailsLeftBoxProps> = ({
                 value={address}
                 text="Առաքման հասցե"
             />
-            <InputFieldWithText
-                placeholder="+374 55-55-55"
-                Icon={PhoneIcon}
-                type='number'
-                onChange={onChangePhone}
+            <ErrorMessage>{errors.shippingAddress}</ErrorMessage>
+            <PhoneInput
                 value={phone}
-                text="Հեռախոսահամար"
+                onChange={onChangePhone}
             />
+            <ErrorMessage>{errors.phoneError}</ErrorMessage>
             <InputFieldWithText
                 placeholder="example@yahoo.com"
                 Icon={MailIcon}
@@ -62,6 +69,7 @@ const OrderDetailsLeftBox: React.FC<IOrderDetailsLeftBoxProps> = ({
                 value={email}
                 text="Էլ․հասցե"
             />
+            <ErrorMessage>{errors.emailError}</ErrorMessage>
         </OrderDetailsContainer>
     );
 }

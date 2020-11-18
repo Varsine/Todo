@@ -9,10 +9,10 @@ enum InputComponentTypes {
   text = 'text',
   password = 'password',
   email = 'email',
-  tel = 'number'
+  tel = 'tel'
 }
 
-type InputType = 'text' | 'password' | 'email' | 'number';
+type InputType = 'text' | 'password' | 'email' | 'tel';
 
 interface IInputFieldProps {
   value: string;
@@ -62,13 +62,14 @@ const InputField: React.FC<IInputFieldProps> = ({
       )}
       <input
         name={name}
-        type={isVisible ? 'text' : type}
+        type={isVisible && type === InputComponentTypes.password ? 'text' : type}
         value={value}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => { onChange(e.target.value); }}
         disabled={loading}
         placeholder={placeholder}
         className={inputClassName}
         onKeyPress={handleKeyPressed}
+        maxLength={32}
       />
       {isPassword && (
         <div className="app-input-container__right-icon" >

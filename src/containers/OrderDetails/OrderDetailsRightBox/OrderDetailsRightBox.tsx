@@ -4,17 +4,22 @@ import OrderDetailsContainer from "containers/OrderDetails/OrderDetailsContainer
 import InputFieldWithText from "components/InputFieldWithText/InputFieldWithText";
 import TextareaField from 'components/TextareaField/TextareaField';
 import ProfileInputIcon from "icons/ProfileInputIcon";
+import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
 import "./OrderDetailsRightBox.scss";
 
 interface IOrderDetailsRightBoxProps {
     onChangeName: (value: string) => void;
-    getterName: string;
+    giftReceiverName: string;
+    giftReceiverNameError: string;
+    showError: boolean,
 };
 
 const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
     onChangeName,
-    getterName,
+    giftReceiverName,
+    giftReceiverNameError,
+    showError,
     children,
 }) => {
     return (
@@ -28,14 +33,15 @@ const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
                 Icon={ProfileInputIcon}
                 type='text'
                 onChange={onChangeName}
-                value={getterName}
+                value={giftReceiverName}
                 text="Նվերը ստացողի անունը և ազգանունը"
             />
+            {showError && <ErrorMessage>{giftReceiverNameError}</ErrorMessage>}
             <div className="order-details-right__textarea-box">
                 <p className="order-details-right__textarea-box__text">Մեկնաբանություններ</p>
-                <TextareaField 
-                className="order-details-right__textarea-box__area"
-                placeholder="Հավելյալ նշումներ"
+                <TextareaField
+                    className="order-details-right__textarea-box__area"
+                    placeholder="Հավելյալ նշումներ"
                 />
             </div>
         </OrderDetailsContainer>
