@@ -41,6 +41,9 @@
         background: none;
         padding: 12px 40px;
         border-radius: 48px;
+        &:hover {
+            color: white;
+        }
 
         @include media(until-tablet) {
             padding: 7px 24px;

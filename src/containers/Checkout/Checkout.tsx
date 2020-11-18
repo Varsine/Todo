@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { navigate } from "@reach/router";
 
 import { AppContext } from "app-context/appContext";
 import Heading from "components/Heading/Heading";
@@ -19,8 +20,15 @@ const Checkout: React.FC = () => {
   const cost = orderProduct.price;
   const total = cost + deliverData.price;
 
-  const clickOrder = () => {
-    setShowThanksPopup(!showThanksPopup)
+  const togglePopup = () => {
+    setShowThanksPopup(!showThanksPopup);
+  }
+
+  const handleOrderFinish = () => {
+    // TODO Handle request to server
+    // TODO RESET Context data
+    togglePopup();
+    navigate('/');
   }
 
   const { name, address, phone, email } = orderDetails;
@@ -58,11 +66,11 @@ const Checkout: React.FC = () => {
       </div>
       <div className='app-checkout__btn-div'>
         <div className='app-checkout__btn-div__parent'>
-          <Button onClick={clickOrder} className='app-checkout__btn-div__parent__button'>Պատվիրել</Button>
+          <Button onClick={togglePopup} className='app-checkout__btn-div__parent__button'>Պատվիրել</Button>
         </div>
       </div>
       {showThanksPopup && (
-        <ThankYouPopup onClick={clickOrder} />
+        <ThankYouPopup onClick={handleOrderFinish} />
       )}
     </div>
   )
