@@ -9,7 +9,7 @@ interface IPopupProps {
     title: string;
     onClose?: () => void;
     className?: string;
-    closeIcon: boolean;
+    closeIcon?: boolean;
 };
 
 const Popup: React.FC<IPopupProps> = ({
@@ -17,7 +17,7 @@ const Popup: React.FC<IPopupProps> = ({
     children,
     onClose = () => { },
     className,
-    closeIcon = false
+    closeIcon = true
 }) => {
     return (
         <div className="app-popup">
