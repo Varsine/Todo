@@ -3,6 +3,8 @@
 .age-slider {
     display: flex;
     justify-content: center;
+    opacity: 1;
+    animation: anima-quiz-age 1s alternate;
 
     &__btn {
         @include age-styles(60px, 60px, 0px 2px 10px $border-boxes-shadow);
