@@ -12,9 +12,9 @@ import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
 import AddCartPopup from 'components/AddCartPopup/AddCartPopup';
 import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
+import { ActionTypes } from "app-context/actionTypes";
 
 import "./Landing.scss";
-import { ActionTypes } from "app-context/actionTypes";
 
 interface ILandingProps { }
 
@@ -33,6 +33,7 @@ const Landing: React.FC<ILandingProps> = () => {
   const clickProductCart = (product: IProductDataItem) => {
     selectProduct(product);
     setShowAddCartPopup(!showAddCartPopup);
+    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL });
   }
 
   const addToCartBtnClick = (productItem: IProductDataItem) => {
@@ -57,10 +58,10 @@ const Landing: React.FC<ILandingProps> = () => {
 
   const onClose = () => {
     setShowAddCartPopup(false);
+    dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL });
   }
-
   return (
-    <div className="app-landing">
+    <div className={`app-landing`}>
       <FullHeightWrap className="app-landing__parent">
         <div className="app-landing__parent__top-column">
           <div className="app-landing__parent__top-column__left-column">

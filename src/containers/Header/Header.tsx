@@ -24,10 +24,15 @@ const Header: React.FC = () => {
   const { state: { device, isCartOpen, orders }, dispatch } = useContext(AppContext);
   const loc = useLocation();
 
-  const toggleCartMenu = () => {
+  const openCartMenu = () => {
     dispatch({ type: ActionTypes.TOGGLE_CART });
+    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL })
   }
+  const closeCartMenu = () => {
+    dispatch({ type: ActionTypes.TOGGLE_CART });
+    dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL })
 
+  }
   const scrollHandler = () => {
     if (window.scrollY > 100) {
       setHeaderBackgrounded("scrolled");
@@ -44,7 +49,7 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if(orders.length > 0) {
+    if (orders.length > 0) {
       setAnimate(false);
       setAnimate(true);
       if (timerRef && timerRef.current) {
@@ -59,13 +64,15 @@ const Header: React.FC = () => {
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu");
     setMobileCart("mobile-cart");
+    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL })
     if (!navRef.current?.className.includes("mobile-menu")) {
       setMobileCart("");
+      dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL })
+
     }
   }
 
   const isColoredLogo = headerBackgrounded || (device !== DeviceTypes.desktop) || loc.pathname !== '/';
-
   return (
     <header id="app-header" className={`app-header ${headerBackgrounded}`}>
       <div className="app-header__mobile-menu-icon" onClick={openMobileMenu}>
@@ -94,7 +101,7 @@ const Header: React.FC = () => {
         </div>
         <div
           className={`app-header__right-column__cart-icon${animate ? ' app-header__right-column__cart-icon--animate' : ''}`}
-          onClick={toggleCartMenu}
+          onClick={openCartMenu}
         >
           <CartIcon />
           <div className={`app-header__right-column__cart-icon__bell${orders.length > 0 ? ' app-header__right-column__cart-icon__bell--show' : ''}`}>
@@ -111,7 +118,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       {isCartOpen && (
-        <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />
+        <Cart className={mobileCart} closeCartMenu={closeCartMenu} />
       )}
     </header>
   )

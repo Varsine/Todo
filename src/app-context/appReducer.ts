@@ -56,7 +56,12 @@ export default (state: State, action: IAction): State => {
 
         case ActionTypes.REMOVE_ORDER_ITEM:
             return { ...state, orders: state.orders.filter(el => el.id !== action.payload.id) }
-
+        case ActionTypes.ADD_LOCK_SCROLL:
+            const addClassName = document.body.classList.add('lock-scroll')
+            return { ...state, lockScroll: addClassName }
+        case ActionTypes.REMOVE_LOCK_SCROLL:
+            const removeClassName = document.body.classList.remove('lock-scroll')
+            return { ...state, lockScroll: removeClassName };
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)
         }
