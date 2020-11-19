@@ -14,16 +14,13 @@ import "./Footer.scss";
 interface IFooterProps { }
 
 const Footer: React.FC<IFooterProps> = () => {
-  const { dispatch } = useContext(AppContext);
+  const { state: { lockScroll }, dispatch } = useContext(AppContext);
   const [showSuggestionPopup, setShowSuggestionPopup] = useState(false)
 
-  const openSuggestionPopup = () => {
+  const toggleSuggestionPopup = () => {
     setShowSuggestionPopup(!showSuggestionPopup)
-    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL })
-  }
-  const closeSuggestionPopup = () => {
-    setShowSuggestionPopup(!showSuggestionPopup)
-    dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL })
+    dispatch({ type: ActionTypes.LOCK_SCROLL });
+    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
   const sendSuggestion = () => { }
   return (
@@ -35,7 +32,7 @@ const Footer: React.FC<IFooterProps> = () => {
         </div>
         <Button
           className="app-footer__top-column__button"
-          onClick={openSuggestionPopup}
+          onClick={toggleSuggestionPopup}
         >
           Առաջարկ ունե՞ս
         </Button>
@@ -52,7 +49,7 @@ const Footer: React.FC<IFooterProps> = () => {
       {showSuggestionPopup && (
         <SuggestionPopup
           onClick={sendSuggestion}
-          onClose={closeSuggestionPopup}
+          onClose={toggleSuggestionPopup}
         />
       )}
     </div>

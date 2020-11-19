@@ -1,0 +1,53 @@
+@import "~styles/root";
+
+.thank-you-popup {
+    &__img {
+        width: 93px;
+        height: 91px;
+        margin: 65px 0px;
+
+        @include media(until-desktop) {
+            margin: 40px 0px;
+        }
+
+        @include media(until-tablet) {
+            width: 66px;
+            height: 64px;
+            margin: 32px 0px;
+        }
+    }
+
+    &__text-block {
+        font-size: $heading3;
+        color: $text-color-surface;
+        margin: 0 0 45px;
+        font-weight: normal;
+
+        @include media(until-desktop) {
+            margin: 0 0 40px;
+        }
+
+        @include media(until-tablet) {
+            margin: 0 0 32px;
+            font-size: $body-text;
+        }
+
+    }
+
+    &__button {
+        font-size: $intro-text;
+        color: $primary-color;
+        border: 1px solid $primary-color;
+        background: none;
+        padding: 12px 40px;
+        border-radius: 48px;
+        &:hover {
+            color: white;
+        }
+
+        @include media(until-tablet) {
+            padding: 7px 24px;
+            font-size: $body-text;
+        }
+    }
+}

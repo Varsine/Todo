@@ -2,10 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import { toast, TypeOptions } from "react-toastify";
 
 import Button from "components/Button/Button";
-import landingTopBg from "assets/landingTopBg.png";
-import landingTopBgMobile from "assets/landingTopBgMobile.png";
 import TextBlock from "components/TextBlock/TextBlock";
-import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 import ProductCard from "components/ProductCard/ProductCard";
 import Heading from "components/Heading/Heading";
 import FullHeightWrap from "components/FullHeightWrap/FullHeightWrap";
@@ -13,13 +10,16 @@ import AddCartPopup from 'components/AddCartPopup/AddCartPopup';
 import { AppContext } from "app-context/appContext";
 import { DeviceTypes } from "app-context/contextTypes";
 import { ActionTypes } from "app-context/actionTypes";
+import landingTopBg from "assets/landingTopBg.png";
+import landingTopBgMobile from "assets/landingTopBgMobile.png";
+import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
 
 import "./Landing.scss";
 
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  const { state: { device, orders }, dispatch } = useContext(AppContext);
+  const { state: { device, orders, lockScroll }, dispatch } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
   const [showAddCartPopup, setShowAddCartPopup] = useState(false);
   const [selectedProduct, selectProduct] = useState<IProductDataItem | null>(null);
@@ -33,7 +33,8 @@ const Landing: React.FC<ILandingProps> = () => {
   const clickProductCart = (product: IProductDataItem) => {
     selectProduct(product);
     setShowAddCartPopup(!showAddCartPopup);
-    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL });
+    dispatch({ type: ActionTypes.LOCK_SCROLL });
+    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
 
   const addToCartBtnClick = (productItem: IProductDataItem) => {
@@ -58,10 +59,11 @@ const Landing: React.FC<ILandingProps> = () => {
 
   const onClose = () => {
     setShowAddCartPopup(false);
-    dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL });
+    dispatch({ type: ActionTypes.LOCK_SCROLL });
+    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
   return (
-    <div className={`app-landing`}>
+    <div className='app-landing'>
       <FullHeightWrap className="app-landing__parent">
         <div className="app-landing__parent__top-column">
           <div className="app-landing__parent__top-column__left-column">

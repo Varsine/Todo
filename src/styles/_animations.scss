@@ -74,3 +74,39 @@
         transform: scale(1);
     }
 }
+
+@keyframes anima-quiz {
+    0% {
+        opacity: 0;
+        transform: translateY(-150px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes anima-textarea {
+    0% {
+        width: 50%;
+        opacity: 0;
+    }
+
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes anima-quiz-age {
+    0% {
+        transform: perspective(400px) rotateX(180deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: perspective(400px) rotateX(0deg);
+        opacity: 1;
+    }
+}

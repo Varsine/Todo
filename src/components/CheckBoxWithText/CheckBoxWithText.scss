@@ -9,6 +9,7 @@
     color: $text-color-surface;
     padding: 0 0 0 24px;
     cursor: pointer;
+
     &:hover {
         background-color: #f5e6dd;
     }
@@ -21,9 +22,9 @@
         width: 30px;
         height: 30px;
         border: 2px solid $primary-color;
-
+        transition: all 200ms ease-in-out;
         &--selected {
-            box-shadow: 0 0 3px 3px $primary-color;
+            box-shadow: 0 0 2px 2px $primary-color;
             border: 8px solid $surface-color;
             background-color: $primary-color;
         }

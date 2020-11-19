@@ -21,18 +21,15 @@ const Header: React.FC = () => {
   const [headerBackgrounded, setHeaderBackgrounded] = useState("");
   const [mobileCart, setMobileCart] = useState("");
   const [animate, setAnimate] = useState(false);
-  const { state: { device, isCartOpen, orders }, dispatch } = useContext(AppContext);
+  const { state: { device, isCartOpen, orders, lockScroll }, dispatch } = useContext(AppContext);
   const loc = useLocation();
 
-  const openCartMenu = () => {
+  const toggleCartMenu = () => {
     dispatch({ type: ActionTypes.TOGGLE_CART });
-    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL })
+    dispatch({ type: ActionTypes.LOCK_SCROLL });
+    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
-  const closeCartMenu = () => {
-    dispatch({ type: ActionTypes.TOGGLE_CART });
-    dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL })
 
-  }
   const scrollHandler = () => {
     if (window.scrollY > 100) {
       setHeaderBackgrounded("scrolled");
@@ -64,11 +61,11 @@ const Header: React.FC = () => {
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu");
     setMobileCart("mobile-cart");
-    dispatch({ type: ActionTypes.ADD_LOCK_SCROLL })
+    dispatch({ type: ActionTypes.LOCK_SCROLL });
+    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
+
     if (!navRef.current?.className.includes("mobile-menu")) {
       setMobileCart("");
-      dispatch({ type: ActionTypes.REMOVE_LOCK_SCROLL })
-
     }
   }
 
@@ -101,7 +98,7 @@ const Header: React.FC = () => {
         </div>
         <div
           className={`app-header__right-column__cart-icon${animate ? ' app-header__right-column__cart-icon--animate' : ''}`}
-          onClick={openCartMenu}
+          onClick={toggleCartMenu}
         >
           <CartIcon />
           <div className={`app-header__right-column__cart-icon__bell${orders.length > 0 ? ' app-header__right-column__cart-icon__bell--show' : ''}`}>
@@ -118,7 +115,7 @@ const Header: React.FC = () => {
         </Link>
       </div>
       {isCartOpen && (
-        <Cart className={mobileCart} closeCartMenu={closeCartMenu} />
+        <Cart className={mobileCart} closeCartMenu={toggleCartMenu} />
       )}
     </header>
   )
