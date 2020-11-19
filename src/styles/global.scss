@@ -23,6 +23,18 @@ body {
   }
 }
 
+.app-landing-success-notif {
+    background-color: #3caea3;
+    color: white;
+    border-radius: 4px;
+}
+
+.app-landing-info-notif {
+    background-color: #ff8a65;
+    color: #fff;
+    border-radius: 4px;
+}
+
 @font-face {
   font-family: "Mardoto Regular";
   src: url("./fonts/Mardoto-Regular.ttf");

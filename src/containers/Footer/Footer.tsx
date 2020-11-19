@@ -20,9 +20,9 @@ const Footer: React.FC<IFooterProps> = () => {
     setShowSuggestionPopup(!showSuggestionPopup)
   }
 
-  const sendSuggestion = () => { 
+  const sendSuggestion = () => {
     // TODO handle suggestion request
-    toast.success('Շնորհակալություն․')
+    toast.success('Շնորհակալություն ✔', { className: 'app-landing-success-notif' })
     toggleSuggestionPopup();
   }
 

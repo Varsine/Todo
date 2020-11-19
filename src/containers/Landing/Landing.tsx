@@ -57,7 +57,6 @@ const Landing: React.FC<ILandingProps> = () => {
     toast(<ToastComponent text={text} />, {
       type,
       className,
-      autoClose: false,
       onClick: () => {
         dispatch({ type: ActionTypes.TOGGLE_CART });
       }
