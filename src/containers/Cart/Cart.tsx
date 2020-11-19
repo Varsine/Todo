@@ -14,10 +14,9 @@ import "./Cart.scss";
 
 interface ICartProps {
   closeCartMenu: () => void;
-  className?: string;
 }
 
-const Cart: React.FC<ICartProps> = ({ closeCartMenu, className }) => {
+const Cart: React.FC<ICartProps> = ({ closeCartMenu }) => {
   const { state: { orders }, dispatch } = useContext(AppContext);
 
   const changeItemCount = (id: number, changeCount: number) => {
@@ -31,7 +30,7 @@ const Cart: React.FC<ICartProps> = ({ closeCartMenu, className }) => {
   const total = orders.reduce((a: number, b: IProductDataItem) => a + b.price * b.count, 0);
 
   return (
-    <div className={`cart-menu ${className}`}>
+    <div className="cart-menu">
       <div className="cart-menu__basis" onClick={closeCartMenu}></div>
       <div className="cart-menu__inner">
         <div className="cart-menu__inner__basket">
