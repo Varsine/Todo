@@ -57,9 +57,6 @@ export default (state: State, action: IAction): State => {
         case ActionTypes.REMOVE_ORDER_ITEM:
             return { ...state, orders: state.orders.filter(el => el.id !== action.payload.id) }
 
-        case ActionTypes.LOCK_SCROLL:
-            return { ...state, lockScroll: !state.lockScroll }
-
         default: {
             throw new Error(`Unhandled action type: ${action.type}`)
         }

@@ -36,5 +36,4 @@ export interface State {
     orderDetails: IOrderDetails;
     orders: IProductDataItem[];
     isCartOpen: boolean;
-    lockScroll: boolean;
 }

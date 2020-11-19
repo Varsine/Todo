@@ -19,7 +19,7 @@ import "./Landing.scss";
 interface ILandingProps { }
 
 const Landing: React.FC<ILandingProps> = () => {
-  const { state: { device, orders, lockScroll }, dispatch } = useContext(AppContext);
+  const { state: { device, orders }, dispatch } = useContext(AppContext);
   const productsContainerRef = useRef<HTMLDivElement>(null);
   const [showAddCartPopup, setShowAddCartPopup] = useState(false);
   const [selectedProduct, selectProduct] = useState<IProductDataItem | null>(null);
@@ -33,9 +33,8 @@ const Landing: React.FC<ILandingProps> = () => {
   const clickProductCart = (product: IProductDataItem) => {
     selectProduct(product);
     setShowAddCartPopup(!showAddCartPopup);
-    dispatch({ type: ActionTypes.LOCK_SCROLL });
-    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
+  showAddCartPopup ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
 
   const addToCartBtnClick = (productItem: IProductDataItem) => {
     onClose();
@@ -59,8 +58,6 @@ const Landing: React.FC<ILandingProps> = () => {
 
   const onClose = () => {
     setShowAddCartPopup(false);
-    dispatch({ type: ActionTypes.LOCK_SCROLL });
-    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
   return (
     <div className='app-landing'>

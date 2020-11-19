@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import SuggestionPopup from "components/SuggestionPopup/SuggestionPopup";
 import Button from "components/Button/Button";
@@ -6,22 +6,19 @@ import FooterContacts from "./FooterContacts/FooterContacts";
 import FooterServices from "./FooterServices/FooterServices";
 import SocialMedia from "./FooterSocialMedia/FooterSocialMedia";
 import FooterBoxyLogo from "icons/FooterBoxyLogo";
-import { AppContext } from "app-context/appContext";
-import { ActionTypes } from 'app-context/actionTypes';
 
 import "./Footer.scss";
 
 interface IFooterProps { }
 
 const Footer: React.FC<IFooterProps> = () => {
-  const { state: { lockScroll }, dispatch } = useContext(AppContext);
   const [showSuggestionPopup, setShowSuggestionPopup] = useState(false)
 
   const toggleSuggestionPopup = () => {
     setShowSuggestionPopup(!showSuggestionPopup)
-    dispatch({ type: ActionTypes.LOCK_SCROLL });
-    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
+  showSuggestionPopup ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll');
+
   const sendSuggestion = () => { }
   return (
     <div className="app-footer">

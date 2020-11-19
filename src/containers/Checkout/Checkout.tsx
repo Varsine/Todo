@@ -9,23 +9,21 @@ import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
 import ThankYouPopup from 'components/ThankYouPopup/ThankYouPopup';
 import { deliverData, productData } from "data-mockup/product-data.mockup";
 import priceToStringConverter from "utils/priceToStringConverter";
-import { ActionTypes } from "app-context/actionTypes";
 import CheckoutProductDetails from "./CheckoutProductDetails/CheckoutProductDetails";
 
 import "./Checkout.scss";
 
 const Checkout: React.FC = () => {
   const [showThanksPopup, setShowThanksPopup] = useState(false)
-  const { state: { orderDetails, lockScroll }, dispatch } = useContext(AppContext);
+  const { state: { orderDetails } } = useContext(AppContext);
   const orderProduct = productData[0];
   const cost = orderProduct.price;
   const total = cost + deliverData.price;
 
   const togglePopup = () => {
     setShowThanksPopup(!showThanksPopup);
-    dispatch({ type: ActionTypes.LOCK_SCROLL });
-    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
+  showThanksPopup ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll');
 
   const handleOrderFinish = () => {
     // TODO Handle request to server

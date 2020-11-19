@@ -21,14 +21,13 @@ const Header: React.FC = () => {
   const [headerBackgrounded, setHeaderBackgrounded] = useState("");
   const [mobileCart, setMobileCart] = useState("");
   const [animate, setAnimate] = useState(false);
-  const { state: { device, isCartOpen, orders, lockScroll }, dispatch } = useContext(AppContext);
+  const { state: { device, isCartOpen, orders }, dispatch } = useContext(AppContext);
   const loc = useLocation();
 
   const toggleCartMenu = () => {
     dispatch({ type: ActionTypes.TOGGLE_CART });
-    dispatch({ type: ActionTypes.LOCK_SCROLL });
-    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
   }
+  isCartOpen && document.body.classList.add('lock-scroll');
 
   const scrollHandler = () => {
     if (window.scrollY > 100) {
@@ -61,13 +60,11 @@ const Header: React.FC = () => {
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu");
     setMobileCart("mobile-cart");
-    dispatch({ type: ActionTypes.LOCK_SCROLL });
-    !lockScroll ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
-
     if (!navRef.current?.className.includes("mobile-menu")) {
       setMobileCart("");
     }
   }
+  navRef.current?.className.includes("mobile-menu") && document.body.classList.add('lock-scroll');
 
   const isColoredLogo = headerBackgrounded || (device !== DeviceTypes.desktop) || loc.pathname !== '/';
   return (
