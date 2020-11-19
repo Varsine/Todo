@@ -68,7 +68,7 @@ const SignUp: React.FC<ISignUpProps> = ({
                 className="app-auth__input"
                 onChange={onChangeEmail}
                 placeholder="Էլ․հասցե"
-                type="text"
+                type="email"
                 loading={loading}
                 onEnterPressed={onSignup}
             />

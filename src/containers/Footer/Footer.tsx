@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 import SuggestionPopup from "components/SuggestionPopup/SuggestionPopup";
 import Button from "components/Button/Button";
@@ -12,13 +13,19 @@ import "./Footer.scss";
 interface IFooterProps { }
 
 const Footer: React.FC<IFooterProps> = () => {
-  const [showSuggestionPopup, setShowSuggestionPopup] = useState(false)
+  const [showSuggestionPopup, setShowSuggestionPopup] = useState(false);
+  const [suggestionText, setSuggestionText] = useState('');
 
   const toggleSuggestionPopup = () => {
     setShowSuggestionPopup(!showSuggestionPopup)
   }
 
-  const sendSuggestion = () => { }
+  const sendSuggestion = () => {
+    // TODO handle suggestion request
+    toast.success('Շնորհակալություն ✔', { className: 'app-landing-success-notif' })
+    toggleSuggestionPopup();
+  }
+
   return (
     <div className="app-footer">
       <div className="app-footer__top-column">
@@ -46,6 +53,8 @@ const Footer: React.FC<IFooterProps> = () => {
         <SuggestionPopup
           onClick={sendSuggestion}
           onClose={toggleSuggestionPopup}
+          textValue={suggestionText}
+          onTextChange={(val) => { setSuggestionText(val) }}
         />
       )}
     </div>

@@ -4,6 +4,7 @@ export enum InputNames {
     password = 'password',
     phone = 'phone',
     address = 'address',
+    info = 'info',
     giftReceiverName = 'giftReceiverName'
 }
 

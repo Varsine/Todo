@@ -12,14 +12,18 @@ interface IOrderDetailsRightBoxProps {
     onChangeName: (value: string) => void;
     giftReceiverName: string;
     giftReceiverNameError: string;
-    showError: boolean,
+    giftReceiverInputDisabled: boolean;
+    info: string;
+    onInfoChange: (val: string) => void;
 };
 
 const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
     onChangeName,
     giftReceiverName,
     giftReceiverNameError,
-    showError,
+    giftReceiverInputDisabled,
+    info,
+    onInfoChange,
     children,
 }) => {
     return (
@@ -35,13 +39,16 @@ const OrderDetailsRightBox: React.FC<IOrderDetailsRightBoxProps> = ({
                 onChange={onChangeName}
                 value={giftReceiverName}
                 text="Նվերը ստացողի անունը և ազգանունը"
+                disabled={giftReceiverInputDisabled}
             />
-            {showError && <ErrorMessage>{giftReceiverNameError}</ErrorMessage>}
+            <ErrorMessage>{giftReceiverNameError}</ErrorMessage>
             <div className="order-details-right__textarea-box">
                 <p className="order-details-right__textarea-box__text">Մեկնաբանություններ</p>
                 <TextareaField
                     className="order-details-right__textarea-box__area"
                     placeholder="Հավելյալ նշումներ"
+                    value={info}
+                    onChange={onInfoChange}
                 />
             </div>
         </OrderDetailsContainer>

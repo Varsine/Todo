@@ -11,7 +11,14 @@
     cursor: pointer;
 
     &:hover {
-        background-color: #f5e6dd;
+        background-color: #fae1d1;
+    }
+
+    &--selected {
+        background-color: #f7f0ec;
+    }
+    @include media(until-mobile) {
+        font-size: 13px;
     }
 
     &__input-radio {

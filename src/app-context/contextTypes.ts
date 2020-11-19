@@ -26,6 +26,7 @@ export interface IOrderDetails {
     phone: string;
     email: string;
     giftReceiverName: string;
+    info: string;
     selection: number | null;
 }
 

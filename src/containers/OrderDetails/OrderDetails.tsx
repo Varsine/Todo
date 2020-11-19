@@ -41,19 +41,22 @@ const OrderDetails: React.FC = () => {
       type: ActionTypes.SET_ORDER_DETAILS, payload: {
         ...orderDetails,
         [name]: val,
-      } });
+      }
+    });
   }
 
-  const checkAnswer = (idx: number) => {
+  const giftCheckHandler = (idx: number) => {
+    const giftReceiverNewValue = idx === 1 ? '' : giftReceiverName;
     dispatch({
       type: ActionTypes.SET_ORDER_DETAILS, payload: {
         ...orderDetails,
+        giftReceiverName: giftReceiverNewValue,
         selection: idx
       }
     });
   }
 
-  const { name, address, phone, email, giftReceiverName, selection } = orderDetails;
+  const { name, address, phone, email, giftReceiverName, info, selection } = orderDetails;
 
   const checkFields = () => {
     const isNameValid = inputValidation(name, InputNames.name);
@@ -67,7 +70,7 @@ const OrderDetails: React.FC = () => {
       phoneError: isPhoneValid.errorText,
       shippingAddress: isAddressValid.errorText,
     })
-    setGiftReceiverError(isGiftReceiverNameValid.errorText);
+    setGiftReceiverError(selection === 0 ? isGiftReceiverNameValid.errorText : '');
     if (isNameValid.isValid &&
       isAddressValid.isValid &&
       isPhoneValid.isValid &&
@@ -84,6 +87,8 @@ const OrderDetails: React.FC = () => {
   const clickContinue = () => {
     if (checkFields()) {
       navigate('/checkout')
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
     }
   }
 
@@ -106,7 +111,9 @@ const OrderDetails: React.FC = () => {
         <OrderDetailsRightBox
           giftReceiverName={giftReceiverName}
           giftReceiverNameError={giftReceiverError}
-          showError={selection === 0}
+          giftReceiverInputDisabled={selection === 1}
+          info={info}
+          onInfoChange={(val) => inputChangeHandler(val, InputNames.info)}
           onChangeName={(val) => inputChangeHandler(val, InputNames.giftReceiverName)}
         >
           {present.map((el, idx) => (
@@ -115,7 +122,7 @@ const OrderDetails: React.FC = () => {
               className="order-details__boxes__check-box"
               selected={selection === idx}
               name="present"
-              onClick={() => checkAnswer(idx)}
+              onClick={() => giftCheckHandler(idx)}
             >
               {el}
             </CheckBoxWithText>
