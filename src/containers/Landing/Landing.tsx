@@ -58,9 +58,8 @@ const Landing: React.FC<ILandingProps> = () => {
   const onClose = () => {
     setShowAddCartPopup(false);
   }
-
   return (
-    <div className="app-landing">
+    <div className='app-landing'>
       <FullHeightWrap className="app-landing__parent">
         <div className="app-landing__parent__top-column">
           <div className="app-landing__parent__top-column__left-column">

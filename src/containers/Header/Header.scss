@@ -7,7 +7,7 @@
   font-family: "Mardoto-Regular", Fallback, sans-serif;
   @extend %flex-center-between;
   height: $header-size;
-  width: 100%;
+  width: 100vw;
   padding: $layout-margin;
   transition: background-color 200ms ease-in-out;
   z-index: 100;

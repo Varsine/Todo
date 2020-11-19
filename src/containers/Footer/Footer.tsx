@@ -14,9 +14,10 @@ interface IFooterProps { }
 const Footer: React.FC<IFooterProps> = () => {
   const [showSuggestionPopup, setShowSuggestionPopup] = useState(false)
 
-  const handlerSuggestionStatus = () => {
+  const toggleSuggestionPopup = () => {
     setShowSuggestionPopup(!showSuggestionPopup)
   }
+
   const sendSuggestion = () => { }
   return (
     <div className="app-footer">
@@ -27,7 +28,7 @@ const Footer: React.FC<IFooterProps> = () => {
         </div>
         <Button
           className="app-footer__top-column__button"
-          onClick={handlerSuggestionStatus}
+          onClick={toggleSuggestionPopup}
         >
           Առաջարկ ունե՞ս
         </Button>
@@ -44,7 +45,7 @@ const Footer: React.FC<IFooterProps> = () => {
       {showSuggestionPopup && (
         <SuggestionPopup
           onClick={sendSuggestion}
-          onClose={handlerSuggestionStatus}
+          onClose={toggleSuggestionPopup}
         />
       )}
     </div>

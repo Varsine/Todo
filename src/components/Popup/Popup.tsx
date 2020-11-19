@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import CloseIcon from 'icons/CloseIcon';
 import TextBlock from 'components/TextBlock/TextBlock';
@@ -19,6 +19,13 @@ const Popup: React.FC<IPopupProps> = ({
     className,
     closeIcon = true
 }) => {
+    useEffect(() => {
+        document.body.classList.add('lock-scroll');
+        return () => {
+            document.body.classList.remove('lock-scroll');
+        }
+    }, [])
+
     return (
         <div className="app-popup">
             <div className="app-popup__basis" onClick={onClose}></div>

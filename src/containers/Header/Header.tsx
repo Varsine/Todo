@@ -44,7 +44,7 @@ const Header: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if(orders.length > 0) {
+    if (orders.length > 0) {
       setAnimate(false);
       setAnimate(true);
       if (timerRef && timerRef.current) {
@@ -56,6 +56,14 @@ const Header: React.FC = () => {
     }
   }, [orders])
 
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.classList.add('lock-scroll');
+    } else {
+      document.body.classList.remove('lock-scroll');
+    }
+  }, [isCartOpen])
+
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu");
     setMobileCart("mobile-cart");
@@ -65,7 +73,7 @@ const Header: React.FC = () => {
   }
 
   const isColoredLogo = headerBackgrounded || (device !== DeviceTypes.desktop) || loc.pathname !== '/';
-
+  
   return (
     <header id="app-header" className={`app-header ${headerBackgrounded}`}>
       <div className="app-header__mobile-menu-icon" onClick={openMobileMenu}>
