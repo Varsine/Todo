@@ -17,7 +17,6 @@ const Footer: React.FC<IFooterProps> = () => {
   const toggleSuggestionPopup = () => {
     setShowSuggestionPopup(!showSuggestionPopup)
   }
-  showSuggestionPopup ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll');
 
   const sendSuggestion = () => { }
   return (

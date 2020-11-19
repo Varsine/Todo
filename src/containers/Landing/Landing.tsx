@@ -34,7 +34,6 @@ const Landing: React.FC<ILandingProps> = () => {
     selectProduct(product);
     setShowAddCartPopup(!showAddCartPopup);
   }
-  showAddCartPopup ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll')
 
   const addToCartBtnClick = (productItem: IProductDataItem) => {
     onClose();
