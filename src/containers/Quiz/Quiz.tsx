@@ -18,7 +18,7 @@ import RightIcon from "icons/RightIcon";
 import "./Quiz.scss"
 
 const Quiz: React.FC = () => {
-  const { state: { quizData }, dispatch } = useContext(AppContext);
+  const { state: { quizData, user }, dispatch } = useContext(AppContext);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [disabled, setDisabled] = useState(true);
 
@@ -26,7 +26,11 @@ const Quiz: React.FC = () => {
     if (currentIndex < quizData.length - 1) {
       setCurrentIndex(currentIndex + 1)
     } else {
-      navigate('auth');
+      if(!user) {
+        navigate('auth');
+      } else {
+        navigate('/order-details');
+      }
     }
   }
 

@@ -1,7 +1,10 @@
 export enum InputNames {
-    password = 'password',
     name = 'name',
     email = 'email',
+    password = 'password',
+    phone = 'phone',
+    address = 'address',
+    giftReceiverName = 'giftReceiverName'
 }
 
 interface IValidationAnswer {
@@ -23,13 +26,12 @@ export const inputValidation = (value: string, type: InputNames): IValidationAns
     }
     switch (type) {
         case InputNames.name:
-            if (value.length < 3) {
-                isValid = false;
-                errorText = 'Նվազագույնը 3 տառ'
-            } else {
-                isValid = true;
-                errorText = ''
-            }
+        case InputNames.giftReceiverName:
+            const nameRegexArm = /^[ա-ֆԱ-Ֆ\s]+$/;
+            const nameRegexRus = /^[а-яА-Я\s]+$/;
+            const nameRegexEng = /^[a-zA-Z\s]+$/;
+            isValid = !!(value.length >= 3 && (value.match(nameRegexArm) || value.match(nameRegexRus) || value.match(nameRegexEng)));
+            errorText = isValid ? '' : 'Մուտքագրեք միայն տառեր, նվազագույնը՝ 3';
             return { isValid, errorText }
         case InputNames.email:
             isValid = !!value.match(regExEmail);
@@ -39,5 +41,16 @@ export const inputValidation = (value: string, type: InputNames): IValidationAns
             isValid = value.length > 6;
             errorText = isValid ? '' : 'Նվազագույնը 6 սիմվոլ';
             return { isValid, errorText }
+        case InputNames.address:
+            const addrRegex = /^([a-zA-Z0-9\s,/]+)$/;
+            isValid = !!(value.length > 6 && value.match(addrRegex));
+            errorText = isValid ? '' : 'Նշված հասցեն անվավեր է';
+            return { isValid, errorText }
+        case InputNames.phone:
+            isValid = value.length === 11;
+            errorText = isValid ? '' : 'հեռախոսահամարն անվավեր է';
+            return { isValid, errorText }
+        default:
+            return { isValid: true, errorText: '' }
     }
 }

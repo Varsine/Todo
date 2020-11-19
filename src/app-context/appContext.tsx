@@ -8,7 +8,7 @@ const initialOrderData = {
     address: "",
     phone: "",
     email: "",
-    getter: "",
+    giftReceiverName: "",
     selection: 1
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 
 import { navigate } from "@reach/router";
 import Heading from 'components/Heading/Heading';
@@ -8,48 +8,84 @@ import OrderDetailsRightBox from "containers/OrderDetails/OrderDetailsRightBox/O
 import CheckBoxWithText from 'components/CheckBoxWithText/CheckBoxWithText';
 import { AppContext } from "app-context/appContext";
 import { ActionTypes } from "app-context/actionTypes";
+import { inputValidation, InputNames } from "utils/inputValidation";
 
 import "./OrderDetails.scss";
 
 const present = ['Այո', 'Ոչ'];
 
-enum InputNames {
-  name = "name",
-  address = "address",
-  phone = "phone",
-  email = "email",
-  getter = "getter"
-}
-
 const OrderDetails: React.FC = () => {
-  const { state: { orderDetails }, dispatch } = useContext(AppContext);
-  const [orderState, setOrderState] = useState(orderDetails);
+  const { state: { user, orderDetails }, dispatch } = useContext(AppContext);
+  const [errorState, setErrorState] = useState({
+    nameError: '',
+    shippingAddress: '',
+    phoneError: '',
+    emailError: '',
+  })
+  const [giftReceiverError, setGiftReceiverError] = useState('');
+
+  useEffect(() => {
+    if (user) {
+      dispatch({
+        type: ActionTypes.SET_ORDER_DETAILS, payload: {
+          ...orderDetails,
+          name: user.displayName,
+          email: user.email,
+        }
+      })
+    }
+  }, []);
 
   const inputChangeHandler = (val: string, name: InputNames) => {
-    setOrderState({
-      ...orderState,
-      [name]: val,
-    });
-    dispatch({ type: ActionTypes.SET_ORDER_DETAILS, payload: orderState });
+    dispatch({
+      type: ActionTypes.SET_ORDER_DETAILS, payload: {
+        ...orderDetails,
+        [name]: val,
+      } });
   }
 
   const checkAnswer = (idx: number) => {
-    return setOrderState({
-      ...orderState,
-      selection: idx
+    dispatch({
+      type: ActionTypes.SET_ORDER_DETAILS, payload: {
+        ...orderDetails,
+        selection: idx
+      }
+    });
+  }
+
+  const { name, address, phone, email, giftReceiverName, selection } = orderDetails;
+
+  const checkFields = () => {
+    const isNameValid = inputValidation(name, InputNames.name);
+    const isAddressValid = inputValidation(address, InputNames.address);
+    const isPhoneValid = inputValidation(phone, InputNames.phone);
+    const isEmailValid = inputValidation(email, InputNames.email);
+    const isGiftReceiverNameValid = inputValidation(giftReceiverName, InputNames.giftReceiverName);
+    setErrorState({
+      nameError: isNameValid.errorText,
+      emailError: isEmailValid.errorText,
+      phoneError: isPhoneValid.errorText,
+      shippingAddress: isAddressValid.errorText,
     })
+    setGiftReceiverError(isGiftReceiverNameValid.errorText);
+    if (isNameValid.isValid &&
+      isAddressValid.isValid &&
+      isPhoneValid.isValid &&
+      isEmailValid.isValid
+    ) {
+      if (selection === 0 && !isGiftReceiverNameValid.isValid) {
+        return false;
+      }
+      return true;
+    }
+    return false;
   }
 
   const clickContinue = () => {
-    navigate('/checkout')
+    if (checkFields()) {
+      navigate('/checkout')
+    }
   }
-
-  const checkButtonDisabledState = () => {
-    // TODO handle validations
-    return !(name.trim() && address.trim() && phone.trim() && email.trim());
-  }
-
-  const { name, address, phone, email, getter, selection } = orderState;
 
   return (
     <div className="order-details">
@@ -64,11 +100,14 @@ const OrderDetails: React.FC = () => {
           name={name}
           address={address}
           email={email}
-          phone={phone.replace(/[^0-9]/g, '')}
+          phone={phone}
+          errors={errorState}
         />
         <OrderDetailsRightBox
-          getterName={getter}
-          onChangeName={(val) => inputChangeHandler(val, InputNames.getter)}
+          giftReceiverName={giftReceiverName}
+          giftReceiverNameError={giftReceiverError}
+          showError={selection === 0}
+          onChangeName={(val) => inputChangeHandler(val, InputNames.giftReceiverName)}
         >
           {present.map((el, idx) => (
             <CheckBoxWithText
@@ -80,13 +119,11 @@ const OrderDetails: React.FC = () => {
             >
               {el}
             </CheckBoxWithText>
-          )
-          )}
+          ))}
         </OrderDetailsRightBox>
       </div>
       <div className="order-details__btn-div">
         <Button className="order-details__btn-div__button"
-          disabled={checkButtonDisabledState()}
           onClick={clickContinue}>Շարունակել</Button>
       </div>
     </div>

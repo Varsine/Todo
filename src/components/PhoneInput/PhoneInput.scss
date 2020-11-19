@@ -1,0 +1,38 @@
+@import '~styles/root';
+
+.app-input-container {
+    &__icon {
+        position: absolute;
+        left: 10px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__phone-input {
+        padding-left: 87px;
+    }
+    &__prefix {
+        position: absolute;
+        left: 45px;
+        top: 50%;
+        transform: translateY(-53%);
+    }
+    &__postfix {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-53%);
+    }
+}
+
+.app-phone-heading {
+    font-size: $intro-text;
+    padding: 16px 0;
+    display: inline-block;
+
+    @include media(until-desktop) {
+        font-size: $body-text;
+        padding: 16px 0 8px;
+    }
+}
