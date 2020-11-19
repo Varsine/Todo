@@ -23,7 +23,6 @@ const Checkout: React.FC = () => {
   const togglePopup = () => {
     setShowThanksPopup(!showThanksPopup);
   }
-  showThanksPopup ? document.body.classList.add('lock-scroll') : document.body.classList.remove('lock-scroll');
 
   const handleOrderFinish = () => {
     // TODO Handle request to server

@@ -27,7 +27,6 @@ const Header: React.FC = () => {
   const toggleCartMenu = () => {
     dispatch({ type: ActionTypes.TOGGLE_CART });
   }
-  isCartOpen && document.body.classList.add('lock-scroll');
 
   const scrollHandler = () => {
     if (window.scrollY > 100) {
@@ -57,6 +56,14 @@ const Header: React.FC = () => {
     }
   }, [orders])
 
+  useEffect(() => {
+    if (isCartOpen) {
+      document.body.classList.add('lock-scroll');
+    } else {
+      document.body.classList.remove('lock-scroll');
+    }
+  }, [isCartOpen])
+
   const openMobileMenu = () => {
     navRef.current?.classList.toggle("mobile-menu");
     setMobileCart("mobile-cart");
@@ -64,9 +71,9 @@ const Header: React.FC = () => {
       setMobileCart("");
     }
   }
-  navRef.current?.className.includes("mobile-menu") && document.body.classList.add('lock-scroll');
 
   const isColoredLogo = headerBackgrounded || (device !== DeviceTypes.desktop) || loc.pathname !== '/';
+  
   return (
     <header id="app-header" className={`app-header ${headerBackgrounded}`}>
       <div className="app-header__mobile-menu-icon" onClick={openMobileMenu}>
