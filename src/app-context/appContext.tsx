@@ -4,11 +4,12 @@ import { quizData } from "data-mockup/quiz-data.mockup";
 import { DeviceTypes } from './contextTypes';
 
 const initialOrderData = {
-    name: "",
-    address: "",
-    phone: "",
-    email: "",
-    giftReceiverName: "",
+    name: '',
+    address: '',
+    phone: '',
+    email: '',
+    giftReceiverName: '',
+    info: '',
     selection: 1
 }
 

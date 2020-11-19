@@ -17,7 +17,7 @@ const CheckBoxWithText: React.FC<ICheckBoxWithTextProps> = ({
   children,
 }) => {
   return (
-    <label className={`app-label ${className}`} onClick={onClick}>
+    <label className={`app-label${selected ? ' app-label--selected' : ''} ${className}`} onClick={onClick}>
       <input className={`app-label__input-radio ${selected ? 'app-label__input-radio--selected' : ''}`} type="radio" name={name} />
       {children}
     </label>

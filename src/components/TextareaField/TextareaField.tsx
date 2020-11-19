@@ -1,10 +1,9 @@
 import React from 'react';
 
 import "./TextareaField.scss";
-
 interface ITextareaFieldProps {
     placeholder: string;
-    onChange?: (ev: React.ChangeEvent<HTMLTextAreaElement>) => void;
+    onChange: (val: string) => void;
     value?: string;
     className?: string;
 };
@@ -19,7 +18,7 @@ const TextareaField: React.FC<ITextareaFieldProps> = ({
         <textarea
             className={`app-textarea ${className}`}
             value={value}
-            onChange={onChange}
+            onChange={(e) => { onChange(e.target.value) }}
             placeholder={placeholder}>
         </textarea>
     );

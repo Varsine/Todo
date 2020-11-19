@@ -3,7 +3,7 @@
 .app-checkout {
     font-family: "Mardoto-Regular", Fallback, sans-serif;
     height: calc(100vh - #{$header-size});
-    padding: 58px 0 0;
+    padding: 56px 0 0;
 
     @include media(until-desktop) {
         padding: 40px 0 0;
@@ -30,15 +30,15 @@
     &__content {
         display: flex;
         justify-content: space-between;
-        padding: 160px 0 0;
+        margin: 64px 0 0;
 
         @include media(until-desktop) {
-            padding: 67px 0 0;
+            margin: 67px 0 0;
         }
 
         @include media(until-tablet) {
             flex-wrap: wrap-reverse;
-            padding: 40px 0 0;
+            margin: 40px 0 0;
         }
 
         &__left-column {
@@ -67,6 +67,7 @@
                     color: $text-color-surface;
                     font-size: $body-text;
                     padding: 4px 0;
+                    word-break: break-all;
 
                     @include media(until-mobile) {
                         font-size: $caption-text;
@@ -75,7 +76,7 @@
             }
 
             &__payment-method {
-                padding: 114px 0 0;
+                padding: 72px 0 0;
 
                 @include media(until-tablet) {
                     padding: 64px 0 0;

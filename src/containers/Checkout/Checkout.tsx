@@ -9,6 +9,7 @@ import CheckBoxContainer from "components/CheckBoxContainer/CheckBoxContainer";
 import ThankYouPopup from 'components/ThankYouPopup/ThankYouPopup';
 import { deliverData, productData } from "data-mockup/product-data.mockup";
 import priceToStringConverter from "utils/priceToStringConverter";
+
 import CheckoutProductDetails from "./CheckoutProductDetails/CheckoutProductDetails";
 
 import "./Checkout.scss";
@@ -31,7 +32,7 @@ const Checkout: React.FC = () => {
     navigate('/');
   }
 
-  const { name, address, phone, email } = orderDetails;
+  const { name, address, phone, email, info, giftReceiverName } = orderDetails;
 
   return (
     <div className='app-checkout'>
@@ -40,10 +41,12 @@ const Checkout: React.FC = () => {
         <div className='app-checkout__content__left-column'>
           <div className='app-checkout__content__left-column__shipping-details'>
             <TextBlock className='app-checkout__content__left-column__shipping-details__heading'>Առաքման տվյալներ</TextBlock>
-            <p className='app-checkout__content__left-column__shipping-details__get-data'>{name}</p>
-            <p className='app-checkout__content__left-column__shipping-details__get-data'>{address}</p>
-            <p className='app-checkout__content__left-column__shipping-details__get-data'>{email}</p>
-            <p className='app-checkout__content__left-column__shipping-details__get-data'>{phone}</p>
+            <p className='app-checkout__content__left-column__shipping-details__get-data'>Անուն: {name}</p>
+            <p className='app-checkout__content__left-column__shipping-details__get-data'>Հասցե: {address}</p>
+            <p className='app-checkout__content__left-column__shipping-details__get-data'>Էլ․ փոստ: {email}</p>
+            <p className='app-checkout__content__left-column__shipping-details__get-data'>Հեռ։ {phone}</p>
+            {info && <p className='app-checkout__content__left-column__shipping-details__get-data'>Մեկնաբանություններ: {info}</p>}
+            {giftReceiverName && <p className='app-checkout__content__left-column__shipping-details__get-data'>Ստացող: {giftReceiverName}</p>}
           </div>
           <div className='app-checkout__content__left-column__payment-method'>
             <TextBlock className='app-checkout__content__left-column__payment-method__heading'>Վճարման եղանակ</TextBlock>

@@ -3,7 +3,7 @@
 .order-details {
     font-family: "Mardoto-Regular", Fallback, sans-serif;
     margin: 0 0 110px;
-    padding: 40px 0 26px;
+    padding: 32px 0 0 0;
     min-height: calc(100vh - #{$header-size});
 
     @include media(desktop) {
@@ -57,15 +57,15 @@
     &__boxes {
         display: flex;
         justify-content: space-between;
-        padding: 70px 0;
+        margin: 46px 0;
 
         @include media(desktop) {
-            padding: 32px 0;
+            margin: 32px 0;
         }
 
         @include media(until-tablet) {
             flex-wrap: wrap;
-            padding: 0;
+            margin: 0;
         }
 
         &__check-box {

@@ -23,6 +23,7 @@ export const AppContextProvider: React.FC = ({ children }) => {
         const handleResize = () => {
             dispatch({ type: ActionTypes.SET_DEVICE_TYPE, payload: checkDeviceSize() })
         }
+        handleResize();
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);

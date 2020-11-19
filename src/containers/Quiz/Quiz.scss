@@ -76,11 +76,7 @@
                     color: $text-color-surface;
                     font-size: $body-text;
                     border: 1px solid #cccccc;
-                    animation: anima-textarea 1s alternate;
-
-                    &:focus {
-                        background-color: $textarea-suggestion-bg;
-                    }
+                    animation: anima-textarea 400ms alternate;
 
                     @include media(until-desktop) {
                         max-width: 500px;
@@ -90,7 +86,7 @@
                 &__option {
                     margin: 8px 0;
                     width: 100%;
-                    animation: anima-quiz 400ms alternate ease-in;
+                    animation: anima-quiz 400ms alternate;
                 }
 
                 &__age-slider {

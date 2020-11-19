@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Button from 'components/Button/Button';
 import LeftIcon from 'icons/LeftIcon';
 import RightIcon from 'icons/RightIcon';
+import { AppContext } from 'app-context/appContext';
+import { DeviceTypes } from 'app-context/contextTypes';
 
 import "./AgeSlider.scss";
 
@@ -14,14 +16,17 @@ interface IAgeSliderProps {
     className?: string;
 };
 
-const AgeSlider: React.FC<IAgeSliderProps> = ({ 
+const AgeSlider: React.FC<IAgeSliderProps> = ({
     selection,
     onClick,
     prevAge,
     nextAge,
     className = "",
 }) => {
-    const currentArray = [selection - 2, selection - 1, selection, selection + 1, selection + 2];
+    const { state: { device } } = useContext(AppContext);
+    const currentArray =
+        device !== DeviceTypes.mobile ? [selection - 2, selection - 1, selection, selection + 1, selection + 2]
+            : [selection - 1, selection, selection + 1];
 
     return (
         <div className={`age-slider ${className}`}>

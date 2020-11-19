@@ -51,10 +51,10 @@ const Login: React.FC<ILoginProps> = ({
                 className="app-auth__input"
                 onChange={onChangeEmail}
                 placeholder="Էլ․հասցե"
-                type="text"
+                type="email"
                 loading={loading}
                 onEnterPressed={onLogin}
-                />
+            />
             <ErrorMessage>{emailErrorMessage}</ErrorMessage>
             <InputField
                 name="password"

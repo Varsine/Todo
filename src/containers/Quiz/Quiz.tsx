@@ -24,7 +24,11 @@ const Quiz: React.FC = () => {
 
   const nextQuestionHandler = () => {
     if (currentIndex < quizData.length - 1) {
-      setCurrentIndex(currentIndex + 1)
+      setCurrentIndex(currentIndex + 1);
+      setDisabled(true);
+      if(currentIndex === quizData.length - 2) {
+        setDisabled(false);
+      }
     } else {
       if(!user) {
         navigate('auth');
@@ -36,7 +40,7 @@ const Quiz: React.FC = () => {
 
   const prevQuestionHandler = () => {
     if (currentIndex !== 0) {
-      setCurrentIndex(currentIndex - 1)
+      setCurrentIndex(currentIndex - 1);
     }
   }
 
@@ -47,8 +51,8 @@ const Quiz: React.FC = () => {
     dispatch({ type: ActionTypes.SELECT_QUIZ, payload: { quizId: id, selection } });
   }
 
-  const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    dispatch({ type: ActionTypes.SELECT_QUIZ, payload: { quizId: id, selection: e.target.value } });
+  const handleTextInput = (val: string) => {
+    dispatch({ type: ActionTypes.SELECT_QUIZ, payload: { quizId: id, selection: val } });
   }
 
   const nextAgeHandler = () => {
@@ -113,14 +117,14 @@ const Quiz: React.FC = () => {
             <div className="app-quiz__content__button">
               <Button
                 className="app-quiz__content__button__prev"
-                disabled={disabled}
+                disabled={currentIndex === 0}
                 onClick={prevQuestionHandler}
               >
                 <LeftIcon /> Հետ
                 </Button>
               <Button
                 className="app-quiz__content__button__next"
-                disabled={disabled || selection === null}
+                disabled={disabled && selection === null && currentIndex !== quizData.length -1}
                 onClick={nextQuestionHandler}
               >
                 Առաջ <RightIcon />

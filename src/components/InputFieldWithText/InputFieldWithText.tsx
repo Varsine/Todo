@@ -14,6 +14,7 @@ interface IInputFieldWithTextProps {
     type: InputType;
     placeholder?: string;
     className?: string;
+    disabled?: boolean;
 };
 
 const InputFieldWithText: React.FC<IInputFieldWithTextProps> = ({
@@ -24,6 +25,7 @@ const InputFieldWithText: React.FC<IInputFieldWithTextProps> = ({
     type,
     placeholder = '',
     className = '',
+    disabled = false,
 }) => {
     return (
         <div className={`input-field-with-text-container ${className}`}>
@@ -35,6 +37,7 @@ const InputFieldWithText: React.FC<IInputFieldWithTextProps> = ({
                 Icon={Icon}
                 placeholder={placeholder}
                 type={type}
+                disabled={disabled}
             />
         </div>
     );

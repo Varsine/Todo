@@ -13,6 +13,7 @@ import { ActionTypes } from "app-context/actionTypes";
 import landingTopBg from "assets/landingTopBg.png";
 import landingTopBgMobile from "assets/landingTopBgMobile.png";
 import { productData, IProductDataItem } from "data-mockup/product-data.mockup";
+import CartIcon from "icons/CartIcon";
 
 import "./Landing.scss";
 
@@ -45,10 +46,18 @@ const Landing: React.FC<ILandingProps> = () => {
     }
   }
 
+  const ToastComponent: React.FC<{ text: string }> = ({ text }) => (
+    <div style={{ display: "flex", alignItems: 'center', width: '100%' }}>
+      <span style={{ marginRight: '5px' }}>{text}</span>
+      <CartIcon />
+    </div>
+  )
+
   const showNotif = (text: string, type: TypeOptions, className: string = '') => {
-    toast(text, {
+    toast(<ToastComponent text={text} />, {
       type,
       className,
+      autoClose: false,
       onClick: () => {
         dispatch({ type: ActionTypes.TOGGLE_CART });
       }
