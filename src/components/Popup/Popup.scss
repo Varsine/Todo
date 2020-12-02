@@ -1,4 +1,4 @@
-@import "~styles/root";
+@import "~global.scss";
 
 .app-popup {
     position: fixed;
@@ -17,39 +17,25 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.63);
+        background-color: rgba(0, 0, 0, 0.55);
     }
 
     &__inner {
         position: relative;
-        background-color: $surface-color;
+        background-color: ghostwhite;
         padding: 29px;
-        width: 650px;
+        width: 400px;
         border-radius: 10px;
-        animation-name: anim-popup;
-        animation-duration: 0.2s;
 
-        @include media(until-desktop) {
-            width: 570px;
-        }
 
         @include media(until-tablet) {
-            width: 512px;
+            width: 300px;
             padding: 16px;
-        }
-
-        @include media(mobile-large) {
-            width: 340px;
-        }
-
-        @include media(mobile) {
-            max-width: 328px;
         }
 
         &__close-icon {
             cursor: pointer;
-            height: 24px;
-            width: 24px;
+            font-size: 24px;
             position: absolute;
             right: 29px;
 
@@ -71,17 +57,30 @@
             }
 
             &__title {
-                color: $text-color-surface;
+                color: rgb(49, 48, 48);
                 font-weight: normal;
-                font-size: $heading3;
+                font-size: 24px;
                 line-height: normal;
 
                 @include media(until-desktop) {
-                    font-size: $intro-text;
+                    font-size: 20px;
                 }
 
                 @include media(until-mobile) {
-                    font-size: $body-text;
+                    font-size: 16px;
+                }
+            }
+
+            &__children {
+                &__input {
+                    display: block;
+                    margin: 5px 0;
+                    border-radius: 20px;
+                    border: 1px solid rgb(133, 125, 125);
+                }
+
+                &__btn {
+                    margin: 20px 0 0;
                 }
             }
         }

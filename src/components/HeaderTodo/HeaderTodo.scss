@@ -1,0 +1,24 @@
+@import "~global.scss";
+
+.app-header {
+    display: flex;
+    justify-content: center;
+
+    &__child {
+        display: inline-block;
+        font-size: 35px;
+        padding: 5px;
+        color: #00a896;
+        font-family: Verdana,
+            Geneva,
+            Tahoma,
+            sans-serif;
+        box-shadow: 3px 3px 5px #00a896,
+            3px 3px 5px #00a896,
+            3px 3px 5px rgb(69, 63, 71);
+        border-radius: 20px;
+         @include media(until-mobile) {
+             font-size: 25px;
+         }
+    }
+}

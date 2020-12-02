@@ -1,26 +1,17 @@
-@import "~styles/root";
-
 .app-button {
-    font-size: $body-text;
-    padding: 15px 35.5px;
-    border-radius: 34px;
-    color: $text-color-surface;
+    background: linear-gradient(#9bc1bc, #5ca4a9);
+    color: black;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px 10px;
     border: 1px solid transparent;
-    background-color: $primary-color;
-    text-align: center;
-    border: 1px solid transparent;
+    border-radius: 20px;
 
     &:hover {
-        background-color: $button-bg-hover;
+        background: linear-gradient(#5ca4a9, #9bc1bc);
     }
 
-    &:disabled {
-        background-color: $button-bg-disabled;
-        color: $button-color-disabled;
-    }
-
-    &:active {
-        background-color: $primary-color;
-        border: 1px solid $primary-color-dark;
+    &:focus {
+        outline: none;
     }
 }

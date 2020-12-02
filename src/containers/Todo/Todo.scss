@@ -1,0 +1,48 @@
+@import "~global.scss";
+
+.todo-content {
+    font-family: sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+
+    &__child {
+        width: 800px;
+
+        @include media(until-mobile) {
+            width: 100%;
+        }
+
+        &__error-massage {
+            color: #e63946;
+            font-size: 16px;
+            display: block;
+        }
+
+        &__successful {
+            display: none;
+        }
+
+        &__todo-list {
+            height: calc(100vh/2);
+            overflow-x: hidden;
+
+            @include media(until-mobile) {
+                overflow: visible;
+                height: auto;
+            }
+        }
+
+        &__completed-button {
+            display: grid;
+            column-gap: 20%;
+            grid-template-columns: auto auto;
+            margin: 5% 10%;
+
+            @include media(until-mobile) {
+                grid-template-columns: 100%;
+                row-gap: 20px;
+            }
+        }
+    }
+}
