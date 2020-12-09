@@ -1,9 +1,9 @@
 import React from "react";
 
-import InputField from "components/InputField/InputField";
-import Image from 'components/Image/Image';
-import editIcon from 'image/editIcon.png';
-import deleteIcon from 'image/deleteIcon.png';
+import InputField from "../InputField/InputField";
+import Image from '../Image/Image';
+import editIcon from "../../image/editIcon.png"
+import deleteIcon from '../../image/deleteIcon.png';
 
 import "./TodoListItem.scss";
 

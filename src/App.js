@@ -5,8 +5,8 @@ import firebase from "firebase/app"
 import "firebase/auth"
 
 
-import {firebaseConfig} from "api/firebaseConfig"
-import {appReducer} from 'reducer/appReducer';
+import {firebaseConfig} from "./api/firebaseConfig"
+import {appReducer} from './reducer/appReducer';
 import Todo from './containers/Todo/Todo';
 
 import "./global.scss"

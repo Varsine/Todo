@@ -2,12 +2,12 @@ import React, { useState, useRef } from "react";
 import { connect } from "react-redux";
 import { useDispatch } from 'react-redux'
 
-import { actionTypes } from "reducer/actionTypes";
-import HeaderTodo from "components/HeaderTodo/HeaderTodo";
-import TodoListItem from "components/TodoListItem/TodoListItem";
-import TodoForm from "components/TodoForm/TodoForm";
-import Button from 'components/Button/Button';
-import Popup from "components/Popup/Popup";
+import { actionTypes } from "./../../reducer/actionTypes";
+import HeaderTodo from "../../components/HeaderTodo/HeaderTodo";
+import TodoListItem from "../../components/TodoListItem/TodoListItem";
+import TodoForm from "../../components/TodoForm/TodoForm";
+import Button from '../../components/Button/Button';
+import Popup from "../../components/Popup/Popup";
 
 import "./Todo.scss";
 

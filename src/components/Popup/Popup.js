@@ -1,6 +1,7 @@
 import React from "react";
-import Button from "components/Button/Button";
-import InputField from "components/InputField/InputField";
+
+import Button from "../Button/Button";
+import InputField from "../InputField/InputField";
 
 import "./Popup.scss";
 

@@ -1,7 +1,7 @@
 import React from "react"
 
-import InputField from "components/InputField/InputField"
-import Button from "components/Button/Button"
+import InputField from "../InputField/InputField"
+import Button from "../Button/Button"
 
 import "./TodoForm.scss"
 
